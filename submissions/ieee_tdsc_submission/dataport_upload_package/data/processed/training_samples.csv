@@ -1,0 +1,6 @@
+code,vulnerability_type,language,severity
+os.system(user_input),command_injection,python,high
+eval(user_data),code_injection,python,high
+"query = ""SELECT * FROM users WHERE id = "" + user_id",sql_injection,python,high
+"subprocess.run([""ls"", ""-l""], capture_output=True)",none,python,none
+import html; html.escape(user_input),none,python,none

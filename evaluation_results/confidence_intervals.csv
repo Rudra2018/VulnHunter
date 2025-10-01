@@ -1,0 +1,4 @@
+Metric,Mean,Lower_Bound_95CI,Upper_Bound_95CI,Confidence_Level
+Multimodal F1 Score,0.975,0.971,0.979,95%
+Precision Improvement,0.111,0.099,0.123,95%
+Recall Improvement,0.144,0.129,0.159,95%

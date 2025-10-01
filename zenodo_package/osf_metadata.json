@@ -1,0 +1,22 @@
+{
+  "title": "Security Intelligence Framework - Research Artifact Package",
+  "category": "data",
+  "description": "Complete research artifact for Security Intelligence Framework publication",
+  "tags": [
+    "vulnerability-detection",
+    "machine-learning",
+    "security",
+    "reproducible-research"
+  ],
+  "license": {
+    "id": "MIT",
+    "year": "2024"
+  },
+  "contributors": [
+    {
+      "bibliographic": true,
+      "permission": "admin",
+      "full_name": "[Anonymous for Review]"
+    }
+  ]
+}

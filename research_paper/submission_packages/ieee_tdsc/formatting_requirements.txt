@@ -1,0 +1,39 @@
+FORMATTING REQUIREMENTS FOR IEEE TRANSACTIONS ON DEPENDABLE AND SECURE COMPUTING
+============================================================
+
+FORMAT TYPE: IEEE
+MAX PAGES: 14
+WORD LIMIT: Not specified
+FONT SIZE: 10pt
+LINE SPACING: single
+CITATION STYLE: IEEE
+
+REQUIRED SECTIONS:
+• Abstract
+• Introduction
+• Related Work
+• Methodology
+• Evaluation
+• Results
+• Discussion
+• Conclusion
+• References
+
+ACCEPTED FILE FORMATS:
+• PDF
+• DOCX
+• TEX
+
+SUBMISSION CHECKLIST:
+☐ Double-column IEEE format
+☐ Author biographies included
+☐ Copyright form signed
+☐ Source code availability statement
+☐ Reproducibility checklist
+
+ADDITIONAL NOTES:
+- Ensure all figures are high resolution (300 DPI minimum)
+- Tables should be editable and not embedded as images
+- References must be complete and properly formatted
+- All supplementary materials should be clearly labeled
+- Ethics statements and data availability required where applicable

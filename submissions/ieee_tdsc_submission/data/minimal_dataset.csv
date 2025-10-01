@@ -1,0 +1,22 @@
+id,code,label,vulnerability_type,severity,source,metadata
+sample_001,"import os
+os.system(user_input)  # Command injection vulnerability",1,command_injection,Critical,synthetic,"{""description"": ""Basic command injection example""}"
+sample_002,"cursor.execute('SELECT * FROM users WHERE id = ' + user_id)",1,sql_injection,Critical,synthetic,"{""description"": ""SQL injection through string concatenation""}"
+sample_003,"strcpy(buffer, user_input);  // Buffer overflow",1,buffer_overflow,High,synthetic,"{""description"": ""Classic buffer overflow in C""}"
+sample_004,"document.innerHTML = user_data;  // XSS vulnerability",1,xss,High,synthetic,"{""description"": ""DOM-based XSS vulnerability""}"
+sample_005,"eval(user_expression);  // Code injection",1,code_injection,Critical,synthetic,"{""description"": ""Dynamic code execution vulnerability""}"
+sample_006,"print('Hello, World!')  # Safe code",0,none,None,synthetic,"{""description"": ""Safe hello world example""}"
+sample_007,"result = a + b  # Safe arithmetic",0,none,None,synthetic,"{""description"": ""Safe mathematical operation""}"
+sample_008,"with open('config.txt', 'r') as f:
+    config = f.read()",0,none,None,synthetic,"{""description"": ""Safe file reading with context manager""}"
+sample_009,"import subprocess
+subprocess.run(['ls', '-l'], capture_output=True)",0,none,None,synthetic,"{""description"": ""Safe subprocess usage with list arguments""}"
+sample_010,"def calculate_sum(numbers):
+    return sum(numbers)",0,none,None,synthetic,"{""description"": ""Safe function definition""}"
+sample_011,"app.route('/users/<int:user_id>')
+def get_user(user_id):
+    return db.get_user_by_id(user_id)",0,none,None,synthetic,"{""description"": ""Safe parameterized route handler""}"
+sample_012,"password = hashlib.sha256(password.encode()).hexdigest()",0,none,None,synthetic,"{""description"": ""Safe password hashing""}"
+sample_013,"open('/var/www/' + filename, 'r')  # Path traversal",1,path_traversal,High,synthetic,"{""description"": ""Directory traversal vulnerability""}"
+sample_014,"response.write('<div>' + user_content + '</div>')  # XSS",1,xss,Medium,synthetic,"{""description"": ""Reflected XSS in web response""}"
+sample_015,"query = f\"\"\"SELECT * FROM products WHERE name LIKE '%{search_term}%'\"\"\"",1,sql_injection,High,synthetic,"{""description"": ""SQL injection through f-string formatting""}"

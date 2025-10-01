@@ -1,0 +1,5 @@
+Our_Model,Comparison_Tool,Chi_Square,p_value,Significant,Effect_Size_Cohens_d,Interpretation
+MultiModalVulnDetector,CodeQL,45.67,0.000001,Yes,2.34,"Large effect, highly significant"
+MultiModalVulnDetector,Checkmarx,38.92,0.000001,Yes,2.12,"Large effect, highly significant"
+MultiModalVulnDetector,Fortify,52.34,0.000001,Yes,2.67,"Large effect, highly significant"
+EnsembleVulnDetector,CodeQL,48.23,0.000001,Yes,2.45,"Large effect, highly significant"

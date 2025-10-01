@@ -1,0 +1,27 @@
+{
+  "title": "A Unified Mathematical Framework for Autonomous Vulnerability Detection: Combining Formal Methods, Machine Learning, and Runtime Intelligence",
+  "authors": [
+    {
+      "name": "Ankit Thakur",
+      "affiliation": "Halodoc LLP",
+      "email": "ankit.thakur@halodoc.com",
+      "corresponding": true
+    }
+  ],
+  "abstract": "This paper presents a novel unified mathematical framework that integrates formal verification, machine learning, and runtime analysis for comprehensive vulnerability detection across diverse software artifacts.",
+  "keywords": [
+    "Vulnerability Detection",
+    "Formal Methods",
+    "Machine Learning",
+    "Software Security",
+    "Abstract Interpretation",
+    "Automated Verification"
+  ],
+  "submission_date": "2025-09-30T11:09:40.005736",
+  "journal_target": "Computers & Security (Elsevier)",
+  "word_count": 3963,
+  "page_count": 13,
+  "figure_count": 0,
+  "table_count": 105,
+  "reference_count": 176
+}
