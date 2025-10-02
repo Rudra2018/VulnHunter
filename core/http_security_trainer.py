@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BEAST MODE HTTP Security Trainer
+VulnGuard AI - HTTP Security Trainer
 Advanced machine learning for HTTP vulnerability detection
 """
 
@@ -26,6 +26,19 @@ except ImportError:
 import pickle
 import warnings
 warnings.filterwarnings('ignore')
+
+# Import VulnGuard dataset integrator and AST extractor
+try:
+    from core.huggingface_dataset_integrator import VulnGuardDatasetIntegrator
+    HAS_VULNGUARD_INTEGRATOR = True
+except ImportError:
+    HAS_VULNGUARD_INTEGRATOR = False
+
+try:
+    from core.ast_feature_extractor import AdvancedASTFeatureExtractor
+    HAS_AST_EXTRACTOR = True
+except ImportError:
+    HAS_AST_EXTRACTOR = False
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -275,6 +288,286 @@ class HTTPSecurityFeatureExtractor:
             features[f'has_{pattern_type}'] = count > 0
 
         return features
+
+
+class VulnGuardIntegratedTrainer:
+    """VulnGuard AI Integrated Trainer combining HTTP security and vulnerability code analysis"""
+
+    def __init__(self):
+        self.http_feature_extractor = HTTPSecurityFeatureExtractor()
+        self.vuln_integrator = VulnGuardDatasetIntegrator() if HAS_VULNGUARD_INTEGRATOR else None
+        self.ast_extractor = AdvancedASTFeatureExtractor() if HAS_AST_EXTRACTOR else None
+        self.models = {}
+        self.integrated_data = []
+        self.code_vectorizer = TfidfVectorizer(max_features=1000, ngram_range=(1, 2), analyzer='word')  # Reduced since we have AST
+        self.feature_scaler = StandardScaler()
+
+        logger.info("🦾 VulnGuard AI Integrated Trainer initialized")
+        if self.ast_extractor:
+            logger.info("🧬 Advanced AST feature extraction enabled")
+        else:
+            logger.warning("⚠️  AST feature extraction not available")
+
+    def load_vulnerability_datasets(self) -> bool:
+        """Load vulnerability datasets from Hugging Face"""
+        if not self.vuln_integrator:
+            logger.warning("⚠️  VulnGuard integrator not available")
+            return False
+
+        logger.info("📂 Loading vulnerability datasets...")
+
+        try:
+            # Load only 2 datasets for demonstration
+            dataset_keys = ['vulnerable-code', 'code-vulnerable-10000']
+
+            for key in dataset_keys:
+                if not self.vuln_integrator.load_huggingface_dataset(key):
+                    logger.warning(f"⚠️  Failed to load {key}")
+                    return False
+
+            # Process datasets
+            processed_data = []
+            for key in dataset_keys:
+                if key in self.vuln_integrator.datasets:
+                    data = self.vuln_integrator.process_general_vulnerable_dataset(key)
+                    processed_data.extend(data[:1000])  # Limit to 1000 samples per dataset
+
+            self.integrated_data = processed_data
+            logger.info(f"✅ Loaded {len(self.integrated_data)} vulnerability samples")
+            return True
+
+        except Exception as e:
+            logger.error(f"❌ Error loading vulnerability datasets: {e}")
+            return False
+
+    def train_integrated_models(self):
+        """Train models using integrated vulnerability datasets with enhanced AST features"""
+        if not self.load_vulnerability_datasets():
+            logger.error("❌ Failed to load vulnerability datasets")
+            return False
+
+        # Extract code and labels
+        codes = []
+        labels = []
+
+        for sample in self.integrated_data:
+            code = sample.get('code', '')
+            if code and len(code.strip()) > 10:
+                codes.append(code)
+                labels.append(sample.get('vulnerable', 0))
+
+        if not codes:
+            logger.error("❌ No valid code samples found")
+            return False
+
+        logger.info(f"🔄 Preparing enhanced features from {len(codes)} vulnerability samples...")
+
+        # Create TF-IDF features
+        X_tfidf = self.code_vectorizer.fit_transform(codes)
+        tfidf_features = X_tfidf.toarray()
+
+        # Extract AST features if available
+        if self.ast_extractor:
+            logger.info("🧬 Extracting AST features...")
+            ast_features_list = []
+
+            for i, code in enumerate(codes):
+                if i % 200 == 0:
+                    logger.info(f"   Processing AST features: {i}/{len(codes)}")
+
+                try:
+                    ast_features = self.ast_extractor.extract_enhanced_features(code)
+                    # Convert to numeric vector
+                    ast_vector = self._convert_ast_features_to_vector(ast_features)
+                    ast_features_list.append(ast_vector)
+                except Exception as e:
+                    logger.warning(f"⚠️  AST extraction failed for sample {i}: {e}")
+                    # Use zeros if AST extraction fails
+                    ast_features_list.append(np.zeros(100))  # Default AST feature size
+
+            ast_features_array = np.array(ast_features_list)
+            logger.info(f"✅ Extracted AST features: {ast_features_array.shape}")
+
+            # Combine TF-IDF and AST features
+            X_combined = np.hstack([tfidf_features, ast_features_array])
+            logger.info(f"✅ Combined features: TF-IDF({tfidf_features.shape[1]}) + AST({ast_features_array.shape[1]}) = {X_combined.shape[1]} total")
+
+        else:
+            logger.warning("⚠️  Using TF-IDF features only (AST extractor not available)")
+            X_combined = tfidf_features
+
+        # Scale features
+        X = self.feature_scaler.fit_transform(X_combined)
+        y = np.array(labels)
+
+        logger.info(f"✅ Prepared {X.shape[0]} samples with {X.shape[1]} enhanced features")
+
+        # Split data
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.2, random_state=42, stratify=y
+        )
+
+        # Train models
+        logger.info("🤖 Training VulnGuard AI models...")
+
+        # Random Forest
+        logger.info("🌲 Training Random Forest...")
+        rf = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
+        rf.fit(X_train, y_train)
+        self.models['random_forest'] = rf
+
+        # Gradient Boosting
+        logger.info("📈 Training Gradient Boosting...")
+        gb = GradientBoostingClassifier(n_estimators=100, random_state=42)
+        gb.fit(X_train, y_train)
+        self.models['gradient_boosting'] = gb
+
+        # Neural Network
+        logger.info("🧠 Training Neural Network...")
+        nn = MLPClassifier(hidden_layer_sizes=(100, 50), max_iter=300, random_state=42)
+        nn.fit(X_train, y_train)
+        self.models['neural_network'] = nn
+
+        # Evaluate models
+        logger.info("📊 Evaluating models...")
+        for name, model in self.models.items():
+            predictions = model.predict(X_test)
+            accuracy = accuracy_score(y_test, predictions)
+            logger.info(f"📈 {name}: {accuracy:.4f} accuracy")
+
+        logger.info(f"✅ Training complete: {len(self.models)} models trained")
+        return True
+
+    def predict_vulnerability(self, code_text: str) -> dict:
+        """Predict if code is vulnerable using enhanced AST features"""
+        if not self.models:
+            raise ValueError("Models not trained. Call train_integrated_models() first.")
+
+        # Create TF-IDF features
+        X_tfidf = self.code_vectorizer.transform([code_text]).toarray()
+
+        # Extract AST features if available
+        if self.ast_extractor:
+            try:
+                ast_features = self.ast_extractor.extract_enhanced_features(code_text)
+                ast_vector = self._convert_ast_features_to_vector(ast_features)
+                # Combine TF-IDF and AST features
+                X_combined = np.hstack([X_tfidf, ast_vector.reshape(1, -1)])
+            except Exception as e:
+                logger.warning(f"⚠️  AST feature extraction failed during prediction: {e}")
+                X_combined = X_tfidf
+        else:
+            X_combined = X_tfidf
+
+        # Scale features
+        X = self.feature_scaler.transform(X_combined)
+
+        predictions = {}
+        probabilities = {}
+
+        for name, model in self.models.items():
+            try:
+                pred = model.predict(X)[0]
+                prob = model.predict_proba(X)[0] if hasattr(model, 'predict_proba') else [1-pred, pred]
+
+                predictions[name] = int(pred)
+                probabilities[name] = float(prob[1])
+            except Exception as e:
+                logger.warning(f"⚠️  Prediction failed for {name}: {e}")
+                predictions[name] = 0
+                probabilities[name] = 0.0
+
+        ensemble_prob = np.mean(list(probabilities.values()))
+        ensemble_pred = 1 if ensemble_prob > 0.5 else 0
+
+        return {
+            'ensemble_prediction': ensemble_pred,
+            'ensemble_confidence': ensemble_prob,
+            'model_predictions': predictions,
+            'model_confidences': probabilities
+        }
+
+    def save_models(self, base_filename="vulnguard_integrated_models"):
+        """Save trained models"""
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        models_filename = f"{base_filename}_{timestamp}.pkl"
+
+        with open(models_filename, 'wb') as f:
+            pickle.dump({
+                'models': self.models,
+                'code_vectorizer': self.code_vectorizer,
+                'feature_scaler': self.feature_scaler,
+                'has_ast_features': self.ast_extractor is not None,
+                'training_samples': len(self.integrated_data)
+            }, f)
+
+        logger.info(f"✅ Models saved to {models_filename}")
+        return models_filename
+
+    def _convert_ast_features_to_vector(self, ast_features: dict) -> np.ndarray:
+        """Convert AST features dictionary to numeric vector"""
+        # Define expected feature order and defaults
+        feature_keys = [
+            # Basic AST counts
+            'ast_FunctionDef_count', 'ast_Call_count', 'ast_Assign_count', 'ast_If_count',
+            'ast_For_count', 'ast_While_count', 'ast_BinOp_count', 'ast_Compare_count',
+
+            # Tree-sitter features
+            'ts_total_nodes', 'ts_unique_node_types', 'ts_tree_depth',
+            'ts_function_definition_count', 'ts_call_count', 'ts_assignment_count',
+
+            # Code structure
+            'total_lines', 'non_empty_lines', 'max_indentation', 'avg_line_length',
+            'estimated_complexity', 'total_control_flow',
+
+            # Vulnerability patterns
+            'sql_injection_pattern_score', 'command_injection_pattern_score',
+            'xss_pattern_score', 'buffer_overflow_pattern_score', 'path_traversal_pattern_score',
+
+            # Security indicators
+            'has_sql_injection_indicators', 'has_command_injection_indicators',
+            'has_xss_indicators', 'has_buffer_overflow_indicators',
+
+            # Function analysis
+            'total_function_calls', 'unique_function_calls', 'function_definitions',
+
+            # Control flow
+            'if_statements', 'for_loops', 'while_loops', 'try_except',
+
+            # Data flow
+            'assignments', 'return_statements', 'input_operations', 'output_operations',
+
+            # Memory operations
+            'memory_alloc', 'memory_free', 'memory_balance',
+
+            # String operations
+            'string_literals', 'numeric_literals'
+        ]
+
+        # Convert features to vector
+        vector = []
+        for key in feature_keys:
+            value = ast_features.get(key, 0)
+
+            # Handle different value types
+            if isinstance(value, bool):
+                vector.append(1.0 if value else 0.0)
+            elif isinstance(value, (int, float)):
+                vector.append(float(value))
+            elif isinstance(value, str):
+                # Hash string values to numeric
+                vector.append(float(hash(value) % 1000))
+            else:
+                vector.append(0.0)
+
+        # Pad or truncate to exactly 100 features
+        if len(vector) < 100:
+            vector.extend([0.0] * (100 - len(vector)))
+        elif len(vector) > 100:
+            vector = vector[:100]
+
+        return np.array(vector, dtype=np.float32)
+
 
 class HTTPSecurityTrainer:
     """Advanced HTTP security vulnerability trainer"""
@@ -541,7 +834,7 @@ class HTTPSecurityTrainer:
 
 def main():
     """Main training function"""
-    logger.info("🚀 Starting BEAST MODE HTTP Security Training")
+    logger.info("🚀 Starting VulnGuard AI HTTP Security Training")
 
     # Initialize trainer
     trainer = HTTPSecurityTrainer()

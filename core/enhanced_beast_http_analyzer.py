@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Enhanced BEAST MODE HTTP Security Analyzer
-Combines advanced HTTP vulnerability detection with existing BEAST MODE capabilities
+Enhanced VulnGuard AI HTTP Security Analyzer
+Combines advanced HTTP vulnerability detection with existing VulnGuard AI capabilities
 """
 
 import json
@@ -19,8 +19,8 @@ from urllib.parse import urlparse, parse_qs
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class EnhancedBeastHTTPAnalyzer:
-    """Enhanced BEAST MODE with HTTP vulnerability detection capabilities"""
+class VulnGuardHTTPAnalyzer:
+    """Enhanced VulnGuard AI with HTTP vulnerability detection capabilities"""
 
     def __init__(self, model_file: Optional[str] = None):
         self.http_models = None
@@ -30,7 +30,7 @@ class EnhancedBeastHTTPAnalyzer:
         if model_file:
             self._load_http_models(model_file)
 
-        # Integration with existing BEAST MODE
+        # Integration with existing VulnGuard AI
         self.attack_scenarios = {
             'web_application': {
                 'sqli': self._generate_sqli_scenarios,
@@ -50,7 +50,7 @@ class EnhancedBeastHTTPAnalyzer:
             }
         }
 
-        logger.info("🦾 Enhanced BEAST MODE HTTP Analyzer initialized")
+        logger.info("🦾 Enhanced VulnGuard AI HTTP Analyzer initialized")
 
     def _load_http_models(self, model_file: str):
         """Load pre-trained HTTP security models"""
@@ -77,7 +77,7 @@ class EnhancedBeastHTTPAnalyzer:
             # Use the trained HTTP model for prediction
             result = self._predict_http_vulnerability(request)
 
-            # Enhanced analysis with BEAST MODE patterns
+            # Enhanced analysis with VulnGuard AI patterns
             enhanced_result = self._enhance_analysis(request, result)
 
             return enhanced_result
@@ -146,7 +146,7 @@ class EnhancedBeastHTTPAnalyzer:
         return unique[np.argmax(counts)]
 
     def _enhance_analysis(self, request: Dict[str, Any], prediction_result: Dict[str, Any]) -> Dict[str, Any]:
-        """Enhance prediction with detailed BEAST MODE analysis"""
+        """Enhance prediction with detailed VulnGuard AI analysis"""
         enhanced = {
             **prediction_result,
             'detailed_analysis': {},
@@ -576,12 +576,12 @@ class EnhancedBeastHTTPAnalyzer:
         if not output_file:
             output_file = f"enhanced_beast_http_security_report_{timestamp}.json"
 
-        # Enhanced report with BEAST MODE integration
+        # Enhanced report with VulnGuard AI integration
         report = {
             'report_metadata': {
-                'generated_by': 'Enhanced BEAST MODE HTTP Analyzer',
+                'generated_by': 'Enhanced VulnGuard AI HTTP Analyzer',
                 'generation_time': datetime.now().isoformat(),
-                'analysis_engine': 'BEAST MODE v2.0 with HTTP Security Intelligence',
+                'analysis_engine': 'VulnGuard AI v2.0 with HTTP Security Intelligence',
                 'total_models_used': len(self.http_models) if self.http_models else 0
             },
             'executive_summary': {
@@ -667,11 +667,11 @@ class EnhancedBeastHTTPAnalyzer:
         }
 
 def main():
-    """Main function to demonstrate Enhanced BEAST MODE HTTP Analyzer"""
-    logger.info("🚀 Starting Enhanced BEAST MODE HTTP Security Analysis")
+    """Main function to demonstrate Enhanced VulnGuard AI HTTP Analyzer"""
+    logger.info("🚀 Starting Enhanced VulnGuard AI HTTP Security Analysis")
 
     # Initialize analyzer with trained models
-    analyzer = EnhancedBeastHTTPAnalyzer("http_security_models_20251002_144030.pkl")
+    analyzer = VulnGuardHTTPAnalyzer("http_security_models_20251002_144030.pkl")
 
     # Test with sample HTTP requests
     test_requests = [
@@ -707,7 +707,7 @@ def main():
     # Generate security report
     report_file = analyzer.generate_security_report(batch_results)
 
-    logger.info("🎉 Enhanced BEAST MODE HTTP Analysis Complete!")
+    logger.info("🎉 Enhanced VulnGuard AI HTTP Analysis Complete!")
     logger.info(f"📊 Report: {report_file}")
 
     return report_file

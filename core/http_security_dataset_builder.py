@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BEAST MODE HTTP Security Dataset Builder
+VulnGuard AI - HTTP Security Dataset Builder
 Advanced HTTP traffic analysis and vulnerability detection training
 """
 
@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class HTTPSecurityDatasetBuilder:
-    """Comprehensive HTTP security dataset builder for BEAST MODE training"""
+    """Comprehensive HTTP security dataset builder for VulnGuard AI training"""
 
     def __init__(self):
         self.dataset = []
@@ -41,7 +41,7 @@ class HTTPSecurityDatasetBuilder:
             "malicious-urls": "https://github.com/faizann24/Using-machine-learning-to-detect-malicious-URLs",
         }
 
-        logger.info("🦾 BEAST MODE HTTP Security Dataset Builder initialized")
+        logger.info("🦾 VulnGuard AI - HTTP Security Dataset Builder initialized")
 
     def _load_attack_patterns(self) -> Dict[str, List[str]]:
         """Load comprehensive attack patterns from security research"""
@@ -755,7 +755,7 @@ class HTTPSecurityDatasetBuilder:
 
 def main():
     """Main function to build HTTP security dataset"""
-    logger.info("🚀 Starting BEAST MODE HTTP Security Dataset Builder")
+    logger.info("🚀 Starting VulnGuard AI - HTTP Security Dataset Builder")
 
     # Initialize builder
     builder = HTTPSecurityDatasetBuilder()
