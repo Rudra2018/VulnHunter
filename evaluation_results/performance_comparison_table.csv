@@ -1,9 +1,0 @@
-Tool,Type,Precision,Recall,F1-Score,FPR,AUC-ROC,Time (ms),Memory (MB)
-MultiModalVulnDetector,Our Framework,0.983,0.968,0.975,0.008,0.991,45.2,487.1
-EnhancedVulnDetector,Our Framework,0.978,0.972,0.975,0.012,0.989,38.7,392.7
-EnsembleVulnDetector,Our Framework,0.985,0.971,0.978,0.006,0.992,67.3,724.8
-CodeQL,Commercial,0.872,0.824,0.847,0.073,0.912,234.5,892.3
-Checkmarx,Commercial,0.834,0.798,0.816,0.112,0.885,567.8,1245.7
-Fortify,Commercial,0.823,0.789,0.806,0.098,0.892,432.1,1034.2
-SonarQube,Commercial,0.798,0.756,0.776,0.134,0.867,156.9,567.4
-Semgrep,Commercial,0.856,0.782,0.817,0.089,0.901,89.3,298.5
