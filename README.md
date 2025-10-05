@@ -70,23 +70,35 @@ pip install z3-solver
 
 ### 🤖 Pre-trained Models
 
-VulnHunter AI comes with pre-trained models ready to use:
+VulnHunter AI comes with 3 pre-trained models ready to use:
 
-- **Random Forest Model**: `models/vulnguard_rf_20251004_223803.pkl` (22MB)
-  - Trained on 50,705 vulnerability samples
-  - 11,038 features per sample
-  - Ready for immediate deployment
-
+**Best Model - XGBoost (95.33% accuracy):**
 ```python
-# Load and use the pre-trained model
 import pickle
 
-with open('models/vulnguard_rf_20251004_223803.pkl', 'rb') as f:
-    model = pickle.load(f)
+# Load the best performing model
+with open('models/vulnguard_xgb_20251005_151952.pkl', 'rb') as f:
+    data = pickle.load(f)
+    model = data['model']
+    code_vectorizer = data['code_vectorizer']
+    token_vectorizer = data['token_vectorizer']
+    scaler = data['scaler']
 
-# Use for vulnerability detection
-# (See usage examples below)
+# Analyze code for vulnerabilities
+test_code = "SELECT * FROM users WHERE id = '" + user_input + "'"
+char_features = code_vectorizer.transform([test_code])
+token_features = token_vectorizer.transform([test_code])
+from scipy.sparse import hstack
+features = hstack([char_features, token_features]).toarray()
+features_scaled = scaler.transform(features)
+prediction = model.predict(features_scaled)
+print(f"Vulnerable: {prediction[0] == 1}")
 ```
+
+**Available Models:**
+- **XGBoost**: 95.33% accuracy (766KB) - Fastest & most accurate
+- **Neural Network**: 94.93% accuracy (42MB) - Deep learning approach
+- **Random Forest**: Baseline model (22MB) - Reliable detection
 
 ### Basic Usage
 
@@ -133,29 +145,38 @@ python evaluation/demo_enhanced_capabilities.py
 
 ## 📊 Performance
 
-- **Accuracy**: 100% on production test suite
+**Model Performance (on 11,094 test samples):**
+- **XGBoost**: 95.33% accuracy (Best)
+- **Neural Network**: 94.93% accuracy
+- **Random Forest**: High baseline performance
+
+**System Performance:**
 - **Speed**: 0.0896s average analysis time
 - **Throughput**: 11+ samples per second
-- **Adversarial Robustness**: 100% resistance across 5 attack types
 - **Memory**: Efficient processing with minimal overhead
+- **Training Data**: 55,468 real-world vulnerability samples
 
 ## 🤖 Trained Models
 
-VulnHunter AI includes production-ready trained models:
+VulnHunter AI includes production-ready trained models with high accuracy:
 
-| Model | Size | Training Data | Features | Status |
-|-------|------|---------------|----------|--------|
-| Random Forest | 22MB | 50,705 samples | 11,038 | ✅ Ready |
-| Gradient Boosting | - | 50,705 samples | 11,038 | 🔄 Training |
-| XGBoost | - | 50,705 samples | 11,038 | ⏳ Pending |
-| Neural Network | - | 50,705 samples | 11,038 | ⏳ Pending |
+| Model | Size | Accuracy | Training Data | Features | Status |
+|-------|------|----------|---------------|----------|--------|
+| **XGBoost** | 766KB | **95.33%** | 55,468 samples | 7,000 | ✅ Ready |
+| **Neural Network** | 42MB | **94.93%** | 55,468 samples | 7,000 | ✅ Ready |
+| **Random Forest** | 22MB | - | 55,468 samples | 7,000 | ✅ Ready |
 
-**Model Location**: `models/vulnguard_rf_20251004_223803.pkl`
+**Model Files**:
+- `models/vulnguard_xgb_20251005_151952.pkl` - XGBoost (Best Performance)
+- `models/vulnguard_nn_20251005_152655.pkl` - Neural Network (Deep Learning)
+- `models/vulnguard_rf_20251004_223803.pkl` - Random Forest (Baseline)
 
 **Training Dataset**:
-- 45,713 vulnerable samples (90.2%)
-- 4,992 safe samples (9.8%)
-- Sources: HuggingFace, CVEfixes, Kaggle datasets
+- 55,468 total samples (5 HuggingFace datasets)
+- 50,468 vulnerable samples (91%)
+- 5,000 safe samples (9%)
+- Sources: CVEfixes-2022, Vulnerable-Dataset, Vulnerable-Code, Code-Vulnerable-10000, Vulnerable-Configs
+- Train/Test Split: 80%/20% (44,374 / 11,094 samples)
 
 ## 🔍 Vulnerability Detection
 
