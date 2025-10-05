@@ -54,8 +54,9 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Model files (large)
+# Model files (large) - but allow models in models/ directory
 *.pkl
+!models/*.pkl
 *.model
 *.joblib
 
@@ -80,6 +81,15 @@ temp/
 # Private directories
 .claude/
 __pycache__/
+
+# Training status files (temporary)
+TRAINING_IN_PROGRESS.md
+TRAINING_RUNNING.md
+TRAINING_MONITOR.sh
+training_output.log
+
+# Conference submissions (work in progress)
+cfp/
 
 # Large binary files
 manuscript_doubleblind.pdf

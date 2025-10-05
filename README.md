@@ -19,31 +19,26 @@
 ## 📁 Project Structure
 
 ```
-vuln_ml_research/
+enhanced-security-intelligence/
 ├── core/                         # Core VulnHunter AI engines
 │   ├── ultimate_trainer.py       # Main training pipeline
 │   ├── ast_feature_extractor.py  # AST-based feature extraction
 │   ├── kaggle_dataset_integrator.py # Dataset integration
-│   └── [other ML modules]        # Additional AI components
+│   ├── huggingface_dataset_integrator.py # HuggingFace datasets
+│   ├── http_security_trainer.py  # HTTP vulnerability training
+│   ├── binary_vulnerability_trainer.py # Binary analysis
+│   └── zero_false_positive_engine.py # Precision engine
 ├── models/                       # Trained AI models
-│   └── vulnguard_rf_20251004_223803.pkl  # Random Forest model (22MB)
-├── deployment/                   # Production deployment
-│   ├── deploy_production_system.py
-│   ├── production_demo.py
-│   └── train_simplified_model.py
-├── security_engines/             # Security analysis engines
-│   ├── poc_generation_engine.py
-│   ├── verification_validation_engine.py
-│   └── comprehensive_scanning_engine.py
-├── evaluation/                   # Testing and validation
-│   ├── test_enhanced_basic.py
-│   ├── test_enhanced_framework.py
-│   └── demo_enhanced_capabilities.py
+│   └── vulnguard_rf_20251004_223803.pkl  # Random Forest (22MB)
 ├── documentation/                # Complete documentation
-├── submissions/                  # Academic paper submissions
-├── data/                         # Datasets and samples
-├── case_studies/                 # Real-world vulnerability examples
-└── tools/                        # Development tools
+│   ├── tdsc_manuscript.tex       # IEEE TDSC paper
+│   ├── QUICK_START.md            # Quick start guide
+│   └── READY_TO_SUBMIT.md        # Submission ready docs
+├── requirements.txt              # Python dependencies
+├── Dockerfile                    # Container deployment
+├── train_with_kaggle.py         # Training script
+├── fast_trainer.py              # Fast training pipeline
+└── README.md                    # This file
 ```
 
 ## 🏃‍♂️ Quick Start
