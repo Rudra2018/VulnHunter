@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Production Ready](https://img.shields.io/badge/status-production%20ready-green.svg)](https://github.com/your-username/vuln_ml_research)
+[![Production Ready](https://img.shields.io/badge/status-production%20ready-green.svg)](https://github.com/Rudra2018/enhanced-security-intelligence)
 
 A next-generation security intelligence framework that combines **Graph Neural Networks**, **Multi-scale Transformers**, and **Neural-Formal Verification** for automated vulnerability detection in source code.
 
@@ -54,8 +54,8 @@ vuln_ml_research/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/vuln_ml_research.git
-cd vuln_ml_research
+git clone https://github.com/Rudra2018/enhanced-security-intelligence.git
+cd enhanced-security-intelligence
 
 # Install dependencies
 pip install -r requirements.txt
@@ -209,8 +209,7 @@ This project is licensed under the MIT License - see the [`documentation/LICENSE
 ## 📞 Contact
 
 - **Author**: Ankit Thakur
-- **Email**: [your-email@example.com]
-- **Project**: [https://github.com/your-username/vuln_ml_research]
+- **Project**: [https://github.com/Rudra2018/enhanced-security-intelligence]
 
 ## 🙏 Acknowledgments
 
