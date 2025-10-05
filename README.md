@@ -1,10 +1,11 @@
-# Enhanced Security Intelligence Framework
+# VulnHunter AI - Active Vulnerability Detection
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Production Ready](https://img.shields.io/badge/status-production%20ready-green.svg)](https://github.com/Rudra2018/enhanced-security-intelligence)
+[![AI Powered](https://img.shields.io/badge/AI-Powered-brightgreen.svg)](https://github.com/Rudra2018/enhanced-security-intelligence)
 
-A next-generation security intelligence framework that combines **Graph Neural Networks**, **Multi-scale Transformers**, and **Neural-Formal Verification** for automated vulnerability detection in source code.
+**VulnHunter AI** is a next-generation AI-powered security intelligence platform that combines **Graph Neural Networks**, **Multi-scale Transformers**, and **Neural-Formal Verification** for active vulnerability detection in source code.
 
 ## 🚀 Key Features
 
@@ -183,9 +184,9 @@ Edit `deployment/production_training_config.json` for custom settings:
 ## 🎓 Academic Publications
 
 This work is submitted to:
-- **IEEE S&P 2026** - "Enhanced Security Intelligence Framework"
-- **IEEE TIFS** - "Neural-Formal Verification for Vulnerability Detection"
-- **IEEE TDSC** - "Multi-modal Security Intelligence with Adversarial Robustness"
+- **IEEE S&P 2026** - "VulnHunter AI: Active Vulnerability Detection with Neural-Formal Verification"
+- **IEEE TIFS** - "VulnHunter: Multi-modal AI for Security Intelligence"
+- **IEEE TDSC** - "Active Vulnerability Hunting with Adversarial-Robust Deep Learning"
 
 ## 🤝 Contributing
 
@@ -199,12 +200,13 @@ This work is submitted to:
 
 This project is licensed under the MIT License - see the [`documentation/LICENSE`](documentation/LICENSE) file for details.
 
-## 🏆 Awards & Recognition
+## 🏆 VulnHunter AI - Awards & Recognition
 
 - **Production Ready**: Successfully deployed enterprise vulnerability detection
 - **100% Test Accuracy**: Comprehensive validation across vulnerability types
 - **Adversarial Robust**: Resistant to all tested attack vectors
 - **Research Innovation**: First neural-formal verification integration
+- **AI-Powered Detection**: Active hunting for vulnerabilities using advanced ML
 
 ## 📞 Contact
 
@@ -219,6 +221,6 @@ This project is licensed under the MIT License - see the [`documentation/LICENSE
 
 ---
 
-**⭐ Star this repository if it helped you!**
+**⭐ Star this repository if VulnHunter AI helped you secure your code!**
 
-> *"A next-generation security intelligence framework that combines the best of formal methods, deep learning, and software security engineering."*
+> *"VulnHunter AI: Actively hunting vulnerabilities with the power of deep learning, formal methods, and advanced security intelligence."*
