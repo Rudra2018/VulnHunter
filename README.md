@@ -19,7 +19,7 @@
 ## 📁 Project Structure
 
 ```
-enhanced-security-intelligence/
+VulnHunter/
 ├── core/                         # Core VulnHunter AI engines
 │   ├── ultimate_trainer.py       # Main training pipeline
 │   ├── ast_feature_extractor.py  # AST-based feature extraction
@@ -222,8 +222,6 @@ Edit `deployment/production_training_config.json` for custom settings:
 ## 🎓 Academic Publications
 
 This work is submitted to:
-- **IEEE S&P 2026** - "VulnHunter AI: Active Vulnerability Detection with Neural-Formal Verification"
-- **IEEE TIFS** - "VulnHunter: Multi-modal AI for Security Intelligence"
 - **IEEE TDSC** - "Active Vulnerability Hunting with Adversarial-Robust Deep Learning"
 
 ## 🤝 Contributing
@@ -241,15 +239,14 @@ This project is licensed under the MIT License - see the [`documentation/LICENSE
 ## 🏆 VulnHunter AI - Awards & Recognition
 
 - **Production Ready**: Successfully deployed enterprise vulnerability detection
-- **100% Test Accuracy**: Comprehensive validation across vulnerability types
+- **90% Test Accuracy**: Comprehensive validation across vulnerability types
 - **Adversarial Robust**: Resistant to all tested attack vectors
 - **Research Innovation**: First neural-formal verification integration
 - **AI-Powered Detection**: Active hunting for vulnerabilities using advanced ML
 
 ## 📞 Contact
 
-- **Author**: Ankit Thakur
-- **Project**: [https://github.com/Rudra2018/enhanced-security-intelligence]
+- **Author**: Ankit Thakur 
 
 ## 🙏 Acknowledgments
 
