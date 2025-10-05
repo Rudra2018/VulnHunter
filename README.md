@@ -20,20 +20,25 @@
 
 ```
 vuln_ml_research/
-├── src/                          # Core framework source code
-│   ├── models/                   # ML models and architectures
-│   ├── training/                 # Training pipelines and utilities
-│   ├── evaluation/               # Evaluation frameworks
-│   └── utils/                    # Utility functions
+├── core/                         # Core VulnHunter AI engines
+│   ├── ultimate_trainer.py       # Main training pipeline
+│   ├── ast_feature_extractor.py  # AST-based feature extraction
+│   ├── kaggle_dataset_integrator.py # Dataset integration
+│   └── [other ML modules]        # Additional AI components
+├── models/                       # Trained AI models
+│   └── vulnguard_rf_20251004_223803.pkl  # Random Forest model (22MB)
 ├── deployment/                   # Production deployment
 │   ├── deploy_production_system.py
 │   ├── production_demo.py
 │   └── train_simplified_model.py
+├── security_engines/             # Security analysis engines
+│   ├── poc_generation_engine.py
+│   ├── verification_validation_engine.py
+│   └── comprehensive_scanning_engine.py
 ├── evaluation/                   # Testing and validation
 │   ├── test_enhanced_basic.py
 │   ├── test_enhanced_framework.py
 │   └── demo_enhanced_capabilities.py
-├── training/                     # Training scripts
 ├── documentation/                # Complete documentation
 ├── submissions/                  # Academic paper submissions
 ├── data/                         # Datasets and samples
@@ -66,6 +71,26 @@ pip install torch torchvision transformers torch-geometric scikit-learn
 
 # Install verification tools
 pip install z3-solver
+```
+
+### 🤖 Pre-trained Models
+
+VulnHunter AI comes with pre-trained models ready to use:
+
+- **Random Forest Model**: `models/vulnguard_rf_20251004_223803.pkl` (22MB)
+  - Trained on 50,705 vulnerability samples
+  - 11,038 features per sample
+  - Ready for immediate deployment
+
+```python
+# Load and use the pre-trained model
+import pickle
+
+with open('models/vulnguard_rf_20251004_223803.pkl', 'rb') as f:
+    model = pickle.load(f)
+
+# Use for vulnerability detection
+# (See usage examples below)
 ```
 
 ### Basic Usage
@@ -118,6 +143,24 @@ python evaluation/demo_enhanced_capabilities.py
 - **Throughput**: 11+ samples per second
 - **Adversarial Robustness**: 100% resistance across 5 attack types
 - **Memory**: Efficient processing with minimal overhead
+
+## 🤖 Trained Models
+
+VulnHunter AI includes production-ready trained models:
+
+| Model | Size | Training Data | Features | Status |
+|-------|------|---------------|----------|--------|
+| Random Forest | 22MB | 50,705 samples | 11,038 | ✅ Ready |
+| Gradient Boosting | - | 50,705 samples | 11,038 | 🔄 Training |
+| XGBoost | - | 50,705 samples | 11,038 | ⏳ Pending |
+| Neural Network | - | 50,705 samples | 11,038 | ⏳ Pending |
+
+**Model Location**: `models/vulnguard_rf_20251004_223803.pkl`
+
+**Training Dataset**:
+- 45,713 vulnerable samples (90.2%)
+- 4,992 safe samples (9.8%)
+- Sources: HuggingFace, CVEfixes, Kaggle datasets
 
 ## 🔍 Vulnerability Detection
 
