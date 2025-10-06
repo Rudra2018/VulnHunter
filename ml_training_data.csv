@@ -1,0 +1,1381 @@
+code,file_path,category,severity,cwe,confidence,language,project,is_vulnerable,context,code_length,has_exec,has_sql,has_memcpy,has_password,has_verify_false,is_test_file,is_config_file,context_length,context_has_bounds_check,severity_encoded,lang_C/C++,lang_Go,lang_JavaScript,lang_Python,cat_Buffer Overflow,cat_Command Injection,cat_Hardcoded Credentials,cat_Information Disclosure,cat_Insecure Data Transmission,cat_Insecure RPC,cat_Integer Overflow,cat_Path Traversal,cat_Private Key Exposure,cat_Race Condition,cat_SQL Injection,cat_Unchecked Return Value,cat_Use After Free,cat_Weak Cryptography
+"memcpy((void *) (S->buf + left), (void *) data, fill);",src/crypto/blake256.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"void blake256_update(state *S, const uint8_t *data, uint64_t datalen) {
+    int left = S->buflen >> 3;
+    int fill = 64 - left;",54,0,0,1,0,0,0,0,128,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy((void *) (S->buf + left), (void *) data, datalen >> 3);",src/crypto/blake256.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        data += 64;
+        datalen -= 512;
+    }",62,0,0,1,0,0,0,0,49,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( _temp + 1, word, OAES_COL_LEN - 1 );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	uint8_t _temp[OAES_COL_LEN];
+
+	if( NULL == word )",44,0,0,1,0,0,0,0,50,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( word, _temp, OAES_COL_LEN );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	if( NULL == word )
+		return OAES_RET_ARG1;
+",36,0,0,1,0,0,0,0,44,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( _temp, word + 1, OAES_COL_LEN - 1 );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	uint8_t _temp[OAES_COL_LEN];
+
+	if( NULL == word )",44,0,0,1,0,0,0,0,50,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( word, _temp, OAES_COL_LEN );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"			oaes_gf_mul( word[2], 0x03 ) ^ word[3];
+	_temp[2] = word[0] ^ word[1] ^
+			oaes_gf_mul( word[2], 0x02 ) ^ oaes_gf_mul( word[3], 0x03 );",36,0,0,1,0,0,0,0,138,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( word, _temp, OAES_COL_LEN );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"			oaes_gf_mul( word[2], 0x0b ) ^ oaes_gf_mul( word[3], 0x0d );
+	_temp[2] = oaes_gf_mul( word[0], 0x0d ) ^ oaes_gf_mul( word[1], 0x09 ) ^
+			oaes_gf_mul( word[2], 0x0e ) ^ oaes_gf_mul( word[3], 0x0b );",36,0,0,1,0,0,0,0,201,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+OAES_RET oaes_sprintf(,src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	memcpy( word, _temp, OAES_COL_LEN );
+
+	return OAES_RET_SUCCESS;",22,0,0,1,0,0,0,0,64,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"strcpy( buf, """" );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"		return OAES_RET_BUF;
+
+	if( NULL == data )",18,0,0,1,0,0,0,0,43,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"sprintf( buf, ""%04d%02d%02d%02d%02d%02d%03d%p%d"",",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	char * _test = NULL;
+
+	ftime (&timer);",49,0,0,1,0,0,0,0,39,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"sprintf( buf, ""%04d%02d%02d%02d%02d%02d%03d%p%d"",",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	char * _test = NULL;
+
+	gettimeofday(&timer, NULL);",49,0,0,1,0,0,0,0,51,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( _ctx->key->exp_data, _ctx->key->data, _ctx->key->data_len );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+	if( NULL == _ctx->key->exp_data )
+		return OAES_RET_MEM;",68,0,0,1,1,0,0,0,58,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+_key->data[_i] = (uint8_t) rand();,src/crypto/oaes_lib.c,Weak Cryptography,CRITICAL,CWE-327,0.9,C/C++,Electroneum,1,"
+	for( _i = 0; _i < key_size; _i++ )
+#ifdef OAES_HAVE_ISAAC",34,0,0,0,1,0,0,0,59,0,3,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+"memcpy( data, _ctx->key->data, *data_len );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"		return OAES_RET_SUCCESS;
+
+	if( _data_len_in < *data_len )",43,0,0,1,1,0,0,0,59,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( _ctx->key->data, data, data_len );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	{
+		oaes_key_destroy( &(_ctx->key) );
+		return OAES_RET_MEM;",42,0,0,1,1,0,0,0,61,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( _ctx->rctx->randrsl, _seed, RANDSIZ );",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"			return NULL;
+		}
+",46,0,0,1,0,0,0,0,20,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+srand( oaes_get_seed() );,src/crypto/oaes_lib.c,Weak Cryptography,CRITICAL,CWE-327,0.9,C/C++,Electroneum,1,"		memset( _ctx->rctx->randrsl, 0, RANDSIZ );
+		memcpy( _ctx->rctx->randrsl, _seed, RANDSIZ );
+		randinit( _ctx->rctx, TRUE);",25,0,0,0,0,0,0,0,124,0,3,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+_ctx->iv[_i] = (uint8_t) rand();,src/crypto/oaes_lib.c,Weak Cryptography,CRITICAL,CWE-327,0.9,C/C++,Electroneum,1,"			{
+				for( _i = 0; _i < OAES_BLOCK_SIZE; _i++ )
+#ifdef OAES_HAVE_ISAAC",32,0,0,0,0,0,0,0,73,0,3,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+"memcpy(&_options, c + 6, sizeof(_options));",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"		default:
+			return OAES_RET_HEADER;
+	}",43,0,0,1,0,0,0,0,40,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&_flags, c + 8, sizeof(_flags));",src/crypto/oaes_lib.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"		return OAES_RET_HEADER;
+	if( _options == OAES_OPTION_NONE )
+		return OAES_RET_HEADER;",39,0,0,1,0,0,0,0,87,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(result, &state, n);",src/crypto/random.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    return;
+  }
+  for (;;) {",26,0,0,1,0,0,0,0,28,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(result, &state, HASH_DATA_AREA);",src/crypto/random.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      assert(curstate == 2);
+      curstate = 1;
+#endif",39,0,0,1,0,0,0,0,55,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(hash, &state, HASH_SIZE);",src/crypto/hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"}
+
+void cn_fast_hash(const void *data, size_t length, char *hash) {",32,0,0,1,0,0,0,0,67,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(JIT_code, (src), (size)); \",src/crypto/CryptonightR_JIT.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+#define APPEND_CODE(src, size) \
+	do { \",34,0,0,1,0,0,0,0,41,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 224: memcpy(state->x,JH224_H0,128); break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      state->hashbitlen = hashbitlen;
+
+      /*load the intital hash value into state*/",47,0,0,1,0,0,0,0,87,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 256: memcpy(state->x,JH256_H0,128); break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+      /*load the intital hash value into state*/
+      switch (hashbitlen)",47,0,0,1,0,0,0,0,75,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 384: memcpy(state->x,JH384_H0,128); break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      /*load the intital hash value into state*/
+      switch (hashbitlen)
+      {",47,0,0,1,0,0,0,0,82,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 512: memcpy(state->x,JH512_H0,128); break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      switch (hashbitlen)
+      {
+            case 224: memcpy(state->x,JH224_H0,128); break;",47,0,0,1,0,0,0,0,93,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(state->buffer + (state->datasize_in_buffer >> 3), data, 64-(state->datasize_in_buffer >> 3)) ;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      /*we assume that the size of the data in the buffer is the multiple of 8 bits if it is not at the end of a message*/
+
+      /*There is data in the buffer, but the incoming data is insufficient for a full block*/",101,0,0,1,0,0,0,0,217,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"else memcpy(state->buffer + (state->datasize_in_buffer >> 3), data, 64-(state->datasize_in_buffer >> 3)+1) ;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      /*There is data in the buffer, but the incoming data is insufficient for a full block*/
+      if ( (state->datasize_in_buffer > 0 ) && (( state->datasize_in_buffer + databitlen) < 512)  ) {
+            if ( (databitlen & 7) == 0 ) {",108,0,0,1,0,0,0,0,238,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy( state->buffer + (state->datasize_in_buffer >> 3), data, 64-(state->datasize_in_buffer >> 3) ) ;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            databitlen = 0;
+      }
+",103,0,0,1,0,0,0,0,36,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(state->buffer, data+index, 64);",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	        state->datasize_in_buffer = 0;
+      }
+",38,0,0,1,0,0,0,0,48,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(state->buffer, data+index, (databitlen & 0x1ff) >> 3);",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      }
+
+      /*store the partial block into buffer, assume that -- if part of the last byte is not part of the message, then that part consists of 0 bits*/",61,0,0,1,0,0,0,0,157,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(state->buffer, data+index, ((databitlen & 0x1ff) >> 3)+1);",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      /*store the partial block into buffer, assume that -- if part of the last byte is not part of the message, then that part consists of 0 bits*/
+      if ( databitlen > 0) {
+            if ((databitlen & 7) == 0)",65,0,0,1,0,0,0,0,216,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 224: memcpy(hashval,(unsigned char*)state->x+64+36,28);  break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            F8(state);
+      }
+",68,0,0,1,0,0,0,0,31,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 256: memcpy(hashval,(unsigned char*)state->x+64+32,32);  break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      }
+
+      /*truncating the final hash value to generate the message digest*/",68,0,0,1,0,0,0,0,81,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 384: memcpy(hashval,(unsigned char*)state->x+64+16,48);  break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+      /*truncating the final hash value to generate the message digest*/
+      switch(state->hashbitlen) {",68,0,0,1,0,0,0,0,107,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 512: memcpy(hashval,(unsigned char*)state->x+64,64);     break;",src/crypto/jh.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      /*truncating the final hash value to generate the message digest*/
+      switch(state->hashbitlen) {
+            case 224: memcpy(hashval,(unsigned char*)state->x+64+36,28);  break;",68,0,0,1,0,0,0,0,187,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(tmp, data, length);",src/crypto/chacha.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  j14 = U8TO32_LITTLE(iv + 0);
+  j15 = U8TO32_LITTLE(iv + 4);
+",26,0,0,1,0,0,0,0,62,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctarget, cipher, length);",src/crypto/chacha.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    U32TO8_LITTLE(cipher + 56,x14);
+    U32TO8_LITTLE(cipher + 60,x15);
+",32,0,0,1,0,0,0,0,72,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(root_hash, hashes, HASH_SIZE);",src/crypto/tree-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"// exploitation on normal platforms, how ever we strongly recommend the following fix because it removes
+// mistake in mathematical formula.
+",37,0,0,1,0,0,0,0,141,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ints, hashes, (2 * cnt - count) * HASH_SIZE);",src/crypto/tree-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    size_t cnt = tree_hash_cnt( count );
+
+    char *ints = calloc(cnt, HASH_SIZE);  // zero out as extra protection for using uninitialized mem",52,0,0,1,0,0,0,0,143,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  256: memcpy(ctx->X,SKEIN_256_IV_256,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    ctx->h.hashBitLen = hashBitLen;         /* output hash bit count */
+
+    switch (hashBitLen)",66,0,0,1,0,0,0,0,96,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  224: memcpy(ctx->X,SKEIN_256_IV_224,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    switch (hashBitLen)
+        {             /* use pre-computed values, where available */",66,0,0,1,0,0,0,0,93,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  160: memcpy(ctx->X,SKEIN_256_IV_160,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    switch (hashBitLen)
+        {             /* use pre-computed values, where available */
+#ifndef SKEIN_NO_PRECOMP",66,0,0,1,0,0,0,0,117,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  128: memcpy(ctx->X,SKEIN_256_IV_128,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        {             /* use pre-computed values, where available */
+#ifndef SKEIN_NO_PRECOMP
+        case  256: memcpy(ctx->X,SKEIN_256_IV_256,sizeof(ctx->X));  break;",66,0,0,1,0,0,0,0,168,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,cfg.b,sizeof(cfg.b));     /* copy over into ctx->X[] */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        ctx->h.hashBitLen=8*sizeof(ctx->X);     /* set output hash bit count = state size */
+        Skein_Start_New_Type(ctx,KEY);          /* set tweaks: T0 = 0; T1 = KEY type */
+        memset(ctx->X,0,sizeof(ctx->X));        /* zero the initial chaining variables */",69,0,0,1,0,0,0,0,270,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ctx->b[ctx->h.bCnt],msg,n);",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            {
+            n = SKEIN_256_BLOCK_BYTES - ctx->h.bCnt;  /* # bytes free in buffer b[] */
+            if (n)",35,0,0,1,0,0,0,0,119,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ctx->b[ctx->h.bCnt],msg,msgByteCnt);",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    /* copy any remaining source message data bytes into b[] */
+    if (msgByteCnt)",44,0,0,1,0,0,0,0,84,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(X,ctx->X,sizeof(X));       /* keep a local copy of counter mode ""key"" */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* now output the result */
+    byteCnt = (ctx->h.hashBitLen + 7) >> 3;             /* total number of output bytes */
+",79,0,0,1,1,0,0,0,123,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,X,sizeof(X));   /* restore the counter mode key for next time */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        n = byteCnt - i*SKEIN_256_BLOCK_BYTES;   /* number of output bytes left to go */
+        if (n >= SKEIN_256_BLOCK_BYTES)
+            n  = SKEIN_256_BLOCK_BYTES;",78,0,0,1,1,0,0,0,168,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  512: memcpy(ctx->X,SKEIN_512_IV_512,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    ctx->h.hashBitLen = hashBitLen;         /* output hash bit count */
+
+    switch (hashBitLen)",66,0,0,1,0,0,0,0,96,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  384: memcpy(ctx->X,SKEIN_512_IV_384,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    switch (hashBitLen)
+        {             /* use pre-computed values, where available */",66,0,0,1,0,0,0,0,93,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  256: memcpy(ctx->X,SKEIN_512_IV_256,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    switch (hashBitLen)
+        {             /* use pre-computed values, where available */
+#ifndef SKEIN_NO_PRECOMP",66,0,0,1,0,0,0,0,117,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  224: memcpy(ctx->X,SKEIN_512_IV_224,sizeof(ctx->X));  break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        {             /* use pre-computed values, where available */
+#ifndef SKEIN_NO_PRECOMP
+        case  512: memcpy(ctx->X,SKEIN_512_IV_512,sizeof(ctx->X));  break;",66,0,0,1,0,0,0,0,168,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,cfg.b,sizeof(cfg.b));     /* copy over into ctx->X[] */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        ctx->h.hashBitLen=8*sizeof(ctx->X);     /* set output hash bit count = state size */
+        Skein_Start_New_Type(ctx,KEY);          /* set tweaks: T0 = 0; T1 = KEY type */
+        memset(ctx->X,0,sizeof(ctx->X));        /* zero the initial chaining variables */",69,0,0,1,0,0,0,0,270,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ctx->b[ctx->h.bCnt],msg,n);",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            {
+            n = SKEIN_512_BLOCK_BYTES - ctx->h.bCnt;  /* # bytes free in buffer b[] */
+            if (n)",35,0,0,1,0,0,0,0,119,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ctx->b[ctx->h.bCnt],msg,msgByteCnt);",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    /* copy any remaining source message data bytes into b[] */
+    if (msgByteCnt)",44,0,0,1,0,0,0,0,84,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(X,ctx->X,sizeof(X));       /* keep a local copy of counter mode ""key"" */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* now output the result */
+    byteCnt = (ctx->h.hashBitLen + 7) >> 3;             /* total number of output bytes */
+",79,0,0,1,1,0,0,0,123,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,X,sizeof(X));   /* restore the counter mode key for next time */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        n = byteCnt - i*SKEIN_512_BLOCK_BYTES;   /* number of output bytes left to go */
+        if (n >= SKEIN_512_BLOCK_BYTES)
+            n  = SKEIN_512_BLOCK_BYTES;",78,0,0,1,1,0,0,0,168,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  512: memcpy(ctx->X,SKEIN1024_IV_512 ,sizeof(ctx->X)); break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    ctx->h.hashBitLen = hashBitLen;         /* output hash bit count */
+
+    switch (hashBitLen)",66,0,0,1,0,0,0,0,96,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case  384: memcpy(ctx->X,SKEIN1024_IV_384 ,sizeof(ctx->X)); break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    switch (hashBitLen)
+        {              /* use pre-computed values, where available */",66,0,0,1,0,0,0,0,94,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"case 1024: memcpy(ctx->X,SKEIN1024_IV_1024,sizeof(ctx->X)); break;",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    switch (hashBitLen)
+        {              /* use pre-computed values, where available */
+#ifndef SKEIN_NO_PRECOMP",66,0,0,1,0,0,0,0,118,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,cfg.b,sizeof(cfg.b));     /* copy over into ctx->X[] */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        ctx->h.hashBitLen=8*sizeof(ctx->X);     /* set output hash bit count = state size */
+        Skein_Start_New_Type(ctx,KEY);          /* set tweaks: T0 = 0; T1 = KEY type */
+        memset(ctx->X,0,sizeof(ctx->X));        /* zero the initial chaining variables */",69,0,0,1,0,0,0,0,270,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ctx->b[ctx->h.bCnt],msg,n);",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            {
+            n = SKEIN1024_BLOCK_BYTES - ctx->h.bCnt;  /* # bytes free in buffer b[] */
+            if (n)",35,0,0,1,0,0,0,0,119,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ctx->b[ctx->h.bCnt],msg,msgByteCnt);",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    /* copy any remaining source message data bytes into b[] */
+    if (msgByteCnt)",44,0,0,1,0,0,0,0,84,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(X,ctx->X,sizeof(X));       /* keep a local copy of counter mode ""key"" */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* now output the result */
+    byteCnt = (ctx->h.hashBitLen + 7) >> 3;             /* total number of output bytes */
+",79,0,0,1,1,0,0,0,123,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,X,sizeof(X));   /* restore the counter mode key for next time */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        n = byteCnt - i*SKEIN1024_BLOCK_BYTES;   /* number of output bytes left to go */
+        if (n >= SKEIN1024_BLOCK_BYTES)
+            n  = SKEIN1024_BLOCK_BYTES;",78,0,0,1,1,0,0,0,168,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(X,ctx->X,sizeof(X));       /* keep a local copy of counter mode ""key"" */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* now output the result */
+    byteCnt = (ctx->h.hashBitLen + 7) >> 3;    /* total number of output bytes */
+",79,0,0,1,1,0,0,0,114,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,X,sizeof(X));   /* restore the counter mode key for next time */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        n = byteCnt - i*SKEIN_256_BLOCK_BYTES;   /* number of output bytes left to go */
+        if (n >= SKEIN_256_BLOCK_BYTES)
+            n  = SKEIN_256_BLOCK_BYTES;",78,0,0,1,1,0,0,0,168,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(X,ctx->X,sizeof(X));       /* keep a local copy of counter mode ""key"" */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* now output the result */
+    byteCnt = (ctx->h.hashBitLen + 7) >> 3;    /* total number of output bytes */
+",79,0,0,1,1,0,0,0,114,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,X,sizeof(X));   /* restore the counter mode key for next time */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        n = byteCnt - i*SKEIN_512_BLOCK_BYTES;   /* number of output bytes left to go */
+        if (n >= SKEIN_512_BLOCK_BYTES)
+            n  = SKEIN_512_BLOCK_BYTES;",78,0,0,1,1,0,0,0,168,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(X,ctx->X,sizeof(X));       /* keep a local copy of counter mode ""key"" */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* now output the result */
+    byteCnt = (ctx->h.hashBitLen + 7) >> 3;    /* total number of output bytes */
+",79,0,0,1,1,0,0,0,114,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ctx->X,X,sizeof(X));   /* restore the counter mode key for next time */",src/crypto/skein.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        n = byteCnt - i*SKEIN1024_BLOCK_BYTES;   /* number of output bytes left to go */
+        if (n >= SKEIN1024_BLOCK_BYTES)
+            n  = SKEIN1024_BLOCK_BYTES;",78,0,0,1,1,0,0,0,168,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&tweak1_2, &state.hs.b[192], sizeof(tweak1_2)); \",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"#define VARIANT1_PORTABLE_INIT() \
+  uint8_t tweak1_2[8]; \
+  do if (variant == 1) \",56,0,0,1,0,0,0,0,84,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(b + AES_BLOCK_SIZE, state.hs.b + 64, AES_BLOCK_SIZE); \",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"#define VARIANT2_PORTABLE_INIT() \
+  uint64_t division_result = 0; \
+  uint64_t sqrt_result = 0; \",62,0,0,1,0,0,0,0,98,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy((dst), (src), sizeof(v4_reg)); \",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    lo ^= SWAP64LE(*(U64(local_hp_state + (j ^ 0x20)) + 1)); \
+  } while (0)
+",39,0,0,1,0,0,0,0,77,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(t, b, sizeof(uint64_t)); \",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+#define VARIANT4_RANDOM_MATH(a, b, r, _b, _b1) \
+  do if (variant >= 4) \",33,0,0,1,0,0,0,0,74,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(b, t, sizeof(uint64_t)); \",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    if (sizeof(v4_reg) == sizeof(uint32_t)) \
+      t[0] ^= SWAP64LE((r[0] + r[1]) | ((uint64_t)(r[2] + r[3]) << 32)); \
+    else \",33,0,0,1,0,0,0,0,131,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(t, a, sizeof(uint64_t) * 2); \",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    if (jit) \
+      (*hp_jitfunc)(r); \
+    else \",37,0,0,1,0,0,0,0,51,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(a, t, sizeof(uint64_t) * 2); \",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      t[1] ^= SWAP64LE(r[0] | ((uint64_t)(r[1]) << 32)); \
+    } else { \
+      t[0] ^= SWAP64LE(r[2] ^ r[3]); \",37,0,0,1,0,0,0,0,112,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&state.hs, data, length);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    uint8_t *local_hp_state = hp_state;
+    v4_random_math_JIT_func local_hp_jitfunc = hp_jitfunc;
+",32,0,0,1,0,0,0,0,99,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    if (prehashed) {
+        memcpy(&state.hs, data, length);
+    } else {",41,0,0,1,0,0,0,0,74,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&local_hp_state[i * INIT_SIZE_BYTE], text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    {
+        aes_expand_key(state.hs.b, expandedKey);
+        for(i = 0; i < MEMORY / INIT_SIZE_BYTE; i++)",66,0,0,1,0,0,0,0,107,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&local_hp_state[i * INIT_SIZE_BYTE], text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        for(i = 0; i < MEMORY / INIT_SIZE_BYTE; i++)
+        {
+            for(j = 0; j < INIT_SIZE_BLK; j++)",66,0,0,1,0,0,0,0,109,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    /* CryptoNight Step 4:  Sequentially pass through the mixing buffer and use 10 rounds
+     * of AES encryption to mix the random data back into the 'text' buffer.  'text'",41,0,0,1,0,0,0,0,175,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+oaes_free((OAES_CTX **) &aes_ctx);,src/crypto/slow-hash.c,Use After Free,HIGH,CWE-416,0.7,C/C++,Electroneum,1,"            {
+                xor_blocks(&text[j * AES_BLOCK_SIZE], &local_hp_state[i * INIT_SIZE_BYTE + j * AES_BLOCK_SIZE]);
+                aesb_pseudo_round(&text[AES_BLOCK_SIZE * j], &text[AES_BLOCK_SIZE * j], aes_ctx->key->exp_data);",34,0,0,0,0,0,0,0,239,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False
+"memcpy(state.init, text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"     * hash functions to apply to the data (Blake, Groestl, JH, or Skein).
+     * Use this hash to squeeze the state array down
+     * to the final 256 bit hash output.",41,0,0,1,0,0,0,0,168,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&state.hs, data, length);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    };
+
+    /* CryptoNight Step 1:  Use Keccak1600 to initialize the 'state' (and 'text') buffers from the data. */",32,0,0,1,0,0,0,0,115,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    if (prehashed) {
+        memcpy(&state.hs, data, length);
+    } else {",41,0,0,1,0,0,0,0,74,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&local_hp_state[i * INIT_SIZE_BYTE], text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    aes_expand_key(state.hs.b, expandedKey);
+    for(i = 0; i < MEMORY / INIT_SIZE_BYTE; i++)",66,0,0,1,0,0,0,0,94,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    /* CryptoNight Step 4:  Sequentially pass through the mixing buffer and use 10 rounds
+     * of AES encryption to mix the random data back into the 'text' buffer.  'text'",41,0,0,1,0,0,0,0,175,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(state.init, text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"     * hash functions to apply to the data (Blake, Groestl, JH, or Skein).
+     * Use this hash to squeeze the state array down
+     * to the final 256 bit hash output.",41,0,0,1,0,0,0,0,168,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(dst, src, AES_BLOCK_SIZE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"#endif /* !aarch64 */
+#endif // NO_OPTIMIZED_MULTIPLY_ON_ARM
+",33,0,0,1,0,0,0,0,61,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&state.hs, data, length);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"#else
+    uint8_t *long_state = (uint8_t *)malloc(MEMORY);
+#endif",32,0,0,1,0,0,0,0,65,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    if (prehashed) {
+        memcpy(&state.hs, data, length);
+    } else {",41,0,0,1,0,0,0,0,74,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(expandedKey, aes_ctx->key->exp_data, aes_ctx->key->exp_data_len);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    VARIANT1_INIT64();
+    VARIANT2_INIT64();
+    VARIANT4_RANDOM_MATH_INIT();",72,0,0,1,1,0,0,0,78,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&long_state[i * INIT_SIZE_BYTE], text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    memcpy(expandedKey, aes_ctx->key->exp_data, aes_ctx->key->exp_data_len);
+    for(i = 0; i < MEMORY / INIT_SIZE_BYTE; i++)
+    {",62,0,0,1,0,0,0,0,131,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      }
+      copy_block(b, c1);
+      copy_block(a, a1);",41,0,0,1,0,0,0,0,57,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(expandedKey, aes_ctx->key->exp_data, aes_ctx->key->exp_data_len);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      copy_block(a, a1);
+    }
+",72,0,0,1,1,0,0,0,31,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+oaes_free((OAES_CTX **) &aes_ctx);,src/crypto/slow-hash.c,Use After Free,HIGH,CWE-416,0.7,C/C++,Electroneum,1,"            xor_blocks(&text[j * AES_BLOCK_SIZE], &long_state[i * INIT_SIZE_BYTE + j * AES_BLOCK_SIZE]);
+            aesb_pseudo_round(&text[AES_BLOCK_SIZE * j], &text[AES_BLOCK_SIZE * j], expandedKey);
+        }",34,0,0,0,0,0,0,0,212,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False
+"memcpy(state.init, text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            aesb_pseudo_round(&text[AES_BLOCK_SIZE * j], &text[AES_BLOCK_SIZE * j], expandedKey);
+        }
+    }",41,0,0,1,0,0,0,0,113,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(dst, src, AES_BLOCK_SIZE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  ((uint64_t*)a)[1] = SWAP64LE(a1);
+}
+#define U64(x) ((uint64_t *) (x))",33,0,0,1,0,0,0,0,71,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&state.hs, data, length);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  size_t i, j;
+  uint8_t aes_key[AES_KEY_SIZE];
+  oaes_ctx *aes_ctx;",32,0,0,1,0,0,0,0,68,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  if (prehashed) {
+    memcpy(&state.hs, data, length);
+  } else {",41,0,0,1,0,0,0,0,66,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(aes_key, state.hs.b, AES_KEY_SIZE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    memcpy(&state.hs, data, length);
+  } else {
+    hash_process(&state.hs, data, length);",42,0,0,1,1,0,0,0,90,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&long_state[i * INIT_SIZE_BYTE], text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  oaes_key_import_data(aes_ctx, aes_key, AES_KEY_SIZE);
+  for (i = 0; i < MEMORY / INIT_SIZE_BYTE; i++) {
+    for (j = 0; j < INIT_SIZE_BLK; j++) {",62,0,0,1,0,0,0,0,147,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(text, state.init, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    }
+    copy_block(b, c1);
+    copy_block(a, a1);",41,0,0,1,0,0,0,0,51,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(state.init, text, INIT_SIZE_BYTE);",src/crypto/slow-hash.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    for (j = 0; j < INIT_SIZE_BLK; j++) {
+      xor_blocks(&text[j * AES_BLOCK_SIZE], &long_state[i * INIT_SIZE_BYTE + j * AES_BLOCK_SIZE]);
+      aesb_pseudo_round(&text[AES_BLOCK_SIZE * j], &text[AES_BLOCK_SIZE * j], aes_ctx->key->exp_data);",41,0,0,1,0,0,0,0,243,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+oaes_free((OAES_CTX **) &aes_ctx);,src/crypto/slow-hash.c,Use After Free,HIGH,CWE-416,0.7,C/C++,Electroneum,1,"  }
+  memcpy(state.init, text, INIT_SIZE_BYTE);
+  hash_permutation(&state.hs);",34,0,0,0,0,0,0,0,78,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False
+"memcpy(ptr2, ptr, ctrl->bytes);",src/common/aligned.c,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+  raw = malloc(bytes + sizeof(control) + ctrl->align);
+  if (!raw)",31,0,0,1,0,0,0,0,67,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+if(privateKey.size() != 32) {,src/crypto/crypto.cpp,Private Key Exposure,CRITICAL,CWE-798,0.7,C/C++,Electroneum,1,"    return sc_isnonzero(&h) == 0;
+  }
+",29,0,0,0,1,0,0,0,38,0,3,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False
+"std::memcpy(host_, host.data(), length);",src/net/i2p_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    {
+        // this is a private constructor, throw if moved to public
+        assert(host.size() < sizeof(host_));",40,0,0,1,0,0,0,0,117,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, unknown_host, sizeof(unknown_host));",src/net/i2p_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    i2p_address::i2p_address() noexcept
+      : port_(0)",55,0,0,1,0,0,0,0,57,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, in.host.data(), in.host.size());",src/net/i2p_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    bool i2p_address::_load(epee::serialization::portable_storage& src, epee::serialization::section* hparent)
+    {
+        i2p_serialized in{};",51,0,0,1,0,0,0,0,145,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, unknown_host, sizeof(unknown_host)); // include null terminator",src/net/i2p_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            std::memset(host_ + in.host.size(), 0, sizeof(host_) - in.host.size());
+            port_ = in.port;
+            return true;",82,0,0,1,0,0,0,0,137,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, rhs.host_, sizeof(host_));",src/net/i2p_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    }
+
+    i2p_address::i2p_address(const i2p_address& rhs) noexcept",45,0,0,1,0,0,0,0,68,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, rhs.host_, sizeof(host_));",src/net/i2p_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    i2p_address& i2p_address::operator=(const i2p_address& rhs) noexcept
+    {
+        if (this != std::addressof(rhs))",45,0,0,1,0,0,0,0,119,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(out.data(), std::addressof(temp), sizeof(temp));",src/net/socks.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            if (out.size() < buf_size)
+                return 0;
+",60,0,0,1,0,0,0,0,65,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(out.data(), domain.data(), domain.size());",src/net/socks.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            out.remove_prefix(sizeof(temp));
+
+            *(out.data()) = 0;",54,0,0,1,0,0,0,0,76,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(std::addressof(buffer_), std::addressof(temp), sizeof(temp));",src/net/socks.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        static_assert(sizeof(v4_header) < sizeof(buffer_), ""buffer size too small for request"");
+        static_assert(0 < sizeof(buffer_), ""buffer size too small for null termination"");
+",73,0,0,1,0,0,0,0,187,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, host.data(), length);",src/net/tor_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    {
+        // this is a private constructor, throw if moved to public
+        assert(host.size() < sizeof(host_));",40,0,0,1,0,0,0,0,117,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, unknown_host, sizeof(unknown_host));",src/net/tor_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    tor_address::tor_address() noexcept
+      : port_(0)",55,0,0,1,0,0,0,0,57,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, in.host.data(), in.host.size());",src/net/tor_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    bool tor_address::_load(epee::serialization::portable_storage& src, epee::serialization::section* hparent)
+    {
+        tor_serialized in{};",51,0,0,1,0,0,0,0,145,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, unknown_host, sizeof(unknown_host)); // include null terminator",src/net/tor_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            std::memset(host_ + in.host.size(), 0, sizeof(host_) - in.host.size());
+            port_ = in.port;
+            return true;",82,0,0,1,0,0,0,0,137,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, rhs.host_, sizeof(host_));",src/net/tor_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    }
+
+    tor_address::tor_address(const tor_address& rhs) noexcept",45,0,0,1,0,0,0,0,68,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(host_, rhs.host_, sizeof(host_));",src/net/tor_address.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    tor_address& tor_address::operator=(const tor_address& rhs) noexcept
+    {
+        if (this != std::addressof(rhs))",45,0,0,1,0,0,0,0,119,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+SHELLEXECUTEINFO info{};,src/daemonizer/windows_service.cpp,Command Injection,CRITICAL,CWE-78,0.8,C/C++,Electroneum,1,"  bool relaunch_as_admin(
+      std::string const & command
+    , std::string const & arguments",24,1,0,0,0,0,0,0,95,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+if (!ShellExecuteEx(&info)),src/daemonizer/windows_service.cpp,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"    info.lpVerb = ""runas"";
+    info.lpFile = command.c_str();
+    info.lpParameters = arguments.c_str();",27,1,0,0,0,0,0,0,104,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data, ""amount"", 6);",src/ringct/rctOps.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    // where C= aG + bH
+    static key ecdhHash(const key &k)
+    {",26,0,0,1,0,0,0,0,67,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data + 6, &k, sizeof(k));",src/ringct/rctOps.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    static key ecdhHash(const key &k)
+    {
+        char data[38];",32,0,0,1,0,0,0,0,66,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data, ""commitment_mask"", 15);",src/ringct/rctOps.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            v.bytes[i] ^= k.bytes[i];
+    }
+    key genCommitmentMask(const key &sk)",36,0,0,1,0,0,0,0,84,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data + 15, &sk, sizeof(sk));",src/ringct/rctOps.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    }
+    key genCommitmentMask(const key &sk)
+    {",35,0,0,1,0,0,0,0,52,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(seckey1, m_wallet->get_account().get_keys().m_spend_secret_key.data, 32);",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    unsigned char seckey1[32];
+    unsigned char public_key64[65];
+    size_t pk_len = 65;",80,0,0,1,1,0,0,0,90,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(address, pubkey1.data + 12, 20); // take the last 20 bytes of the 32 byte array for the address",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    // as keccak-256 with a 32 byte output. 24 rounds is the default in Monero for keccak()
+    // the first byte is the compression type so hash the 64 bytes after the first byte only
+    // I have put the 32 byte hash inside  pubkey1.data just to save time",102,0,0,1,1,0,0,0,258,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"if (!fgets(str, sizeof(str), f.get()))",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    std::unique_ptr<FILE, tools::close_file> f(fopen(args[0].c_str(), ""r""));
+    if (f)
+    {",38,0,0,0,0,0,0,0,93,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&txid, &key_images[0], sizeof(txid));",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      fail_msg_writer() << tr(""Invalid key image or txid"");
+      return true;
+    }",44,0,0,1,1,0,0,0,84,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"if (!fgets(str, sizeof(str), f.get()))",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      std::unique_ptr<FILE, tools::close_file> f(fopen(args[0].c_str(), ""r""));
+      if (f)
+      {",38,0,0,0,0,0,0,0,99,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"success_msg_writer() << ""ask-password = "" << m_wallet->ask_password() << "" ("" << ask_password_string << "")"";",src/simplewallet/simplewallet.cpp,Hardcoded Credentials,CRITICAL,CWE-798,0.7,C/C++,Electroneum,1,"    success_msg_writer() << ""default-ring-size = "" << (m_wallet->default_mixin() ? m_wallet->default_mixin() + 1 : 0);
+    success_msg_writer() << ""auto-refresh = "" << m_wallet->auto_refresh();
+    success_msg_writer() << ""refresh-type = "" << get_refresh_type_name(m_wallet->get_refresh_type());",108,0,0,0,1,0,0,0,295,0,3,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+"uint64_t unlocked_balance = m_wallet->unlocked_balance(m_current_subaddress_account, false, &blocks_to_unlock);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"  success_msg_writer() << tr(""Currently selected account: ["") << m_current_subaddress_account << tr(""] "") << m_wallet->get_subaddress_label({m_current_subaddress_account, 0});
+  const std::string tag = m_wallet->get_account_tags().second[m_current_subaddress_account];
+  success_msg_writer() << tr(""Tag: "") << (tag.empty() ? std::string{tr(""(No tag assigned)"")} : tag);",111,0,0,0,0,0,0,0,369,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"uint64_t unlocked_balance_public_chain = m_wallet->unlocked_balance(m_current_subaddress_account, true, &blocks_to_unlock_public_chain);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"  const std::string tag = m_wallet->get_account_tags().second[m_current_subaddress_account];
+  success_msg_writer() << tr(""Tag: "") << (tag.empty() ? std::string{tr(""(No tag assigned)"")} : tag);
+",136,0,0,0,0,0,0,0,194,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"std::map<uint32_t, uint64_t> balance_per_subaddress = m_wallet->balance_per_subaddress(m_current_subaddress_account);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"    success_msg_writer() << tr(""Balance: "") << print_etn(m_wallet->balance(m_current_subaddress_account, true))
+                         << "", ""
+                         << tr(""Unlocked balance: "") << print_etn(unlocked_balance_public_chain) << unlock_time_message_public_chain << extra;",117,0,0,0,0,0,0,0,287,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"std::map<uint32_t, std::pair<uint64_t, uint64_t>> unlocked_balance_per_subaddress = m_wallet->unlocked_balance_per_subaddress(m_current_subaddress_account);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                         << "", ""
+                         << tr(""Unlocked balance: "") << print_etn(unlocked_balance_public_chain) << unlock_time_message_public_chain << extra;
+  }",156,0,0,0,0,0,0,0,179,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"std::map<uint32_t, uint64_t> balance_per_subaddress_public_chain = m_wallet->balance_per_subaddress(m_current_subaddress_account, true);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                         << tr(""Unlocked balance: "") << print_etn(unlocked_balance_public_chain) << unlock_time_message_public_chain << extra;
+  }
+",136,0,0,0,0,0,0,0,147,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"std::map<uint32_t, std::pair<uint64_t, uint64_t>> unlocked_balance_per_subaddress_public_chain = m_wallet->unlocked_balance_per_subaddress(m_current_subaddress_account, true);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"  }
+
+  std::map<uint32_t, uint64_t> balance_per_subaddress = m_wallet->balance_per_subaddress(m_current_subaddress_account);",175,0,0,0,0,0,0,0,124,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8); // convert short pid to regular",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+      crypto::hash payment_id;
+      std::string extra_nonce;",81,0,0,1,0,0,0,0,62,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8); // convert short pid to regular",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      return true;
+    }
+",81,0,0,1,0,0,0,0,25,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8); // convert short pid to regular",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      return true;
+    }
+",81,0,0,1,0,0,0,0,25,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8); // convert short pid to regular",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            payment_id_string += std::string(""dummy payment ID"");
+          }
+          else",77,0,0,1,0,0,0,0,92,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+running_balance += transfer.amount;,src/simplewallet/simplewallet.cpp,Integer Overflow,HIGH,CWE-190,0.6,C/C++,Electroneum,1,"  {
+    // ignore unconfirmed transfers in running balance
+    if (transfer.confirmed)",35,0,0,0,0,0,0,0,86,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+"uint64_t total_balance = 0, total_unlocked_balance = 0, total_balance_public_chain = 0, total_unlocked_balance_public_chain = 0;",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"    }
+    success_msg_writer() << tr(""Accounts with tag: "") << tag;
+    success_msg_writer() << tr(""Tag's description: "") << account_tags.first.find(tag)->second;",128,0,0,0,0,0,0,0,162,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"total_balance += m_wallet->balance(account_index, false);",src/simplewallet/simplewallet.cpp,Integer Overflow,HIGH,CWE-190,0.7,C/C++,Electroneum,1,"                                    % account_index
+                                    % m_wallet->get_subaddress_as_str({account_index, 0}).substr(0, 6)
+                                    % print_etn(m_wallet->balance(account_index, false))",57,0,0,0,0,0,0,0,243,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+"total_balance += m_wallet->balance(account_index, false);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                                    % account_index
+                                    % m_wallet->get_subaddress_as_str({account_index, 0}).substr(0, 6)
+                                    % print_etn(m_wallet->balance(account_index, false))",57,0,0,0,0,0,0,0,243,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"total_unlocked_balance += m_wallet->unlocked_balance(account_index, false);",src/simplewallet/simplewallet.cpp,Integer Overflow,HIGH,CWE-190,0.7,C/C++,Electroneum,1,"                                    % m_wallet->get_subaddress_as_str({account_index, 0}).substr(0, 6)
+                                    % print_etn(m_wallet->balance(account_index, false))
+                                    % print_etn(m_wallet->unlocked_balance(account_index, false))",75,0,0,0,0,0,0,0,289,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+"total_unlocked_balance += m_wallet->unlocked_balance(account_index, false);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                                    % m_wallet->get_subaddress_as_str({account_index, 0}).substr(0, 6)
+                                    % print_etn(m_wallet->balance(account_index, false))
+                                    % print_etn(m_wallet->unlocked_balance(account_index, false))",75,0,0,0,0,0,0,0,289,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"total_balance_public_chain += m_wallet->balance(account_index, true);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                                    % account_index
+                                    % m_wallet->get_subaddress_as_str({account_index, 0}).substr(0, 6)
+                                    % print_etn(m_wallet->balance(account_index, true))",69,0,0,0,0,0,0,0,242,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"total_unlocked_balance_public_chain += m_wallet->unlocked_balance(account_index, true);",src/simplewallet/simplewallet.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                                    % m_wallet->get_subaddress_as_str({account_index, 0}).substr(0, 6)
+                                    % print_etn(m_wallet->balance(account_index, true))
+                                    % print_etn(m_wallet->unlocked_balance(account_index, true))",87,0,0,0,0,0,0,0,287,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8);",src/simplewallet/simplewallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    }
+    crypto::hash payment_id = crypto::null_hash;
+    size_t description_start = 2;",49,0,0,1,0,0,0,0,88,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"if (!fgets(s, sizeof(s), f))",src/blockchain_utilities/blockchain_blackball.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    return {};
+  }
+  while (1)",28,0,0,0,0,0,0,0,30,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"sprintf(buf, ""\t%02u:00"", i);",src/blockchain_utilities/blockchain_stats.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    std::cout << ""\tRingMin\tRingMax\tRingAvg"";
+  if (do_hours) {
+    char buf[8];",29,0,0,1,0,0,0,0,82,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"if (!fgets(s, sizeof(s), f))",src/blockchain_utilities/blockchain_prune_known_spent_data.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    return {};
+  }
+  while (1)",28,0,0,0,0,0,0,0,30,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"sprintf(outputBuffer + (i * 2), ""%02x"", hash[i]);",src/blockchain_utilities/blockchain_import.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"{
+    int i = 0;
+",49,0,0,1,0,0,0,0,17,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&recv_derivation, rct::identity().bytes, sizeof(recv_derivation));",src/cryptonote_basic/cryptonote_format_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    crypto::key_derivation recv_derivation = AUTO_VAL_INIT(recv_derivation);
+    bool r = hwdev.generate_key_derivation(tx_public_key, ack.m_view_secret_key, recv_derivation);
+    if (!r)",73,0,0,1,0,0,0,0,187,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&tx_extra[pos], tx_extra_str.data(), tx_extra_str.size());",src/cryptonote_basic/cryptonote_format_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    CHECK_AND_NO_ASSERT_MES_L1(r, false, ""failed to serialize tx extra additional tx pub keys"");
+    // append
+    std::string tx_extra_str = oss.str();",65,0,0,1,0,0,0,0,152,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&tx_extra[start_pos], extra_nonce.data(), extra_nonce.size());",src/cryptonote_basic/cryptonote_format_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    //write len
+    ++start_pos;
+    tx_extra[start_pos] = static_cast<uint8_t>(extra_nonce.size());",69,0,0,1,0,0,0,0,100,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&tx_extra[start_pos], bridge_source_address.data(), bridge_source_address.size());",src/cryptonote_basic/cryptonote_format_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        //write len
+        ++start_pos;
+        tx_extra[start_pos] = static_cast<uint8_t>(bridge_source_address.size());",89,0,0,1,0,0,0,0,122,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&tx_extra[start_pos], bridge_smartchain_address.data(), bridge_smartchain_address.size());",src/cryptonote_basic/cryptonote_format_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        //write len
+        ++start_pos;
+        tx_extra[start_pos] = static_cast<uint8_t>(bridge_smartchain_address.size());",97,0,0,1,0,0,0,0,126,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"s.insert(0, decimal_point+1 - s.size(), '0');",src/cryptonote_basic/cryptonote_format_utils.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"    if (decimal_point == (unsigned int)-1)
+      decimal_point = default_decimal_point;
+    std::string s = std::to_string(amount);",45,0,1,0,0,0,0,0,131,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(data.data(), &base_key, sizeof(base_key));",src/cryptonote_basic/account.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  //-----------------------------------------------------------------
+  static void derive_key(const crypto::chacha_key &base_key, crypto::chacha_key &key)
+  {",49,0,0,1,1,0,0,0,159,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(reinterpret_cast<uint8_t*>(&res) + sizeof(uint64_t) - size, data, size);",src/common/base58.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      uint64_t uint_8be_to_64(const uint8_t* data, size_t size)
+      {
+        assert(1 <= size && size <= sizeof(uint64_t));",79,0,0,1,0,0,0,0,126,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data, reinterpret_cast<uint8_t*>(&num_be) + sizeof(uint64_t) - size, size);",src/common/base58.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      void uint_64_to_8be(uint64_t num, size_t size, uint8_t* data)
+      {
+        assert(1 <= size && size <= sizeof(uint64_t));",82,0,0,1,0,0,0,0,130,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"extern ""C"" void* memcpy(void* a, const void* b, size_t c)",src/common/compat/glibc_compat.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"#endif
+
+// Prior to GLIBC_2.14, memcpy was aliased to memmove.",57,0,0,1,0,0,0,0,62,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ki, &hash, sizeof(ki));",src/daemon/command_parser_executor.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  const std::string& str = args.front();
+  crypto::key_image ki;
+  crypto::hash hash;",31,0,0,1,0,0,0,0,85,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+req.privateKey = privateKey;,src/daemon/rpc_command_executor.cpp,Private Key Exposure,CRITICAL,CWE-798,0.6,C/C++,Electroneum,1,"  cryptonote::COMMAND_RPC_SIGN_MESSAGE::request req;
+  cryptonote::COMMAND_RPC_SIGN_MESSAGE::response res;
+  std::string fail_message = ""Unsuccessful"";",28,0,0,0,1,0,0,0,151,0,3,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False
+"if(!ins.insert(std::string(tokey_in.tx_hash.data, 32) + std::to_string(tokey_in.relative_offset)).second)",src/cryptonote_core/blockchain.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"    //check for duplicate inputs
+    std::unordered_set<std::string> ins;
+    for(const auto& in: tx.vin)",105,0,1,0,1,0,0,0,105,1,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(hash.data, p, sizeof(hash.data));",src/cryptonote_core/blockchain.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      {
+        p += sizeof(uint32_t);
+        for (uint32_t i = 0; i < nblocks; i++)",40,0,0,1,0,0,0,0,85,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"if(!ins.insert(std::string(tokey_in.tx_hash.data, 32) + std::to_string(tokey_in.relative_offset)).second)",src/cryptonote_core/cryptonote_core.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"  {
+    std::unordered_set<std::string> ins;
+    for(const auto& in: tx.vin)",105,0,1,0,1,0,0,0,76,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(seckey1, sender_account_keys.m_spend_secret_key.data, 32);",src/cryptonote_core/cryptonote_tx_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            unsigned char seckey1[32];
+            unsigned char public_key64[65];
+            size_t pk_len = 65;",65,0,0,1,1,0,0,0,114,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(address, pubkey1.data + 12, 20); // take the last 20 bytes of the 32 byte array for the address",src/cryptonote_core/cryptonote_tx_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            // as keccak-256 with a 32 byte output. 24 rounds is the default in Monero for keccak()
+            // the first byte is the compression type so hash the 64 bytes after the first byte only
+            // I have put the 32 byte hash inside  pubkey1.data just to save time",102,0,0,1,1,0,0,0,282,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8); // convert short pid to regular",src/cryptonote_core/cryptonote_tx_utils.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        {
+          LOG_PRINT_L2(""Adding cleartext payment ID to extra nonce. Encrypted PIDs are now deprecated."" << payment_id8);
+",77,0,0,1,0,0,0,0,131,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data.get(), bd.data(), bd.size());",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"struct MDB_val_copy<cryptonote::blobdata>: public MDB_val
+{
+  MDB_val_copy(const cryptonote::blobdata &bd) :",41,0,0,1,0,0,0,0,108,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(mv_data, s, size);",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    size(strlen(s)+1), // include the NUL, makes it easier for compares
+    data(new char[size])
+  {",25,0,0,1,0,0,0,0,100,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&va, a->mv_data, sizeof(va));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"{
+
+int BlockchainLMDB::compare_uint64(const MDB_val *a, const MDB_val *b)",36,0,0,1,0,0,0,0,73,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&vb, b->mv_data, sizeof(vb));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+int BlockchainLMDB::compare_uint64(const MDB_val *a, const MDB_val *b)
+{",36,0,0,1,0,0,0,0,73,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&pruning_seed, v.mv_data, sizeof(pruning_seed));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  if (result)
+    throw0(DB_ERROR(lmdb_error(""Failed to retrieve pruning seed: "", result).c_str()));
+  if (v.mv_size != sizeof(uint32_t))",55,0,0,1,0,0,0,0,137,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&block_height, v.mv_data, sizeof(block_height));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        break;
+      if (ret)
+        throw0(DB_ERROR(lmdb_error(""Failed to enumerate transactions: "", ret).c_str()));",55,0,0,1,0,0,0,0,118,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ti, v.mv_data, sizeof(ti));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        throw0(DB_ERROR(lmdb_error(""Failed to enumerate transactions: "", ret).c_str()));
+
+      ++n_total_records;",35,0,0,1,0,0,0,0,114,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&max_block_size, v.mv_data, sizeof(max_block_size));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  if (result)
+    throw0(DB_ERROR(lmdb_error(""Failed to retrieve max block size: "", result).c_str()));
+  if (v.mv_size != sizeof(uint64_t))",59,0,0,1,0,0,0,0,139,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&max_block_size, v.mv_data, sizeof(max_block_size));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  uint64_t max_block_size = 0;
+  if (result == 0)
+  {",59,0,0,1,0,0,0,0,53,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ret, &okp->data, sizeof(pre_rct_output_data_t));;",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    ret = okp->data;
+  }
+  else",57,0,0,1,0,0,0,0,31,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&data, &okp->data, sizeof(pre_rct_output_data_t));",src/blockchain_db/lmdb/db_lmdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    else
+    {
+      const pre_rct_outkey *okp = (const pre_rct_outkey *)v.mv_data;",57,0,0,1,0,0,0,0,83,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"res.balance = req.all_accounts ? m_wallet->balance_all(syncedV10) : m_wallet->balance(req.account_index, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"  {
+    if (!m_wallet) return not_open(er);
+    try",116,0,0,0,0,0,0,0,51,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"res.unlocked_balance = req.all_accounts ? m_wallet->unlocked_balance_all(syncedV10, &res.blocks_to_unlock) : m_wallet->unlocked_balance(req.account_index, syncedV10, &res.blocks_to_unlock);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"    if (!m_wallet) return not_open(er);
+    try
+    {",189,0,0,0,0,0,0,0,53,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"balance_per_subaddress_per_account[account_index] = m_wallet->balance_per_subaddress(account_index, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"      std::map<uint32_t, std::map<uint32_t, std::pair<uint64_t, uint64_t>>> unlocked_balance_per_subaddress_per_account;
+      if (req.all_accounts)
+      {",111,0,0,0,0,0,0,0,156,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"unlocked_balance_per_subaddress_per_account[account_index] = m_wallet->unlocked_balance_per_subaddress(account_index, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"      if (req.all_accounts)
+      {
+        for (uint32_t account_index = 0; account_index < m_wallet->get_num_subaddress_accounts(); ++account_index)",129,0,0,0,0,0,0,0,150,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"balance_per_subaddress_per_account[req.account_index] = m_wallet->balance_per_subaddress(req.account_index, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"          unlocked_balance_per_subaddress_per_account[account_index] = m_wallet->unlocked_balance_per_subaddress(account_index, syncedV10);
+        }
+      }",119,0,0,0,0,0,0,0,157,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"unlocked_balance_per_subaddress_per_account[req.account_index] = m_wallet->unlocked_balance_per_subaddress(req.account_index, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"        }
+      }
+      else",137,0,0,0,0,0,0,0,28,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"std::map<uint32_t, std::pair<uint64_t, uint64_t>> unlocked_balance_per_subaddress = unlocked_balance_per_subaddress_per_account[account_index];",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"      m_wallet->get_transfers(transfers);
+      for (const auto& p : balance_per_subaddress_per_account)
+      {",143,0,0,0,0,0,0,0,112,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+info.balance = balance_per_subaddress[i];,src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"          wallet_rpc::COMMAND_RPC_GET_BALANCE::per_subaddress_info info;
+          info.account_index = account_index;
+          info.address_index = i;",41,0,0,0,0,0,0,0,152,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+info.unlocked_balance = unlocked_balance_per_subaddress[i].first;,src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"          info.account_index = account_index;
+          info.address_index = i;
+          cryptonote::subaddress_index index = {info.account_index, info.address_index};",65,0,0,0,0,0,0,0,168,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"info.balance = m_wallet->balance(subaddr_index.major, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"        subaddr_index.major = static_cast<uint32_t>(std::stoul(req.account_index));
+
+        wallet_rpc::COMMAND_RPC_GET_ACCOUNTS::subaddress_account_info info;",65,0,0,0,0,0,0,0,160,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"
+        wallet_rpc::COMMAND_RPC_GET_ACCOUNTS::subaddress_account_info info;
+        info.account_index = subaddr_index.major;",83,0,0,0,0,0,0,0,126,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+res.total_balance += info.balance;,src/wallet/wallet_rpc_server.cpp,Integer Overflow,HIGH,CWE-190,0.6,C/C++,Electroneum,1,"        info.base_address = m_wallet->get_subaddress_as_str(subaddr_index);
+        info.balance = m_wallet->balance(subaddr_index.major, syncedV10);
+        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);",34,0,0,0,0,0,0,0,241,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+res.total_balance += info.balance;,src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"        info.base_address = m_wallet->get_subaddress_as_str(subaddr_index);
+        info.balance = m_wallet->balance(subaddr_index.major, syncedV10);
+        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);",34,0,0,0,0,0,0,0,241,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+res.total_unlocked_balance += info.unlocked_balance;,src/wallet/wallet_rpc_server.cpp,Integer Overflow,HIGH,CWE-190,0.6,C/C++,Electroneum,1,"        info.balance = m_wallet->balance(subaddr_index.major, syncedV10);
+        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);
+        info.label = m_wallet->get_subaddress_label(subaddr_index);",52,0,0,0,0,0,0,0,233,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+res.total_unlocked_balance += info.unlocked_balance;,src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"        info.balance = m_wallet->balance(subaddr_index.major, syncedV10);
+        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);
+        info.label = m_wallet->get_subaddress_label(subaddr_index);",52,0,0,0,0,0,0,0,233,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"info.balance = m_wallet->balance(subaddr_index.major, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"        if (!req.tag.empty() && req.tag != account_tags.second[subaddr_index.major])
+          continue;
+        wallet_rpc::COMMAND_RPC_GET_ACCOUNTS::subaddress_account_info info;",65,0,0,0,0,0,0,0,180,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);",src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"          continue;
+        wallet_rpc::COMMAND_RPC_GET_ACCOUNTS::subaddress_account_info info;
+        info.account_index = subaddr_index.major;",83,0,0,0,0,0,0,0,145,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+res.total_balance += info.balance;,src/wallet/wallet_rpc_server.cpp,Integer Overflow,HIGH,CWE-190,0.6,C/C++,Electroneum,1,"        info.balance = m_wallet->balance(subaddr_index.major, syncedV10);
+        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);
+        info.label = m_wallet->get_subaddress_label(subaddr_index);",34,0,0,0,0,0,0,0,233,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+res.total_balance += info.balance;,src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"        info.balance = m_wallet->balance(subaddr_index.major, syncedV10);
+        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);
+        info.label = m_wallet->get_subaddress_label(subaddr_index);",34,0,0,0,0,0,0,0,233,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+res.total_unlocked_balance += info.unlocked_balance;,src/wallet/wallet_rpc_server.cpp,Integer Overflow,HIGH,CWE-190,0.6,C/C++,Electroneum,1,"        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);
+        info.label = m_wallet->get_subaddress_label(subaddr_index);
+        info.tag = account_tags.second[subaddr_index.major];",52,0,0,0,0,0,0,0,220,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+res.total_unlocked_balance += info.unlocked_balance;,src/wallet/wallet_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"        info.unlocked_balance = m_wallet->unlocked_balance(subaddr_index.major, syncedV10);
+        info.label = m_wallet->get_subaddress_label(subaddr_index);
+        info.tag = account_tags.second[subaddr_index.major];",52,0,0,0,0,0,0,0,220,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8); // convert short pid to regular",src/wallet/wallet_rpc_server.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"          er.message = ""A single payment id is allowed per transaction"";
+          return false;
+        }",81,0,0,1,0,0,0,0,106,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8); // convert short pid to regular",src/wallet/wallet_rpc_server.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"          {
+            crypto::hash payment_id;
+            if(cryptonote::get_encrypted_payment_id_from_tx_extra_nonce(extra_nonce.nonce, payment_id8))",77,0,0,1,0,0,0,0,153,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8);",src/wallet/wallet_rpc_server.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        payment_id = *reinterpret_cast<const crypto::hash*>(payment_id_blob.data());
+      }
+      else if(sizeof(payment_id8) == payment_id_blob.size())",45,0,0,1,0,0,0,0,153,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8);",src/wallet/wallet_rpc_server.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      else if (payment_id_str.size() == 2 * sizeof(payment_id8))
+      {
+        r = epee::string_tools::hex_to_pod(payment_id_str, payment_id8);",45,0,0,1,0,0,0,0,145,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8);",src/wallet/wallet_rpc_server.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        er.message = std::string(""WALLET_RPC_ERROR_CODE_WRONG_ADDRESS: "") + req.address;
+      return false;
+    }",49,0,0,1,0,0,0,0,114,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"const command_line::arg_descriptor<std::string> daemon_ssl_private_key = {""daemon-ssl-private-key"", tools::wallet2::tr(""Path to a PEM format private key""), """"};",src/wallet/wallet2.cpp,Private Key Exposure,CRITICAL,CWE-798,0.7,C/C++,Electroneum,1,"  const command_line::arg_descriptor<std::string> password = {""password"", tools::wallet2::tr(""Wallet password (For a wallet without a password use \""\"")""), """", true};
+  const command_line::arg_descriptor<std::string> password_file = {""password-file"", tools::wallet2::tr(""Wallet password file""), """", true};
+  const command_line::arg_descriptor<int> daemon_port = {""daemon-port"", tools::wallet2::tr(""Use daemon instance at port <arg> instead of 26968""), 0};",160,0,0,0,1,0,0,0,455,0,3,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8); // convert short pid to regular",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    // Remove encrypted
+    remove_field_from_tx_extra(construction_data.extra, typeid(cryptonote::tx_extra_nonce));
+    // Add decrypted",77,0,0,1,0,0,0,0,137,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&derivation, rct::identity().bytes, sizeof(derivation));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"              hwdev.set_mode(hw::device::TRANSACTION_PARSE);
+              if (!hwdev.generate_key_derivation(tx_pub_key, keys.m_view_secret_key, derivation)) {
+                  MWARNING(""Failed to generate key derivation from tx pubkey in "" << txid << "", skipping"");",63,0,0,1,0,0,0,0,268,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8);",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            LOG_PRINT_L0(""Failed to decrypt payment ID: "" << payment_id8);
+          }
+          else",45,0,0,1,0,0,0,0,101,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&iod.derivation, rct::identity().bytes, sizeof(iod.derivation));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  auto gender = [&](wallet2::is_out_data &iod) {
+    if (!hwdev.generate_key_derivation(iod.pkey, keys.m_view_secret_key, iod.derivation))
+    {",71,0,0,1,0,0,0,0,144,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+unlocked_balance_per_subaddress_per_account[account_index] = this->unlocked_balance_per_subaddress(,src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                LOG_PRINT_L0(
+                        ""You are now on the transparent version of Electroneum and so we're giving you the chance to migrate your funds via a sweep transaction back to your address.\n Don't worry, this migration is completely free of charge. Please follow the prompts to continue."");
+                std::map<uint32_t, std::map<uint32_t, std::pair<uint64_t, uint64_t>>> unlocked_balance_per_subaddress_per_account; // map of:   account index ---->  (subaddress index, pair(u-balance, unlock time))",99,0,0,0,0,0,0,0,527,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+(this->unlocked_balance_all(true) == this->balance_all(true))) {,src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"            // ONLY do migration transactions after the fork block
+            uint64_t smartchain_migration_minheight = this->nettype() == MAINNET ? 1811310 : 1455270;
+            if (this->get_blockchain_current_height() > smartchain_migration_minheight) {",64,0,0,0,0,0,0,0,258,1,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+unlocked_balance_per_subaddress_per_account[account_index] = this->unlocked_balance_per_subaddress(,src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"                    std::cout << ""This transaction is feeless. For further information, please read our documentation over at https:///developer.electroneum.com/migration-to-smart-chain/overview"" << std::endl;
+                    std::map<uint32_t, std::map<uint32_t, std::pair<uint64_t, uint64_t>>> unlocked_balance_per_subaddress_per_account; // map of:   account index ---->  (subaddress index, pair(u-balance, unlock time))
+                    // for each account, grab all of the subaddress info (index, (balance, unlock))",99,0,0,0,0,0,0,0,527,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"memcpy(cache_key_data.data(), &key, HASH_SIZE);",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    m_account.decrypt_viewkey(key);
+  }
+",47,0,0,1,1,0,0,0,40,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8);",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  if (parse_long_payment_id(payment_id_str, payment_id))
+    return true;
+  crypto::hash8 payment_id8;",45,0,0,1,0,0,0,0,102,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"uint64_t unlock_height = td.m_block_height + std::max<uint64_t>(UNLOCK_WINDOW, CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS);",src/wallet/wallet2.cpp,Integer Overflow,HIGH,CWE-190,0.6,C/C++,Electroneum,1,"      else
+      {
+",122,0,0,0,0,0,0,0,19,0,2,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False
+for (std::vector<size_t>::const_iterator i = selected_transfers.begin(); i != selected_transfers.end(); ++i),src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"  float best_relatedness = 1.0f;
+  for (size_t n = 0; n < unused_indices.size(); ++n)
+  {",108,0,1,0,0,0,0,0,89,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8);",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        MWARNING(""Encrypted payment id found, but no destinations public key, cannot decrypt"");
+        return crypto::null_hash;
+      }",45,0,0,1,0,0,0,0,137,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"""Bad output index in selected transfers: "" + boost::lexical_cast<std::string>(idx));",src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.6,C/C++,Electroneum,1,"    THROW_WALLET_EXCEPTION_IF(daemon_send_resp.status != CORE_RPC_STATUS_OK, error::tx_rejected, ptx.tx, get_rpc_status(daemon_send_resp.status), get_text_reason(daemon_send_resp));
+    // sanity checks
+    for (size_t idx: ptx.selected_transfers)",84,0,1,0,0,0,0,0,247,1,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(&derivation, rct::identity().bytes, sizeof(derivation));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    hwdev.set_mode(hw::device::TRANSACTION_PARSE);
+    if (!hwdev.generate_key_derivation(tx_pub_key, keys.m_view_secret_key, derivation))
+    {",63,0,0,1,0,0,0,0,144,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&additional_derivations.back(), rct::identity().bytes, sizeof(crypto::key_derivation));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    {
+      additional_derivations.push_back({});
+      if (!hwdev.generate_key_derivation(additional_tx_pub_keys[i], keys.m_view_secret_key, additional_derivations.back()))",94,0,0,1,1,0,0,0,173,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+for (size_t i = 0; i < selected_transfers.size(); ++i) {,src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"      }
+  }
+",56,0,1,0,0,0,0,0,12,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+for (auto i = ++selected_transfers.begin(); i != selected_transfers.end(); ++i),src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"
+  LOG_PRINT_L2(""wanted "" << print_etn(needed_etn) << "", found "" << print_etn(found_etn) << "", fee "" << print_etn(fee));
+  THROW_WALLET_EXCEPTION_IF(found_etn < needed_etn, error::not_enough_unlocked_etn, found_etn, needed_etn - fee, fee);",79,0,1,0,0,0,0,0,239,1,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+m_light_wallet_unlocked_balance = m_light_wallet_balance;,src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"  m_light_wallet_balance = ires.total_received-wallet_total_sent;
+  // MyMonero doesn't send unlocked balance
+  if(ires.total_received_unlocked > 0)",57,0,0,0,0,0,0,0,148,1,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"std::map<uint32_t, std::pair<uint64_t, uint64_t>> unlocked_balance_per_subaddr = unlocked_balance_per_subaddress(subaddr_account, tx_version >= 3);",src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"  }
+
+  // throw if attempting a transaction with no etn",147,0,0,0,0,0,0,0,55,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"std::map<uint32_t, uint64_t> balance_per_subaddr = balance_per_subaddress(subaddr_account, tx_version >= 3);",src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"
+  // throw if attempting a transaction with no etn
+  THROW_WALLET_EXCEPTION_IF(needed_etn == 0, error::zero_destination);",108,0,0,0,0,0,0,0,122,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+balance_subtotal += balance_per_subaddr[index_minor];,src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"  }
+  uint64_t balance_subtotal = 0;
+  uint64_t unlocked_balance_subtotal = 0;",53,0,0,0,0,0,0,0,78,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+unlocked_balance_subtotal += unlocked_balance_per_subaddr[index_minor].first;,src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.6,C/C++,Electroneum,1,"  uint64_t balance_subtotal = 0;
+  uint64_t unlocked_balance_subtotal = 0;
+  for (uint32_t index_minor : subaddr_indices)",77,0,0,0,0,0,0,0,121,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"while (!dsts.empty() && dsts[0].amount <= available_amount && estimate_tx_weight(use_rct, tx.selected_transfers.size(), fake_outs_count, tx.dsts.size()+1, extra.size(), bulletproof) < TX_WEIGHT_TARGET(upper_transaction_weight_limit))",src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"      LOG_PRINT_L2(""We need more fee, adding it to fee"");
+      available_for_fee += available_amount;
+    }",233,0,1,0,0,0,0,0,108,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"if (available_amount > 0 && !dsts.empty() && estimate_tx_weight(use_rct, tx.selected_transfers.size(), fake_outs_count, tx.dsts.size()+1, extra.size(), bulletproof) < TX_WEIGHT_TARGET(upper_transaction_weight_limit)) {",src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"        dsts[0].amount = 0;
+        pop_index(dsts, 0);
+        ++original_output_index;",218,0,1,0,0,0,0,0,88,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"const size_t estimated_rct_tx_weight = estimate_tx_weight(use_rct, tx.selected_transfers.size(), fake_outs_count, tx.dsts.size()+1, extra.size(), bulletproof);",src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"        /* might not actually be enough if adding this output bumps size to next kB, but we need to try */
+        try_tx = available_for_fee >= needed_fee;
+      }",159,0,1,0,0,0,0,0,164,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"needed_fee = estimate_fee(use_per_byte_fee, use_rct ,tx.selected_transfers.size(), fake_outs_count, tx.dsts.size()+1, extra.size(), bulletproof, base_fee, fee_multiplier, fee_quantization_mask);",src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"    if (try_tx) {
+      cryptonote::transaction test_tx;
+      test_tx.version = tx_version;",194,0,1,0,0,0,0,0,92,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+for (size_t idx: tx.selected_transfers) inputs += m_transfers[idx].amount();,src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"      pending_tx test_ptx;
+
+      needed_fee = estimate_fee(use_per_byte_fee, use_rct ,tx.selected_transfers.size(), fake_outs_count, tx.dsts.size()+1, extra.size(), bulletproof, base_fee, fee_multiplier, fee_quantization_mask);",76,0,1,0,0,0,0,0,228,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"THROW_WALLET_EXCEPTION_IF(unlocked_balance(subaddr_account, tx_version >=3) == 0, error::wallet_internal_error, ""No unlocked balance in the entire wallet"");",src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"{
+  std::vector<size_t> unused_transfers_indices;
+  std::vector<size_t> unused_dust_indices;",156,0,0,0,0,0,0,0,92,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+"const uint64_t estimated_tx_weight_with_one_extra_output = estimate_tx_weight(use_rct, tx.selected_transfers.size() + 1, fake_outs_count, tx.dsts.size()+1, extra.size(), bulletproof);",src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"    // dust and non dust to ensure we never get with only dust, from which we might
+    // get a tx that can't pay for itself
+    uint64_t fee_dust_threshold;",183,0,1,0,0,0,0,0,158,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"const size_t estimated_rct_tx_weight = estimate_tx_weight(use_rct, tx.selected_transfers.size(), fake_outs_count, tx.dsts.size() + 2, extra.size(), bulletproof);",src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"    outs.clear();
+
+    // here, check if we need to sent tx and start a new one",161,0,1,0,0,0,0,0,79,1,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(&signatures.back()[j], sig_decoded.data(), sizeof(crypto::signature));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    for (size_t j = 0; j < in_key->key_offsets.size(); ++j)
+    {
+      std::string sig_decoded;",77,0,0,1,0,0,0,0,96,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&shared_secret[i], pk_decoded.data(), sizeof(crypto::public_key));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      ""Signature decoding error"");
+    THROW_WALLET_EXCEPTION_IF(!tools::base58::decode(sig_str.substr(offset + pk_len, sig_len), sig_decoded), error::wallet_internal_error,
+      ""Signature decoding error"");",73,0,0,1,1,0,0,0,208,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&sig[i], sig_decoded.data(), sizeof(crypto::signature));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    THROW_WALLET_EXCEPTION_IF(!tools::base58::decode(sig_str.substr(offset + pk_len, sig_len), sig_decoded), error::wallet_internal_error,
+      ""Signature decoding error"");
+    THROW_WALLET_EXCEPTION_IF(sizeof(crypto::public_key) != pk_decoded.size() || sizeof(crypto::signature) != sig_decoded.size(), error::wallet_internal_error,",63,0,0,1,0,0,0,0,333,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"THROW_WALLET_EXCEPTION_IF(balance_all(false) == 0, error::wallet_internal_error, ""Zero balance"");",src/wallet/wallet2.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"}
+
+std::string wallet2::get_reserve_proof(const boost::optional<std::pair<uint32_t, uint64_t>> &account_minreserve, const std::string &message)",97,0,0,0,0,0,0,0,143,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+for (size_t i = 0; i < selected_transfers.size(); ++i),src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"  }
+
+  // compute signature prefix hash",54,0,1,0,0,0,0,0,39,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+for (size_t i = 0; i < selected_transfers.size(); ++i),src/wallet/wallet2.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"  crypto::cn_fast_hash(prefix_data.data(), prefix_data.size(), prefix_hash);
+
+  // generate proof entries",54,0,1,0,0,0,0,0,105,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(&s, decoded.data(), sizeof(s));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  crypto::signature s;
+  if (sizeof(s) != decoded.size()) {
+    LOG_PRINT_L0(""Signature decoding error"");",38,0,0,1,0,0,0,0,105,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&s, decoded.data(), sizeof(s));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  crypto::signature s;
+  if (sizeof(s) != decoded.size()) {
+    MERROR(""Signature decoding error"");",38,0,0,1,0,0,0,0,99,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ciphertext[0], &iv, sizeof(iv));",src/wallet/wallet2.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  crypto::generate_chacha_key(&skey, sizeof(skey), key, m_kdf_rounds);
+  std::string ciphertext;
+  crypto::chacha_iv iv = crypto::rand<crypto::chacha_iv>();",40,0,0,1,0,0,0,0,156,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(buffer, &key_image, sizeof(key_image));",src/wallet/ringdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"static crypto::chacha_iv make_iv(const crypto::key_image &key_image, const crypto::chacha_key &key)
+{
+  static const char salt[] = ""ringdsb"";",46,0,0,1,1,0,0,0,141,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(buffer + sizeof(key_image), &key, sizeof(key));",src/wallet/ringdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"{
+  static const char salt[] = ""ringdsb"";
+",54,0,0,1,1,0,0,0,42,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(buffer + sizeof(key_image) + sizeof(key), salt, sizeof(salt));",src/wallet/ringdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  static const char salt[] = ""ringdsb"";
+
+  uint8_t buffer[sizeof(key_image) + sizeof(key) + sizeof(salt)];",69,0,0,1,1,0,0,0,106,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&iv, &hash, CHACHA_IV_SIZE);",src/wallet/ringdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  memcpy(buffer + sizeof(key_image) + sizeof(key), salt, sizeof(salt));
+  crypto::hash hash;
+  crypto::cn_fast_hash(buffer, sizeof(buffer), hash.data);",35,0,0,1,0,0,0,0,151,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&ciphertext[0], &iv, sizeof(iv));",src/wallet/ringdb.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"{
+  const crypto::chacha_iv iv = make_iv(key_image, key);
+  std::string ciphertext;",40,0,0,1,0,0,0,0,83,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"THROW_WALLET_EXCEPTION_IF(dbr, tools::error::wallet_internal_error, ""Failed to query blackballs table: "" + std::string(mdb_strerror(dbr)));",src/wallet/ringdb.cpp,SQL Injection,HIGH,CWE-89,0.7,C/C++,Electroneum,1,"      case BLACKBALL_CLEAR:
+        break;
+      default:",139,0,0,0,0,0,0,0,57,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8); // convert short pid to regular",src/wallet/api/unsigned_transaction.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        {
+          if (!payment_id_string.empty())
+            payment_id_string += "", "";",77,0,0,1,0,0,0,0,90,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, payment_id8.data, 8);",src/wallet/api/unsigned_transaction.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        {
+          crypto::hash8 payment_id8 = crypto::null_hash8;
+          if(cryptonote::get_encrypted_payment_id_from_tx_extra_nonce(extra_nonce.nonce, payment_id8))",45,0,0,1,0,0,0,0,170,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8);",src/wallet/api/address_book.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  }
+
+  // Pad short pid with zeros",49,0,0,1,0,0,0,0,34,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8); // convert short pid to regular",src/wallet/api/wallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            } else {
+                r = tools::wallet2::parse_short_payment_id(payment_id, info.payment_id);
+                if (r) {",81,0,0,1,0,0,0,0,134,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(payment_id.data, info.payment_id.data, 8); // convert short pid to regular",src/wallet/api/wallet.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            }
+        }
+        else if (info.has_payment_id) {",81,0,0,1,0,0,0,0,63,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"sprintf(to_buff+2*i, ""%.02x"", (unsigned char)buff[i]);",src/device/log.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  #define ELECTRONEUM_DEFAULT_LOG_CATEGORY ""device""
+
+  void buffer_to_str(char *to_buff,  size_t to_len, const char *buff, size_t len) {",54,0,0,1,0,0,0,0,136,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(this->sec, s, 32);",src/device/device_ledger.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* ===                        hmacmap                               ==== */
+    /* ===================================================================== */
+",25,0,0,1,0,0,0,0,160,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(this->hmac, h, 32);",src/device/device_ledger.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    /* ===================================================================== */
+
+",26,0,0,1,0,0,0,0,81,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(hmac, hmacs[i].hmac, 32);",src/device/device_ledger.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      size_t sz = hmacs.size();
+      log_hexbuffer(""find_mac: lookup for "", (char*)sec,32);
+      for (size_t i=0; i<sz; i++) {",32,0,0,1,0,0,0,0,128,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data.data(), &view_key, sizeof(view_key));",src/device/device_default.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+        bool  device_default::generate_chacha_key(const cryptonote::account_keys &keys, crypto::chacha_key &key, uint64_t kdf_rounds) {
+            const crypto::secret_key &view_key = keys.m_view_secret_key;",49,0,0,1,1,0,0,0,209,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data.data() + sizeof(view_key), &spend_key, sizeof(spend_key));",src/device/device_default.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        bool  device_default::generate_chacha_key(const cryptonote::account_keys &keys, crypto::chacha_key &key, uint64_t kdf_rounds) {
+            const crypto::secret_key &view_key = keys.m_view_secret_key;
+            const crypto::secret_key &spend_key = keys.m_spend_secret_key;",70,0,0,1,1,0,0,0,283,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data, prefix, sizeof(prefix));",src/device/device_default.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        }
+
+        crypto::secret_key device_default::get_subaddress_secret_key(const crypto::secret_key &a, const cryptonote::subaddress_index &index) {",37,0,0,1,0,0,0,0,153,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data + sizeof(prefix), &a, sizeof(crypto::secret_key));",src/device/device_default.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+        crypto::secret_key device_default::get_subaddress_secret_key(const crypto::secret_key &a, const cryptonote::subaddress_index &index) {
+            const char prefix[] = ""SubAddr"";",62,0,0,1,1,0,0,0,188,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data + sizeof(prefix) + sizeof(crypto::secret_key), &idx, sizeof(uint32_t));",src/device/device_default.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            const char prefix[] = ""SubAddr"";
+            char data[sizeof(prefix) + sizeof(crypto::secret_key) + 2 * sizeof(uint32_t)];
+            memcpy(data, prefix, sizeof(prefix));",83,0,0,1,1,0,0,0,185,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data + sizeof(prefix) + sizeof(crypto::secret_key) + sizeof(uint32_t), &idx, sizeof(uint32_t));",src/device/device_default.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            memcpy(data, prefix, sizeof(prefix));
+            memcpy(data + sizeof(prefix), &a, sizeof(crypto::secret_key));
+            uint32_t idx = SWAP32LE(index.major);",102,0,0,1,1,0,0,0,174,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data, &derivation, 32);",src/device/device_default.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            char data[33]; /* A hash, and an extra byte */
+
+            if (!generate_key_derivation(public_key, secret_key, derivation))",30,0,0,1,0,0,0,0,137,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(padding_buffer+1, buffer + offset, block_size);",src/device/device_io_hid.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      remaining = result;
+
+      while (remaining > 0) {",54,0,0,1,0,0,0,0,56,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(out + offset_out, command + offset, block_size);",src/device/device_io_hid.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      out[offset_out++] = ((command_len >> 8) & 0xff);
+      out[offset_out++] = (command_len & 0xff);
+      block_size = (command_len > this->packet_size - 7 ? this->packet_size - 7 : command_len);",55,0,0,1,0,0,0,0,198,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(out + offset_out, command + offset, block_size);",src/device/device_io_hid.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        out[offset_out++] = (sequence_idx & 0xff);
+        sequence_idx++;
+        block_size = ((command_len - offset) > this->packet_size - 5 ? this->packet_size - 5 : command_len - offset);",55,0,0,1,0,0,0,0,192,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(out + offset_out, data + offset, block_size);",src/device/device_io_hid.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      ASSERT_X(out_len >= response_len, ""Out Buffer too short"");
+      if (data_len < (7 + response_len)) {
+        return 0;",52,0,0,1,0,0,0,0,125,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(out + offset_out, data + offset, block_size);",src/device/device_io_hid.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+        block_size = ((response_len - offset_out) > this->packet_size - 5 ? this->packet_size - 5 : response_len - offset_out);
+        if (block_size > (data_len - offset)) {",52,0,0,1,0,0,0,0,176,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(viewkey.data, res->watch_key().data(), 32);",src/device_trezor/device_trezor.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        // the debugging code and need to remain same for the testing purposes.
+#ifndef WITH_TREZOR_DEBUGGING
+        spendkey = crypto::null_skey; // not given",50,0,0,1,1,0,0,0,160,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ki.data, buff, sizeof(ki.data));",src/device_trezor/device_trezor.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        protocol::crypto::chacha::decrypt(sub.blob().data(), sub.blob().size(),
+                                          reinterpret_cast<const uint8_t *>(final_ack->enc_key().data()),
+                                          reinterpret_cast<const uint8_t *>(sub.iv().data()), buff, &buff_len);",39,0,0,1,0,0,0,0,297,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(sig.c.data, buff + sizeof(ki.data), sizeof(ki.data));",src/device_trezor/device_trezor.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"                                          reinterpret_cast<const uint8_t *>(final_ack->enc_key().data()),
+                                          reinterpret_cast<const uint8_t *>(sub.iv().data()), buff, &buff_len);
+        CHECK_AND_ASSERT_THROW_MES(buff_len == sizeof(buff), ""Plaintext size invalid"");",60,0,0,1,0,0,0,0,305,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(sig.r.data, buff + 2*sizeof(ki.data), sizeof(ki.data));",src/device_trezor/device_trezor.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"                                          reinterpret_cast<const uint8_t *>(sub.iv().data()), buff, &buff_len);
+        CHECK_AND_ASSERT_THROW_MES(buff_len == sizeof(buff), ""Plaintext size invalid"");
+",62,0,0,1,0,0,0,0,200,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(buff, (void *) &wire_tag, 2);",src/device_trezor/trezor/transport.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  }
+
+  static void serialize_message_header(void * buff, uint16_t tag, uint32_t len){",36,0,0,1,0,0,0,0,85,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy((uint8_t*)buff + 2, (void *) &wire_len, 4);",src/device_trezor/trezor/transport.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+  static void serialize_message_header(void * buff, uint16_t tag, uint32_t len){
+    uint16_t wire_tag = boost::endian::native_to_big(static_cast<uint16_t>(tag));",50,0,0,1,0,0,0,0,163,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&wire_tag, buff, 2);",src/device_trezor/trezor/transport.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  }
+
+  static void deserialize_message_header(const void * buff, uint16_t & tag, uint32_t & len){",27,0,0,1,0,0,0,0,97,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&wire_len, (uint8_t*)buff + 2, 4);",src/device_trezor/trezor/transport.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+  static void deserialize_message_header(const void * buff, uint16_t & tag, uint32_t & len){
+    uint16_t wire_tag;",41,0,0,1,0,0,0,0,116,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(chunk_buff + 1, req_buff_raw + offset, to_copy);",src/device_trezor/trezor/transport.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    // Chunk by chunk upload
+    while(offset < buff_size){
+      auto to_copy = std::min((size_t)(buff_size - offset), (size_t)(REPLEN - 1));",55,0,0,1,0,0,0,0,142,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(desc, descriptor.get(), sizeof(libusb_device_descriptor));",src/device_trezor/trezor/transport.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  ): m_usb_session(nullptr), m_usb_device(nullptr), m_usb_device_handle(nullptr),
+     m_bus_id(-1), m_device_addr(-1)
+  {",65,0,0,1,0,0,0,0,122,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(key.data, str.data(), sizeof(key.data));",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+  void string_to_key(::crypto::ec_scalar & key, const std::string & str){
+    if (str.size() != sizeof(key.data)){",47,0,0,1,1,0,0,0,115,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(key.data, str.data(), sizeof(key.data));",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+  void string_to_key(::crypto::ec_point & key, const std::string & str){
+    if (str.size() != sizeof(key.data)){",47,0,0,1,1,0,0,0,114,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(key.bytes, str.data(), sizeof(key.bytes));",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+  void string_to_key(::rct::key & key, const std::string & str){
+    if (str.size() != sizeof(key.bytes)){",49,0,0,1,1,0,0,0,107,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ki.data, buff, 32);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        reinterpret_cast<const uint8_t *>(ack->key_image().data()),
+        reinterpret_cast<char *>(buff), &ki_len);
+",26,0,0,1,0,0,0,0,118,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(sig.c.data, buff + 32, 32);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        reinterpret_cast<char *>(buff), &ki_len);
+
+    CHECK_AND_ASSERT_THROW_MES(ki_len == 3*32, ""Invalid size"");",34,0,0,1,0,0,0,0,114,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(sig.r.data, buff + 64, 32);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    CHECK_AND_ASSERT_THROW_MES(ki_len == 3*32, ""Invalid size"");
+    ::crypto::signature sig{};",34,0,0,1,0,0,0,0,95,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(spend.data, spend_key.data(), 32);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    ::crypto::public_key spend{}, view{};
+    if (spend_key.size() != 32 || view_key.size() != 32){
+      throw std::invalid_argument(""Public keys have invalid sizes"");",41,0,0,1,1,0,0,0,168,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(view.data, view_key.data(), 32);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    if (spend_key.size() != 32 || view_key.size() != 32){
+      throw std::invalid_argument(""Public keys have invalid sizes"");
+    }",39,0,0,1,1,0,0,0,132,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(buff + offset, spend_key->data, 32); offset += 32;",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+  std::string hash_addr(const ::crypto::public_key * spend_key, const ::crypto::public_key * view_key, boost::optional<uint64_t> amount, boost::optional<bool> is_subaddr){
+    char buff[64+8+1];",57,0,0,1,1,0,0,0,195,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(buff + offset, view_key->data, 32); offset += 32;",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"  std::string hash_addr(const ::crypto::public_key * spend_key, const ::crypto::public_key * view_key, boost::optional<uint64_t> amount, boost::optional<bool> is_subaddr){
+    char buff[64+8+1];
+    size_t offset = 0;",56,0,0,1,1,0,0,0,217,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(buff + offset, (uint8_t*) &(amount.get()), sizeof(amount.get())); offset += sizeof(amount.get());",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+    memcpy(buff + offset, spend_key->data, 32); offset += 32;
+    memcpy(buff + offset, view_key->data, 32); offset += 32;",104,0,0,1,0,0,0,0,123,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(res.data, hash, sizeof(hash));",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    }
+    keccak_finish(&ctx, hash);
+    keccak(hash, sizeof(hash), hash, sizeof(hash));",37,0,0,1,0,0,0,0,88,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(cmask.bytes, mask.data() + c * 32, 32);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    }
+
+    m_ct.rsig_gamma.reserve(num_outputs());",46,0,0,1,0,0,0,0,50,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(ecdh.amount.bytes, ack->ecdh_info().data(), 8);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"      if (!cn_deserialize(ack->ecdh_info(), ecdh)){
+        throw exc::ProtocolException(""Cannot deserialize ecdhtuple"");
+      }",54,0,0,1,0,0,0,0,129,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(tx_keys[i].data, plaintext.get() + 32 * i, 32);",src/device_trezor/trezor/protocol.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    CHECK_AND_ASSERT_THROW_MES(keys_len % 32 == 0, ""Invalid size"");
+    tx_keys.resize(keys_len / 32);
+",54,0,0,1,1,0,0,0,103,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+", rpc_login({""rpc-login"", rpc_args::tr(""Specify username[:password] required for RPC server""), """", true})",src/rpc/rpc_args.cpp,Insecure RPC,HIGH,CWE-306,0.7,C/C++,Electroneum,1,"    }
+  } // anonymous
+",105,0,0,0,1,0,0,0,23,0,2,True,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False
+"memcpy(&spent_key_image, &hash, sizeof(hash)); // a bit dodgy, should be other parse functions somewhere",src/rpc/core_rpc_server.cpp,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    {
+      crypto::hash hash;
+      crypto::key_image spent_key_image;",104,0,0,1,1,0,0,0,71,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+res.balance = m_core.get_balance(addr_info);,src/rpc/core_rpc_server.cpp,Race Condition,HIGH,CWE-362,0.7,C/C++,Electroneum,1,"    {
+      res.status = ""Failed: can't parse address from <etn_address> = "" + req.etn_address;
+      return true;",44,0,0,0,0,0,0,0,114,0,2,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False
+res.privateKey = v[0];,src/rpc/core_rpc_server.cpp,Private Key Exposure,CRITICAL,CWE-798,0.6,C/C++,Electroneum,1,"      error_resp.code = CORE_RPC_ERROR_CODE_INTERNAL_ERROR;
+      error_resp.message = ""Failed to generate ED25519-Donna keypair."";
+      return false;",22,0,0,0,1,0,0,0,151,0,3,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False
+"memcpy(&unwrap(unwrap(key)), pwd_hash.data(), sizeof(key));",src/crypto/chacha.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    static_assert(sizeof(chacha_key) <= sizeof(hash), ""Size of hash must be at least that of chacha_key"");
+    epee::mlocked<tools::scrubbed_arr<char, HASH_SIZE>> pwd_hash;
+    crypto::cn_slow_hash(data, size, pwd_hash.data(), 0/*variant*/, 0/*prehashed*/, 0/*height*/);",59,0,0,1,1,0,0,0,270,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&unwrap(unwrap(key)), pwd_hash.data(), sizeof(key));",src/crypto/chacha.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    static_assert(sizeof(chacha_key) <= sizeof(hash), ""Size of hash must be at least that of chacha_key"");
+    epee::mlocked<tools::scrubbed_arr<char, HASH_SIZE>> pwd_hash;
+    crypto::cn_slow_hash(data, size, pwd_hash.data(), 0/*variant*/, 1/*prehashed*/, 0/*height*/);",59,0,0,1,1,0,0,0,270,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+#define V4_EXEC(i) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"	enum
+	{
+		REG_BITS = sizeof(v4_reg) * 8,",20,1,0,0,0,0,0,0,41,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 0) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"			break; \
+		} \
+	}",16,1,0,0,0,0,0,0,20,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 1) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"		} \
+	}
+",16,1,0,0,0,0,0,0,9,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 2) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"	}
+
+#define V4_EXEC_10(j) \",16,1,0,0,0,0,0,0,27,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 3) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"
+#define V4_EXEC_10(j) \
+	V4_EXEC(j + 0) \",16,1,0,0,0,0,0,0,42,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 4) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"#define V4_EXEC_10(j) \
+	V4_EXEC(j + 0) \
+	V4_EXEC(j + 1) \",16,1,0,0,0,0,0,0,59,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 5) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"	V4_EXEC(j + 0) \
+	V4_EXEC(j + 1) \
+	V4_EXEC(j + 2) \",16,1,0,0,0,0,0,0,53,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 6) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"	V4_EXEC(j + 1) \
+	V4_EXEC(j + 2) \
+	V4_EXEC(j + 3) \",16,1,0,0,0,0,0,0,53,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 7) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"	V4_EXEC(j + 2) \
+	V4_EXEC(j + 3) \
+	V4_EXEC(j + 4) \",16,1,0,0,0,0,0,0,53,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 8) \,src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"	V4_EXEC(j + 3) \
+	V4_EXEC(j + 4) \
+	V4_EXEC(j + 5) \",16,1,0,0,0,0,0,0,53,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+V4_EXEC(j + 9),src/crypto/variant4_random_math.h,Command Injection,CRITICAL,CWE-78,0.9,C/C++,Electroneum,1,"	V4_EXEC(j + 4) \
+	V4_EXEC(j + 5) \
+	V4_EXEC(j + 6) \",14,1,0,0,0,0,0,0,53,0,3,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(data, &tmp, sizeof(uint64_t));",src/crypto/variant4_random_math.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"	const int op_ALUs[V4_INSTRUCTION_COUNT] = { ALU_COUNT_MUL, ALU_COUNT, ALU_COUNT, ALU_COUNT, ALU_COUNT, ALU_COUNT };
+
+	int8_t data[32];",37,0,0,1,0,0,0,0,135,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"memcpy(&t, data + data_index, sizeof(uint32_t));",src/crypto/variant4_random_math.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"					alu_busy[next_latency - op_latency[opcode] + 1][alu_index] = true;
+
+					// ADD instruction requires 4 more random bytes for 32-bit constant ""C"" in ""a = a + b + C""",48,0,0,1,0,0,0,0,168,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"#define Skein_Put64_LSB_First(dst08,src64,bCnt) memcpy(dst08,src64,bCnt)",src/crypto/skein_port.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"#define SKEIN_NEED_SWAP   (1)
+#elif PLATFORM_BYTE_ORDER == IS_LITTLE_ENDIAN
+    /* here for x86 and x86-64 CPUs (and other detected little-endian CPUs) */",72,0,0,1,0,0,0,0,154,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"#define Skein_Get64_LSB_First(dst64,src08,wCnt) memcpy(dst64,src08,8*(wCnt))",src/crypto/skein_port.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"#elif PLATFORM_BYTE_ORDER == IS_LITTLE_ENDIAN
+    /* here for x86 and x86-64 CPUs (and other detected little-endian CPUs) */
+#define SKEIN_NEED_SWAP   (0)",76,0,0,1,0,0,0,0,154,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"typename std::enable_if<std::is_pod<T>::value, T>::type rand() {",src/crypto/crypto.h,Weak Cryptography,CRITICAL,CWE-327,0.9,C/C++,Electroneum,1,"  }
+
+  /* Generate a value filled with random bytes.",64,0,0,0,0,0,0,0,52,0,3,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+OAES_API OAES_RET oaes_sprintf(,src/crypto/oaes_lib.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"// set m == NULL to get the required m_len
+OAES_API OAES_RET oaes_decrypt( OAES_CTX * ctx,
+		const uint8_t * c, size_t c_len, uint8_t * m, size_t * m_len );",31,0,0,1,0,0,0,0,156,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"inline void identity(key &Id) { memcpy(&Id, &I, 32); }",src/ringct/rctOps.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    //Creates a zero scalar
+    inline key zero() { return Z; }
+    inline void zero(key &z) { memset(&z, 0, 32); }",54,0,0,1,1,0,0,0,115,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"inline void copy(key &AA, const key &A) { memcpy(&AA, &A, 32); }",src/ringct/rctOps.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    inline void identity(key &Id) { memcpy(&Id, &I, 32); }
+    //Creates a key equal to the curve order
+    inline key curveOrder() { return L; }",64,0,0,1,1,0,0,0,145,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"inline key copy(const key & A) { key AA; memcpy(&AA, &A, 32); return AA; }",src/ringct/rctOps.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"    //Creates a key equal to the curve order
+    inline key curveOrder() { return L; }
+    inline void curveOrder(key &l) { l = L; }",74,0,0,1,1,0,0,0,132,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(std::addressof(out), key.data(), sizeof(out));",src/lmdb/key_stream.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        //! \pre `!is_end()` \return Current key
+        K get_key() const noexcept
+        {",58,0,0,1,1,0,0,0,93,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(std::addressof(value), values.data() + uoffset, sizeof(value));",src/lmdb/value_stream.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            static_assert(sizeof(G) + uoffset <= sizeof(U), ""bad field and/or offset"");
+            assert(sizeof(G) + uoffset <= values.size());
+            assert(!is_end());",75,0,0,1,0,0,0,0,176,1,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(std::addressof(left_val), static_cast<char*>(left->mv_data) + offset, sizeof(T));",src/lmdb/util.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"            return -1;
+        }
+",93,0,0,1,0,0,0,0,33,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(std::addressof(right_val), static_cast<char*>(right->mv_data) + offset, sizeof(T));",src/lmdb/util.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"        }
+
+        T left_val;",95,0,0,1,0,0,0,0,30,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+"std::memcpy(std::addressof(out), static_cast<char*>(value.mv_data) + offset, sizeof(out));",src/lmdb/table.h,Buffer Overflow,CRITICAL,CWE-120,0.9,C/C++,Electroneum,1,"
+            if (value.mv_size != sizeof(U))
+                return {lmdb::error(MDB_BAD_VALSIZE)};",90,0,0,1,0,0,0,0,99,0,3,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False
+new (std::addressof(storage_)) T{std::forward<U>(value)};,src/common/expect.h,Unchecked Return Value,MEDIUM,CWE-252,0.7,C/C++,Electroneum,1,"    }
+
+    template<typename U>",57,0,0,0,0,0,0,0,31,0,1,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False
+virtual std::string secretViewKey() const = 0;,src/wallet/api/wallet2_api.h,Private Key Exposure,CRITICAL,CWE-798,0.7,C/C++,Electroneum,1,"
+   /*!
+    * \brief secretViewKey     - returns secret view key",46,0,0,0,1,0,0,0,64,0,3,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False
+virtual std::string secretSpendKey() const = 0;,src/wallet/api/wallet2_api.h,Private Key Exposure,CRITICAL,CWE-798,0.7,C/C++,Electroneum,1,"
+   /*!
+    * \brief secretSpendKey    - returns secret spend key",47,0,0,0,1,0,0,0,65,0,3,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False
+def _parse_exec(sql):,newrelic/core/database_utils.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,1,"
+_parse_exec_p = r""\s*EXEC\s+(?!\()(\w+)""
+_parse_exec_re = re.compile(_parse_exec_p, re.IGNORECASE)",21,1,0,0,0,0,0,0,99,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+system_certs = None,newrelic/common/agent_http.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"                        try:
+                            _context = ssl.SSLContext()
+                            _context.load_default_certs()",19,0,0,0,0,0,0,0,142,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"connection_kwargs[""cert_reqs""] = ""NONE""",newrelic/common/agent_http.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"                    connection_kwargs[""ca_cert_dir""] = ca_bundle_path
+                else:
+                    connection_kwargs[""ca_certs""] = ca_bundle_path",39,0,0,0,0,0,0,0,158,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+disable_certificate_validation = None,newrelic/common/agent_http.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"            # HTTPS must be used to connect to the proxy
+            self.CONNECTION_CLS = urllib3.HTTPSConnectionPool
+        else:",37,0,0,0,0,0,0,0,132,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3newrelic/packages/opentelemetry_proto/metrics.proto\x12%newrelic.packages.opentelemetry_proto\x1a\x32newrelic/packages/opentelemetry_proto/common.proto\x1a\x34newrelic/packages/opentelemetry_proto/resource.proto\""_\n\x0bMetricsData\x12P\n\x10resource_metrics\x18\x01 \x03(\x0b\x32\x36.newrelic.packages.opentelemetry_proto.ResourceMetrics\""\xbc\x01\n\x0fResourceMetrics\x12\x41\n\x08resource\x18\x01 \x01(\x0b\x32/.newrelic.packages.opentelemetry_proto.Resource\x12J\n\rscope_metrics\x18\x02 \x03(\x0b\x32\x33.newrelic.packages.opentelemetry_proto.ScopeMetrics\x12\x12\n\nschema_url\x18\x03 \x01(\tJ\x06\x08\xe8\x07\x10\xe9\x07\""\xae\x01\n\x0cScopeMetrics\x12J\n\x05scope\x18\x01 \x01(\x0b\x32;.newrelic.packages.opentelemetry_proto.InstrumentationScope\x12>\n\x07metrics\x18\x02 \x03(\x0b\x32-.newrelic.packages.opentelemetry_proto.Metric\x12\x12\n\nschema_url\x18\x03 \x01(\t\""\xf8\x03\n\x06Metric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x03 \x01(\t\x12=\n\x05gauge\x18\x05 \x01(\x0b\x32,.newrelic.packages.opentelemetry_proto.GaugeH\x00\x12\x39\n\x03sum\x18\x07 \x01(\x0b\x32*.newrelic.packages.opentelemetry_proto.SumH\x00\x12\x45\n\thistogram\x18\t \x01(\x0b\x32\x30.newrelic.packages.opentelemetry_proto.HistogramH\x00\x12\\\n\x15\x65xponential_histogram\x18\n \x01(\x0b\x32;.newrelic.packages.opentelemetry_proto.ExponentialHistogramH\x00\x12\x41\n\x07summary\x18\x0b \x01(\x0b\x32..newrelic.packages.opentelemetry_proto.SummaryH\x00\x12\x41\n\x08metadata\x18\x0c \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.KeyValueB\x06\n\x04\x64\x61taJ\x04\x08\x04\x10\x05J\x04\x08\x06\x10\x07J\x04\x08\x08\x10\t\""T\n\x05Gauge\x12K\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x36.newrelic.packages.opentelemetry_proto.NumberDataPoint\""\xc8\x01\n\x03Sum\x12K\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x36.newrelic.packages.opentelemetry_proto.NumberDataPoint\x12^\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32=.newrelic.packages.opentelemetry_proto.AggregationTemporality\x12\x14\n\x0cis_monotonic\x18\x03 \x01(\x08\""\xbb\x01\n\tHistogram\x12N\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x39.newrelic.packages.opentelemetry_proto.HistogramDataPoint\x12^\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32=.newrelic.packages.opentelemetry_proto.AggregationTemporality\""\xd1\x01\n\x14\x45xponentialHistogram\x12Y\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x44.newrelic.packages.opentelemetry_proto.ExponentialHistogramDataPoint\x12^\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32=.newrelic.packages.opentelemetry_proto.AggregationTemporality\""W\n\x07Summary\x12L\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x37.newrelic.packages.opentelemetry_proto.SummaryDataPoint\""\x95\x02\n\x0fNumberDataPoint\x12\x43\n\nattributes\x18\x07 \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.KeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\x13\n\tas_double\x18\x04 \x01(\x01H\x00\x12\x10\n\x06\x61s_int\x18\x06 \x01(\x10H\x00\x12\x42\n\texemplars\x18\x05 \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.Exemplar\x12\r\n\x05\x66lags\x18\x08 \x01(\rB\x07\n\x05valueJ\x04\x08\x01\x10\x02\""\xf5\x02\n\x12HistogramDataPoint\x12\x43\n\nattributes\x18\t \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.KeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x10\n\x03sum\x18\x05 \x01(\x01H\x00\x88\x01\x01\x12\x15\n\rbucket_counts\x18\x06 \x03(\x06\x12\x17\n\x0f\x65xplicit_bounds\x18\x07 \x03(\x01\x12\x42\n\texemplars\x18\x08 \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.Exemplar\x12\r\n\x05\x66lags\x18\n \x01(\r\x12\x10\n\x03min\x18\x0b \x01(\x01H\x01\x88\x01\x01\x12\x10\n\x03max\x18\x0c \x01(\x01H\x02\x88\x01\x01\x42\x06\n\x04_sumB\x06\n\x04_minB\x06\n\x04_maxJ\x04\x08\x01\x10\x02\""\xf7\x04\n\x1d\x45xponentialHistogramDataPoint\x12\x43\n\nattributes\x18\x01 \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.KeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x10\n\x03sum\x18\x05 \x01(\x01H\x00\x88\x01\x01\x12\r\n\x05scale\x18\x06 \x01(\x11\x12\x12\n\nzero_count\x18\x07 \x01(\x06\x12^\n\x08positive\x18\x08 \x01(\x0b\x32L.newrelic.packages.opentelemetry_proto.ExponentialHistogramDataPoint.Buckets\x12^\n\x08negative\x18\t \x01(\x0b\x32L.newrelic.packages.opentelemetry_proto.ExponentialHistogramDataPoint.Buckets\x12\r\n\x05\x66lags\x18\n \x01(\r\x12\x42\n\texemplars\x18\x0b \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.Exemplar\x12\x10\n\x03min\x18\x0c \x01(\x01H\x01\x88\x01\x01\x12\x10\n\x03max\x18\r \x01(\x01H\x02\x88\x01\x01\x12\x16\n\x0ezero_threshold\x18\x0e \x01(\x01\x1a\x30\n\x07\x42uckets\x12\x0e\n\x06offset\x18\x01 \x01(\x11\x12\x15\n\rbucket_counts\x18\x02 \x03(\x04\x42\x06\n\x04_sumB\x06\n\x04_minB\x06\n\x04_max\""\xd4\x02\n\x10SummaryDataPoint\x12\x43\n\nattributes\x18\x07 \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.KeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x0b\n\x03sum\x18\x05 \x01(\x01\x12`\n\x0fquantile_values\x18\x06 \x03(\x0b\x32G.newrelic.packages.opentelemetry_proto.SummaryDataPoint.ValueAtQuantile\x12\r\n\x05\x66lags\x18\x08 \x01(\r\x1a\x32\n\x0fValueAtQuantile\x12\x10\n\x08quantile\x18\x01 \x01(\x01\x12\r\n\x05value\x18\x02 \x01(\x01J\x04\x08\x01\x10\x02\""\xc9\x01\n\x08\x45xemplar\x12L\n\x13\x66iltered_attributes\x18\x07 \x03(\x0b\x32/.newrelic.packages.opentelemetry_proto.KeyValue\x12\x16\n\x0etime_unix_nano\x18\x02 \x01(\x06\x12\x13\n\tas_double\x18\x03 \x01(\x01H\x00\x12\x10\n\x06\x61s_int\x18\x06 \x01(\x10H\x00\x12\x0f\n\x07span_id\x18\x04 \x01(\x0c\x12\x10\n\x08trace_id\x18\x05 \x01(\x0c\x42\x07\n\x05valueJ\x04\x08\x01\x10\x02*\x8c\x01\n\x16\x41ggregationTemporality\x12\'\n#AGGREGATION_TEMPORALITY_UNSPECIFIED\x10\x00\x12!\n\x1d\x41GGREGATION_TEMPORALITY_DELTA\x10\x01\x12&\n\""AGGREGATION_TEMPORALITY_CUMULATIVE\x10\x02*^\n\x0e\x44\x61taPointFlags\x12\x1f\n\x1b\x44\x41TA_POINT_FLAGS_DO_NOT_USE\x10\x00\x12+\n\'DATA_POINT_FLAGS_NO_RECORDED_VALUE_MASK\x10\x01\x42\x7f\n!io.opentelemetry.proto.metrics.v1B\x0cMetricsProtoP\x01Z)go.opentelemetry.io/proto/otlp/metrics/v1\xaa\x02\x1eOpenTelemetry.Proto.Metrics.V1b\x06proto3')",newrelic/packages/opentelemetry_proto/metrics_pb2.py,Hardcoded Credentials,CRITICAL,CWE-798,0.8,Python,NewRelic-python,1,"
+from newrelic.packages.opentelemetry_proto import common_pb2 as newrelic_dot_packages_dot_opentelemetry__proto_dot_common__pb2
+from newrelic.packages.opentelemetry_proto import resource_pb2 as newrelic_dot_packages_dot_opentelemetry__proto_dot_resource__pb2",6515,0,0,0,1,0,0,0,258,0,3,False,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+cert_reqs = None,newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    socket by means of :py:func:`urllib3.util.ssl_wrap_socket`.
+    """"""
+",16,0,0,0,0,0,0,0,72,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+ca_certs = None,newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    """"""
+
+    default_port = port_by_scheme[""https""]",15,0,0,0,0,0,0,0,51,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+ca_cert_dir = None,newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"
+    default_port = port_by_scheme[""https""]
+",18,0,0,0,0,0,0,0,44,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+ca_cert_data = None,newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    default_port = port_by_scheme[""https""]
+
+    cert_reqs = None",19,0,0,0,0,0,0,0,64,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"cert_file=None,",newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    def __init__(
+        self,
+        host,",15,0,0,0,0,0,0,0,45,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"cert_file=None,",newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        self._protocol = ""https""
+
+    def set_cert(",15,0,0,0,0,0,0,0,51,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"cert_reqs=None,",newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"
+    def set_cert(
+        self,",15,0,0,0,0,0,0,0,32,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_certs=None,",newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        self,
+        key_file=None,
+        cert_file=None,",14,0,0,0,0,0,0,0,60,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_cert_dir=None,",newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        cert_reqs=None,
+        key_password=None,
+        ca_certs=None,",17,0,0,0,0,0,0,0,73,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_cert_data=None,",newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        key_password=None,
+        ca_certs=None,
+        assert_hostname=None,",18,0,0,0,0,0,0,0,79,1,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+if cert_reqs is None:,newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        """"""
+        This method should only be called once, before the connection is used.
+        """"""",21,0,0,0,0,0,0,0,102,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+cert_reqs = resolve_cert_reqs(None),newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        # have an SSLContext object in which case we'll use its verify_mode.
+        if cert_reqs is None:
+            if self.ssl_context is not None:",35,0,0,0,0,0,0,0,151,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"cert_file=None,",newrelic/packages/urllib3/connectionpool.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        headers=None,
+        retries=None,
+        _proxy=None,",15,0,0,0,0,0,0,0,64,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"cert_reqs=None,",newrelic/packages/urllib3/connectionpool.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        retries=None,
+        _proxy=None,
+        _proxy_headers=None,",15,0,0,0,0,0,0,0,71,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_certs=None,",newrelic/packages/urllib3/connectionpool.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        _proxy_headers=None,
+        key_file=None,
+        cert_file=None,",14,0,0,0,0,0,0,0,75,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_cert_dir=None,",newrelic/packages/urllib3/connectionpool.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        key_password=None,
+        ca_certs=None,
+        ssl_version=None,",17,0,0,0,0,0,0,0,75,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ssl_version, cert_reqs, ca_certs=None, ca_cert_dir=None, ca_cert_data=None",newrelic/packages/urllib3/util/proxy.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    # Otherwise always use a tunnel.
+    return True
+",74,0,0,0,0,0,0,0,53,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+self.ca_certs = None,newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        def __init__(self, protocol_version):
+            self.protocol = protocol_version
+            # Use default values from a real SSLContext",20,0,0,0,0,0,0,0,146,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+self.certfile = None,newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"            # Use default values from a real SSLContext
+            self.check_hostname = False
+            self.verify_mode = ssl.CERT_NONE",20,0,0,0,0,0,0,0,140,1,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ssl_version=None, cert_reqs=None, options=None, ciphers=None",newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"
+    return candidate
+",60,0,0,0,0,0,0,0,22,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"- Disables SSLv2, SSLv3, and compression",newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    """"""All arguments have the same meaning as ``ssl_wrap_socket``.
+
+    By default, this function does a lot of the same work that",40,0,0,0,0,0,0,0,130,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+cert_reqs = ssl.CERT_REQUIRED if cert_reqs is None else cert_reqs,newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    context = SSLContext(ssl_version)
+
+    context.set_ciphers(ciphers or DEFAULT_CIPHERS)",65,0,0,0,0,0,0,0,90,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"certfile=None,",newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"
+
+def ssl_wrap_socket(",14,0,0,0,0,0,0,0,22,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"cert_reqs=None,",newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"
+def ssl_wrap_socket(
+    sock,",15,0,0,0,0,0,0,0,31,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_certs=None,",newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"def ssl_wrap_socket(
+    sock,
+    keyfile=None,",14,0,0,0,0,0,0,0,48,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_cert_dir=None,",newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    ca_certs=None,
+    server_hostname=None,
+    ssl_version=None,",17,0,0,0,0,0,0,0,66,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ca_cert_data=None,",newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    ssl_version=None,
+    ciphers=None,
+    ssl_context=None,",18,0,0,0,0,0,0,0,61,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+self._client_cert_chain = None,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        self._makefile_refs = 0
+        self._closed = False
+        self._exception = None",30,0,0,0,0,0,0,0,91,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+cert_array = None,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        # We want data in memory, so load it up.
+        if os.path.isfile(trust_bundle):
+            with open(trust_bundle, ""rb"") as f:",17,0,0,0,0,0,0,0,137,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+if cert_array is not None:,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"            _assert_no_error(result)
+        finally:
+            if trust:",26,0,0,0,0,0,0,0,75,1,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+self._client_cert_chain = None,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"            if self.context:
+                CoreFoundation.CFRelease(self.context)
+                self.context = None",30,0,0,0,0,0,0,0,119,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+certdata = None,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"        # instead to just flag to urllib3 that it shouldn't do its own hostname
+        # validation when using SecureTransport.
+        if not binary_form:",15,0,0,0,0,0,0,0,156,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+self._verify = False,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    """"""
+
+    def __init__(self, protocol):",20,0,0,0,0,1,0,0,42,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+self._client_cert = None,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"    def __init__(self, protocol):
+        self._min_version, self._max_version = _protocol_to_min_max[protocol]
+        self._options = 0",24,0,0,0,0,0,0,0,137,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"def load_cert_chain(self, certfile, keyfile=None, password=None):",newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"            with open(cafile):
+                pass
+",65,0,0,0,1,0,0,0,52,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"ssl.CERT_NONE: OpenSSL.SSL.VERIFY_NONE,",newrelic/packages/urllib3/contrib/pyopenssl.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"if hasattr(ssl, ""PROTOCOL_TLSv1_2"") and hasattr(OpenSSL.SSL, ""TLSv1_2_METHOD""):
+    _openssl_versions[ssl.PROTOCOL_TLSv1_2] = OpenSSL.SSL.TLSv1_2_METHOD
+",39,0,0,0,0,0,0,0,153,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"def load_cert_chain(self, certfile, keyfile=None, password=None):",newrelic/packages/urllib3/contrib/pyopenssl.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,1,"            if cadata is not None:
+                self._ctx.load_verify_locations(BytesIO(cadata))
+        except OpenSSL.SSL.Error as e:",65,0,0,0,1,0,0,0,138,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"exec (""""""exec _code_ in _globs_, _locs_"""""")",newrelic/packages/urllib3/packages/six.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,1,"            if _locs_ is None:
+                _locs_ = frame.f_locals
+            del frame",43,1,0,0,0,0,0,0,92,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+cert_file = None,tests/agent_unittests/test_http_client.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    if system_certs_available:
+        cert_file = ""foo""
+        ca_path = ""/usr/certs""",16,0,0,0,0,0,1,0,87,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+def get_ca_certs(purpose=None):,tests/agent_unittests/test_http_client.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"        capath = ca_path
+
+        def __init__(self, *args, **kwargs):",31,0,0,0,0,0,1,0,70,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+def get_ca_certs(purpose=None):,tests/agent_unittests/test_agent_protocol.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"        capath = None
+
+        def __init__(self, *args, **kwargs):",31,0,0,0,0,0,1,0,67,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+session.verify = False  # Disable SSL verification,tests/testing_support/http_23_testing.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"        # HTTP/1.1 must remain enabled to allow the session to open
+        session_kwargs[""disable_http2""] = True
+",50,0,0,0,0,1,1,0,115,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+session.verify = False  # Disable SSL verification,tests/testing_support/http_23_testing.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"        # HTTP/1.1 must remain enabled to allow the session to open
+        session_kwargs[""disable_http2""] = True
+",50,0,0,0,0,1,1,0,115,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"response = sync_client.get(f""http://localhost:{mock_server.port}"", headers={""newrelic"": ""1234""})",tests/external_httpx/test_client.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    CAT_RESPONSE_CODE = 200
+
+    transaction = current_transaction()",96,0,0,0,0,0,1,0,68,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"response = await async_client.get(f""http://localhost:{mock_server.port}"", headers={""newrelic"": ""1234""})",tests/external_httpx/test_client.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    global CAT_RESPONSE_CODE
+    CAT_RESPONSE_CODE = 200
+",103,0,0,0,0,0,1,0,57,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"client = httpx.Client(http1=False, http2=True, verify=False)",tests/external_httpx/test_client.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"@background_task(name=""test_sync_client_http2"")
+def test_sync_client_http2(httpx, real_server):
+    global CAT_RESPONSE_CODE",60,0,0,0,0,1,1,0,124,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"client = httpx.AsyncClient(http1=False, http2=True, verify=False)",tests/external_httpx/test_client.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"@background_task(name=""test_async_client_http2"")
+def test_async_client_http2(httpx, real_server, loop):
+    global CAT_RESPONSE_CODE",65,0,0,0,0,1,1,0,132,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"requests.get(f""https://localhost:{server.port}/"", verify=False)",tests/external_requests/test_requests.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"        background_task=True,
+    )
+    @background_task(name=""test_requests:test_https_request_get"")",63,0,0,0,0,1,1,0,101,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"class DisabledSSLConnection(valkey.SSLConnection, DisabledConnection):",tests/datastore_valkey/test_instance_info.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"
+class DisabledUnixConnection(valkey.UnixDomainSocketConnection, DisabledConnection):
+    pass",70,0,0,0,1,0,1,0,94,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+r.connection_pool.connection_class = DisabledSSLConnection,tests/datastore_valkey/test_instance_info.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    if r.connection_pool.connection_class is valkey.Connection:
+        r.connection_pool.connection_class = DisabledConnection
+    elif r.connection_pool.connection_class is valkey.UnixDomainSocketConnection:",58,0,0,0,0,0,1,0,209,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+r.connection_pool.connection_class = DisabledSSLConnection,tests/datastore_valkey/test_instance_info.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    if r.connection_pool.connection_class is valkey.Connection:
+        r.connection_pool.connection_class = DisabledConnection
+    elif r.connection_pool.connection_class is valkey.UnixDomainSocketConnection:",58,0,0,0,0,0,1,0,209,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"class DisabledSSLConnection(redis.SSLConnection, DisabledConnection):",tests/datastore_redis/test_instance_info.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"
+class DisabledUnixConnection(redis.UnixDomainSocketConnection, DisabledConnection):
+    pass",69,0,0,0,0,0,1,0,93,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+r.connection_pool.connection_class = DisabledSSLConnection,tests/datastore_redis/test_instance_info.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    if r.connection_pool.connection_class is redis.Connection:
+        r.connection_pool.connection_class = DisabledConnection
+    elif r.connection_pool.connection_class is redis.UnixDomainSocketConnection:",58,0,0,0,0,0,1,0,207,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+r.connection_pool.connection_class = DisabledSSLConnection,tests/datastore_redis/test_instance_info.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    if r.connection_pool.connection_class is redis.Connection:
+        r.connection_pool.connection_class = DisabledConnection
+    elif r.connection_pool.connection_class is redis.UnixDomainSocketConnection:",58,0,0,0,0,0,1,0,207,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"_process_setting(section, ""debug.disable_certificate_validation"", ""getboolean"", None)",newrelic/config.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    _process_setting(section, ""debug.log_autorum_middleware"", ""getboolean"", None)
+    _process_setting(section, ""debug.log_untrusted_distributed_trace_keys"", ""getboolean"", None)
+    _process_setting(section, ""debug.enable_coroutine_profiling"", ""getboolean"", None)",85,0,0,0,0,0,0,1,263,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"name = eval(name, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"            if _config_object.has_option(section, ""group""):
+                group = _config_object.get(section, ""group"")
+",46,1,0,0,0,0,0,1,121,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"sql = eval(sql, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"
+            sql = _config_object.get(section, ""sql"")
+",44,1,0,0,0,0,0,1,54,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"url = eval(url, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"            if _config_object.has_option(section, ""method""):
+                method = _config_object.get(section, ""method"")
+",44,1,0,0,0,0,0,1,124,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"method = eval(method, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"                callable_vars = {""callable_name"": callable_name}
+                url = eval(url, callable_vars)  # noqa: S307
+",50,1,0,0,0,0,0,1,126,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"name = eval(name, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"            if _config_object.has_option(section, ""rollup""):
+                rollup = _config_object.get(section, ""rollup"")
+",46,1,0,0,0,0,0,1,124,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"name = eval(name, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"            if _config_object.has_option(section, ""group""):
+                group = _config_object.get(section, ""group"")
+",46,1,0,0,0,0,0,1,121,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"name = eval(name, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"            if _config_object.has_option(section, ""depth""):
+                depth = _config_object.get(section, ""depth"")
+",46,1,0,0,0,0,0,1,121,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"command = eval(command, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"
+            command = _config_object.get(section, ""command"")
+",52,1,0,0,0,0,0,1,62,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"name = eval(name, callable_vars)  # noqa: S307",newrelic/config.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"            if _config_object.has_option(section, ""priority""):
+                priority = _config_object.getint(section, ""priority"")
+",46,1,0,0,0,0,0,1,133,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"path_hash = rotated ^ int(hashlib.md5(name).hexdigest()[-8:], base=16)  # noqa: S324",newrelic/common/encoding_utils.py,Weak Cryptography,MEDIUM,CWE-327,0.6,Python,NewRelic-python,0,"    rotated = ((seed << 1) | (seed >> 31)) & 0xFFFFFFFF
+
+    if not isinstance(name, bytes):",84,0,0,0,0,0,0,0,92,0,1,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+"path_hash = rotated ^ int(hashlib.md5(name).hexdigest()[-8:], base=16)  # noqa: S324",newrelic/common/encoding_utils.py,Weak Cryptography,MEDIUM,CWE-327,0.6,Python,NewRelic-python,0,"    rotated = ((seed << 1) | (seed >> 31)) & 0xFFFFFFFF
+
+    if not isinstance(name, bytes):",84,0,0,0,0,0,0,0,92,0,1,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+"path_hash = rotated ^ int(hashlib.md5(name).hexdigest()[-8:], base=16)  # noqa: S324",newrelic/common/encoding_utils.py,Weak Cryptography,MEDIUM,CWE-327,0.6,Python,NewRelic-python,0,"    rotated = ((seed << 1) | (seed >> 31)) & 0xFFFFFFFF
+
+    if not isinstance(name, bytes):",84,0,0,0,0,0,0,0,92,0,1,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+"exec(""""""exec _code_ in _globs_, _locs_"""""")",newrelic/packages/wrapt/decorators.py,Command Injection,CRITICAL,CWE-78,0.8,Python,NewRelic-python,0,"            if _locs_ is None:
+                _locs_ = frame.f_locals
+            del frame",42,1,0,0,0,0,0,0,92,0,3,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+context.verify_mode != ssl.CERT_NONE,newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"        if self.assert_fingerprint:
+            assert_fingerprint(
+                self.sock.getpeercert(binary_form=True), self.assert_fingerprint",36,0,0,0,0,0,0,0,148,1,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+if ssl_context.verify_mode != ssl.CERT_NONE and not getattr(,newrelic/packages/urllib3/connection.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"            ca_cert_data=self.ca_cert_data,
+            server_hostname=hostname,
+            ssl_context=ssl_context,",60,0,0,0,0,0,0,0,118,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+self.verify_mode = ssl.CERT_NONE,newrelic/packages/urllib3/util/ssl_.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"    class SSLContext(object):  # Platform-specific: Python 2
+        def __init__(self, protocol_version):
+            self.protocol = protocol_version",32,0,0,0,0,0,0,0,151,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+return ssl.CERT_REQUIRED if self._verify else ssl.CERT_NONE,newrelic/packages/urllib3/contrib/securetransport.py,Insecure Data Transmission,HIGH,CWE-319,0.8,Python,NewRelic-python,0,"        # TODO: Update in line with above.
+        self._options = value
+",59,0,0,0,0,0,0,0,73,0,2,False,False,False,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+const nodeMajor = /^v?(\d+)/.exec(process.version),index.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1," * TODO: As new versions come out, make sure to update Angler metrics.
+ *
+ * @param {Agent} agent active NR agent",50,1,0,0,0,0,0,0,113,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+return eval(,stub_api.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"const RealAPI = require('./api.js')
+const TransactionHandle = require('./lib/transaction/handle')
+",12,1,0,0,0,0,0,0,98,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"""web"": ""http://newrelic.com""",package.json,Insecure Data Transmission,HIGH,CWE-319,0.8,JavaScript,NewRelic-nodejs,1,"  ""license"": ""Apache-2.0"",
+  ""contributors"": [
+    {",28,0,0,0,0,0,0,0,52,0,2,False,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"""web"": ""http://newrelic.com/""",package.json,Insecure Data Transmission,HIGH,CWE-319,0.8,JavaScript,NewRelic-nodejs,1,"      ""web"": ""http://newrelic.com""
+    },
+    {",29,0,0,0,0,0,0,0,47,0,2,False,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+if (!options.force && !TAG_VALID_REGEX.exec(tagName)) {,bin/create-github-release.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"    logStep('Validation')
+    if (options.force) {
+      console.log('--force set. Skipping validation logic')",55,1,0,0,0,0,0,0,110,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+if (!TAG_VALID_REGEX.exec(version)) {,bin/create-docs-pr.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"  if (force) {
+    console.log('--force set. Skipping validation logic')
+    return",37,1,0,0,0,0,0,0,83,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"const [, releaseDate] = headingRegex.exec(versionChangeLog)",bin/create-docs-pr.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"  // Iterate over all past releases to find the version we want
+  const versionChangeLog = sections.find((section) => section.startsWith(version))
+  // e.g. v7.1.2 (2021-02-24)\n\n",59,1,0,0,0,0,0,0,180,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"exec(command, (err, stdout) => {",bin/git-commands.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"function execAsPromise(command) {
+  return new Promise((resolve, reject) => {
+    console.log(`Executing: '${command}'`)",32,1,0,0,0,0,0,0,120,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"exec(command, (err, stdout) => {",bin/npm-commands.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"function execAsPromise(command) {
+  return new Promise((resolve, reject) => {
+    console.log(`Executing: '${command}'`)",32,1,0,0,0,0,0,0,120,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+'insertDistributedTraceHeaders called on headers object that already contains ' +,lib/transaction/index.js,SQL Injection,HIGH,CWE-89,0.6,JavaScript,NewRelic-nodejs,1,"const TRACE_CONTEXT_PARENT_HEADER = 'traceparent'
+const TRACE_CONTEXT_STATE_HEADER = 'tracestate'
+const NEWRELIC_TRACE_HEADER = 'newrelic'",81,0,1,0,0,0,0,0,138,0,2,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+const regionMatch = /^(.+?)x/.exec(licenseKey),lib/collector/key-parser.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1," */
+
+'use strict'",46,1,0,0,1,0,0,0,17,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const match = TRACE_PARENT_REGEX.exec(traceParent),lib/otel/trace-propagator.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1," *     (01 = sampled, 00 = not sampled).
+ *     for example: '{version}-{traceId}-{spanId}-{sampleDecision}'
+ *     For more information see {@link https://www.w3.org/TR/trace-context/}",50,1,0,0,0,0,0,0,185,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"shim.record(childProcess, methods, function recordExec(shim, fn, name) {",lib/instrumentation/core/child_process.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"    return false
+  }
+",72,1,0,0,0,0,0,0,21,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const matches = urlReg.exec(queueUrl),lib/instrumentation/aws-sdk/v3/sqs.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"  })
+}
+",37,1,0,0,0,0,0,0,7,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const line = containerLine.exec(data),lib/utilization/docker-info.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1," * @param {Function} callback function to call when done
+ * @param {object} [logger] internal logger instance
+ */",37,1,0,0,0,0,0,0,113,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const match = /(?:^|[^0-9a-f])([0-9a-f]{64})(?:[^0-9a-f]|$)/.exec(cpuGroup),lib/utilization/docker-info.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"      return callback(null)
+    }
+",75,1,0,0,0,0,0,0,34,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const queryMatch = this.operationPattern.exec(sql),lib/db/statement-matcher.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"  this.operationPattern.lastIndex = 0
+  this.matcher.lastIndex = 0
+  CLEANER.lastIndex = 0",50,1,0,0,0,0,0,0,90,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const cleanerMatch = CLEANER.exec(collection),lib/db/statement-matcher.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"    // If the cleaner can match this collection, pull out the cleaned up names
+    // from there. The spec doesn't want the database names in the collection
+    // name, but for legacy reasons we keep it.",45,1,0,0,0,0,0,0,204,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const match = /^\s*use[^\w`]+([\w$\u0080-\uFFFF]+|`[^`]+`)[\s;]*$/i.exec(sql),lib/db/utils.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"  // http://dev.mysql.com/doc/refman/5.7/en/identifiers.html
+
+  // The lint rule being suppressed here has been evaluated, and it has been",77,1,0,0,0,0,0,0,138,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"/^[^\S]*?select\b[\s\S]+?\bfrom[\s\n\r\[\(]+([^\]\s\n\r,)(;]*)/gim",lib/db/query-parsers/sql.js,SQL Injection,HIGH,CWE-89,0.6,JavaScript,NewRelic-nodejs,1,"
+/* eslint-disable no-useless-escape, sonarjs/slow-regex, sonarjs/duplicates-in-character-class */
+const OPERATIONS = [",66,0,1,0,0,0,0,0,119,0,2,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"/^[^\S]*?insert(?:[^\S]+ignore)?[^\S]+into[^\S]+([^\s\n\r(,;]+)/gim",lib/db/query-parsers/sql.js,SQL Injection,HIGH,CWE-89,0.6,JavaScript,NewRelic-nodejs,1,"    /^[^\S]*?select\b[\s\S]+?\bfrom[\s\n\r\[\(]+([^\]\s\n\r,)(;]*)/gim
+  ),
+  new StatementMatcher('update', /^[^\S]*?update[^\S]+?([^\s\n\r,;]+)/gim),",67,0,1,0,0,0,0,0,151,0,2,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"after: function afterExec({ shim, error }) {",lib/shim/webframework-shim/middleware.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"      name: segmentName,
+      callback: nextWrapper,
+      parent: txInfo.segmentStack[txInfo.segmentStack.length - 1],",44,1,0,0,0,0,0,0,120,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"after: function afterExec({ shim, error, result }) {",lib/shim/webframework-shim/middleware.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,1,"      parent: txInfo.segmentStack[txInfo.segmentStack.length - 1],
+      promise: spec.promise,
+      callback: nextWrapper,",52,1,0,0,0,0,0,0,124,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+await exec('prisma generate'),test/versioned/prisma/setup.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,0,"  process.env.DATABASE_URL = getPostgresUrl()
+  const { version } = require('@prisma/client/package.json')
+  // install CLI globally with proper version so the client package can be generated and setup accordingly",29,1,0,0,0,0,1,0,213,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+await exec('prisma migrate reset --force'),test/versioned/prisma/setup.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,0,"  const { version } = require('@prisma/client/package.json')
+  // install CLI globally with proper version so the client package can be generated and setup accordingly
+  // If this was locally installed, it would get stomped on.",42,1,0,0,0,0,1,0,228,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+"await exec('npx nest build', { cwd: APP_DIR })",test/versioned/nestjs/setup.js,Command Injection,CRITICAL,CWE-78,0.8,JavaScript,NewRelic-nodejs,0,"  for (const fname of ['main.ts', 'app.controller.ts']) {
+    await fsPromises.copyFile(`${PATCH_DIR}/${fname}`, `${APP_DIR}/src/${fname}`)
+  }",46,1,0,0,0,0,1,0,143,0,3,False,False,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False
+const qs = querystring.decode(req.url.slice(req.url.indexOf('?') + 1)),test/lib/test-collector.js,SQL Injection,HIGH,CWE-89,0.6,JavaScript,NewRelic-nodejs,0,"    this.#server = https.createServer({
+      key: this.#cert.privateKey,
+      cert: this.#cert.certificate",70,0,0,0,0,0,1,0,108,0,2,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"""sql"": ""INSERT INTO X VALUES(1, 23456, 123.456, 99+100)"",",test/lib/cross_agent_tests/sql_obfuscation/sql_obfuscation.json,SQL Injection,HIGH,CWE-89,0.6,JavaScript,NewRelic-nodejs,0,"    ],
+    ""sql"": ""SELECT c11.col1, c22.col2 FROM table c11, table c22 WHERE value='nothing'""
+  },",57,0,1,0,0,0,1,0,98,0,2,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"""INSERT INTO X VALUES(?, ?, ?, ?+?)"",",test/lib/cross_agent_tests/sql_obfuscation/sql_obfuscation.json,SQL Injection,HIGH,CWE-89,0.6,JavaScript,NewRelic-nodejs,0,"  },
+  {
+    ""name"": ""numeric_literals"",",37,0,1,0,0,0,1,0,40,0,2,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"""INSERT INTO X VALUES(?, ?, ?.?, ?+?)""",test/lib/cross_agent_tests/sql_obfuscation/sql_obfuscation.json,SQL Injection,HIGH,CWE-89,0.6,JavaScript,NewRelic-nodejs,0,"  {
+    ""name"": ""numeric_literals"",
+    ""sql"": ""INSERT INTO X VALUES(1, 23456, 123.456, 99+100)"",",38,0,1,0,0,0,1,0,97,0,2,False,False,True,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"""sql"": ""select * from users where user = 'user1\\' password = 'hunter 2' -- ->don't count this quote"",",test/lib/cross_agent_tests/sql_obfuscation/sql_obfuscation.json,Hardcoded Credentials,CRITICAL,CWE-798,0.9,JavaScript,NewRelic-nodejs,0,"      ""sqlite""
+    ]
+  },",102,0,1,0,1,0,1,0,25,0,3,False,False,True,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False
+const md5sum = crypto.createHash('md5'),lib/util/hashes.js,Weak Cryptography,MEDIUM,CWE-327,0.6,JavaScript,NewRelic-nodejs,0,"  return str.substring(str.length - 8)
+}
+",39,0,0,0,0,0,0,0,41,0,1,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True
+REPO_ENDPOINT: ${{ github.event.inputs.staging == 'true' && 'http://nr-downloads-ohai-staging.s3-website-us-east-1.amazonaws.com/infrastructure_agent' ||  'https://download.newrelic.com/infrastructure_agent'  }},.github/workflows/molecule_packaging_tag.yml,Insecure Data Transmission,HIGH,CWE-319,0.8,Go,NewRelic-infrastructure,1,"jobs:
+  molecule-packaging-tests:
+    uses: ./.github/workflows/component_molecule_packaging.yml",211,0,0,0,0,0,0,0,96,0,2,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"return cyberArkExecCommand(g.cfg.CLI, ""GetPassword"", ""-p"", ""AppDescs.AppID=""+g.cfg.AppID, ""-p"", ""Query=Safe=""+g.cfg.Safe+"";Folder=""+g.cfg.Folder+"";Object=""+g.cfg.Object, ""-o"", ""Password"")",pkg/databind/internal/secrets/cyberarkcli_exec_unix.go,SQL Injection,HIGH,CWE-89,0.7,Go,NewRelic-infrastructure,1,"package secrets
+
+import ""os/exec""",187,1,0,0,1,0,0,0,33,0,2,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"return cyberArkExecCommand(g.cfg.CLI, ""GetPassword"", ""/p"", ""AppDescs.AppID=""+g.cfg.AppID, ""/p"", ""Query=Safe=""+g.cfg.Safe+"";Folder=""+g.cfg.Folder+"";Object=""+g.cfg.Object, ""/o"", ""Password"")",pkg/databind/internal/secrets/cyberarkcli_exec_windows.go,SQL Injection,HIGH,CWE-89,0.7,Go,NewRelic-infrastructure,1,"package secrets
+
+import ""os/exec""",187,1,0,0,1,0,0,0,33,0,2,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
+"DisableSSL     bool   `yaml:""disableSSL""`",pkg/databind/internal/secrets/kms.go,Insecure Data Transmission,HIGH,CWE-319,0.9,Go,NewRelic-infrastructure,1,"	HTTP           *http
+	CredentialFile string `yaml:""credential_file""`
+	ConfigFile     string `yaml:""config_file""`",41,0,0,0,0,0,0,0,113,0,2,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"tlog.Debug(""Adding credentials file."")",pkg/databind/internal/secrets/kms.go,Information Disclosure,MEDIUM,CWE-200,0.6,Go,NewRelic-infrastructure,1,"
+	var err error
+	var configLoadOptions []func(*config.LoadOptions) error",38,0,0,0,0,0,0,0,72,0,1,False,True,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False
+if g.cfg.DisableSSL {,pkg/databind/internal/secrets/kms.go,Insecure Data Transmission,HIGH,CWE-319,0.8,Go,NewRelic-infrastructure,1,"
+	kmsClient := kms.NewFromConfig(cfg, func(o *kms.Options) {
+		if g.cfg.Endpoint != """" {",21,0,0,0,0,0,0,0,88,0,2,False,True,False,False,False,False,False,False,True,False,False,False,False,False,False,False,False,False
+"cfgLogger.WithField(""filePath"", l.File).Warn(""Error while reading file path."" + err.Error())",pkg/integrations/v4/logs/cfg.go,Path Traversal,HIGH,CWE-22,0.6,Go,NewRelic-infrastructure,1,"	if l.File == """" {
+		return 0
+	}",92,0,0,0,0,0,0,0,32,0,2,False,True,False,False,False,False,False,False,False,False,False,True,False,False,False,False,False,False
+"""text"": "":rotating_light: Hi CAOS (@hero), critical or high vulnerabilities found, see: https://github.com/newrelic/infrastructure-agent/security/code-scanning?query=is%3Aopen+branch%3Amaster+tool%3ATrivy :rotating_light:""",.github/workflows/component_trivy.yml,SQL Injection,HIGH,CWE-89,0.7,Go,NewRelic-infrastructure,0,"        uses: slackapi/slack-github-action@v1.22.0
+        with:
+          # This data can be any valid JSON from a previous step in the GitHub Action",222,0,0,0,0,0,0,0,150,0,2,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True,False,False,False
