@@ -1,0 +1,11 @@
+{
+  "training_samples": 368,
+  "test_samples": 92,
+  "num_features": 30,
+  "models_trained": [
+    "random_forest",
+    "xgboost",
+    "neural_network",
+    "svm"
+  ]
+}
