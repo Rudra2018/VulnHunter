@@ -1,0 +1,107 @@
+# VulnHunter Vertex AI Training Container
+# Optimized for GPU training with PyTorch, PyTorch Geometric, and Transformers
+
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
+
+# Prevent interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    python3.10 \
+    python3-pip \
+    python3-dev \
+    git \
+    wget \
+    curl \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create symlinks for python
+RUN ln -sf /usr/bin/python3.10 /usr/bin/python && \
+    ln -sf /usr/bin/pip3 /usr/bin/pip
+
+# Upgrade pip and install build tools
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
+# Install PyTorch with CUDA 11.8 support
+RUN pip install --no-cache-dir \
+    torch==2.0.1 \
+    torchvision==0.15.2 \
+    torchaudio==2.0.2 \
+    --index-url https://download.pytorch.org/whl/cu118
+
+# Install PyTorch Geometric and dependencies
+RUN pip install --no-cache-dir \
+    torch-geometric==2.3.1 \
+    torch-scatter==2.1.1 \
+    torch-sparse==0.6.17 \
+    torch-cluster==1.6.1 \
+    torch-spline-conv==1.2.2 \
+    -f https://data.pyg.org/whl/torch-2.0.1+cu118.html
+
+# Install Transformers and NLP libraries
+RUN pip install --no-cache-dir \
+    transformers==4.35.0 \
+    tokenizers==0.15.0 \
+    datasets==2.14.0 \
+    sentencepiece==0.1.99
+
+# Install ML and data science libraries
+RUN pip install --no-cache-dir \
+    scikit-learn==1.3.0 \
+    xgboost==2.0.0 \
+    imbalanced-learn==0.11.0 \
+    scipy==1.11.3 \
+    numpy==1.24.3 \
+    pandas==2.0.3
+
+# Install Z3 solver
+RUN pip install --no-cache-dir z3-solver==4.12.2.0
+
+# Install Google Cloud libraries
+RUN pip install --no-cache-dir \
+    google-cloud-storage==2.10.0 \
+    google-cloud-aiplatform==1.35.0
+
+# Install visualization and utilities
+RUN pip install --no-cache-dir \
+    matplotlib==3.7.2 \
+    seaborn==0.12.2 \
+    tqdm==4.66.1 \
+    pyyaml==6.0.1
+
+# Copy project files
+COPY core/ /app/core/
+COPY train_enhanced_vulnhunter.py /app/
+COPY vertex_train.py /app/
+
+# Create directories for cache and temporary files
+RUN mkdir -p /app/cache /app/models /tmp/data /tmp/models
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+ENV TRANSFORMERS_CACHE=/app/cache
+ENV HF_HOME=/app/cache
+ENV TORCH_HOME=/app/cache
+ENV CUDA_VISIBLE_DEVICES=0
+
+# Verify installations
+RUN python -c "import torch; print(f'PyTorch: {torch.__version__}'); print(f'CUDA available: {torch.cuda.is_available()}')" && \
+    python -c "import torch_geometric; print(f'PyG: {torch_geometric.__version__}')" && \
+    python -c "import transformers; print(f'Transformers: {transformers.__version__}')" && \
+    python -c "import z3; print('Z3 solver installed')" && \
+    python -c "import xgboost; print(f'XGBoost: {xgboost.__version__}')"
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python -c "import torch; assert torch.cuda.is_available()" || exit 1
+
+# Entry point for training
+ENTRYPOINT ["python", "vertex_train.py"]
