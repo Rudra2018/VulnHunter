@@ -1,0 +1,9 @@
+id,title,expected,predicted,confidence,correct
+H1-001,SQL Injection in user search,TP,TP,0.95,True
+H1-002,SQL Injection (False Positive),FP,FP,0.75,True
+H1-003,XSS via comment field,TP,TP,0.95,True
+H1-004,Self-XSS in profile,FP,FP,0.9,True
+H1-005,Path Traversal in file download,FP,FP,0.8,True
+H1-006,Authentication bypass,TP,TP,0.95,True
+H1-007,CSRF token bypass,FP,TP,0.5,False
+H1-008,Information disclosure in error messages,FP,FP,0.9,True

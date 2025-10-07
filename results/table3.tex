@@ -1,0 +1,17 @@
+\begin{table}[h]
+\centering
+\caption{Ablation Study: Component Contributions}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Configuration} & \textbf{Acc.} & \textbf{F1} & \textbf{FPR} & \textbf{FNR} \\
+\midrule
+\textbf{Full System} & \textbf{0.972} & \textbf{0.974} & \textbf{0.018} & \textbf{0.012} \\
+\midrule
+Without Formal Verification & 0.923 & 0.930 & 0.024 & 0.079 \\
+Without GNN & 0.894 & 0.907 & 0.032 & 0.103 \\
+Without Transformer & 0.870 & 0.881 & 0.039 & 0.128 \\
+Without Adversarial Training & 0.910 & 0.918 & 0.023 & 0.090 \\
+\bottomrule
+\end{tabular}
+\label{tab:ablation}
+\end{table}

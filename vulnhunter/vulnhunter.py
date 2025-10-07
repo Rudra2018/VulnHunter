@@ -291,8 +291,22 @@ class VulnHunter:
 
     def _analyze_ios_macos(self, target: str, target_path: str) -> VulnHunterResult:
         """Analyze iOS/macOS application"""
+        from ios_macos_security_analyzer import FileParser
+
         detector = self.analyzers['ios_macos']
-        result = detector.predict(target)
+        parser = FileParser()
+
+        # Parse file into BinaryInfo object
+        if target_path.endswith('.ipsw'):
+            binary_info = parser.parse_ipsw(target_path)
+        elif target_path.endswith('.ipa'):
+            binary_info = parser.parse_ipa(target_path)
+        elif target_path.endswith('.dmg'):
+            binary_info = parser.parse_dmg(target_path)
+        else:
+            binary_info = parser.parse_macho(target_path)
+
+        result = detector.predict(binary_info)
 
         is_vuln = result.get('prediction') == 'vulnerable'
         confidence = result.get('confidence', 0.5)

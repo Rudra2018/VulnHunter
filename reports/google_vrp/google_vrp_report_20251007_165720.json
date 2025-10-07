@@ -1,0 +1,2101 @@
+{
+  "scan_metadata": {
+    "project_name": "vuln_ml_research",
+    "scan_timestamp": "2025-10-07T16:57:16.810497",
+    "scan_duration_seconds": 3.370125,
+    "google_oss_vrp_eligible": false,
+    "vrp_tier": null
+  },
+  "summary": {
+    "total_findings": 151,
+    "critical": 63,
+    "high": 36,
+    "medium": 52,
+    "low": 0,
+    "estimated_value_usd": {
+      "min": 0,
+      "max": 0
+    }
+  },
+  "findings": {
+    "code_vulnerabilities": [
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in train_multitask_vulnhunter.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "train_multitask_vulnhunter.py",
+        "lines": [
+          356
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in train_multitask_vulnhunter.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "train_multitask_vulnhunter.py",
+        "lines": [
+          356
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in vulnerability_predictor.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "vulnerability_predictor.py",
+        "lines": [
+          173
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in vulnerability_predictor.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "vulnerability_predictor.py",
+        "lines": [
+          180
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in vulnerability_predictor.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "vulnerability_predictor.py",
+        "lines": [
+          182
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in demo_hackerone_fp_system.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "demo_hackerone_fp_system.py",
+        "lines": [
+          162
+        ],
+        "description": "XSS vulnerability detected: innerHTML assignment without sanitization",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in train_hackerone_fp_model.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "train_hackerone_fp_model.py",
+        "lines": [
+          157
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-002",
+        "title": "Cross-Site Scripting in train_hackerone_fp_model.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "train_hackerone_fp_model.py",
+        "lines": [
+          300
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in train_hackerone_fp_model.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "train_hackerone_fp_model.py",
+        "lines": [
+          157
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in train_hackerone_fp_model.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "train_hackerone_fp_model.py",
+        "lines": [
+          300
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in gpu_optimization_utils.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/gpu_optimization_utils.py",
+        "lines": [
+          86
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in gpu_optimization_utils.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/gpu_optimization_utils.py",
+        "lines": [
+          86
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in false_positive_reduction.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/false_positive_reduction.py",
+        "lines": [
+          570
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in zero_false_positive_engine.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/zero_false_positive_engine.py",
+        "lines": [
+          747
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in zero_false_positive_engine.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/zero_false_positive_engine.py",
+        "lines": [
+          450
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in enhanced_beast_http_analyzer.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/enhanced_beast_http_analyzer.py",
+        "lines": [
+          225
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in enhanced_beast_http_analyzer.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/enhanced_beast_http_analyzer.py",
+        "lines": [
+          225
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in enhanced_beast_http_analyzer.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/enhanced_beast_http_analyzer.py",
+        "lines": [
+          265
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-003",
+        "title": "Command Injection in enhanced_beast_http_analyzer.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/enhanced_beast_http_analyzer.py",
+        "lines": [
+          388
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in professional_bounty_reporter.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/professional_bounty_reporter.py",
+        "lines": [
+          133
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in professional_bounty_reporter.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/professional_bounty_reporter.py",
+        "lines": [
+          439
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-003",
+        "title": "Command Injection in professional_bounty_reporter.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/professional_bounty_reporter.py",
+        "lines": [
+          447
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in vulnerability_validator.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/vulnerability_validator.py",
+        "lines": [
+          182
+        ],
+        "description": "XSS vulnerability detected: React dangerouslySetInnerHTML",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in ast_feature_extractor.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/ast_feature_extractor.py",
+        "lines": [
+          502
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in z3_verification_module.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          521
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in z3_verification_module.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          295
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          278
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          278
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-003",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          279
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-004",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          290
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-005",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          291
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-006",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          292
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-007",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          293
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-008",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          295
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-009",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          543
+        ],
+        "description": "Command injection vulnerability: os.system() with string concatenation",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-010",
+        "title": "Command Injection in z3_verification_module.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/z3_verification_module.py",
+        "lines": [
+          543
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in huntr_pattern_extractor.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/huntr_pattern_extractor.py",
+        "lines": [
+          596
+        ],
+        "description": "Command injection vulnerability: subprocess with shell=True",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in http_security_dataset_builder.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          92
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-002",
+        "title": "Cross-Site Scripting in http_security_dataset_builder.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          144
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in http_security_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          92
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in http_security_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          143
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-003",
+        "title": "Command Injection in http_security_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          144
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-004",
+        "title": "Command Injection in http_security_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          144
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-005",
+        "title": "Command Injection in http_security_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          145
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-006",
+        "title": "Command Injection in http_security_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/http_security_dataset_builder.py",
+        "lines": [
+          145
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in enhanced_gnn_trainer.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/enhanced_gnn_trainer.py",
+        "lines": [
+          221
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in enhanced_gnn_trainer.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/enhanced_gnn_trainer.py",
+        "lines": [
+          221
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in hackerone_dataset_builder.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          114
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "SQLi-002",
+        "title": "SQL Injection in hackerone_dataset_builder.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          116
+        ],
+        "description": "SQL injection vulnerability detected due to f-string in database query",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "SQLi-003",
+        "title": "SQL Injection in hackerone_dataset_builder.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          128
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in hackerone_dataset_builder.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          135
+        ],
+        "description": "XSS vulnerability detected: document.write() with user data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-002",
+        "title": "Cross-Site Scripting in hackerone_dataset_builder.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          136
+        ],
+        "description": "XSS vulnerability detected: innerHTML assignment without sanitization",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-003",
+        "title": "Cross-Site Scripting in hackerone_dataset_builder.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          137
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-004",
+        "title": "Cross-Site Scripting in hackerone_dataset_builder.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          147
+        ],
+        "description": "XSS vulnerability detected: innerHTML assignment without sanitization",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-005",
+        "title": "Cross-Site Scripting in hackerone_dataset_builder.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          230
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in hackerone_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          137
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in hackerone_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          230
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-003",
+        "title": "Command Injection in hackerone_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          231
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-004",
+        "title": "Command Injection in hackerone_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          232
+        ],
+        "description": "Command injection vulnerability: os.system() with string concatenation",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-005",
+        "title": "Command Injection in hackerone_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          232
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-006",
+        "title": "Command Injection in hackerone_dataset_builder.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          233
+        ],
+        "description": "Command injection vulnerability: subprocess with shell=True",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "PT-001",
+        "title": "Path Traversal in hackerone_dataset_builder.py",
+        "type": "Path Traversal",
+        "severity": "High",
+        "cvss_score": 7.5,
+        "cwe": "CWE-22",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          250
+        ],
+        "description": "Path traversal vulnerability: readFile with path concatenation",
+        "impact": "Attacker can read arbitrary files on the server, potentially accessing sensitive configuration files, credentials, or source code.",
+        "remediation": "Use os.path.basename() to extract filename, validate against whitelist, or use safe_join(). Never trust user input for file paths."
+      },
+      {
+        "id": "PT-002",
+        "title": "Path Traversal in hackerone_dataset_builder.py",
+        "type": "Path Traversal",
+        "severity": "High",
+        "cvss_score": 7.5,
+        "cwe": "CWE-22",
+        "file": "core/hackerone_dataset_builder.py",
+        "lines": [
+          251
+        ],
+        "description": "Path traversal vulnerability: File.read with user parameters",
+        "impact": "Attacker can read arbitrary files on the server, potentially accessing sensitive configuration files, credentials, or source code.",
+        "remediation": "Use os.path.basename() to extract filename, validate against whitelist, or use safe_join(). Never trust user input for file paths."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in sota_baselines.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          162
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-002",
+        "title": "Cross-Site Scripting in sota_baselines.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          211
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-003",
+        "title": "Cross-Site Scripting in sota_baselines.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          303
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-004",
+        "title": "Cross-Site Scripting in sota_baselines.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          408
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in sota_baselines.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          162
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in sota_baselines.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          211
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-003",
+        "title": "Command Injection in sota_baselines.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          303
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-004",
+        "title": "Command Injection in sota_baselines.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/sota_baselines.py",
+        "lines": [
+          408
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in vulnerability_verification_module.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/vulnerability_verification_module.py",
+        "lines": [
+          56
+        ],
+        "description": "XSS vulnerability detected: React dangerouslySetInnerHTML",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-002",
+        "title": "Cross-Site Scripting in vulnerability_verification_module.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/vulnerability_verification_module.py",
+        "lines": [
+          341
+        ],
+        "description": "XSS vulnerability detected: React dangerouslySetInnerHTML",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-003",
+        "title": "Cross-Site Scripting in vulnerability_verification_module.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/vulnerability_verification_module.py",
+        "lines": [
+          361
+        ],
+        "description": "XSS vulnerability detected: React dangerouslySetInnerHTML",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-004",
+        "title": "Cross-Site Scripting in vulnerability_verification_module.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/vulnerability_verification_module.py",
+        "lines": [
+          476
+        ],
+        "description": "XSS vulnerability detected: innerHTML assignment without sanitization",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in enhanced_fp_engine.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/enhanced_fp_engine.py",
+        "lines": [
+          445
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in enhanced_fp_engine.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/enhanced_fp_engine.py",
+        "lines": [
+          266
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in enhanced_fp_engine.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/enhanced_fp_engine.py",
+        "lines": [
+          266
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "SQLi-001",
+        "title": "SQL Injection in neural_formal_integration.py",
+        "type": "SQL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-89",
+        "file": "core/neural_formal_integration.py",
+        "lines": [
+          641
+        ],
+        "description": "SQL injection vulnerability detected due to sql query with string concatenation",
+        "impact": "Attacker can execute arbitrary SQL queries, leading to data breach, data manipulation, or complete database compromise.",
+        "remediation": "Use parameterized queries (prepared statements) instead of string concatenation. Example: cursor.execute('SELECT * FROM users WHERE id = ?', [user_id])"
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in neural_formal_integration.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/neural_formal_integration.py",
+        "lines": [
+          475
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in neural_formal_integration.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/neural_formal_integration.py",
+        "lines": [
+          476
+        ],
+        "description": "Command injection vulnerability: exec() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-003",
+        "title": "Command Injection in neural_formal_integration.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/neural_formal_integration.py",
+        "lines": [
+          477
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in multitask_training_pipeline.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/multitask_training_pipeline.py",
+        "lines": [
+          461
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in multitask_training_pipeline.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/multitask_training_pipeline.py",
+        "lines": [
+          461
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "XSS-001",
+        "title": "Cross-Site Scripting in codebert_ensemble.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/codebert_ensemble.py",
+        "lines": [
+          231
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "XSS-002",
+        "title": "Cross-Site Scripting in codebert_ensemble.py",
+        "type": "Cross-Site Scripting (XSS)",
+        "severity": "High",
+        "cvss_score": 7.1,
+        "cwe": "CWE-79",
+        "file": "core/codebert_ensemble.py",
+        "lines": [
+          316
+        ],
+        "description": "XSS vulnerability detected: eval() with potentially user-controlled data",
+        "impact": "Attacker can execute arbitrary JavaScript in victim's browser, steal cookies, session tokens, or perform actions on behalf of the user.",
+        "remediation": "Sanitize user input before rendering. Use textContent instead of innerHTML, or use a sanitization library like DOMPurify."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in codebert_ensemble.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/codebert_ensemble.py",
+        "lines": [
+          231
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in codebert_ensemble.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "core/codebert_ensemble.py",
+        "lines": [
+          316
+        ],
+        "description": "Command injection vulnerability: eval() with user input",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-001",
+        "title": "Command Injection in reproduce_table1.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "experiments/reproduce_table1.py",
+        "lines": [
+          75
+        ],
+        "description": "Command injection vulnerability: os.system() with string concatenation",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      },
+      {
+        "id": "CMDi-002",
+        "title": "Command Injection in reproduce_table1.py",
+        "type": "Command Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "cwe": "CWE-78",
+        "file": "experiments/reproduce_table1.py",
+        "lines": [
+          75
+        ],
+        "description": "Command injection vulnerability: C system() call",
+        "impact": "Attacker can execute arbitrary system commands, potentially leading to full system compromise, data exfiltration, or denial of service.",
+        "remediation": "Use subprocess with shell=False and pass arguments as a list. Avoid os.system() entirely. Validate and sanitize all user input."
+      }
+    ],
+    "supply_chain": [
+      {
+        "id": "SC-001",
+        "title": "Unpinned dependency: torch",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 2,
+        "description": "Package 'torch' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: torch==X.Y.Z"
+      },
+      {
+        "id": "SC-002",
+        "title": "Unpinned dependency: torchvision",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 3,
+        "description": "Package 'torchvision' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: torchvision==X.Y.Z"
+      },
+      {
+        "id": "SC-003",
+        "title": "Unpinned dependency: torchaudio",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 4,
+        "description": "Package 'torchaudio' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: torchaudio==X.Y.Z"
+      },
+      {
+        "id": "SC-004",
+        "title": "Unpinned dependency: tensorflow",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 5,
+        "description": "Package 'tensorflow' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: tensorflow==X.Y.Z"
+      },
+      {
+        "id": "SC-005",
+        "title": "Unpinned dependency: scikit-learn",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 6,
+        "description": "Package 'scikit-learn' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: scikit-learn==X.Y.Z"
+      },
+      {
+        "id": "SC-006",
+        "title": "Unpinned dependency: pandas",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 7,
+        "description": "Package 'pandas' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: pandas==X.Y.Z"
+      },
+      {
+        "id": "SC-007",
+        "title": "Unpinned dependency: numpy",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 8,
+        "description": "Package 'numpy' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: numpy==X.Y.Z"
+      },
+      {
+        "id": "SC-008",
+        "title": "Unpinned dependency: jupyter",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 9,
+        "description": "Package 'jupyter' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: jupyter==X.Y.Z"
+      },
+      {
+        "id": "SC-009",
+        "title": "Unpinned dependency: matplotlib",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 10,
+        "description": "Package 'matplotlib' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: matplotlib==X.Y.Z"
+      },
+      {
+        "id": "SC-010",
+        "title": "Unpinned dependency: seaborn",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 11,
+        "description": "Package 'seaborn' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: seaborn==X.Y.Z"
+      },
+      {
+        "id": "SC-011",
+        "title": "Unpinned dependency: transformers",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 14,
+        "description": "Package 'transformers' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: transformers==X.Y.Z"
+      },
+      {
+        "id": "SC-012",
+        "title": "Unpinned dependency: datasets",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 15,
+        "description": "Package 'datasets' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: datasets==X.Y.Z"
+      },
+      {
+        "id": "SC-013",
+        "title": "Unpinned dependency: tokenizers",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 16,
+        "description": "Package 'tokenizers' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: tokenizers==X.Y.Z"
+      },
+      {
+        "id": "SC-014",
+        "title": "Unpinned dependency: safetensors",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 17,
+        "description": "Package 'safetensors' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: safetensors==X.Y.Z"
+      },
+      {
+        "id": "SC-015",
+        "title": "Unpinned dependency: radare2",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 20,
+        "description": "Package 'radare2' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: radare2==X.Y.Z"
+      },
+      {
+        "id": "SC-016",
+        "title": "Unpinned dependency: r2pipe",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 21,
+        "description": "Package 'r2pipe' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: r2pipe==X.Y.Z"
+      },
+      {
+        "id": "SC-017",
+        "title": "Unpinned dependency: capstone",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 22,
+        "description": "Package 'capstone' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: capstone==X.Y.Z"
+      },
+      {
+        "id": "SC-018",
+        "title": "Unpinned dependency: ropper",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 23,
+        "description": "Package 'ropper' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: ropper==X.Y.Z"
+      },
+      {
+        "id": "SC-019",
+        "title": "Unpinned dependency: angr",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 24,
+        "description": "Package 'angr' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: angr==X.Y.Z"
+      },
+      {
+        "id": "SC-020",
+        "title": "Unpinned dependency: pefile",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 25,
+        "description": "Package 'pefile' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: pefile==X.Y.Z"
+      },
+      {
+        "id": "SC-021",
+        "title": "Unpinned dependency: lief",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 26,
+        "description": "Package 'lief' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: lief==X.Y.Z"
+      },
+      {
+        "id": "SC-022",
+        "title": "Unpinned dependency: requests",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 29,
+        "description": "Package 'requests' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: requests==X.Y.Z"
+      },
+      {
+        "id": "SC-023",
+        "title": "Unpinned dependency: beautifulsoup4",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 30,
+        "description": "Package 'beautifulsoup4' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: beautifulsoup4==X.Y.Z"
+      },
+      {
+        "id": "SC-024",
+        "title": "Unpinned dependency: scapy",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 31,
+        "description": "Package 'scapy' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: scapy==X.Y.Z"
+      },
+      {
+        "id": "SC-025",
+        "title": "Unpinned dependency: urllib3",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 32,
+        "description": "Package 'urllib3' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: urllib3==X.Y.Z"
+      },
+      {
+        "id": "SC-026",
+        "title": "Unpinned dependency: tree-sitter",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 35,
+        "description": "Package 'tree-sitter' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: tree-sitter==X.Y.Z"
+      },
+      {
+        "id": "SC-027",
+        "title": "Unpinned dependency: pycparser",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 36,
+        "description": "Package 'pycparser' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: pycparser==X.Y.Z"
+      },
+      {
+        "id": "SC-028",
+        "title": "Unpinned dependency: javalang",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 37,
+        "description": "Package 'javalang' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: javalang==X.Y.Z"
+      },
+      {
+        "id": "SC-029",
+        "title": "Unpinned dependency: tqdm",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 40,
+        "description": "Package 'tqdm' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: tqdm==X.Y.Z"
+      },
+      {
+        "id": "SC-030",
+        "title": "Unpinned dependency: pyyaml",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 41,
+        "description": "Package 'pyyaml' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: pyyaml==X.Y.Z"
+      },
+      {
+        "id": "SC-031",
+        "title": "Unpinned dependency: wandb",
+        "category": "dependency",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/requirements.txt",
+        "line": 42,
+        "description": "Package 'wandb' does not have a pinned version",
+        "impact": "Unpinned dependencies can lead to supply chain attacks where newer malicious versions are automatically installed",
+        "remediation": "Pin to specific version: wandb==X.Y.Z"
+      },
+      {
+        "id": "SC-032",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/enhanced_beast_http_analyzer.py",
+        "line": 236,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-033",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/enhanced_beast_http_analyzer.py",
+        "line": 242,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-034",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/professional_bounty_reporter.py",
+        "line": 198,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-035",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 91,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-036",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 112,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-037",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 113,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-038",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 114,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-039",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 117,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-040",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 118,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-041",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 119,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-042",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 128,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-043",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 130,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-044",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 185,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-045",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 188,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-046",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 191,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-047",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 211,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-048",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 212,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-049",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/http_security_dataset_builder.py",
+        "line": 213,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-050",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/hackerone_dataset_builder.py",
+        "line": 219,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-051",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/supply_chain_analyzer.py",
+        "line": 174,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      },
+      {
+        "id": "SC-052",
+        "title": "Insecure HTTP request",
+        "category": "network",
+        "severity": "Medium",
+        "cvss_score": 6.5,
+        "file": "/Users/ankitthakur/vuln_ml_research/core/supply_chain_analyzer.py",
+        "line": 535,
+        "description": "Code makes request over insecure HTTP protocol",
+        "impact": "Data transmitted over HTTP can be intercepted and modified",
+        "remediation": "Use HTTPS for all external requests"
+      }
+    ],
+    "secrets": [
+      {
+        "id": "SECRET-001",
+        "type": "password_assignment",
+        "severity": "High",
+        "cvss_score": 8.5,
+        "confidence": 0.6,
+        "file": "ML_TRAINING_REPORT.md",
+        "line": 144,
+        "description": "Hardcoded Password",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-002",
+        "type": "password_assignment",
+        "severity": "High",
+        "cvss_score": 8.5,
+        "confidence": 0.6,
+        "file": "vulnerability_predictor.py",
+        "line": 194,
+        "description": "Hardcoded Password",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-003",
+        "type": "password_assignment",
+        "severity": "High",
+        "cvss_score": 8.5,
+        "confidence": 0.6,
+        "file": "vulnerability_predictor.py",
+        "line": 196,
+        "description": "Hardcoded Password",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-004",
+        "type": "bearer_token",
+        "severity": "High",
+        "cvss_score": 8.5,
+        "confidence": 0.8,
+        "file": "core/professional_bounty_reporter.py",
+        "line": 565,
+        "description": "Bearer Token",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-005",
+        "type": "jwt_token",
+        "severity": "High",
+        "cvss_score": 8.5,
+        "confidence": 0.9,
+        "file": "core/professional_bounty_reporter.py",
+        "line": 565,
+        "description": "JWT Token",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-006",
+        "type": "dsa_private_key",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "confidence": 1.0,
+        "file": "core/secrets_scanner.py",
+        "line": 102,
+        "description": "DSA Private Key",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-007",
+        "type": "ec_private_key",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "confidence": 1.0,
+        "file": "core/secrets_scanner.py",
+        "line": 108,
+        "description": "EC Private Key",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-008",
+        "type": "pgp_private_key",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "confidence": 1.0,
+        "file": "core/secrets_scanner.py",
+        "line": 114,
+        "description": "PGP Private Key",
+        "impact": "Unauthorized access and potential system compromise"
+      },
+      {
+        "id": "SECRET-009",
+        "type": "bearer_token",
+        "severity": "High",
+        "cvss_score": 8.5,
+        "confidence": 0.8,
+        "file": "core/secrets_scanner.py",
+        "line": 139,
+        "description": "Bearer Token",
+        "impact": "Unauthorized access and potential system compromise"
+      }
+    ]
+  }
+}
