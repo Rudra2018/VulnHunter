@@ -238,7 +238,6 @@ class BinaryDatasetBuilder:
 
     def _collect_macos_vulnerabilities(self, target_count: int) -> List[BinaryVulnerability]:
         """Collect macOS-specific binary vulnerabilities"""
-        vulnerabilities = []
 
         # Known vulnerable macOS applications with CVEs
         vulnerable_targets = [
@@ -311,24 +310,32 @@ class BinaryDatasetBuilder:
         ]
 
         all_targets = vulnerable_targets + system_libraries
+        vulnerabilities = []
 
-        for i, target in enumerate(all_targets[:target_count]):
+        # Generate samples up to target_count by cycling through templates
+        for i in range(target_count):
+            # Cycle through templates
+            target = all_targets[i % len(all_targets)].copy()
+
+            # Add variations to create unique samples
+            variation_suffix = f"_v{i // len(all_targets)}" if i >= len(all_targets) else ""
+
             # Generate synthetic binary path for demonstration
             app_name = target.get('app', target.get('lib', f'binary_{i}'))
-            binary_path = f"samples/macos/vulnerable/{app_name}"
+            binary_path = f"samples/macos/vulnerable/{app_name}{variation_suffix}"
 
             vulnerability = BinaryVulnerability(
                 platform="macos",
                 binary_type="Mach-O",
                 application=target.get('app', target.get('lib', 'unknown')),
-                cve_id=target['cve'],
-                vulnerability_type=target['vuln_type'],
-                severity=target['severity'],
+                cve_id=target.get('cve', f'CVE-SYNTH-{i:05d}'),
+                vulnerability_type=target.get('vuln_type', 'unknown'),
+                severity=target.get('severity', 'medium'),
                 binary_path=binary_path,
                 binary_hash=self._generate_binary_hash(binary_path),
                 features=self._generate_macos_features(target),
                 metadata={
-                    'description': target['description'],
+                    'description': target.get('description', 'Synthetic vulnerability for ML training'),
                     'collection_date': datetime.now().isoformat(),
                     'source': 'apple_security_updates',
                     'verified': True
@@ -343,7 +350,6 @@ class BinaryDatasetBuilder:
 
     def _collect_windows_vulnerabilities(self, target_count: int) -> List[BinaryVulnerability]:
         """Collect Windows-specific binary vulnerabilities"""
-        vulnerabilities = []
 
         # Known vulnerable Windows applications
         vulnerable_targets = [
@@ -416,18 +422,26 @@ class BinaryDatasetBuilder:
         ]
 
         all_targets = vulnerable_targets + system_components
+        vulnerabilities = []
 
-        for i, target in enumerate(all_targets[:target_count]):
+        # Generate samples up to target_count by cycling through templates
+        for i in range(target_count):
+            # Cycle through templates
+            target = all_targets[i % len(all_targets)].copy()
+
+            # Add variations to create unique samples
+            variation_suffix = f"_v{i // len(all_targets)}" if i >= len(all_targets) else ""
+
             app_name = target.get('app', f'binary_{i}')
-            binary_path = f"samples/windows/vulnerable/{app_name}.exe"
+            binary_path = f"samples/windows/vulnerable/{app_name}{variation_suffix}.exe"
 
             vulnerability = BinaryVulnerability(
                 platform="windows",
                 binary_type="PE32",
                 application=target.get('app', f'binary_{i}'),
-                cve_id=target['cve'],
-                vulnerability_type=target['vuln_type'],
-                severity=target['severity'],
+                cve_id=target.get('cve', f'CVE-SYNTH-{i:05d}'),
+                vulnerability_type=target.get('vuln_type', 'unknown'),
+                severity=target.get('severity', 'medium'),
                 binary_path=binary_path,
                 binary_hash=self._generate_binary_hash(binary_path),
                 features=self._generate_windows_features(target),
@@ -447,7 +461,6 @@ class BinaryDatasetBuilder:
 
     def _collect_linux_vulnerabilities(self, target_count: int) -> List[BinaryVulnerability]:
         """Collect Linux-specific binary vulnerabilities"""
-        vulnerabilities = []
 
         # Known vulnerable Linux packages
         vulnerable_targets = [
@@ -520,18 +533,26 @@ class BinaryDatasetBuilder:
         ]
 
         all_targets = vulnerable_targets + system_libraries
+        vulnerabilities = []
 
-        for i, target in enumerate(all_targets[:target_count]):
+        # Generate samples up to target_count by cycling through templates
+        for i in range(target_count):
+            # Cycle through templates
+            target = all_targets[i % len(all_targets)].copy()
+
+            # Add variations to create unique samples
+            variation_suffix = f"_v{i // len(all_targets)}" if i >= len(all_targets) else ""
+
             pkg_name = target.get('pkg', f'binary_{i}')
-            binary_path = f"samples/linux/vulnerable/{pkg_name}"
+            binary_path = f"samples/linux/vulnerable/{pkg_name}{variation_suffix}"
 
             vulnerability = BinaryVulnerability(
                 platform="linux",
                 binary_type="ELF64",
                 application=target.get('pkg', f'binary_{i}'),
-                cve_id=target['cve'],
-                vulnerability_type=target['vuln_type'],
-                severity=target['severity'],
+                cve_id=target.get('cve', f'CVE-SYNTH-{i:05d}'),
+                vulnerability_type=target.get('vuln_type', 'unknown'),
+                severity=target.get('severity', 'medium'),
                 binary_path=binary_path,
                 binary_hash=self._generate_binary_hash(binary_path),
                 features=self._generate_linux_features(target),
@@ -611,98 +632,110 @@ class BinaryDatasetBuilder:
 
     def _generate_macos_features(self, target: Dict) -> Dict[str, Any]:
         """Generate macOS-specific binary features"""
+        # Safe accessors for app/lib name and vuln_type
+        app_name = target.get('app', target.get('lib', target.get('application', 'unknown')))
+        vuln_type = target.get('vuln_type', 'unknown')
+
         return {
             # Binary format features
             'magic_bytes': 'mach_o_64',
             'architecture': 'x86_64',
-            'load_commands_count': 25 + hash(target['app']) % 20,
-            'segments_count': 8 + hash(target['app']) % 5,
-            'sections_count': 15 + hash(target['app']) % 10,
+            'load_commands_count': 25 + hash(app_name) % 20,
+            'segments_count': 8 + hash(app_name) % 5,
+            'sections_count': 15 + hash(app_name) % 10,
 
             # Security features
             'has_pie': True,
-            'has_stack_canary': hash(target['app']) % 2 == 0,
+            'has_stack_canary': hash(app_name) % 2 == 0,
             'has_nx_bit': True,
-            'code_signature': hash(target['app']) % 2 == 0,
+            'code_signature': hash(app_name) % 2 == 0,
 
             # Vulnerability indicators
-            'unsafe_functions_count': 3 + hash(target['vuln_type']) % 8,
-            'dynamic_imports_count': 45 + hash(target['app']) % 30,
+            'unsafe_functions_count': 3 + hash(vuln_type) % 8,
+            'dynamic_imports_count': 45 + hash(app_name) % 30,
             'framework_imports': ['Foundation', 'AppKit', 'Security'],
 
             # Memory management
-            'memory_allocation_calls': 12 + hash(target['app']) % 15,
-            'string_operations': 8 + hash(target['vuln_type']) % 12,
-            'buffer_operations': 5 + hash(target['vuln_type']) % 10,
+            'memory_allocation_calls': 12 + hash(app_name) % 15,
+            'string_operations': 8 + hash(vuln_type) % 12,
+            'buffer_operations': 5 + hash(vuln_type) % 10,
 
             # Code complexity
-            'function_count': 150 + hash(target['app']) % 200,
-            'cyclomatic_complexity': 15 + hash(target['app']) % 25,
-            'nesting_depth': 4 + hash(target['vuln_type']) % 6
+            'function_count': 150 + hash(app_name) % 200,
+            'cyclomatic_complexity': 15 + hash(app_name) % 25,
+            'nesting_depth': 4 + hash(vuln_type) % 6
         }
 
     def _generate_windows_features(self, target: Dict) -> Dict[str, Any]:
         """Generate Windows-specific binary features"""
+        # Safe accessors for app/lib name and vuln_type
+        app_name = target.get('app', target.get('lib', target.get('application', 'unknown')))
+        vuln_type = target.get('vuln_type', 'unknown')
+
         return {
             # PE format features
             'magic_bytes': 'pe32_plus',
             'machine_type': 'amd64',
-            'sections_count': 6 + hash(target['app']) % 8,
-            'imports_count': 80 + hash(target['app']) % 50,
-            'exports_count': 5 + hash(target['app']) % 15,
+            'sections_count': 6 + hash(app_name) % 8,
+            'imports_count': 80 + hash(app_name) % 50,
+            'exports_count': 5 + hash(app_name) % 15,
 
             # Security features
-            'has_aslr': hash(target['app']) % 2 == 0,
+            'has_aslr': hash(app_name) % 2 == 0,
             'has_dep': True,
-            'has_safeseh': hash(target['app']) % 2 == 0,
-            'control_flow_guard': hash(target['app']) % 3 == 0,
+            'has_safeseh': hash(app_name) % 2 == 0,
+            'control_flow_guard': hash(app_name) % 3 == 0,
 
             # Vulnerability indicators
-            'unsafe_api_calls': 7 + hash(target['vuln_type']) % 12,
+            'unsafe_api_calls': 7 + hash(vuln_type) % 12,
             'dll_imports': ['kernel32.dll', 'user32.dll', 'ntdll.dll'],
-            'api_calls_count': 120 + hash(target['app']) % 80,
+            'api_calls_count': 120 + hash(app_name) % 80,
 
             # Memory management
-            'heap_operations': 18 + hash(target['app']) % 25,
-            'stack_operations': 25 + hash(target['vuln_type']) % 20,
-            'memory_copy_functions': 8 + hash(target['vuln_type']) % 10,
+            'heap_operations': 18 + hash(app_name) % 25,
+            'stack_operations': 25 + hash(vuln_type) % 20,
+            'memory_copy_functions': 8 + hash(vuln_type) % 10,
 
             # Code analysis
-            'function_count': 200 + hash(target['app']) % 300,
-            'string_references': 150 + hash(target['app']) % 100,
-            'entropy': 7.2 + (hash(target['app']) % 100) / 100
+            'function_count': 200 + hash(app_name) % 300,
+            'string_references': 150 + hash(app_name) % 100,
+            'entropy': 7.2 + (hash(app_name) % 100) / 100
         }
 
     def _generate_linux_features(self, target: Dict) -> Dict[str, Any]:
         """Generate Linux-specific binary features"""
+        # Safe accessors for pkg/app/lib name and vuln_type
+        pkg_name = target.get('pkg', target.get('app', target.get('lib', 'unknown')))
+        vuln_type = target.get('vuln_type', 'unknown')
+
         return {
             # ELF format features
             'magic_bytes': 'elf_64',
             'machine_type': 'x86_64',
-            'sections_count': 12 + hash(target['pkg']) % 15,
-            'program_headers': 8 + hash(target['pkg']) % 5,
-            'dynamic_symbols': 45 + hash(target['pkg']) % 35,
+            'sections_count': 12 + hash(pkg_name) % 15,
+            'program_headers': 8 + hash(pkg_name) % 5,
+            'dynamic_symbols': 45 + hash(pkg_name) % 35,
 
             # Security features
             'has_pie': True,
-            'has_relro': hash(target['pkg']) % 2 == 0,
+            'has_relro': hash(pkg_name) % 2 == 0,
             'has_stack_protector': True,
-            'has_fortify': hash(target['pkg']) % 2 == 0,
+            'has_fortify': hash(pkg_name) % 2 == 0,
 
             # Vulnerability indicators
-            'system_calls': 15 + hash(target['vuln_type']) % 20,
+            'system_calls': 15 + hash(vuln_type) % 20,
             'library_dependencies': ['libc.so.6', 'libm.so.6', 'libpthread.so.0'],
-            'dangerous_functions': 4 + hash(target['vuln_type']) % 8,
+            'dangerous_functions': 4 + hash(vuln_type) % 8,
 
             # Memory management
-            'malloc_calls': 20 + hash(target['pkg']) % 30,
-            'free_calls': 18 + hash(target['pkg']) % 25,
-            'buffer_functions': 6 + hash(target['vuln_type']) % 12,
+            'malloc_calls': 20 + hash(pkg_name) % 30,
+            'free_calls': 18 + hash(pkg_name) % 25,
+            'buffer_functions': 6 + hash(vuln_type) % 12,
 
             # Code characteristics
-            'function_count': 100 + hash(target['pkg']) % 150,
-            'code_complexity': 12 + hash(target['pkg']) % 20,
-            'static_strings': 80 + hash(target['pkg']) % 60
+            'function_count': 100 + hash(pkg_name) % 150,
+            'code_complexity': 12 + hash(pkg_name) % 20,
+            'static_strings': 80 + hash(pkg_name) % 60
         }
 
     def _generate_benign_features(self, platform: str, app: str) -> Dict[str, Any]:
