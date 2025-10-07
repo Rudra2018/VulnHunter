@@ -41,11 +41,13 @@ RUN mkdir -p data/{raw,processed,metadata} \
     && mkdir -p logs
 
 # Copy source code
-COPY src/ /app/src/
+COPY core/ /app/core/
 COPY tests/ /app/tests/
 COPY config/ /app/config/
 COPY case_studies/ /app/case_studies/
 COPY tools/ /app/tools/
+COPY models/ /app/models/
+COPY documentation/ /app/documentation/
 
 # Copy documentation and scripts
 COPY *.md /app/
@@ -70,11 +72,11 @@ USER researcher
 # Verify installation
 RUN python3 -c "import torch; print(f'PyTorch {torch.__version__} ready')" \
     && python3 -c "import transformers; print(f'Transformers {transformers.__version__} ready')" \
-    && python3 -c "from src.utils.secure_runner import SecureRunner; print('SecureRunner ready')"
+    && python3 -c "from core.utils.secure_runner import SecureRunner; print('SecureRunner ready')"
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD python3 -c "from src.utils.secure_runner import secure_run; print('Framework healthy')" || exit 1
+    CMD python3 -c "from core.utils.secure_runner import secure_run; print('Framework healthy')" || exit 1
 
 # Default command
 CMD ["python3", "smoke_test.py"]

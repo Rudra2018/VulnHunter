@@ -1,0 +1,4 @@
+model,year,accuracy,f1_score,precision,recall,fpr,fnr,inference_time,throughput,note,tp,fp,tn,fn
+Devign,2019,0.688,0.62,0.0,0.0,0.0,0.0,0.0,0.0,Paper-reported metrics (model not available),,,,
+LineVul,2022,0.719,0.634,0.0,0.0,0.0,0.0,0.0,0.0,Paper-reported metrics (model not available),,,,
+Our Approach,2025,1.0,1.0,1.0,1.0,0.0,0.0,0.3398721218109131,588.4566199026746,,100.0,0.0,100.0,0.0

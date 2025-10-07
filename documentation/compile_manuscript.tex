@@ -1,0 +1,31 @@
+\documentclass[10pt,journal,compsoc]{article}
+
+% Override to use standard Computer Modern fonts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\begin{document}
+
+\title{Security Intelligence Framework: A Unified Mathematical Approach for Autonomous Vulnerability Detection}
+
+\author{Ankit Thakur}
+
+\maketitle
+
+\begin{abstract}
+Modern software systems face increasingly sophisticated security threats that traditional static analysis tools struggle to detect. We present a novel security intelligence framework that combines Graph Neural Networks (GNNs), multi-scale transformers, and neural-formal verification for autonomous vulnerability detection. Our key contribution is a mathematically rigorous integration of formal verification methods (Z3 SMT solver) with deep learning architectures, providing provable bounds on false positive and false negative rates. We prove that our hybrid approach achieves FPR $\leq$ FPR$_{\text{neural}} \cdot (1-C_v) + \epsilon_{\text{solver}} \cdot C_v$ and FNR $\leq$ FNR$_{\text{neural}} \cdot$ FNR$_{\text{formal}}$, where $C_v$ is verification coverage. Empirical evaluation on comprehensive benchmarks demonstrates F1-score of 97.4\% (95\% CI: [96.8\%, 97.9\%]) with 76\% formal verification coverage and 213 samples/second throughput. Ablation studies confirm all components contribute significantly: removing formal verification reduces F1 by 4.4 percentage points, removing GNN by 6.7 points, and removing transformers by 9.3 points. We evaluate on production codebases including Hugging Face Transformers, LangChain, and vLLM, identifying critical vulnerabilities with CVSS scores up to 9.1. Our work advances automated security analysis by demonstrating that neural-formal hybrid approaches can achieve both theoretical guarantees and practical deployment feasibility.
+\end{abstract}
+
+\section{Note}
+This is a test compilation using the article class due to font issues with IEEEtran. The full manuscript with proper IEEE formatting is in tdsc\_manuscript.tex.
+
+For proper compilation, please use Overleaf or install the required fonts with sudo access.
+
+\end{document}

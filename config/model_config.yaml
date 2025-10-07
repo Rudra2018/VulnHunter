@@ -1,0 +1,37 @@
+# Model configuration for vulnerability detection
+model:
+  name: "VulnHunter"
+  version: "1.0.0"
+
+  # Architecture
+  architecture:
+    embedding_dim: 768
+    hidden_dim: 512
+    num_layers: 4
+    dropout: 0.1
+
+  # Training
+  training:
+    batch_size: 32
+    learning_rate: 0.0001
+    epochs: 50
+    optimizer: "AdamW"
+    weight_decay: 0.01
+
+  # Data
+  data:
+    max_sequence_length: 512
+    train_split: 0.8
+    val_split: 0.1
+    test_split: 0.1
+
+# Security settings
+security:
+  sandbox_enabled: true
+  timeout_seconds: 30
+  max_file_size_mb: 10
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
