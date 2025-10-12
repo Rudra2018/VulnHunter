@@ -1,7 +1,0 @@
-Metric,Value,CI_Lower,CI_Upper
-accuracy,0.88,,
-precision,0.8064516129032258,,
-recall,1.0,,
-f1_score,0.8928571428571429,,
-fpr,0.24,,
-fnr,0.0,,
