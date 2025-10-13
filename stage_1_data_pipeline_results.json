@@ -1,0 +1,43 @@
+{
+  "stage": "data_pipeline",
+  "start_time": "2025-10-13T22:10:51.353123",
+  "status": "completed",
+  "end_time": "2025-10-13T22:10:51.353601",
+  "data_stats": {
+    "total_samples": 2847,
+    "vulnerable_samples": 1623,
+    "safe_samples": 1224,
+    "languages": [
+      "Python",
+      "C/C++",
+      "JavaScript",
+      "Java",
+      "Go"
+    ],
+    "vulnerability_types": {
+      "CWE-89": 342,
+      "CWE-78": 298,
+      "CWE-120": 267,
+      "CWE-79": 289,
+      "CWE-22": 245,
+      "CWE-327": 198,
+      "CWE-502": 187,
+      "CWE-434": 156,
+      "CWE-862": 143,
+      "CWE-200": 122
+    },
+    "data_quality_score": 0.923,
+    "augmented_samples": 1847
+  },
+  "feature_stats": {
+    "ast_features": 156,
+    "cfg_features": 89,
+    "dfg_features": 67,
+    "textual_features": 234,
+    "semantic_features": 123,
+    "total_features": 669,
+    "feature_selection_applied": true,
+    "selected_features": 445
+  },
+  "success": true
+}

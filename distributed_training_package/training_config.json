@@ -1,0 +1,11 @@
+{
+  "hidden_dim": 256,
+  "num_gnn_layers": 4,
+  "num_attention_heads": 16,
+  "dropout_rate": 0.2,
+  "learning_rate": 0.01,
+  "batch_size_per_gpu": 16,
+  "weight_decay": 0.001,
+  "num_epochs": 100,
+  "num_workers": 4
+}

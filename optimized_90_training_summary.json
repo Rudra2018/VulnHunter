@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-10-11 20:24:35",
+  "dataset_size": 7994,
+  "features_count": 37,
+  "training_accuracy": 1.0,
+  "cv_accuracy": 1.0,
+  "real_world_accuracy": 25.0,
+  "target_achieved": false,
+  "model_file": "optimized_90_model_20251011_202434.pkl",
+  "validation_results": [
+    {
+      "contract": "Enhanced Reentrancy Attack",
+      "expected": "reentrancy",
+      "predicted": "delegatecall_injection",
+      "confidence": "62.96%",
+      "correct": false
+    },
+    {
+      "contract": "Enhanced Integer Overflow",
+      "expected": "integer_overflow",
+      "predicted": "timestamp_dependence",
+      "confidence": "46.81%",
+      "correct": false
+    },
+    {
+      "contract": "Enhanced Access Control Missing",
+      "expected": "access_control",
+      "predicted": "access_control",
+      "confidence": "77.82%",
+      "correct": true
+    },
+    {
+      "contract": "Secure Contract Example",
+      "expected": "secure",
+      "predicted": "reentrancy",
+      "confidence": "33.40%",
+      "correct": false
+    }
+  ]
+}

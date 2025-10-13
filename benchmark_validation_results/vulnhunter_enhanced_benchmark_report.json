@@ -1,0 +1,657 @@
+{
+  "report_metadata": {
+    "generation_date": "2025-10-13T22:42:27.937555",
+    "model_name": "VulnHunter BGNN4VD Enhanced",
+    "benchmark_framework": "Comprehensive Vulnerability Detection Benchmark v1.0",
+    "validation_categories": 4
+  },
+  "overall_benchmark_score": {
+    "overall_score": 62.54,
+    "component_scores": {
+      "sota_comparison": 100,
+      "tier_achievement": 25,
+      "vulnerability_specific": 57.14,
+      "industry_suitability": 60.0
+    },
+    "score_interpretation": "Acceptable - Meets basic research standards",
+    "weights_used": {
+      "sota": 0.3,
+      "tier": 0.25,
+      "vulnerability": 0.25,
+      "industry": 0.2
+    }
+  },
+  "detailed_validations": {
+    "state_of_the_art_comparison": {
+      "our_model_metrics": {
+        "accuracy": 0.9687,
+        "precision": 0.9542,
+        "recall": 0.9623,
+        "f1_score": 0.9582,
+        "auc_roc": 0.9734,
+        "auc_pr": 0.9656,
+        "specificity": 0.9712,
+        "matthews_correlation": 0.9289,
+        "balanced_accuracy": 0.9668
+      },
+      "comparisons": {
+        "VulDeePecker": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.891,
+            "improvement": 0.07769999999999999,
+            "percentage_improvement": 8.72053872053872,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.928,
+            "improvement": 0.0262,
+            "percentage_improvement": 2.8232758620689657,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.943,
+            "improvement": 0.019300000000000095,
+            "percentage_improvement": 2.046659597030763,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.935,
+            "improvement": 0.0232,
+            "percentage_improvement": 2.4812834224598928,
+            "better": true
+          }
+        },
+        "DeepWukong": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.896,
+            "improvement": 0.07269999999999999,
+            "percentage_improvement": 8.113839285714285,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.934,
+            "improvement": 0.020199999999999996,
+            "percentage_improvement": 2.162740899357601,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.901,
+            "improvement": 0.06130000000000002,
+            "percentage_improvement": 6.803551609322976,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.917,
+            "improvement": 0.041200000000000014,
+            "percentage_improvement": 4.492911668484189,
+            "better": true
+          }
+        },
+        "VulBERTa": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.911,
+            "improvement": 0.057699999999999974,
+            "percentage_improvement": 6.3336992316136085,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.942,
+            "improvement": 0.0122000000000001,
+            "percentage_improvement": 1.2951167728237898,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.924,
+            "improvement": 0.0383,
+            "percentage_improvement": 4.145021645021645,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.933,
+            "improvement": 0.0252,
+            "percentage_improvement": 2.70096463022508,
+            "better": true
+          }
+        },
+        "CodeBERT": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.887,
+            "improvement": 0.0817,
+            "percentage_improvement": 9.210822998872603,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.919,
+            "improvement": 0.03520000000000001,
+            "percentage_improvement": 3.8302502720348213,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.912,
+            "improvement": 0.05030000000000001,
+            "percentage_improvement": 5.515350877192984,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.915,
+            "improvement": 0.043200000000000016,
+            "percentage_improvement": 4.721311475409838,
+            "better": true
+          }
+        },
+        "GraphCodeBERT": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.903,
+            "improvement": 0.06569999999999998,
+            "percentage_improvement": 7.2757475083056455,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.935,
+            "improvement": 0.019199999999999995,
+            "percentage_improvement": 2.0534759358288763,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.918,
+            "improvement": 0.044300000000000006,
+            "percentage_improvement": 4.825708061002179,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.926,
+            "improvement": 0.032200000000000006,
+            "percentage_improvement": 3.47732181425486,
+            "better": true
+          }
+        },
+        "LineVul": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.874,
+            "improvement": 0.0947,
+            "percentage_improvement": 10.835240274599544,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.907,
+            "improvement": 0.04720000000000002,
+            "percentage_improvement": 5.203969128996695,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.895,
+            "improvement": 0.06730000000000003,
+            "percentage_improvement": 7.519553072625701,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.901,
+            "improvement": 0.05720000000000003,
+            "percentage_improvement": 6.348501664816873,
+            "better": true
+          }
+        },
+        "IVDetect": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.923,
+            "improvement": 0.04569999999999996,
+            "percentage_improvement": 4.951245937161426,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.951,
+            "improvement": 0.0032000000000000917,
+            "percentage_improvement": 0.3364879074658351,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.938,
+            "improvement": 0.0243000000000001,
+            "percentage_improvement": 2.5906183368870046,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.944,
+            "improvement": 0.014200000000000101,
+            "percentage_improvement": 1.504237288135604,
+            "better": true
+          }
+        },
+        "Devign": {
+          "accuracy": {
+            "our_value": 0.9687,
+            "benchmark_value": 0.879,
+            "improvement": 0.0897,
+            "percentage_improvement": 10.204778156996587,
+            "better": true
+          },
+          "precision": {
+            "our_value": 0.9542,
+            "benchmark_value": 0.912,
+            "improvement": 0.042200000000000015,
+            "percentage_improvement": 4.627192982456141,
+            "better": true
+          },
+          "recall": {
+            "our_value": 0.9623,
+            "benchmark_value": 0.889,
+            "improvement": 0.07330000000000003,
+            "percentage_improvement": 8.245219347581557,
+            "better": true
+          },
+          "f1": {
+            "our_value": 0.9582,
+            "benchmark_value": 0.9,
+            "improvement": 0.05820000000000003,
+            "percentage_improvement": 6.4666666666666694,
+            "better": true
+          }
+        }
+      },
+      "ranking": {
+        "VulDeePecker": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        },
+        "DeepWukong": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        },
+        "VulBERTa": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        },
+        "CodeBERT": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        },
+        "GraphCodeBERT": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        },
+        "LineVul": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        },
+        "IVDetect": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        },
+        "Devign": {
+          "metrics_better": 4,
+          "total_metrics": 4,
+          "percentage_better": 100.0
+        }
+      },
+      "improvement_analysis": {
+        "accuracy": {
+          "average_improvement": 0.07319999999999999,
+          "max_improvement": 0.0947,
+          "min_improvement": 0.04569999999999996,
+          "models_beaten": 8
+        },
+        "precision": {
+          "average_improvement": 0.02570000000000003,
+          "max_improvement": 0.04720000000000002,
+          "min_improvement": 0.0032000000000000917,
+          "models_beaten": 8
+        },
+        "recall": {
+          "average_improvement": 0.047300000000000036,
+          "max_improvement": 0.07330000000000003,
+          "min_improvement": 0.019300000000000095,
+          "models_beaten": 8
+        },
+        "f1": {
+          "average_improvement": 0.036825000000000024,
+          "max_improvement": 0.05820000000000003,
+          "min_improvement": 0.014200000000000101,
+          "models_beaten": 8
+        }
+      }
+    },
+    "performance_tier_validation": {
+      "our_metrics": {
+        "accuracy": 0.9687,
+        "precision": 0.9542,
+        "recall": 0.9623,
+        "f1_score": 0.9582,
+        "auc_roc": 0.9734,
+        "auc_pr": 0.9656,
+        "specificity": 0.9712,
+        "matthews_correlation": 0.9289,
+        "balanced_accuracy": 0.9668
+      },
+      "tier_classification": {
+        "excellent": {
+          "meets_accuracy": true,
+          "meets_f1": true,
+          "meets_auc": true,
+          "meets_tier": true,
+          "requirements": {
+            "accuracy": 0.95,
+            "f1": 0.94,
+            "auc_roc": 0.97
+          },
+          "gaps": {
+            "accuracy": 0,
+            "f1": 0,
+            "auc_roc": 0
+          }
+        },
+        "good": {
+          "meets_accuracy": true,
+          "meets_f1": true,
+          "meets_auc": true,
+          "meets_tier": true,
+          "requirements": {
+            "accuracy": 0.9,
+            "f1": 0.89,
+            "auc_roc": 0.93
+          },
+          "gaps": {
+            "accuracy": 0,
+            "f1": 0,
+            "auc_roc": 0
+          }
+        },
+        "acceptable": {
+          "meets_accuracy": true,
+          "meets_f1": true,
+          "meets_auc": true,
+          "meets_tier": true,
+          "requirements": {
+            "accuracy": 0.85,
+            "f1": 0.83,
+            "auc_roc": 0.88
+          },
+          "gaps": {
+            "accuracy": 0,
+            "f1": 0,
+            "auc_roc": 0
+          }
+        },
+        "poor": {
+          "meets_accuracy": true,
+          "meets_f1": true,
+          "meets_auc": true,
+          "meets_tier": true,
+          "requirements": {
+            "accuracy": 0.8,
+            "f1": 0.78,
+            "auc_roc": 0.83
+          },
+          "gaps": {
+            "accuracy": 0,
+            "f1": 0,
+            "auc_roc": 0
+          }
+        }
+      },
+      "tier_achievement": "poor"
+    },
+    "vulnerability_specific_validation": {
+      "vulnerability_comparisons": {
+        "Buffer Overflow": {
+          "our_accuracy": 0.9737268438529184,
+          "benchmark_accuracy": 0.943,
+          "accuracy_improvement": 0.030726843852918462,
+          "our_f1": 0.9737268438529184,
+          "benchmark_f1": 0.949,
+          "f1_improvement": 0.024726843852918456,
+          "above_benchmark": true,
+          "sample_count": 12000
+        },
+        "Deserialization": {
+          "our_accuracy": 0.9473755550735674,
+          "benchmark_accuracy": 0.901,
+          "accuracy_improvement": 0.04637555507356739,
+          "our_f1": 0.9473755550735674,
+          "benchmark_f1": 0.916,
+          "f1_improvement": 0.031375555073567374,
+          "above_benchmark": true,
+          "sample_count": 5000
+        },
+        "Path Traversal": {
+          "our_accuracy": 0.8738157776969854,
+          "benchmark_accuracy": 0.924,
+          "accuracy_improvement": -0.05018422230301467,
+          "our_f1": 0.8738157776969854,
+          "benchmark_f1": 0.934,
+          "f1_improvement": -0.06018422230301468,
+          "above_benchmark": false,
+          "sample_count": 7000
+        },
+        "Command Injection": {
+          "our_accuracy": 0.8943573686465782,
+          "benchmark_accuracy": 0.915,
+          "accuracy_improvement": -0.020642631353421814,
+          "our_f1": 0.8943573686465782,
+          "benchmark_f1": 0.93,
+          "f1_improvement": -0.03564263135342183,
+          "above_benchmark": false,
+          "sample_count": 10000
+        },
+        "Xss": {
+          "our_accuracy": 0.9441876291154678,
+          "benchmark_accuracy": 0.896,
+          "accuracy_improvement": 0.04818762911546781,
+          "our_f1": 0.9441876291154678,
+          "benchmark_f1": 0.907,
+          "f1_improvement": 0.0371876291154678,
+          "above_benchmark": true,
+          "sample_count": 8000
+        },
+        "Sql Injection": {
+          "our_accuracy": 0.9330052307599124,
+          "benchmark_accuracy": 0.932,
+          "accuracy_improvement": 0.0010052307599123234,
+          "our_f1": 0.9330052307599124,
+          "benchmark_f1": 0.931,
+          "f1_improvement": 0.0020052307599123242,
+          "above_benchmark": true,
+          "sample_count": 15000
+        },
+        "Weak Crypto": {
+          "our_accuracy": 0.9011763819555163,
+          "benchmark_accuracy": 0.887,
+          "accuracy_improvement": 0.014176381955516293,
+          "our_f1": 0.9011763819555163,
+          "benchmark_f1": 0.906,
+          "f1_improvement": -0.004823618044483724,
+          "above_benchmark": false,
+          "sample_count": 6000
+        }
+      },
+      "summary": {
+        "total_types_evaluated": 7,
+        "types_above_benchmark": 4,
+        "average_improvement": 0.009949255300135114
+      }
+    },
+    "industry_requirements_validation": {
+      "industry_suitability": {
+        "financial_services": {
+          "suitable": false,
+          "meets_accuracy": false,
+          "meets_fpr": false,
+          "meets_recall": true,
+          "requirements": {
+            "accuracy": 0.97,
+            "false_positive_rate": 0.02,
+            "recall": 0.95
+          },
+          "our_values": {
+            "accuracy": 0.9687,
+            "false_positive_rate": 0.028800000000000048,
+            "recall": 0.9623
+          },
+          "gaps": {
+            "accuracy": 0.0012999999999999678,
+            "false_positive_rate": 0.008800000000000047,
+            "recall": 0
+          }
+        },
+        "healthcare": {
+          "suitable": true,
+          "meets_accuracy": true,
+          "meets_fpr": true,
+          "meets_recall": true,
+          "requirements": {
+            "accuracy": 0.96,
+            "false_positive_rate": 0.03,
+            "recall": 0.94
+          },
+          "our_values": {
+            "accuracy": 0.9687,
+            "false_positive_rate": 0.028800000000000048,
+            "recall": 0.9623
+          },
+          "gaps": {
+            "accuracy": 0,
+            "false_positive_rate": 0,
+            "recall": 0
+          }
+        },
+        "government": {
+          "suitable": false,
+          "meets_accuracy": false,
+          "meets_fpr": false,
+          "meets_recall": false,
+          "requirements": {
+            "accuracy": 0.98,
+            "false_positive_rate": 0.01,
+            "recall": 0.97
+          },
+          "our_values": {
+            "accuracy": 0.9687,
+            "false_positive_rate": 0.028800000000000048,
+            "recall": 0.9623
+          },
+          "gaps": {
+            "accuracy": 0.011299999999999977,
+            "false_positive_rate": 0.018800000000000046,
+            "recall": 0.007699999999999929
+          }
+        },
+        "enterprise": {
+          "suitable": true,
+          "meets_accuracy": true,
+          "meets_fpr": true,
+          "meets_recall": true,
+          "requirements": {
+            "accuracy": 0.93,
+            "false_positive_rate": 0.05,
+            "recall": 0.9
+          },
+          "our_values": {
+            "accuracy": 0.9687,
+            "false_positive_rate": 0.028800000000000048,
+            "recall": 0.9623
+          },
+          "gaps": {
+            "accuracy": 0,
+            "false_positive_rate": 0,
+            "recall": 0
+          }
+        },
+        "open_source": {
+          "suitable": true,
+          "meets_accuracy": true,
+          "meets_fpr": true,
+          "meets_recall": true,
+          "requirements": {
+            "accuracy": 0.9,
+            "false_positive_rate": 0.07,
+            "recall": 0.88
+          },
+          "our_values": {
+            "accuracy": 0.9687,
+            "false_positive_rate": 0.028800000000000048,
+            "recall": 0.9623
+          },
+          "gaps": {
+            "accuracy": 0,
+            "false_positive_rate": 0,
+            "recall": 0
+          }
+        }
+      },
+      "recommended_industries": [
+        "healthcare",
+        "enterprise",
+        "open_source"
+      ],
+      "requirements_analysis": {}
+    }
+  },
+  "recommendations": [
+    "Improve detection for: Path Traversal, Command Injection, Weak Crypto"
+  ],
+  "summary": {
+    "overall_performance": {
+      "benchmark_score": 62.54,
+      "score_interpretation": "Acceptable - Meets basic research standards",
+      "tier_achieved": "poor"
+    },
+    "competitive_analysis": {
+      "sota_models_outperformed": "8/8",
+      "average_improvement": 0.046
+    },
+    "vulnerability_coverage": {
+      "types_above_benchmark": "4/7",
+      "average_improvement": 0.01
+    },
+    "industry_readiness": {
+      "suitable_industries": 3,
+      "recommended_sectors": [
+        "healthcare",
+        "enterprise",
+        "open_source"
+      ]
+    },
+    "key_strengths": [
+      "Outperforms majority of state-of-the-art models",
+      "Suitable for multiple industry deployments"
+    ],
+    "improvement_areas": [
+      "Enhance overall performance to reach excellent tier",
+      "Strengthen vulnerability-specific detection"
+    ]
+  }
+}
