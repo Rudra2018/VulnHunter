@@ -10,20 +10,29 @@ This repository contains the complete VulnHunter AI system - a production-ready 
 
 ```
 vuln_ml_research/
-├── core/                        # Core ML/AI components
-│   ├── neural_formal_integration.py    # Advanced neural architectures
-│   ├── beast_mode_system.py           # BEAST ensemble system
-│   ├── enhanced_beast_http_analyzer.py # HTTP security analysis
-│   └── vulnguard_enhanced_trainer.py  # Enhanced training pipeline
-├── final_validation_results/    # Production validation results
-│   ├── final_optimized_validation_report.json
-│   ├── executive_summary.json
-│   └── deployment_plan.json
-├── enhanced_optimization_results/ # Optimization achievements
-├── models/                      # Trained model artifacts
-├── training_data/              # Curated training datasets
-├── case_studies/               # Real-world vulnerability analysis
-└── tools/                      # Security analysis utilities
+├── src/                         # Source code
+│   ├── core/                   # Core ML/AI components
+│   ├── models/                 # Main vulnerability detection models
+│   ├── api/                    # REST API implementation
+│   ├── cli/                    # Command-line interface
+│   ├── datasets/               # Dataset management utilities
+│   └── deployment/             # Production deployment files
+├── data/                        # Data files
+│   ├── models/                 # Trained model artifacts
+│   ├── training/               # Training datasets
+│   └── results/                # Validation and benchmark results
+├── tools/                       # Analysis and training tools
+│   ├── analyzers/              # Security analysis utilities
+│   ├── trainers/               # Model training scripts
+│   └── validators/             # Validation and testing tools
+├── config/                      # Configuration files
+├── docs/                        # Documentation
+│   ├── reports/                # Detailed technical reports
+│   └── summaries/              # Executive summaries
+├── notebooks/                   # Jupyter notebooks for research
+├── monitoring/                  # Production monitoring setup
+├── examples/                    # Usage examples and integration guides
+└── tests/                       # Test suite
 ```
 
 ## 🏆 Production Achievements
@@ -69,37 +78,37 @@ vuln_ml_research/
 ### **Production Models**
 ```bash
 # Run comprehensive vulnerability scanner
-PYTHONPATH=. python3 comprehensive_vulnhunter_final.py
+PYTHONPATH=. python3 src/models/comprehensive_vulnhunter_final.py
 
-# Validate production model
-PYTHONPATH=. python3 final_optimized_validation.py
+# Run API server
+PYTHONPATH=. python3 src/api/vulnhunter_api.py
 
-# Enterprise security analysis
-PYTHONPATH=. python3 enterprise_comprehensive_analyzer.py
+# Use CLI interface
+PYTHONPATH=. python3 src/cli/vulnhunter_cli.py --help
 ```
 
-### **Quick Demos**
+### **Analysis Tools**
 ```bash
-# Quick vulnerability validation
-python3 quick_vulnerability_validator.py
+# Enterprise security analysis
+PYTHONPATH=. python3 tools/analyzers/enterprise_security_analyzer_v2.py
 
 # Smart contract analysis
-python3 production_smart_contract_detector.py
+PYTHONPATH=. python3 tools/analyzers/production_smart_contract_detector.py
 
-# HTTP security analysis
-python3 http_security_demo.py
+# Vulnerability validation
+PYTHONPATH=. python3 tools/validators/quick_vulnerability_validator.py
 ```
 
 ### **Training & Optimization**
 ```bash
 # Enhanced model training
-PYTHONPATH=. python3 core/vulnguard_enhanced_trainer.py
+PYTHONPATH=. python3 tools/trainers/enhanced_model_optimizer.py
+
+# Real-world dataset training
+PYTHONPATH=. python3 tools/trainers/real_world_dataset_trainer.py
 
 # Neural formal integration
-PYTHONPATH=. python3 core/neural_formal_integration.py
-
-# BEAST mode system
-PYTHONPATH=. python3 core/beast_mode_system.py
+PYTHONPATH=. python3 src/core/neural_formal_integration.py
 ```
 
 ## 📋 Key Features
