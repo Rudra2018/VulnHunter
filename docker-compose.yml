@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  vulnhunter-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.vulnhunter
+    container_name: vulnhunter-api
+    ports:
+      - "5000:5000"
+    environment:
+      - VULNHUNTER_HOST=0.0.0.0
+      - VULNHUNTER_PORT=5000
+      - VULNHUNTER_DEBUG=False
+      - VULNHUNTER_LOG_LEVEL=INFO
+      - VULNHUNTER_REQUIRE_AUTH=True
+      - VULNHUNTER_API_KEY=${VULNHUNTER_API_KEY:-production-change-this-key}
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  vulnhunter-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.vulnhunter
+    container_name: vulnhunter-worker
+    command: ["python", "vulnhunter_cli.py", "stats"]
+    environment:
+      - VULNHUNTER_LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+    restart: "no"
+    profiles:
+      - tools

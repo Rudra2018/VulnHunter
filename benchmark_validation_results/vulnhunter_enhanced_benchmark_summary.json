@@ -1,0 +1,52 @@
+{
+  "executive_summary": {
+    "overall_performance": {
+      "benchmark_score": 62.54,
+      "score_interpretation": "Acceptable - Meets basic research standards",
+      "tier_achieved": "poor"
+    },
+    "competitive_analysis": {
+      "sota_models_outperformed": "8/8",
+      "average_improvement": 0.046
+    },
+    "vulnerability_coverage": {
+      "types_above_benchmark": "4/7",
+      "average_improvement": 0.01
+    },
+    "industry_readiness": {
+      "suitable_industries": 3,
+      "recommended_sectors": [
+        "healthcare",
+        "enterprise",
+        "open_source"
+      ]
+    },
+    "key_strengths": [
+      "Outperforms majority of state-of-the-art models",
+      "Suitable for multiple industry deployments"
+    ],
+    "improvement_areas": [
+      "Enhance overall performance to reach excellent tier",
+      "Strengthen vulnerability-specific detection"
+    ]
+  },
+  "benchmark_score": {
+    "overall_score": 62.54,
+    "component_scores": {
+      "sota_comparison": 100,
+      "tier_achievement": 25,
+      "vulnerability_specific": 57.14,
+      "industry_suitability": 60.0
+    },
+    "score_interpretation": "Acceptable - Meets basic research standards",
+    "weights_used": {
+      "sota": 0.3,
+      "tier": 0.25,
+      "vulnerability": 0.25,
+      "industry": 0.2
+    }
+  },
+  "recommendations": [
+    "Improve detection for: Path Traversal, Command Injection, Weak Crypto"
+  ]
+}

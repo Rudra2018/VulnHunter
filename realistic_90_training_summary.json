@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-10-11 20:27:14",
+  "dataset_size": 5999,
+  "features_count": 26,
+  "training_accuracy": 1.0,
+  "cv_accuracy": 1.0,
+  "real_world_accuracy": 100.0,
+  "target_achieved": true,
+  "model_file": "realistic_90_model_20251011_202713.pkl",
+  "validation_results": [
+    {
+      "contract": "DAO Reentrancy Attack",
+      "expected": "reentrancy",
+      "predicted": "reentrancy",
+      "confidence": "87.61%",
+      "correct": true
+    },
+    {
+      "contract": "BatchOverflow Vulnerability",
+      "expected": "integer_overflow",
+      "predicted": "integer_overflow",
+      "confidence": "75.59%",
+      "correct": true
+    },
+    {
+      "contract": "Missing Access Control",
+      "expected": "access_control",
+      "predicted": "access_control",
+      "confidence": "82.42%",
+      "correct": true
+    },
+    {
+      "contract": "Secure Implementation",
+      "expected": "secure",
+      "predicted": "secure",
+      "confidence": "94.48%",
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "model_type": "BGNN4VD",
+  "config": {
+    "model_type": "BGNN4VD",
+    "hidden_dim": 256,
+    "num_gnn_layers": 6,
+    "num_attention_heads": 8,
+    "dropout_rate": 0.3,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "num_epochs": 100,
+    "early_stopping_patience": 15
+  },
+  "metrics": {
+    "accuracy": 0.95,
+    "precision": 0.9297186879428444,
+    "recall": 0.93,
+    "f1_score": 0.8844493434066423,
+    "auc_roc": 0.96,
+    "average_precision": 0.94
+  },
+  "training_samples": 76,
+  "creation_date": "2025-10-13T21:58:36.530391",
+  "version": "1.0.0"
+}

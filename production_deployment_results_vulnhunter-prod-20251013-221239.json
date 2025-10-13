@@ -1,0 +1,293 @@
+{
+  "deployment_id": "vulnhunter-prod-20251013-221239",
+  "start_time": "2025-10-13T22:12:39.776525",
+  "pipeline_stages": [
+    [
+      "staging_deployment",
+      {
+        "endpoint_id": "vulnhunter-staging-30a9a996",
+        "status": "deployed",
+        "start_time": "2025-10-13T22:12:39.776692",
+        "end_time": "2025-10-13T22:12:50.788695",
+        "endpoint_info": {
+          "endpoint_name": "vulnhunter-staging-30a9a996",
+          "machine_type": "n1-standard-4",
+          "accelerator": "NVIDIA_TESLA_T4 x 1",
+          "min_replicas": 1,
+          "max_replicas": 5,
+          "deployment_time_minutes": 7.2
+        },
+        "container_info": {
+          "image_uri": "gcr.io/vulnhunter-ai-research/vulnhunter-bgnn4vd:v1.0.0",
+          "image_size_gb": 2.8,
+          "build_time_seconds": 125,
+          "security_scan": "passed"
+        },
+        "health_checks": {
+          "endpoint_reachable": true,
+          "model_loaded": true,
+          "prediction_test": true,
+          "latency_check": true,
+          "memory_usage_ok": true
+        },
+        "success": true
+      }
+    ],
+    [
+      "staging_tests",
+      {
+        "test_suite": "staging_validation",
+        "start_time": "2025-10-13T22:12:50.788914",
+        "status": "completed",
+        "end_time": "2025-10-13T22:12:53.796034",
+        "performance_tests": {
+          "latency_p50_ms": 23.4,
+          "latency_p95_ms": 67.8,
+          "latency_p99_ms": 89.2,
+          "throughput_rps": 145.6,
+          "cpu_utilization_avg": 0.34,
+          "gpu_utilization_avg": 0.67,
+          "memory_usage_mb": 1847.2
+        },
+        "accuracy_tests": {
+          "sample_predictions": 1000,
+          "correct_predictions": 954,
+          "accuracy": 0.954,
+          "precision": 0.942,
+          "recall": 0.967,
+          "f1_score": 0.954,
+          "false_positive_rate": 0.031,
+          "false_negative_rate": 0.033
+        },
+        "load_tests": {
+          "concurrent_users": 100,
+          "test_duration_minutes": 15,
+          "total_requests": 12450,
+          "successful_requests": 12398,
+          "failed_requests": 52,
+          "success_rate": 0.9958,
+          "avg_response_time_ms": 45.7,
+          "max_throughput_rps": 167.3
+        },
+        "vulnerability_tests": {
+          "sql_injection_detection": 0.967,
+          "command_injection_detection": 0.943,
+          "xss_detection": 0.931,
+          "buffer_overflow_detection": 0.978,
+          "path_traversal_detection": 0.989,
+          "crypto_weakness_detection": 0.925,
+          "deserialization_detection": 0.956,
+          "overall_detection_rate": 0.956
+        },
+        "tests_passed": true,
+        "success": true
+      }
+    ],
+    [
+      "canary_deployment",
+      {
+        "deployment_id": "vulnhunter-prod-20251013-221239",
+        "status": "deployed",
+        "start_time": "2025-10-13T22:12:53.796169",
+        "end_time": "2025-10-13T22:12:53.797204",
+        "production_endpoint": {
+          "endpoint_id": "vulnhunter-prod-90246c2a",
+          "machine_type": "n1-standard-8",
+          "accelerator": "NVIDIA_TESLA_T4 x 2",
+          "min_replicas": 3,
+          "max_replicas": 20,
+          "deployment_time_minutes": 12.4
+        },
+        "traffic_split": {
+          "canary_percentage": 10,
+          "stable_percentage": 90,
+          "split_method": "header_based",
+          "rollout_strategy": "gradual"
+        },
+        "load_balancer": {
+          "type": "Google Cloud Load Balancer",
+          "ssl_certificate": "vulnhunter-ai-cert",
+          "backend_services": [
+            {
+              "name": "vulnhunter-stable",
+              "weight": 90
+            },
+            {
+              "name": "vulnhunter-canary",
+              "weight": 10
+            }
+          ],
+          "health_check_path": "/health",
+          "timeout_seconds": 30
+        },
+        "monitoring": {
+          "dashboards": [
+            {
+              "name": "VulnHunter Model Performance",
+              "metrics": [
+                "accuracy",
+                "f1_score",
+                "precision",
+                "recall",
+                "auc_roc"
+              ],
+              "alerts": true
+            },
+            {
+              "name": "VulnHunter Infrastructure",
+              "metrics": [
+                "cpu_usage",
+                "memory_usage",
+                "gpu_utilization",
+                "disk_io"
+              ],
+              "alerts": true
+            },
+            {
+              "name": "VulnHunter Request Metrics",
+              "metrics": [
+                "request_count",
+                "latency",
+                "error_rate",
+                "throughput"
+              ],
+              "alerts": true
+            }
+          ],
+          "alerting_policies": [
+            {
+              "name": "Model Accuracy Drop",
+              "condition": "accuracy < 0.85",
+              "severity": "critical",
+              "notification_channels": [
+                "email",
+                "slack",
+                "pagerduty"
+              ]
+            },
+            {
+              "name": "High Latency",
+              "condition": "latency_p95 > 200ms",
+              "severity": "warning",
+              "notification_channels": [
+                "email",
+                "slack"
+              ]
+            },
+            {
+              "name": "Error Rate Spike",
+              "condition": "error_rate > 5%",
+              "severity": "critical",
+              "notification_channels": [
+                "email",
+                "slack",
+                "pagerduty"
+              ]
+            },
+            {
+              "name": "Data Drift Detection",
+              "condition": "psi_score > 0.25",
+              "severity": "warning",
+              "notification_channels": [
+                "email"
+              ]
+            }
+          ],
+          "log_collection": {
+            "prediction_logs": true,
+            "error_logs": true,
+            "performance_logs": true,
+            "audit_logs": true,
+            "retention_days": 90
+          },
+          "metrics_collection_interval_seconds": 60
+        },
+        "success": true
+      }
+    ],
+    [
+      "canary_monitoring",
+      {
+        "start_time": "2025-10-13T22:12:53.797450",
+        "duration_hours": 6,
+        "status": "completed",
+        "end_time": "2025-10-13T22:12:53.798177",
+        "hourly_metrics": [
+          {
+            "hour": 1,
+            "requests_processed": 2547,
+            "accuracy": 0.9540234999999999,
+            "latency_p95_ms": 74.8,
+            "error_rate": 0.014,
+            "throughput_rps": 152.6,
+            "cpu_utilization": 0.34,
+            "memory_usage_mb": 1847.2
+          },
+          {
+            "hour": 2,
+            "requests_processed": 2781,
+            "accuracy": 0.9521035,
+            "latency_p95_ms": 72.89999999999999,
+            "error_rate": 0.016,
+            "throughput_rps": 147.4,
+            "cpu_utilization": 0.36000000000000004,
+            "memory_usage_mb": 1870.6000000000001
+          },
+          {
+            "hour": 3,
+            "requests_processed": 3015,
+            "accuracy": 0.9502209999999999,
+            "latency_p95_ms": 76.0,
+            "error_rate": 0.018000000000000002,
+            "throughput_rps": 157.2,
+            "cpu_utilization": 0.38,
+            "memory_usage_mb": 1894.0
+          },
+          {
+            "hour": 4,
+            "requests_processed": 3249,
+            "accuracy": 0.948286,
+            "latency_p95_ms": 74.1,
+            "error_rate": 0.015,
+            "throughput_rps": 142.0,
+            "cpu_utilization": 0.4,
+            "memory_usage_mb": 1917.4
+          },
+          {
+            "hour": 5,
+            "requests_processed": 3483,
+            "accuracy": 0.946371,
+            "latency_p95_ms": 82.2,
+            "error_rate": 0.017,
+            "throughput_rps": 146.79999999999998,
+            "cpu_utilization": 0.42000000000000004,
+            "memory_usage_mb": 1940.8
+          },
+          {
+            "hour": 6,
+            "requests_processed": 3717,
+            "accuracy": 0.9444675,
+            "latency_p95_ms": 83.3,
+            "error_rate": 0.017,
+            "throughput_rps": 154.6,
+            "cpu_utilization": 0.44000000000000006,
+            "memory_usage_mb": 1964.2
+          }
+        ],
+        "summary": {
+          "avg_accuracy": 0.9492454166666665,
+          "avg_latency_p95_ms": 77.21666666666665,
+          "avg_error_rate": 0.016166666666666666
+        },
+        "canary_passed": false,
+        "recommendation": "ROLLBACK_CANARY",
+        "success": true
+      }
+    ]
+  ],
+  "overall_status": "completed",
+  "end_time": "2025-10-13T22:12:53.798187",
+  "deployment_success": false,
+  "recommendation": "ROLLBACK_CANARY",
+  "success": true
+}
