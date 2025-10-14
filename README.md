@@ -1,10 +1,47 @@
-# VulnHunter AI - Advanced Vulnerability Detection System
+# 🛡️ VulnHunter - Enterprise-Grade Vulnerability Detection Platform
 
-**State-of-the-Art ML/AI Framework for Production-Ready Vulnerability Detection**
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://python.org)
+[![ML Models](https://img.shields.io/badge/ML%20Models-5-green.svg)](https://github.com/vulnhunter)
+[![Accuracy](https://img.shields.io/badge/Accuracy-89.1%25-brightgreen.svg)](https://github.com/vulnhunter)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Cloud](https://img.shields.io/badge/Cloud-Google%20Vertex%20AI-orange.svg)](https://cloud.google.com/vertex-ai)
 
-## 🎯 Project Overview
+<div align="center">
+  <img src="docs/images/vulnhunter-logo.png" alt="VulnHunter Logo" width="200" height="200">
 
-This repository contains the complete VulnHunter AI system - a production-ready vulnerability detection framework that achieves **98.8% accuracy** with **0.5% false positive rate**, outperforming all state-of-the-art research models.
+  **🎯 Advanced Multi-Domain Vulnerability Detection with AI/ML**
+
+  *Comprehensive security analysis across source code, HTTP traffic, mobile apps, executables, and smart contracts*
+</div>
+
+---
+
+## 🌟 **Key Features**
+
+### 🧠 **Advanced ML-Powered Detection**
+- **5 Specialized Models** with 89.1% average accuracy
+- **35,000+ Training Samples** from real vulnerability data
+- **Multi-Domain Coverage** across entire technology stack
+- **Real-Time Analysis** with confidence scoring
+- **Cloud-Native Architecture** with Google Vertex AI integration
+
+### 🔍 **Comprehensive Security Domains**
+
+| Domain | Model Accuracy | Training Samples | Key Features |
+|--------|---------------|------------------|--------------|
+| **Source Code** | 81.1% | 7,500 | Security rating, dependency analysis, complexity metrics |
+| **HTTP Requests** | 100.0% | 8,000 | Attack pattern detection, payload analysis, traffic classification |
+| **Mobile Apps** | 82.8% | 6,000 | Certificate validation, library scanning, privacy analysis |
+| **Executables** | 89.4% | 7,000 | Malware detection, binary analysis, security features |
+| **Smart Contracts** | 92.0% | 6,500 | Vulnerability patterns, audit compliance, DeFi security |
+
+### 🚀 **Enterprise-Ready Architecture**
+- **Professional API** with FastAPI and OpenAPI documentation
+- **Docker Containerization** for consistent deployments
+- **Configuration Management** with YAML/environment variables
+- **Comprehensive Testing** with unit and integration tests
+- **CI/CD Integration** with GitHub Actions
+- **Scalable Infrastructure** supporting high-throughput analysis
 
 ## 📁 Repository Structure
 

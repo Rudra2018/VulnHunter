@@ -1,0 +1,197 @@
+{
+  "deployment_timestamp": "2025-10-14T15:22:20.208044",
+  "project_id": "quantumsentinel-20251014-1511",
+  "region": "us-central1",
+  "bucket_name": "quantumsentinel-20251014-1511-vulnhunter-models",
+  "deployment_type": "BILLING_SIMULATION",
+  "models_analyzed": 4,
+  "endpoints_simulated": 4,
+  "model_analysis": {
+    "cve_nvd": {
+      "file_path": "models/cve_nvd_model.joblib",
+      "file_size_mb": 0.15,
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 13,
+      "model_type": "RandomForestClassifier",
+      "training_samples": 4000,
+      "test_samples": 1000,
+      "has_scaler": true,
+      "has_encoders": true,
+      "target_column": "is_high_risk"
+    },
+    "vulnerability_db": {
+      "file_path": "models/vulnerability_db_model.joblib",
+      "file_size_mb": 0.55,
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 18,
+      "model_type": "RandomForestClassifier",
+      "training_samples": 6400,
+      "test_samples": 1600,
+      "has_scaler": true,
+      "has_encoders": true,
+      "target_column": "is_exploitable"
+    },
+    "security_advisories": {
+      "file_path": "models/security_advisories_model.joblib",
+      "file_size_mb": 0.21,
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 14,
+      "model_type": "RandomForestClassifier",
+      "training_samples": 2400,
+      "test_samples": 600,
+      "has_scaler": true,
+      "has_encoders": true,
+      "target_column": "is_critical_advisory"
+    },
+    "exploit_db": {
+      "file_path": "models/exploit_db_model.joblib",
+      "file_size_mb": 0.28,
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 16,
+      "model_type": "RandomForestClassifier",
+      "training_samples": 4800,
+      "test_samples": 1200,
+      "has_scaler": true,
+      "has_encoders": true,
+      "target_column": "is_reliable_exploit"
+    }
+  },
+  "simulated_endpoints": {
+    "cve_nvd": {
+      "model_display_name": "vulnhunter-cve_nvd-v1",
+      "endpoint_display_name": "vulnhunter-cve_nvd-v1-endpoint",
+      "model_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/models/vulnhunter-cve_nvd-model-20251014152220",
+      "endpoint_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-cve_nvd-endpoint-20251014152220",
+      "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-cve_nvd-endpoint-20251014152220:predict",
+      "console_model_url": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-cve_nvd-model-20251014152220?project=quantumsentinel-20251014-1511",
+      "console_endpoint_url": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-cve_nvd-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+      "status": "DEPLOYED",
+      "deployment_time": "2025-10-14T15:22:20.207261",
+      "machine_type": "n1-standard-4",
+      "min_replicas": 1,
+      "max_replicas": 5,
+      "estimated_qps": 10,
+      "estimated_latency_ms": 100,
+      "monthly_cost_estimate_usd": 207.5,
+      "model_metrics": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "file_size_mb": 0.15,
+        "feature_count": 13
+      },
+      "simulation": true
+    },
+    "vulnerability_db": {
+      "model_display_name": "vulnhunter-vulnerability_db-v1",
+      "endpoint_display_name": "vulnhunter-vulnerability_db-v1-endpoint",
+      "model_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/models/vulnhunter-vulnerability_db-model-20251014152220",
+      "endpoint_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-vulnerability_db-endpoint-20251014152220",
+      "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-vulnerability_db-endpoint-20251014152220:predict",
+      "console_model_url": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-vulnerability_db-model-20251014152220?project=quantumsentinel-20251014-1511",
+      "console_endpoint_url": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-vulnerability_db-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+      "status": "DEPLOYED",
+      "deployment_time": "2025-10-14T15:22:20.207416",
+      "machine_type": "n1-standard-4",
+      "min_replicas": 1,
+      "max_replicas": 5,
+      "estimated_qps": 10,
+      "estimated_latency_ms": 100,
+      "monthly_cost_estimate_usd": 227.5,
+      "model_metrics": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "file_size_mb": 0.55,
+        "feature_count": 18
+      },
+      "simulation": true
+    },
+    "security_advisories": {
+      "model_display_name": "vulnhunter-security_advisories-v1",
+      "endpoint_display_name": "vulnhunter-security_advisories-v1-endpoint",
+      "model_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/models/vulnhunter-security_advisories-model-20251014152220",
+      "endpoint_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-security_advisories-endpoint-20251014152220",
+      "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-security_advisories-endpoint-20251014152220:predict",
+      "console_model_url": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-security_advisories-model-20251014152220?project=quantumsentinel-20251014-1511",
+      "console_endpoint_url": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-security_advisories-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+      "status": "DEPLOYED",
+      "deployment_time": "2025-10-14T15:22:20.207553",
+      "machine_type": "n1-standard-4",
+      "min_replicas": 1,
+      "max_replicas": 5,
+      "estimated_qps": 10,
+      "estimated_latency_ms": 100,
+      "monthly_cost_estimate_usd": 210.5,
+      "model_metrics": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "file_size_mb": 0.21,
+        "feature_count": 14
+      },
+      "simulation": true
+    },
+    "exploit_db": {
+      "model_display_name": "vulnhunter-exploit_db-v1",
+      "endpoint_display_name": "vulnhunter-exploit_db-v1-endpoint",
+      "model_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/models/vulnhunter-exploit_db-model-20251014152220",
+      "endpoint_resource_name": "projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-exploit_db-endpoint-20251014152220",
+      "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-exploit_db-endpoint-20251014152220:predict",
+      "console_model_url": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-exploit_db-model-20251014152220?project=quantumsentinel-20251014-1511",
+      "console_endpoint_url": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-exploit_db-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+      "status": "DEPLOYED",
+      "deployment_time": "2025-10-14T15:22:20.207685",
+      "machine_type": "n1-standard-4",
+      "min_replicas": 1,
+      "max_replicas": 5,
+      "estimated_qps": 10,
+      "estimated_latency_ms": 100,
+      "monthly_cost_estimate_usd": 214.0,
+      "model_metrics": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "file_size_mb": 0.28,
+        "feature_count": 16
+      },
+      "simulation": true
+    }
+  },
+  "console_links": {
+    "project_dashboard": "https://console.cloud.google.com/home/dashboard?project=quantumsentinel-20251014-1511",
+    "vertex_ai_dashboard": "https://console.cloud.google.com/vertex-ai/dashboard?project=quantumsentinel-20251014-1511",
+    "vertex_ai_models": "https://console.cloud.google.com/vertex-ai/models?project=quantumsentinel-20251014-1511",
+    "vertex_ai_endpoints": "https://console.cloud.google.com/vertex-ai/endpoints?project=quantumsentinel-20251014-1511",
+    "storage_browser": "https://console.cloud.google.com/storage/browser?project=quantumsentinel-20251014-1511",
+    "billing": "https://console.cloud.google.com/billing?project=quantumsentinel-20251014-1511",
+    "iam": "https://console.cloud.google.com/iam-admin/iam?project=quantumsentinel-20251014-1511",
+    "apis_services": "https://console.cloud.google.com/apis/dashboard?project=quantumsentinel-20251014-1511",
+    "monitoring": "https://console.cloud.google.com/monitoring/dashboards?project=quantumsentinel-20251014-1511",
+    "model_endpoints": {
+      "cve_nvd": {
+        "model": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-cve_nvd-model-20251014152220?project=quantumsentinel-20251014-1511",
+        "endpoint": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-cve_nvd-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+        "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-cve_nvd-endpoint-20251014152220:predict"
+      },
+      "vulnerability_db": {
+        "model": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-vulnerability_db-model-20251014152220?project=quantumsentinel-20251014-1511",
+        "endpoint": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-vulnerability_db-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+        "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-vulnerability_db-endpoint-20251014152220:predict"
+      },
+      "security_advisories": {
+        "model": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-security_advisories-model-20251014152220?project=quantumsentinel-20251014-1511",
+        "endpoint": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-security_advisories-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+        "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-security_advisories-endpoint-20251014152220:predict"
+      },
+      "exploit_db": {
+        "model": "https://console.cloud.google.com/vertex-ai/models/vulnhunter-exploit_db-model-20251014152220?project=quantumsentinel-20251014-1511",
+        "endpoint": "https://console.cloud.google.com/vertex-ai/endpoints/vulnhunter-exploit_db-endpoint-20251014152220?project=quantumsentinel-20251014-1511",
+        "prediction_url": "https://us-central1-aiplatform.googleapis.com/v1/projects/quantumsentinel-20251014-1511/locations/us-central1/endpoints/vulnhunter-exploit_db-endpoint-20251014152220:predict"
+      }
+    }
+  },
+  "total_estimated_monthly_cost": 859.5,
+  "billing_required": true,
+  "ready_for_deployment": true
+}

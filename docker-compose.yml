@@ -1,0 +1,224 @@
+# VulnHunter Docker Compose Configuration
+# =======================================
+#
+# Complete development and production environment setup
+
+version: '3.8'
+
+services:
+  # Main VulnHunter API service
+  vulnhunter-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: vulnhunter-api
+    ports:
+      - "8000:8000"
+    environment:
+      - VULNHUNTER_HOST=0.0.0.0
+      - VULNHUNTER_PORT=8000
+      - VULNHUNTER_WORKERS=4
+      - VULNHUNTER_LOG_LEVEL=INFO
+      - VULNHUNTER_DEBUG=false
+    volumes:
+      - ./config:/app/config:ro
+      - ./enhanced_models:/app/enhanced_models:ro
+      - ./logs:/app/logs:rw
+      - ./data:/app/data:rw
+    networks:
+      - vulnhunter-network
+    healthcheck:
+      test: ["CMD", "python", "/app/healthcheck.py"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.vulnhunter.rule=Host(`vulnhunter.local`)"
+      - "traefik.http.services.vulnhunter.loadbalancer.server.port=8000"
+
+  # Development service
+  vulnhunter-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: vulnhunter-dev
+    ports:
+      - "8001:8000"
+    environment:
+      - VULNHUNTER_DEBUG=true
+      - VULNHUNTER_LOG_LEVEL=DEBUG
+      - VULNHUNTER_HOST=0.0.0.0
+      - VULNHUNTER_PORT=8000
+    volumes:
+      - .:/app:rw
+      - ./logs:/app/logs:rw
+    networks:
+      - vulnhunter-network
+    profiles:
+      - development
+    command: ["python", "-m", "vulnhunter.api.main", "--reload"]
+
+  # Redis for caching and session storage
+  redis:
+    image: redis:7-alpine
+    container_name: vulnhunter-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - vulnhunter-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    profiles:
+      - production
+      - development
+
+  # PostgreSQL for persistent storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: vulnhunter-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=vulnhunter
+      - POSTGRES_USER=vulnhunter
+      - POSTGRES_PASSWORD=vulnhunter_secure_password
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./deployment/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - vulnhunter-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vulnhunter -d vulnhunter"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    profiles:
+      - production
+      - development
+
+  # Monitoring with Prometheus
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: vulnhunter-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./deployment/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - vulnhunter-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    profiles:
+      - monitoring
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: vulnhunter-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=vulnhunter_admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./deployment/monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./deployment/monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - vulnhunter-network
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    profiles:
+      - monitoring
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: vulnhunter-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deployment/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deployment/nginx/ssl:/etc/nginx/ssl:ro
+      - ./deployment/nginx/html:/usr/share/nginx/html:ro
+    networks:
+      - vulnhunter-network
+    depends_on:
+      - vulnhunter-api
+    restart: unless-stopped
+    profiles:
+      - production
+
+  # Testing service
+  vulnhunter-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: testing
+    container_name: vulnhunter-test
+    volumes:
+      - .:/app:ro
+      - ./test-results:/app/test-results:rw
+    networks:
+      - vulnhunter-network
+    profiles:
+      - testing
+    command: ["pytest", "tests/", "-v", "--cov=vulnhunter", "--cov-report=html:/app/test-results/coverage"]
+
+  # Model training service
+  vulnhunter-training:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: training
+    container_name: vulnhunter-training
+    volumes:
+      - ./training:/app/training:rw
+      - ./enhanced_models:/app/enhanced_models:rw
+      - ./data:/app/data:ro
+    networks:
+      - vulnhunter-network
+    profiles:
+      - training
+    environment:
+      - VULNHUNTER_TRAINING_MODE=true
+      - VULNHUNTER_DATA_PATH=/app/data
+      - VULNHUNTER_OUTPUT_PATH=/app/enhanced_models
+
+# Named volumes for data persistence
+volumes:
+  redis-data:
+    driver: local
+  postgres-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+
+# Custom network for service communication
+networks:
+  vulnhunter-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
