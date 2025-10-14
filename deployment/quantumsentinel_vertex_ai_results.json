@@ -1,0 +1,39 @@
+{
+  "deployment_timestamp": "2025-10-14T15:56:53.012068",
+  "project_id": "quantumsentinel-20250927",
+  "project_name": "QuantumSentinel Nexus Security",
+  "deployment_results": {
+    "cve_nvd": {
+      "status": "FAILED",
+      "model_name": "cve_nvd",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/quantumsentinel-20250927/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/quantumsentinel-20250927/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "deployment_time": "2025-10-14T15:56:48.491754"
+    },
+    "security_advisories": {
+      "status": "FAILED",
+      "model_name": "security_advisories",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/quantumsentinel-20250927/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/quantumsentinel-20250927/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "deployment_time": "2025-10-14T15:56:49.993058"
+    },
+    "vulnerability_db": {
+      "status": "FAILED",
+      "model_name": "vulnerability_db",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/quantumsentinel-20250927/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/quantumsentinel-20250927/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "deployment_time": "2025-10-14T15:56:51.497204"
+    },
+    "exploit_db": {
+      "status": "FAILED",
+      "model_name": "exploit_db",
+      "error": "403 Permission 'aiplatform.models.upload' denied on resource '//aiplatform.googleapis.com/projects/quantumsentinel-20250927/locations/us-central1' (or it may not exist). [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"resource\"\n  value: \"projects/quantumsentinel-20250927/locations/us-central1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.upload\"\n}\n]",
+      "deployment_time": "2025-10-14T15:56:53.011881"
+    }
+  },
+  "console_links": {
+    "vertex_ai_dashboard": "https://console.cloud.google.com/vertex-ai/dashboard?project=quantumsentinel-20250927",
+    "vertex_ai_models": "https://console.cloud.google.com/vertex-ai/models?project=quantumsentinel-20250927",
+    "vertex_ai_endpoints": "https://console.cloud.google.com/vertex-ai/endpoints?project=quantumsentinel-20250927",
+    "model_endpoints": {}
+  },
+  "successful_deployments": 0,
+  "total_models": 4
+}
