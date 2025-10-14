@@ -1,0 +1,168 @@
+{
+  "training_timestamp": "2025-10-14T15:55:14.832496",
+  "project_name": "VulnHunter Enhanced Multi-Format Analysis",
+  "project_id": "quantumsentinel-20250927",
+  "training_type": "ENHANCED_COMPREHENSIVE",
+  "total_domains": 5,
+  "min_samples_per_domain": 5000,
+  "datasets_summary": {
+    "open_source_code": {
+      "total_samples": 7500,
+      "vulnerable_samples": 5791,
+      "vulnerability_rate": 0.7721333333333333,
+      "features_count": 33,
+      "data_quality": "high"
+    },
+    "http_requests": {
+      "total_samples": 8000,
+      "vulnerable_samples": 2023,
+      "vulnerability_rate": 0.252875,
+      "features_count": 30,
+      "data_quality": "high"
+    },
+    "mobile_apps": {
+      "total_samples": 6000,
+      "vulnerable_samples": 4870,
+      "vulnerability_rate": 0.8116666666666666,
+      "features_count": 46,
+      "data_quality": "high"
+    },
+    "executables": {
+      "total_samples": 7000,
+      "vulnerable_samples": 6102,
+      "vulnerability_rate": 0.8717142857142857,
+      "features_count": 54,
+      "data_quality": "high"
+    },
+    "smart_contracts": {
+      "total_samples": 6500,
+      "vulnerable_samples": 5976,
+      "vulnerability_rate": 0.9193846153846154,
+      "features_count": 76,
+      "data_quality": "high"
+    }
+  },
+  "models_performance": {
+    "open_source_code": {
+      "accuracy": 0.8113333333333334,
+      "f1_score": 0.7926150787570768,
+      "training_samples": 6000,
+      "test_samples": 1500,
+      "features_used": 30,
+      "top_features": [
+        "security_rating",
+        "outdated_dependencies",
+        "last_commit_days",
+        "language",
+        "cyclomatic_complexity"
+      ],
+      "model_type": "RandomForestClassifier"
+    },
+    "http_requests": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "training_samples": 6400,
+      "test_samples": 1600,
+      "features_used": 27,
+      "top_features": [
+        "has_suspicious_patterns",
+        "payload_entropy",
+        "user_agent",
+        "is_bot_traffic",
+        "path_traversal_score"
+      ],
+      "model_type": "RandomForestClassifier"
+    },
+    "mobile_apps": {
+      "accuracy": 0.8283333333333334,
+      "f1_score": 0.7807114004203172,
+      "training_samples": 4800,
+      "test_samples": 1200,
+      "features_used": 43,
+      "top_features": [
+        "certificate_type",
+        "insecure_endpoints",
+        "vulnerable_libraries",
+        "security_score",
+        "privacy_score"
+      ],
+      "model_type": "RandomForestClassifier"
+    },
+    "executables": {
+      "accuracy": 0.8942857142857142,
+      "f1_score": 0.8635175677036143,
+      "training_samples": 5600,
+      "test_samples": 1400,
+      "features_used": 51,
+      "top_features": [
+        "shellcode_patterns",
+        "aslr_enabled",
+        "dep_enabled",
+        "dangerous_functions",
+        "compilation_date"
+      ],
+      "model_type": "RandomForestClassifier"
+    },
+    "smart_contracts": {
+      "accuracy": 0.92,
+      "f1_score": 0.8852427893391749,
+      "training_samples": 5200,
+      "test_samples": 1300,
+      "features_used": 73,
+      "top_features": [
+        "tx_origin_usage",
+        "solidity_version",
+        "complexity_score",
+        "reentrancy_guard",
+        "audit_status"
+      ],
+      "model_type": "RandomForestClassifier"
+    }
+  },
+  "overall_metrics": {
+    "average_accuracy": 0.8907904761904761,
+    "average_f1_score": 0.8644173672440367,
+    "total_samples_processed": 35000,
+    "total_vulnerable_samples": 24762,
+    "overall_vulnerability_rate": 0.7074857142857143,
+    "models_trained": 5,
+    "training_success_rate": 1.0
+  },
+  "saved_models": {
+    "open_source_code": {
+      "path": "enhanced_models/open_source_code_enhanced_model.joblib",
+      "size_mb": 17.55,
+      "accuracy": 0.8113333333333334,
+      "f1_score": 0.7926150787570768,
+      "samples": 7500
+    },
+    "http_requests": {
+      "path": "enhanced_models/http_requests_enhanced_model.joblib",
+      "size_mb": 1.72,
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "samples": 8000
+    },
+    "mobile_apps": {
+      "path": "enhanced_models/mobile_apps_enhanced_model.joblib",
+      "size_mb": 15.0,
+      "accuracy": 0.8283333333333334,
+      "f1_score": 0.7807114004203172,
+      "samples": 6000
+    },
+    "executables": {
+      "path": "enhanced_models/executables_enhanced_model.joblib",
+      "size_mb": 13.21,
+      "accuracy": 0.8942857142857142,
+      "f1_score": 0.8635175677036143,
+      "samples": 7000
+    },
+    "smart_contracts": {
+      "path": "enhanced_models/smart_contracts_enhanced_model.joblib",
+      "size_mb": 9.27,
+      "accuracy": 0.92,
+      "f1_score": 0.8852427893391749,
+      "samples": 6500
+    }
+  }
+}

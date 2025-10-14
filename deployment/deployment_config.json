@@ -1,0 +1,69 @@
+{
+  "project_id": "vulnhunter-ml-research",
+  "region": "us-central1",
+  "bucket_name": "vulnhunter-models-bucket",
+  "deployment_timestamp": "2025-10-14T15:15:14.482634",
+  "models": {
+    "cve_nvd": {
+      "display_name": "vulnhunter-cve_nvd-v1",
+      "description": "VulnHunter cve_nvd vulnerability detection model",
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 0,
+      "model_type": "RandomForest",
+      "training_samples": 0,
+      "artifact_uri": "gs://vulnhunter-models-bucket/models/cve_nvd",
+      "prediction_service": "cve_nvd_predictor.py",
+      "container_image": "gcr.io/cloud-aiplatform/prediction/sklearn-cpu.1-0:latest"
+    },
+    "vulnerability_db": {
+      "display_name": "vulnhunter-vulnerability_db-v1",
+      "description": "VulnHunter vulnerability_db vulnerability detection model",
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 0,
+      "model_type": "RandomForest",
+      "training_samples": 0,
+      "artifact_uri": "gs://vulnhunter-models-bucket/models/vulnerability_db",
+      "prediction_service": "vulnerability_db_predictor.py",
+      "container_image": "gcr.io/cloud-aiplatform/prediction/sklearn-cpu.1-0:latest"
+    },
+    "security_advisories": {
+      "display_name": "vulnhunter-security_advisories-v1",
+      "description": "VulnHunter security_advisories vulnerability detection model",
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 0,
+      "model_type": "RandomForest",
+      "training_samples": 0,
+      "artifact_uri": "gs://vulnhunter-models-bucket/models/security_advisories",
+      "prediction_service": "security_advisories_predictor.py",
+      "container_image": "gcr.io/cloud-aiplatform/prediction/sklearn-cpu.1-0:latest"
+    },
+    "exploit_db": {
+      "display_name": "vulnhunter-exploit_db-v1",
+      "description": "VulnHunter exploit_db vulnerability detection model",
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "feature_count": 0,
+      "model_type": "RandomForest",
+      "training_samples": 0,
+      "artifact_uri": "gs://vulnhunter-models-bucket/models/exploit_db",
+      "prediction_service": "exploit_db_predictor.py",
+      "container_image": "gcr.io/cloud-aiplatform/prediction/sklearn-cpu.1-0:latest"
+    }
+  },
+  "endpoints": {},
+  "serving_config": {
+    "machine_type": "n1-standard-4",
+    "min_replica_count": 1,
+    "max_replica_count": 10,
+    "accelerator_type": null,
+    "accelerator_count": 0
+  },
+  "monitoring": {
+    "enable_request_response_logging": true,
+    "enable_feature_attribution": true,
+    "sample_rate": 0.1
+  }
+}
