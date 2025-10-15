@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
+name: vulnhunter-v5-workspace
+location: eastus2
+resource_group: vulnhunter-v5-rg
+description: VulnHunter V5 Machine Learning Workspace for vulnerability detection
+storage_account: /subscriptions/65dfba04-0285-4864-85b2-b9b8c211b62e/resourceGroups/vulnhunter-v5-rg/providers/Microsoft.Storage/storageAccounts/vulnhunterv5storage
+key_vault: /subscriptions/65dfba04-0285-4864-85b2-b9b8c211b62e/resourceGroups/vulnhunter-v5-rg/providers/Microsoft.KeyVault/vaults/vulnhunter-v5-kv
+tags:
+  project: vulnhunter-v5
+  purpose: vulnerability-detection
+  version: "5.0"

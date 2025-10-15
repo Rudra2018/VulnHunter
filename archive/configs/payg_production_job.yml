@@ -1,0 +1,27 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: >-
+  python train_production_full.py
+  --data-path ${{inputs.training_data}}/vulnhunter_v5_production_full_dataset.csv
+  --output-path ${{outputs.model_output}}
+  --target-f1 0.99
+  --cv-folds 10
+  --random-search-iter 100
+  --dataset-size 188672
+inputs:
+  training_data:
+    type: uri_folder
+    path: ./data/production_full
+outputs:
+  model_output:
+    type: uri_folder
+    mode: rw_mount
+environment: azureml://registries/azureml/environments/sklearn-1.0/labels/latest
+compute: vulnhunter-payg-cluster
+experiment_name: vulnhunter_v5_payg_production_training
+display_name: VulnHunter V5 Pay-As-You-Go Full Production Training
+description: Full-scale VulnHunter V5 training on 188K samples with advanced ensemble methods
+tags:
+  project: vulnhunter-v5
+  purpose: production-training
+  dataset_size: "188672"
+  target_performance: "99%"

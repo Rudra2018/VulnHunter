@@ -1,0 +1,36 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: python azure_train_vulnhunter_v6.py
+code: ./azure_fixed_training
+inputs:
+  training_data:
+    type: uri_folder
+    path: azureml://datastores/workspaceblobstore/paths/azure_training_package/azure_training_package/production_full
+outputs:
+  model_output:
+    type: uri_folder
+    mode: rw_mount
+environment: azureml://registries/azureml/environments/sklearn-1.0/labels/latest
+compute: vulnhunter-payg-cluster
+experiment_name: vulnhunter_v6_mathematical_research
+display_name: VulnHunter V6 Mathematical Research - Advanced Topological & Formal Verification
+description: |
+  VulnHunter V6 Research Training with Novel Mathematical Features:
+  - Algebraic Topology (Betti numbers, Euler characteristic, Homology)
+  - Information Theory (Shannon entropy, Kolmogorov complexity, Mutual information)
+  - Differential Geometry (Curvature analysis, Manifold modeling)
+  - Formal Verification (Temporal logic, Invariant checking)
+  - Graph Theory (Spectral analysis, Connectivity measures)
+  - Advanced Ensemble Learning (RF, XGBoost, LightGBM, Neural Networks)
+
+  Target: 188,672 samples with 186+ mathematical features for research paper
+tags:
+  project: vulnhunter-v6-research
+  purpose: mathematical-enhancement
+  samples: "188672"
+  features: "186+"
+  research: "novel-mathematical-methods"
+  paper: "formal-verification-topology"
+  methods: "algebraic-topology,information-theory,differential-geometry"
+  verification: "temporal-logic,formal-methods"
+  ensemble: "multi-algorithm"
+  innovation: "topological-security-analysis"

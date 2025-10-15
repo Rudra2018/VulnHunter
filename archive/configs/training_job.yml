@@ -1,0 +1,14 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: python azure_train.py --data-path ${{inputs.training_data}} --output-dir ${{outputs.model_output}}
+code: .
+inputs:
+  training_data:
+    type: uri_file
+    path: azureml:vulnhunter-v5-dataset:1
+outputs:
+  model_output:
+    type: uri_folder
+environment: azureml:vulnhunter-v5-env:1
+compute: vulnhunter-cpu-cluster
+experiment_name: vulnhunter-v5-training
+description: VulnHunter V5 vulnerability detection model training

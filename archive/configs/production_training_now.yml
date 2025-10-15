@@ -1,0 +1,12 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: python azure_train.py
+code: ./azure_lightweight
+environment: azureml://registries/azureml/environments/sklearn-1.0/labels/latest
+compute: vulnhunter-payg-cluster
+experiment_name: vulnhunter_v5_production_now
+display_name: VulnHunter V5 Production Training Started
+description: VulnHunter V5 production training with optimized code and full dataset access
+tags:
+  project: vulnhunter-v5
+  purpose: production-training-now
+  samples: "188672"

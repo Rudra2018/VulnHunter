@@ -1,0 +1,112 @@
+[
+  {
+    "test_id": "GEMINI-001-FP",
+    "description": "Command injection false positive from Gemini CLI analysis",
+    "expected": "REJECT",
+    "actual_recommendation": "REJECT - High probability of false positive",
+    "false_positive_probability": 1.0,
+    "adjusted_confidence": 0.01,
+    "passed": true,
+    "reason": "Function does not exist, file path fabricated"
+  },
+  {
+    "test_id": "GEMINI-002-FP",
+    "description": "Path traversal false positive",
+    "expected": "REJECT",
+    "actual_recommendation": "HIGH_RISK - Likely false positive, needs validation",
+    "false_positive_probability": 0.8,
+    "adjusted_confidence": 0.01,
+    "passed": true,
+    "reason": "File and function fabricated, actual implementation has security controls"
+  },
+  {
+    "test_id": "GEMINI-004-FP",
+    "description": "Input validation false positive with Express.js protection",
+    "expected": "REJECT",
+    "actual_recommendation": "HIGH_RISK - Likely false positive, needs validation",
+    "false_positive_probability": 0.8,
+    "adjusted_confidence": 0.01,
+    "passed": true,
+    "reason": "Express.js provides JSON middleware protection"
+  },
+  {
+    "test_id": "LEGIT-001",
+    "description": "Real SQL injection vulnerability",
+    "expected": "ACCEPT",
+    "actual_recommendation": "REVIEW - Further investigation recommended",
+    "false_positive_probability": 0.3,
+    "adjusted_confidence": 0.616,
+    "passed": true,
+    "reason": "Realistic file path, function name, and vulnerability type"
+  },
+  {
+    "test_id": "LEGIT-002",
+    "description": "Real XSS vulnerability",
+    "expected": "REVIEW",
+    "actual_recommendation": "REVIEW - Further investigation recommended",
+    "false_positive_probability": 0.0,
+    "adjusted_confidence": 0.574,
+    "passed": true,
+    "reason": "React has some XSS protection, but vulnerability could still exist"
+  },
+  {
+    "test_id": "FRAMEWORK-001",
+    "description": "Express.js JSON parsing protection",
+    "expected": "MEDIUM_RISK",
+    "actual_recommendation": "REVIEW - Further investigation recommended",
+    "false_positive_probability": 0.0,
+    "adjusted_confidence": 0.48999999999999994,
+    "passed": true,
+    "reason": "Express provides JSON middleware but vulnerability could still exist"
+  },
+  {
+    "test_id": "FRAMEWORK-002",
+    "description": "TypeScript type safety protection",
+    "expected": "MEDIUM_RISK",
+    "actual_recommendation": "REVIEW - Further investigation recommended",
+    "false_positive_probability": 0.3,
+    "adjusted_confidence": 0.45499999999999996,
+    "passed": true,
+    "reason": "TypeScript provides type safety but runtime issues could exist"
+  },
+  {
+    "test_id": "REALISM-001",
+    "description": "Unrealistic confidence for low severity",
+    "expected": "REVIEW",
+    "actual_recommendation": "MEDIUM_RISK - Moderate false positive risk",
+    "false_positive_probability": 0.5,
+    "adjusted_confidence": 0.475,
+    "passed": false,
+    "reason": "Confidence too high for low severity issue"
+  },
+  {
+    "test_id": "REALISM-002",
+    "description": "Artificial precision in confidence",
+    "expected": "HIGH_RISK",
+    "actual_recommendation": "MEDIUM_RISK - Moderate false positive risk",
+    "false_positive_probability": 0.5,
+    "adjusted_confidence": 0.394657757799934,
+    "passed": false,
+    "reason": "Artificially precise confidence indicates possible fabrication"
+  },
+  {
+    "test_id": "EDGE-001",
+    "description": "Missing file path",
+    "expected": "REJECT",
+    "actual_recommendation": "REVIEW - Further investigation recommended",
+    "false_positive_probability": 0.3,
+    "adjusted_confidence": 0.63,
+    "passed": false,
+    "reason": "Missing file path indicates fabrication"
+  },
+  {
+    "test_id": "EDGE-002",
+    "description": "Extremely high line number",
+    "expected": "HIGH_RISK",
+    "actual_recommendation": "MEDIUM_RISK - Moderate false positive risk",
+    "false_positive_probability": 0.5,
+    "adjusted_confidence": 0.375,
+    "passed": false,
+    "reason": "Unrealistic line number"
+  }
+]

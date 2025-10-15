@@ -1,0 +1,18 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: >
+  python prepare_production_datasets.py --size 200000 &&
+  python train_production_full.py
+  --data-path ./data/production_full/vulnhunter_v5_production_full_dataset.csv
+  --output-dir ./outputs
+  --target-f1 0.99
+  --cv-folds 10
+  --random-search-iter 100
+code: .
+inputs: {}
+outputs:
+  model_output:
+    type: uri_folder
+environment: azureml://registries/azureml/environments/sklearn-1.0/versions/5
+compute: vulnhunter-production-cluster
+experiment_name: vulnhunter-v5-production-full-scale
+description: VulnHunter V5 production full-scale training - 200K samples, 10-fold CV, 100 hyperparameter iterations, F1 target 0.99

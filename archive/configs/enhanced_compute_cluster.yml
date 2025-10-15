@@ -1,0 +1,10 @@
+$schema: https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json
+name: vulnhunter-enhanced-cluster
+type: amlcompute
+size: Standard_D4s_v3
+location: eastus2
+min_instances: 0
+max_instances: 1
+idle_time_before_scale_down: 300
+description: VulnHunter V5 enhanced high-performance cluster simulating GPU-level performance with optimized CPU training
+tier: dedicated
