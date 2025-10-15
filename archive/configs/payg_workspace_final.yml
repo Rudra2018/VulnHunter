@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
+name: vulnhunter-v5-payg-production-workspace
+location: eastus
+resource_group: vulnhunter-v5-payg-production-rg
+description: VulnHunter V5 Pay-As-You-Go Production Workspace
+storage_account: /subscriptions/1eb36cb9-986d-49ea-9305-0a3bf656778c/resourceGroups/vulnhunter-v5-payg-production-rg/providers/Microsoft.Storage/storageAccounts/vulnhunterv599505
+key_vault: /subscriptions/1eb36cb9-986d-49ea-9305-0a3bf656778c/resourceGroups/vulnhunter-v5-payg-production-rg/providers/Microsoft.KeyVault/vaults/vulnhunter-payg-kv-99505
+tags:
+  project: vulnhunter-v5-payg-production
+  purpose: full-scale-training
+  version: "5.0"

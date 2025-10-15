@@ -1,0 +1,13 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: python azure_train.py
+code: azure_training_package
+environment: azureml://registries/azureml/environments/sklearn-1.0/labels/latest
+compute: vulnhunter-payg-cluster
+experiment_name: vulnhunter_v5_production_final
+display_name: VulnHunter V5 Production Final Training (188K samples)
+description: VulnHunter V5 production training with full 188K dataset uploaded via AzCopy
+tags:
+  project: vulnhunter-v5
+  purpose: production-final-training
+  samples: "188672"
+  dataset_size: "340MB"

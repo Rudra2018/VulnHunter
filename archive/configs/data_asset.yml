@@ -1,0 +1,9 @@
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+name: vulnhunter-v5-dataset
+description: VulnHunter V5 vulnerability detection dataset with real vulnerability data
+type: uri_file
+path: ./data/processed/real_vulnhunter_v5_dataset.csv
+tags:
+  project: vulnhunter-v5
+  type: vulnerability-detection
+  format: csv

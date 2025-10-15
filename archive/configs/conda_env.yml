@@ -1,0 +1,15 @@
+name: vulnhunter-v5
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pytorch=1.13
+  - pandas>=1.5.0
+  - numpy>=1.21.0
+  - scikit-learn>=1.1.0
+  - pip
+  - pip:
+    - azureml-core
+    - azureml-mlflow

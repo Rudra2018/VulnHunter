@@ -1,0 +1,52 @@
+[
+  {
+    "code":"int vulnerable_function(char *input) {\n    char buffer[10];\n    strcpy(buffer, input);  \/\/ Buffer overflow vulnerability\n    return strlen(buffer);\n}",
+    "is_vulnerable":1,
+    "vulnerability_type":"buffer_overflow",
+    "dataset_source":"bigvul",
+    "language":"c",
+    "cwe_id":"CWE-120",
+    "project_name":"openssl",
+    "severity":null
+  },
+  {
+    "code":"int safe_function(char *input, size_t max_len) {\n    char buffer[10];\n    if (max_len >= sizeof(buffer)) return -1;\n    strncpy(buffer, input, max_len);\n    buffer[max_len] = '\\0';\n    return strlen(buffer);\n}",
+    "is_vulnerable":0,
+    "vulnerability_type":"buffer_overflow",
+    "dataset_source":"bigvul",
+    "language":"c",
+    "cwe_id":"CWE-120",
+    "project_name":"openssl",
+    "severity":null
+  },
+  {
+    "code":"pragma solidity ^0.8.0;\ncontract Vulnerable {\n    mapping(address => uint256) public balances;\n\n    function withdraw(uint256 amount) public {\n        require(balances[msg.sender] >= amount);\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success);\n        balances[msg.sender] -= amount;  \/\/ State change after external call\n    }\n}",
+    "is_vulnerable":1,
+    "vulnerability_type":"reentrancy",
+    "dataset_source":"smart_contracts",
+    "language":"solidity",
+    "cwe_id":"SWC-107",
+    "project_name":null,
+    "severity":"high"
+  },
+  {
+    "code":"pragma solidity ^0.8.0;\ncontract Safe {\n    mapping(address => uint256) public balances;\n\n    function withdraw(uint256 amount) public {\n        require(balances[msg.sender] >= amount);\n        balances[msg.sender] -= amount;  \/\/ State change before external call\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success);\n    }\n}",
+    "is_vulnerable":0,
+    "vulnerability_type":"reentrancy",
+    "dataset_source":"smart_contracts",
+    "language":"solidity",
+    "cwe_id":"SWC-107",
+    "project_name":null,
+    "severity":"none"
+  },
+  {
+    "code":"pragma solidity ^0.8.0;\ncontract IntegerOverflow {\n    mapping(address => uint256) public balances;\n\n    function transfer(address to, uint256 amount) public {\n        balances[msg.sender] -= amount;  \/\/ Potential underflow\n        balances[to] += amount;          \/\/ Potential overflow\n    }\n}",
+    "is_vulnerable":1,
+    "vulnerability_type":"integer_overflow",
+    "dataset_source":"smart_contracts",
+    "language":"solidity",
+    "cwe_id":"SWC-101",
+    "project_name":null,
+    "severity":"medium"
+  }
+]

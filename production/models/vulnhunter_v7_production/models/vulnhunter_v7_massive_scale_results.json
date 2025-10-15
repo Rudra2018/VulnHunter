@@ -1,0 +1,306 @@
+{
+  "vulnhunter_v7_massive_scale_training": {
+    "training_results": {
+      "distributed_random_forest": {
+        "accuracy": 0.9998144958261561,
+        "precision": 0.9998145419714728,
+        "recall": 0.9998144958261561,
+        "f1_score": 0.9998144735427708,
+        "training_time": 3.1875929832458496
+      },
+      "streaming_gradient_boosting": {
+        "accuracy": 0.9999734994037366,
+        "precision": 0.9999735003456786,
+        "recall": 0.9999734994037366,
+        "f1_score": 0.9999734989492144,
+        "training_time": 63.22240090370178
+      },
+      "online_sgd": {
+        "accuracy": 0.9934013515304094,
+        "precision": 0.9934376624216782,
+        "recall": 0.9934013515304094,
+        "f1_score": 0.9933765546188225,
+        "training_time": 3.2101991176605225
+      },
+      "massive_scale_adaboost": {
+        "accuracy": 0.9998144958261561,
+        "precision": 0.9998145102736907,
+        "recall": 0.9998144958261561,
+        "f1_score": 0.9998144799122618,
+        "training_time": 15.553922891616821
+      },
+      "neural_network": {
+        "accuracy": 0.9998674970186829,
+        "precision": 0.9998674943241264,
+        "recall": 0.9998674970186829,
+        "f1_score": 0.999867494746072,
+        "training_time": 55.742486000061035
+      }
+    },
+    "cross_validation_results": {
+      "distributed_random_forest": {
+        "cv_mean": 0.9988794248804629,
+        "cv_std": 0.00031534207938074496
+      },
+      "streaming_gradient_boosting": {
+        "cv_mean": 0.9993200004018634,
+        "cv_std": 0.00034410508116590677
+      },
+      "online_sgd": {
+        "cv_mean": 0.993295424411461,
+        "cv_std": 0.0002053738169368964
+      },
+      "massive_scale_adaboost": {
+        "cv_mean": 0.9994799348358333,
+        "cv_std": 0.0002466136548735727
+      },
+      "neural_network": {
+        "cv_mean": 0.9991999840300329,
+        "cv_std": 0.00011294185764648854
+      }
+    },
+    "feature_analysis": {
+      "feature_importance": {
+        "cwe_id": 0.27404166512701794,
+        "vulnerability_type": 0.11214224416715368,
+        "dataset_source": 0.0010280898202987972,
+        "language": 0.0002502131059640848,
+        "function_name": 0.0003874689993907517,
+        "complexity_score": 2.0962452127128702e-05,
+        "project": 0.0001133652056934017,
+        "commit_hash": 0.00044107872511962707,
+        "contract_name": 0.0004585620184545085,
+        "gas_complexity": 0.0062905163305017235,
+        "function_count": 0.0018597337116221418,
+        "has_payable": 1.2437042124465454e-05,
+        "has_external_calls": 6.963090656005243e-08,
+        "lines_of_code": 0.0005775635561587632,
+        "char_count": 0.03295407158190841,
+        "word_count": 0.009591126882529558,
+        "function_count.1": 0.0002584589943235791,
+        "variable_count": 0.026606937110795398,
+        "comment_count": 0.006380856576901582,
+        "string_count": 1.0063534828296633e-05,
+        "number_count": 0.00529527693148061,
+        "operator_count": 0.0009695699949291611,
+        "bracket_count": 0.023330586167646754,
+        "cyclomatic_complexity": 0.0012218462156436375,
+        "nesting_depth": 1.9173422932127804e-06,
+        "max_line_length": 0.003510046517281327,
+        "avg_line_length": 0.04420787702648952,
+        "halstead_length": 0.0006360249804238583,
+        "halstead_vocabulary": 0.0009535159313270629,
+        "halstead_difficulty": 0.0012866173384953787,
+        "maintainability_index": 0.024203154625589574,
+        "dangerous_functions": 0.010093572157213905,
+        "memory_functions": 0.0009555352492700338,
+        "pointer_usage": 0.013892300736791692,
+        "array_access": 0.001194886857196161,
+        "conditional_statements": 0.008364980516912665,
+        "loop_statements": 4.100675911605296e-05,
+        "jump_statements": 3.554060682243919e-11,
+        "exception_handling": 1.3777946463530402e-06,
+        "solidity_keywords": 8.312746837168149e-05,
+        "state_variables": 3.501896406117539e-06,
+        "external_calls": 0.00042336107562797364,
+        "gas_operations": 9.164489397342393e-06,
+        "time_operations": 2.2938232231525425e-05,
+        "crypto_operations": 1.923647490437913e-08,
+        "access_modifiers": 0.00886878193917721,
+        "assignment_operations": 0.004797448609859614,
+        "comparison_operations": 9.484308178051369e-05,
+        "logical_operations": 2.647660517450131e-05,
+        "bitwise_operations": 6.849024743420968e-06,
+        "increment_operations": 8.679606599577366e-06,
+        "execution_paths": 0.0009146045266291064,
+        "branch_coverage": 0.0004651436620936721,
+        "loop_iterations": 0.004367137067267523,
+        "memory_allocations": 0.00013122842034685227,
+        "function_calls_dynamic": 0.0011475632863031352,
+        "exception_throws": 1.7530212047725834e-05,
+        "external_interactions": 0.0,
+        "resource_usage": 0.0007949807585359617,
+        "timing_analysis": 3.558282129588467e-07,
+        "concurrency_indicators": 7.854329876450332e-06,
+        "severity": 0.27786523232403354,
+        "source": 0.00023379103158084133,
+        "file_size": 0.012529923949721957,
+        "line_count": 0.001832378552254678,
+        "non_empty_lines": 0.002956778305037776,
+        "pragma_count": 0.0,
+        "import_count": 4.7327064412255744e-05,
+        "contract_count": 0.0,
+        "interface_count": 0.0,
+        "library_count": 0.0,
+        "modifier_count": 0.0016707656584955528,
+        "constructor_count": 0.00013284231382145996,
+        "fallback_count": 1.2905851398095525e-05,
+        "receive_count": 0.00017322351101454344,
+        "event_count": 0.00032997028630091387,
+        "struct_count": 0.0,
+        "enum_count": 0.0,
+        "mapping_count": 2.0755572830196096e-05,
+        "has_reentrancy_guard": 0.0008563029843376879,
+        "has_access_control": 0.00084601793671174,
+        "has_pausable": 0.0,
+        "has_safemath": 0.0001128672872868296,
+        "has_safeerc20": 0.0,
+        "has_address_utils": 0.00033283472501397594,
+        "has_delegatecall": 0.0,
+        "has_selfdestruct": 0.0,
+        "has_tx_origin": 0.00012063823944475912,
+        "has_block_timestamp": 6.476720227298312e-05,
+        "has_block_number": 0.00021173906338788526,
+        "has_block_difficulty": 3.961225244861941e-05,
+        "has_block_coinbase": 0.0,
+        "has_call_value": 0.00013979594696219883,
+        "has_send": 0.0,
+        "has_transfer": 0.0,
+        "has_gasleft": 0.0,
+        "has_gas_limit": 6.094220290866708e-06,
+        "has_gas_price": 0.0,
+        "gas_optimization_count": 5.161161590022057e-06,
+        "require_count": 0.0003642360594741348,
+        "assert_count": 0.0,
+        "revert_count": 4.6467606296472835e-06,
+        "conditional_count": 0.001217647857403688,
+        "loop_count": 0.0002552985663249916,
+        "try_catch_count": 0.0,
+        "arithmetic_ops": 0.0020063969167899514,
+        "comparison_ops": 0.001977619652706593,
+        "logical_ops": 0.010975937229092915,
+        "bitwise_ops": 0.0008800617970961729,
+        "memory_usage": 1.8871907050765213e-05,
+        "storage_usage": 0.0,
+        "calldata_usage": 0.00039094090677558576,
+        "external_functions": 0.0014939442546524266,
+        "public_functions": 0.0,
+        "internal_functions": 0.0,
+        "private_functions": 0.0,
+        "view_functions": 0.0,
+        "pure_functions": 0.0,
+        "payable_functions": 0.00010912824809800434,
+        "emergency_patterns": 0.0003345999848544144,
+        "multisig_patterns": 0.0,
+        "proxy_patterns": 0.0,
+        "upgrade_patterns": 0.0,
+        "role_definitions": 0.00015662816375897572,
+        "role_checks": 0.0004051187075679109,
+        "role_grants": 0.0,
+        "array_operations": 4.185705809986538e-05,
+        "low_level_calls": 0.0002955640876720769,
+        "comment_lines": 0.0003346532621979353,
+        "empty_lines": 8.72128593286725e-05,
+        "sample_id": 3.522610007456232e-05,
+        "is_c": 0.00013829917441997966,
+        "is_java": 0.00028936358651118717,
+        "is_python": 5.604624900533599e-05,
+        "is_javascript": 8.915417510229606e-06,
+        "is_solidity": 0.00038952095824613345,
+        "has_malloc": 0.00019527112925262925,
+        "has_free": 0.0006411940442292509,
+        "has_strcpy": 0.0005723111073596406,
+        "has_system": 1.3720200824011338e-09,
+        "has_eval": 1.0268203764595397e-05,
+        "has_sql_keywords": 0.001188644805478493,
+        "has_input_validation": 0.0007423953568277279,
+        "has_bounds_check": 0.0011143067874393355,
+        "has_null_check": 0.0,
+        "has_secure_functions": 0.010024024445013,
+        "assignment_count": 0.0017225896383703174,
+        "pointer_ops": 0.018587952452609958,
+        "string_literals": 0.0019856375889921053,
+        "numeric_literals": 0.0017701344627382909,
+        "crypto_keywords": 0.0015211903576473984,
+        "network_keywords": 0.0006369814808780996,
+        "file_operations": 0.000700468452121859
+      },
+      "top_features": [
+        [
+          "severity",
+          0.27786523232403354
+        ],
+        [
+          "cwe_id",
+          0.27404166512701794
+        ],
+        [
+          "vulnerability_type",
+          0.11214224416715368
+        ],
+        [
+          "avg_line_length",
+          0.04420787702648952
+        ],
+        [
+          "char_count",
+          0.03295407158190841
+        ],
+        [
+          "variable_count",
+          0.026606937110795398
+        ],
+        [
+          "maintainability_index",
+          0.024203154625589574
+        ],
+        [
+          "bracket_count",
+          0.023330586167646754
+        ],
+        [
+          "pointer_ops",
+          0.018587952452609958
+        ],
+        [
+          "pointer_usage",
+          0.013892300736791692
+        ],
+        [
+          "file_size",
+          0.012529923949721957
+        ],
+        [
+          "logical_ops",
+          0.010975937229092915
+        ],
+        [
+          "dangerous_functions",
+          0.010093572157213905
+        ],
+        [
+          "has_secure_functions",
+          0.010024024445013
+        ],
+        [
+          "word_count",
+          0.009591126882529558
+        ],
+        [
+          "access_modifiers",
+          0.00886878193917721
+        ],
+        [
+          "conditional_statements",
+          0.008364980516912665
+        ],
+        [
+          "comment_count",
+          0.006380856576901582
+        ],
+        [
+          "gas_complexity",
+          0.0062905163305017235
+        ],
+        [
+          "number_count",
+          0.00529527693148061
+        ]
+      ]
+    },
+    "model_count": 5,
+    "feature_count": 153,
+    "training_timestamp": "2025-10-15T14:57:54.648548",
+    "azure_ml_environment": false
+  }
+}

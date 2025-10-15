@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: python train_v5_azure.py --data-path ./data/production/vulnhunter_v5_full_dataset.csv --output-dir ./outputs --target-f1 0.95
+code: .
+inputs: {}
+outputs:
+  model_output:
+    type: uri_folder
+environment: azureml://registries/azureml/environments/sklearn-1.0/versions/5
+compute: vulnhunter-cpu-compute
+experiment_name: vulnhunter-v5-cpu-training
+description: VulnHunter V5 CPU-optimized training on 64K+ samples with F1 target 0.95

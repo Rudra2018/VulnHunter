@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: python train_payg_enhanced.py --dataset-size 30000 --target-f1 0.97 --output-dir ./outputs
+code: .
+inputs: {}
+outputs:
+  model_output:
+    type: uri_folder
+environment: azureml://registries/azureml/environments/sklearn-1.0/versions/5
+compute: vulnhunter-payg-cluster
+experiment_name: vulnhunter-v5-payg-enhanced
+description: VulnHunter V5 Pay-As-You-Go enhanced smart contract training with 30K samples, F1 target 0.97

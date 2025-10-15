@@ -101,3 +101,27 @@ simplified_security_model.pkl
 # Sensitive configuration
 .secrets/
 credentials/
+
+# Test and experiment outputs
+*_output/
+*_results/
+test_*
+mock_*
+androzoo_*
+streaming_*
+online_*
+pipeline_*
+
+# Azure ML artifacts
+.azureml/
+azure_training/
+azure_training_package/
+
+# Environment files
+.env.*
+
+# Temporary research files
+*.csv
+result.txt
+v*.txt
+untitled*

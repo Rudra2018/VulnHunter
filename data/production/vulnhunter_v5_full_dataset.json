@@ -1,0 +1,41 @@
+{
+  "dataset_info": {
+    "total_samples": 64908,
+    "vulnerable_samples": 36324,
+    "non_vulnerable_samples": 28584,
+    "languages": {
+      "c": 60000,
+      "solidity": 4908
+    },
+    "sources": {
+      "juliet_synthetic": 50000,
+      "bigvul_synthetic": 10000,
+      "smart_contracts": 4908
+    },
+    "vulnerability_types": {
+      "buffer_overflow": 27224,
+      "integer_overflow": 10723,
+      "use_after_free": 8394,
+      "double_free": 8349,
+      "command_injection": 4336,
+      "memory_leak": 3305,
+      "access_control": 1574,
+      "none": 653,
+      "timestamp_dependence": 182,
+      "dos_gas": 162,
+      "unchecked_return": 4,
+      "reentrancy": 2
+    }
+  },
+  "feature_info": {
+    "total_features": 64,
+    "static_features": 8,
+    "dynamic_features": 6
+  },
+  "file_info": {
+    "parquet_path": "data/production/vulnhunter_v5_full_dataset.csv",
+    "csv_path": "data/production/vulnhunter_v5_full_dataset.csv",
+    "pickle_path": "data/production/vulnhunter_v5_full_dataset.pkl",
+    "creation_time": "2025-10-15T05:55:38.231351"
+  }
+}
