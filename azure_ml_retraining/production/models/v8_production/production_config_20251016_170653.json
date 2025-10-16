@@ -1,0 +1,12 @@
+{
+  "model_version": "VulnHunter-V8-Production",
+  "timestamp": "20251016_170653",
+  "accuracy": 0.9428571428571428,
+  "deployment_ready": true,
+  "azure_ml_compatible": true,
+  "inference_requirements": [
+    "scikit-learn>=1.0.0",
+    "pandas>=1.3.0",
+    "numpy>=1.21.0"
+  ]
+}

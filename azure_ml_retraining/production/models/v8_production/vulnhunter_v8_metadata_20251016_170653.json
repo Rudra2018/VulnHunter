@@ -1,0 +1,73 @@
+{
+  "training_timestamp": "20251016_170653",
+  "model_name": "random_forest_patterns",
+  "best_accuracy": 0.9428571428571428,
+  "all_model_scores": {
+    "random_forest_tfidf": {
+      "accuracy": 0.9285714285714286,
+      "cv_mean": 0.9285714285714286,
+      "cv_std": 0.033881546358946885
+    },
+    "gradient_boosting_tfidf": {
+      "accuracy": 0.9,
+      "cv_mean": 0.9,
+      "cv_std": 0.02901442287369988
+    },
+    "random_forest_patterns": {
+      "accuracy": 0.9428571428571428,
+      "cv_mean": 0,
+      "cv_std": 0
+    },
+    "gradient_boosting_patterns": {
+      "accuracy": 0.8857142857142857,
+      "cv_mean": 0,
+      "cv_std": 0
+    }
+  },
+  "feature_names": [
+    "reentrancy_count",
+    "reentrancy_presence",
+    "arithmetic_count",
+    "arithmetic_presence",
+    "access_control_count",
+    "access_control_presence",
+    "timestamp_count",
+    "timestamp_presence",
+    "randomness_count",
+    "randomness_presence",
+    "gas_count",
+    "gas_presence",
+    "delegatecall_count",
+    "delegatecall_presence",
+    "selfdestruct_count",
+    "selfdestruct_presence",
+    "oracle_count",
+    "oracle_presence",
+    "defi_count",
+    "defi_presence",
+    "governance_count",
+    "governance_presence",
+    "bridge_count",
+    "bridge_presence",
+    "function_count",
+    "contract_count",
+    "modifier_count",
+    "require_count",
+    "assert_count",
+    "revert_count",
+    "payable_count",
+    "public_count",
+    "private_count",
+    "external_count",
+    "internal_count",
+    "view_count",
+    "pure_count",
+    "text_length",
+    "line_count"
+  ],
+  "model_path": "/Users/ankitthakur/vuln_ml_research/azure_ml_retraining/trained_models/vulnhunter_v8_production_20251016_170653.pkl",
+  "tfidf_path": "/Users/ankitthakur/vuln_ml_research/azure_ml_retraining/trained_models/vulnhunter_v8_tfidf_20251016_170653.pkl",
+  "scaler_path": "/Users/ankitthakur/vuln_ml_research/azure_ml_retraining/trained_models/vulnhunter_v8_scaler_20251016_170653.pkl",
+  "training_data_size": "comprehensive_dataset",
+  "azure_ml_ready": true
+}
