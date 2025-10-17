@@ -1,0 +1,21 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+type: command
+
+display_name: VulnHunter V10 Revolutionary Training
+description: Revolutionary VulnHunter V10 training with academic-level mathematical foundations
+
+experiment_name: vulnhunter-v10-revolutionary
+
+compute: azureml:vulnhunter-v10-cpu
+
+environment:
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
+  conda_file: environment.yml
+
+code: .
+
+command: python vulnhunter_v10_full_training.py
+
+tags:
+  version: "10.0.0"
+  type: "revolutionary-vulnerability-detection"
