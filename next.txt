@@ -1,0 +1,67 @@
+Of course! This is a fantastic area to get into. The availability of large, high-quality datasets of code and smart contracts has grown significantly, driven by the AI/ML and blockchain security communities.
+
+Here is a comprehensive breakdown of datasets, categorized by their primary use case.
+
+1. General Purpose Code Datasets (Great for Pre-training)
+
+These datasets contain code from multiple languages (e.g., Python, Java, C++, JavaScript) and are ideal for training foundational code models that can be later fine-tuned for specific tasks.
+
+The Stack & Stack v2 (from BigCode):
+
+What it is: A massive, permissively licensed dataset sourced from public GitHub repositories. It's the go-to dataset for training large language models for code (Code LLMs). It includes deduplicated code across hundreds of programming languages.
+Size: Several terabytes of code.
+Link: https://huggingface.co/datasets/bigcode/the-stack (v1) & https://huggingface.co/datasets/bigcode/the-stack-v2 (v2, even larger)
+CodeParrot (from Hugging Face):
+
+What it is: A predecessor to The Stack, but still a well-known and curated dataset of Python code from GitHub.
+Link: https://huggingface.co/datasets/codeparrot/github-code
+Google's BigQuery Public Datasets:
+
+What it is: You can query a massive snapshot of GitHub activity directly using SQL. This gives you immense flexibility to create your own custom dataset based on stars, commit history, languages, etc.
+Link: https://cloud.google.com/bigquery/public-data (look for the bigquery-public-data.github_repos dataset)
+CodeNet (from IBM):
+
+What it is: A large dataset focused on code translation and performance analysis. It contains ~14 million code samples in 55+ languages, all solving around 4,000 problems on online judges.
+Use Case: Great for tasks like code translation (e.g., Python to Java) and code similarity.
+Link: https://developer.ibm.com/exchanges/data/all/project-codenet/
+2. Specialized Smart Contract Datasets
+
+These are specifically for the blockchain domain and are often labeled for tasks like vulnerability detection, compiler classification, or decompilation.
+
+A. Raw Source Code (Solidity)
+
+Smart Contract Sanctuary:
+
+What it is: A curated collection of verified Solidity source code from Ethereum Mainnet and various testnets. It's organized by address and is perfect for getting real-world, deployable contracts.
+Link: https://github.com/tintinweb/smart-contract-sanctuary
+Etherscan Verified Contracts:
+
+What it is: You can scrape or use the Etherscan API to download the source code of verified contracts. This is the "raw material" for many other curated datasets.
+Note: Be mindful of their terms of service if you plan to scrape.
+B. Labeled Vulnerability Datasets (Most Valuable for Security)
+
+These are the gold standard for training and benchmarking vulnerability detection models.
+
+SmartBugs Dataset:
+
+What it is: A curated collection of ~47K Solidity files annotated with vulnerabilities (like Reentrancy, Integer Overflow) using a variety of static analysis tools. It's one of the most widely used benchmarks.
+Link: https://github.com/smartbugs/smartbugs (The dataset is in the dataset directory)
+SolidiFI:
+
+What it is: A framework for injecting vulnerabilities into Solidity code. The dataset contains both buggy and fixed versions of contracts, which is perfect for tasks like bug detection and repair.
+Link: https://github.com/SoheilKh/SolidiFI-benchmark
+DeFiHackLabs:
+
+What it is: A collection of real-world post-mortem analyses and exploit code from DeFi hacks. This is excellent for studying real attack vectors.
+Link: https://github.com/SunWeb3Sec/DeFiHackLabs
+DASP Top 10:
+
+What it is: While not a dataset per se, the "Damn Vulnerable DeFi" challenges and the "Ethernaut" CTF provide a set of contracts with known vulnerabilities, which can be used as a small, high-quality training set.
+Link: https://www.damnvulnerabledefi.xyz/ & https://ethernaut.openzeppelin.com/
+C. Bytecode & Runtime Data
+
+Ethereum ETL:
+
+What it is: A project that transforms the raw Ethereum blockchain data into accessible formats like CSV and JSON stored in Google BigQuery. You can get contract bytecode, transaction traces, and logs here.
+Use Case: Training models on bytecode or analyzing transaction patterns.
+Link: https://github.com/blockchain-etl/ethereum-etl & https://cloud.google.com/blog/products/data-analytics/ethereum-bigquery-public-dataset-smart-contract-analytics

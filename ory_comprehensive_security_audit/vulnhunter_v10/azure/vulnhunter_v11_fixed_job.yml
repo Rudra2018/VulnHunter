@@ -1,0 +1,41 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+type: command
+
+# Job metadata
+display_name: "VulnHunter V11 Fixed Training"
+description: "VulnHunter V11 training with fixed dependencies - using basic trainer with built-in packages"
+experiment_name: "vulnhunter-v11-fixed"
+
+# Code and environment - using working basic script
+code: ../training
+command: python vulnhunter_v11_basic_trainer.py
+
+# Use existing available environment from the workspace
+environment: azureml:AzureML-ACPT-pytorch-1.13-py38-cuda11.7-gpu@latest
+
+# Compute configuration
+compute: azureml:vulnhunter-16core
+
+# Resource allocation
+resources:
+  instance_count: 1
+
+# Environment variables for 16-core optimization
+environment_variables:
+  OMP_NUM_THREADS: "16"
+  MKL_NUM_THREADS: "16"
+  VULNHUNTER_CPU_CORES: "16"
+  VULNHUNTER_MEMORY_GB: "128"
+
+# Job tags
+tags:
+  version: "11.0.0-fixed"
+  infrastructure: "16-core-Standard_E16s_v3"
+  environment: "curated-pytorch"
+  datasets: "stack-v2,smartbugs,sanctuary,solidifi,defihacklabs,codenet"
+  mathematical_foundations: "category-theory,tda,quantum-gnn,differential-homology,stochastic-verification"
+  total_samples: "372500+"
+  total_size_gb: "6.0+"
+  cores: "16"
+  memory: "128GB"
+  training_type: "massive-multi-source-fixed"
