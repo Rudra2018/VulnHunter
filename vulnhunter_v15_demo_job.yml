@@ -1,0 +1,28 @@
+# VulnHunter V15 Demo Job Configuration
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+type: command
+
+# Job Details
+display_name: VulnHunter-V15-Demo
+description: VulnHunter V15 revolutionary vulnerability detection demonstration
+tags:
+  model: VulnHunter-V15
+  version: "15.0.0"
+  type: "demo"
+
+# Compute Configuration
+compute: vulnhunter-v15-cpu-cluster
+
+# Environment - using a basic Python environment
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
+
+# Code
+code: ./
+
+# Training Command
+command: python vulnhunter_v15_demo.py
+
+# Environment Variables
+environment_variables:
+  AZURE_ML_TRAINING: "true"
+  VULNHUNTER_VERSION: "15.0.0"

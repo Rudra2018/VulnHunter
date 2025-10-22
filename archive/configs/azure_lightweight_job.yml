@@ -1,8 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-command: python azure_train.py
-code: ./azure_lightweight
-environment: azureml://registries/azureml/environments/sklearn-1.0/labels/latest
-compute: vulnhunter-payg-cluster
-experiment_name: vulnhunter_v5_lightweight
-display_name: VulnHunter V5 Lightweight Azure Demo
-description: VulnHunter V5 lightweight training demo on Azure

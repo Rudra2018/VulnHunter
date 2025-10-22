@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-10-22T04:43:17.576328",
+  "target": "Sui Protocol",
+  "bug_bounty_program": "https://hackenproof.com/programs/sui-protocol",
+  "findings": [
+    {
+      "category": "Token Supply Overflow",
+      "severity": "CRITICAL",
+      "reward": "$500,000",
+      "file": "/crates/transaction-fuzzer/data/coin_factory/sources/coin_factory.move",
+      "line": 30,
+      "code": "vector::push_back(&mut v, coin::mint(cap, value, ctx));",
+      "pattern": "coin::mint\\s*\\(",
+      "vulnhunter_score": 

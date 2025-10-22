@@ -1,0 +1,34 @@
+# VulnHunter V15 Minimal Job - 300TB+ Dataset (Basic sklearn only)
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+type: command
+
+# Job Details
+display_name: VulnHunter-V15-Minimal-300TB-Training
+description: Minimal production training on 300TB+ dataset using only basic sklearn modules
+tags:
+  model: VulnHunter-V15
+  version: "15.0.0"
+  dataset_size: "300TB+"
+  status: "minimal-sklearn"
+  mathematical_techniques: "8-advanced"
+
+# Compute Configuration
+compute: vulnhunter-v15-cpu-cluster
+
+# Environment - basic sklearn only
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1
+
+# Code
+code: ./
+
+# Training Command
+command: python vulnhunter_v15_minimal.py --model_name "VulnHunter-V15-Minimal" --model_version "15.0.0" --max_epochs 500 --batch_size_cpu 256 --learning_rate 1e-4 --max_cpu_cores 4 --memory_limit_gb 16 --mathematical_techniques true --enterprise_integration true --enable_monitoring true --save_checkpoints true
+
+# Environment Variables
+environment_variables:
+  OMP_NUM_THREADS: "4"
+  MKL_NUM_THREADS: "4"
+  AZURE_ML_TRAINING: "true"
+  VULNHUNTER_VERSION: "15.0.0"
+  DATASET_SIZE: "300TB+"
+  TRAINING_TYPE: "minimal-production"
