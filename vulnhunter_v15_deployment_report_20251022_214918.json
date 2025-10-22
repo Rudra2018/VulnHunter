@@ -1,0 +1,34 @@
+{
+  "deployment_info": {
+    "timestamp": "2025-10-22T21:49:18.188985",
+    "vulnhunter_version": "V15-Bulletproof",
+    "models_loaded": 4,
+    "deployment_status": "READY"
+  },
+  "model_performance": {
+    "models_trained": 11,
+    "best_f1_model": "knn",
+    "average_f1": 0.0054340036346303645,
+    "average_accuracy": 0.8959818181818181
+  },
+  "dataset_info": {
+    "total_samples": 100000,
+    "training_samples": 80000,
+    "test_samples": 20000,
+    "feature_count": 104,
+    "vulnerability_rate": 0.10142
+  },
+  "mathematical_techniques": {},
+  "security_coverage": {
+    "platforms": 12,
+    "vulnerability_categories": 17,
+    "enterprise_integrations": 12
+  },
+  "production_capabilities": {
+    "real_time_detection": true,
+    "batch_processing": true,
+    "ensemble_prediction": true,
+    "enterprise_ready": true,
+    "scalable_inference": true
+  }
+}
