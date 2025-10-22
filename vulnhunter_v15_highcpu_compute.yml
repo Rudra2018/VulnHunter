@@ -1,0 +1,14 @@
+# VulnHunter V15 High-CPU Compute Cluster Configuration
+$schema: https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json
+name: vulnhunter-v15-highcpu-cluster
+type: amlcompute
+size: Standard_F4s_v2  # 4 vCPUs, 8 GB RAM, optimized for compute-intensive workloads
+min_instances: 0
+max_instances: 10
+idle_time_before_scale_down: 1800  # 30 minutes
+
+tags:
+  purpose: vulnhunter-v15-fullscale
+  cpu_cores: "16"
+  memory: "32GB"
+  optimized_for: "compute-intensive"
