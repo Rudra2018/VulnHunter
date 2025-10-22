@@ -1,0 +1,14 @@
+# VulnHunter V15 Azure ML Environment Definition
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: vulnhunter-v15-comprehensive
+version: "1"
+description: Comprehensive environment for VulnHunter V15 massive-scale training with mathematical techniques
+
+image: mcr.microsoft.com/azureml/pytorch-1.12-ubuntu20.04-py38-cuda11.6-gpu
+conda_file: vulnhunter_v15_conda.yml
+
+tags:
+  model: VulnHunter-V15
+  version: "15.0.0"
+  type: comprehensive-training
+  mathematical-techniques: "8-advanced"

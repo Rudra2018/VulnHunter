@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-10-22T05:34:15.117525",
+  "version": "VulnHunter V14 Production",
+  "azure_training": true,
+  "real_data_sources": {
+    "CVE Database": 11,
+    "Exploit-DB": 10,
+    "HackerOne": 10,
+    "Zero-Day Research": 8,
+    "Enterprise Security": 10,
+    "DeFi Security": 8,
+    "IoT Security": 6,
+    "Secure Coding": 10,
+    "Total Patterns": 73
+  },
+  "model_performance": {
+    "train_accuracy": 1.0,
+    "test_accuracy": 0.8666666666666667,
+    "f1_score": 0.8047619047619048,
+    "precision": 0.7511111111111112,
+    "recall": 0.8666666666666667,
+    "cv_mean": 0.8247179487179487,
+    "cv_std": 0.04698279020992737
+  },
+  "deployment_ready": false
+}

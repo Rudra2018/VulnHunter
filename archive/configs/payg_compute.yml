@@ -1,9 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json
-name: vulnhunter-payg-cluster
-type: amlcompute
-size: Standard_D4s_v3
-location: eastus
-min_instances: 0
-max_instances: 2
-idle_time_before_scale_down: 300
-description: VulnHunter V5 Pay-As-You-Go production compute cluster

@@ -1,5 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
-name: vulnhunter-v5-payg-env
-description: VulnHunter V5 Pay-As-You-Go production environment
-conda_file: payg_conda.yml
-image: mcr.microsoft.com/azureml/pytorch-1.13-ubuntu20.04-py38-cpu:latest
