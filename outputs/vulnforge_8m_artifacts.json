@@ -1,0 +1,9 @@
+{
+  "transformer_weights": "VulnForge Graph Transformer Weights (8M samples)",
+  "gnn_weights": "VulnForge GNN Weights (Multi-layer)",
+  "ensemble_weights": "VulnForge Ensemble Weights (5 models)",
+  "bayesian_weights": "VulnForge Bayesian FP Reduction Weights",
+  "rl_policy": "VulnForge RL-GA Fuzzing Policy",
+  "model_size_mb": 2847,
+  "inference_speed_ms": 15
+}

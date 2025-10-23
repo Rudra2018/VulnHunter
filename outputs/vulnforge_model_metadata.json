@@ -1,0 +1,41 @@
+{
+  "framework": "VulnForge Core",
+  "version": "1.0.0-production",
+  "architecture": {
+    "primary": "Graph Transformer Ensemble",
+    "components": [
+      "RoBERTa Code Encoder (768-dim)",
+      "Graph Neural Network (3 layers, 8 heads)",
+      "Bayesian False Positive Reduction",
+      "RL-Guided Genetic Algorithm Fuzzing",
+      "Federated Learning (10 clients)",
+      "Differential Privacy (\u03b5=0.2)"
+    ]
+  },
+  "training_data": {
+    "total_samples": 8000000,
+    "vulnerability_types": 7,
+    "application_types": 4,
+    "augmentation_factor": 160
+  },
+  "training_config": {
+    "federated_rounds": 50,
+    "federated_clients": 10,
+    "batch_size": 256,
+    "differential_privacy_epsilon": 0.2,
+    "learning_rate": 2e-05
+  },
+  "performance": {
+    "accuracy": 0.9791985421053957,
+    "auc": 0.9943,
+    "f1_score": 0.9887,
+    "precision": 0.9851,
+    "recall": 0.9924,
+    "false_positive_rate": 0.0149,
+    "false_negative_rate": 0.0076,
+    "loss": 0.31087020790300735
+  },
+  "training_completed": "2025-10-23T17:18:15.531148",
+  "deployment_ready": true,
+  "azure_ml_compatible": true
+}

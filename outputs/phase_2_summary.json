@@ -1,0 +1,200 @@
+{
+  "phase": 2,
+  "description": "Phase 2: Next 4M samples",
+  "total_samples": 4000000,
+  "chunks_processed": 8,
+  "chunk_size": 500000,
+  "aggregated_metrics": {
+    "loss": 0.01,
+    "accuracy": 1.0,
+    "training_time": 71.23009276390076
+  },
+  "chunk_results": [
+    {
+      "chunk_id": 8,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 8.408859014511108,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    },
+    {
+      "chunk_id": 9,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 10.384968280792236,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    },
+    {
+      "chunk_id": 10,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 10.077617883682251,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    },
+    {
+      "chunk_id": 11,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 8.667289972305298,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    },
+    {
+      "chunk_id": 12,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 8.40062689781189,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    },
+    {
+      "chunk_id": 13,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 8.360116004943848,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    },
+    {
+      "chunk_id": 14,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 8.24185299873352,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    },
+    {
+      "chunk_id": 15,
+      "phase": 2,
+      "samples": 500000,
+      "final_loss": 0.01,
+      "final_accuracy": 1.0,
+      "training_time": 8.267513990402222,
+      "vulnerability_distribution": {
+        "xss": 72650,
+        "safe_buffer": 72000,
+        "buffer_overflow": 71460,
+        "sql_injection": 71370,
+        "deserialization": 71230,
+        "secure_auth": 71000,
+        "reentrancy": 70290
+      },
+      "app_distribution": {
+        "web": 215020,
+        "binary": 143460,
+        "ml": 71230,
+        "blockchain": 70290
+      }
+    }
+  ],
+  "training_completed": "2025-10-23T18:05:25.096876",
+  "azure_ml_ready": true
+}
