@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vulnhunter
+  labels:
+    name: vulnhunter
+    purpose: security-analysis
+    version: v17-phase2
+  annotations:
+    description: "VulnHunter V17 Phase 2 - Multi-Language AI Vulnerability Detection"
+    contact: "security-team@company.com"
+    documentation: "https://github.com/vulnhunter/docs"
