@@ -1,0 +1,17 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: .
+command: python azure_vulnhunter_production_training.py
+compute: vulnhunter-gpu-cluster
+description: Production training of VulnHunter V20 with quantum enhancements
+display_name: VulnHunter V20 Training - 20251023_092116
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:33
+experiment_name: vulnhunter_v20_production
+outputs:
+  trained_models:
+    mode: rw_mount
+    type: uri_folder
+tags:
+  model_type: vulnerability_detection
+  quantum_enhanced: 'true'
+  version: v20
+type: command

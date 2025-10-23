@@ -1,0 +1,52 @@
+# VulnHunter V20 Unified Production Requirements
+# Core ML and Data Science
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+
+# Deep Learning (optional)
+tensorflow>=2.13.0
+torch>=2.0.1
+
+# Advanced ML
+xgboost>=1.6.0
+lightgbm>=4.0.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.0.0
+
+# Model Persistence
+joblib>=1.1.0
+cloudpickle>=2.2.0
+
+# Text Processing
+nltk>=3.8.1
+
+# Data Processing
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# Azure ML (optional)
+azure-ai-ml>=1.9.0
+azure-identity>=1.14.0
+azure-storage-blob>=12.17.0
+
+# Quantum Simulation (optional)
+qiskit>=0.44.0
+cirq>=1.2.0
+
+# API Development
+fastapi>=0.101.0
+uvicorn>=0.23.0
+requests>=2.31.0
+
+# Development Tools
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.0.0
+
+# Security
+cryptography>=41.0.0
