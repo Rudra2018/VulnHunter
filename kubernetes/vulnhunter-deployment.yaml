@@ -1,0 +1,313 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vulnhunter-api
+  namespace: vulnhunter
+  labels:
+    app: vulnhunter
+    component: api
+    version: v17-phase2
+spec:
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: vulnhunter
+      component: api
+  template:
+    metadata:
+      labels:
+        app: vulnhunter
+        component: api
+        version: v17-phase2
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: vulnhunter-service-account
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 2000
+
+      initContainers:
+      - name: model-downloader
+        image: vulnhunter/model-downloader:v17
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/sh"]
+        args:
+        - -c
+        - |
+          echo "Downloading VulnHunter V17 models..."
+          mkdir -p /models
+          # Download pre-trained models
+          wget -O /models/vulnhunter-v17-gnn.pkl "https://models.vulnhunter.ai/v17/gnn.pkl"
+          wget -O /models/vulnhunter-v17-transformer.pkl "https://models.vulnhunter.ai/v17/transformer.pkl"
+          wget -O /models/vulnhunter-v17-ensemble.pkl "https://models.vulnhunter.ai/v17/ensemble.pkl"
+          echo "Model download complete"
+        volumeMounts:
+        - name: models-storage
+          mountPath: /models
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 1Gi
+
+      containers:
+      - name: vulnhunter-api
+        image: vulnhunter/api:v17-phase2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        - containerPort: 8443
+          name: https
+          protocol: TCP
+        - containerPort: 9090
+          name: metrics
+          protocol: TCP
+
+        env:
+        - name: VULNHUNTER_MODE
+          value: "production"
+        - name: VULNHUNTER_LOG_LEVEL
+          value: "INFO"
+        - name: VULNHUNTER_WORKERS
+          value: "20"
+        - name: GITHUB_WEBHOOK_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: vulnhunter-secrets
+              key: github-webhook-secret
+        - name: GITLAB_WEBHOOK_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: vulnhunter-secrets
+              key: gitlab-webhook-secret
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vulnhunter-secrets
+              key: redis-password
+
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/vulnhunter
+          readOnly: true
+        - name: models-storage
+          mountPath: /app/models
+          readOnly: true
+        - name: cache-storage
+          mountPath: /app/cache
+
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 2Gi
+          limits:
+            cpu: 4000m
+            memory: 8Gi
+
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+
+        startupProbe:
+          httpGet:
+            path: /startup
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 30
+
+      - name: federated-learning-client
+        image: vulnhunter/federated-client:v17
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8081
+          name: federated
+          protocol: TCP
+
+        env:
+        - name: FEDERATED_MODE
+          value: "client"
+        - name: ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: vulnhunter-secrets
+              key: encryption-key
+
+        volumeMounts:
+        - name: models-storage
+          mountPath: /app/models
+        - name: federated-storage
+          mountPath: /app/federated
+
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
+          limits:
+            cpu: 2000m
+            memory: 4Gi
+
+      volumes:
+      - name: config-volume
+        configMap:
+          name: vulnhunter-config
+      - name: models-storage
+        persistentVolumeClaim:
+          claimName: vulnhunter-models-pvc
+      - name: cache-storage
+        emptyDir:
+          sizeLimit: 1Gi
+      - name: federated-storage
+        persistentVolumeClaim:
+          claimName: vulnhunter-federated-pvc
+
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-type: compute-optimized
+
+      tolerations:
+      - key: "vulnhunter.ai/dedicated"
+        operator: "Equal"
+        value: "security-analysis"
+        effect: "NoSchedule"
+
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - vulnhunter
+              topologyKey: kubernetes.io/hostname
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vulnhunter-worker
+  namespace: vulnhunter
+  labels:
+    app: vulnhunter
+    component: worker
+    version: v17-phase2
+spec:
+  replicas: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 2
+  selector:
+    matchLabels:
+      app: vulnhunter
+      component: worker
+  template:
+    metadata:
+      labels:
+        app: vulnhunter
+        component: worker
+        version: v17-phase2
+    spec:
+      serviceAccountName: vulnhunter-service-account
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 2000
+
+      containers:
+      - name: vulnhunter-worker
+        image: vulnhunter/worker:v17-phase2
+        imagePullPolicy: IfNotPresent
+
+        env:
+        - name: WORKER_MODE
+          value: "analysis"
+        - name: WORKER_CONCURRENCY
+          value: "5"
+        - name: REDIS_HOST
+          value: "vulnhunter-redis"
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vulnhunter-secrets
+              key: redis-password
+
+        volumeMounts:
+        - name: models-storage
+          mountPath: /app/models
+          readOnly: true
+        - name: temp-storage
+          mountPath: /tmp
+        - name: config-volume
+          mountPath: /etc/vulnhunter
+          readOnly: true
+
+        resources:
+          requests:
+            cpu: 2000m
+            memory: 4Gi
+          limits:
+            cpu: 8000m
+            memory: 16Gi
+
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "ps aux | grep vulnhunter-worker | grep -v grep"
+          initialDelaySeconds: 30
+          periodSeconds: 10
+
+      volumes:
+      - name: config-volume
+        configMap:
+          name: vulnhunter-config
+      - name: models-storage
+        persistentVolumeClaim:
+          claimName: vulnhunter-models-pvc
+      - name: temp-storage
+        emptyDir:
+          sizeLimit: 5Gi
+
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        node-type: compute-optimized
+
+      tolerations:
+      - key: "vulnhunter.ai/dedicated"
+        operator: "Equal"
+        value: "security-analysis"
+        effect: "NoSchedule"

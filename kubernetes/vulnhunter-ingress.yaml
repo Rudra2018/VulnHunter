@@ -1,0 +1,181 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vulnhunter-ingress
+  namespace: vulnhunter
+  labels:
+    app: vulnhunter
+    component: ingress
+  annotations:
+    # NGINX Ingress Controller
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+
+    # Rate limiting for API protection
+    nginx.ingress.kubernetes.io/rate-limit-requests-per-second: "100"
+    nginx.ingress.kubernetes.io/rate-limit-burst-multiplier: "5"
+
+    # CORS configuration
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+
+    # Timeouts for long-running analysis
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+
+    # Body size for large code uploads
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+
+    # Compression
+    nginx.ingress.kubernetes.io/enable-gzip: "true"
+    nginx.ingress.kubernetes.io/gzip-types: "application/json,text/plain,text/css,application/javascript"
+
+    # Security headers
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      add_header X-Frame-Options DENY;
+      add_header X-Content-Type-Options nosniff;
+      add_header X-XSS-Protection "1; mode=block";
+      add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+      add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
+
+spec:
+  tls:
+  - hosts:
+    - api.vulnhunter.ai
+    - webhook.vulnhunter.ai
+    - federated.vulnhunter.ai
+    secretName: vulnhunter-tls
+
+  rules:
+  # Main API endpoint
+  - host: api.vulnhunter.ai
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vulnhunter-api
+            port:
+              number: 80
+      - path: /health
+        pathType: Exact
+        backend:
+          service:
+            name: vulnhunter-api-internal
+            port:
+              number: 8080
+      - path: /metrics
+        pathType: Exact
+        backend:
+          service:
+            name: vulnhunter-api-internal
+            port:
+              number: 9090
+
+  # Webhook endpoints
+  - host: webhook.vulnhunter.ai
+    http:
+      paths:
+      - path: /webhook/github
+        pathType: Exact
+        backend:
+          service:
+            name: vulnhunter-api
+            port:
+              number: 80
+      - path: /webhook/gitlab
+        pathType: Exact
+        backend:
+          service:
+            name: vulnhunter-api
+            port:
+              number: 80
+      - path: /webhook/jenkins
+        pathType: Exact
+        backend:
+          service:
+            name: vulnhunter-api
+            port:
+              number: 80
+      - path: /webhook/azure-devops
+        pathType: Exact
+        backend:
+          service:
+            name: vulnhunter-api
+            port:
+              number: 80
+
+  # Federated learning endpoint
+  - host: federated.vulnhunter.ai
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vulnhunter-federated
+            port:
+              number: 8081
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: vulnhunter-network-policy
+  namespace: vulnhunter
+spec:
+  podSelector:
+    matchLabels:
+      app: vulnhunter
+  policyTypes:
+  - Ingress
+  - Egress
+
+  ingress:
+  # Allow ingress from nginx-ingress
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: nginx-ingress
+    ports:
+    - protocol: TCP
+      port: 8080
+
+  # Allow inter-pod communication within namespace
+  - from:
+    - podSelector:
+        matchLabels:
+          app: vulnhunter
+    ports:
+    - protocol: TCP
+      port: 8080
+    - protocol: TCP
+      port: 8081
+    - protocol: TCP
+      port: 6379
+    - protocol: TCP
+      port: 5432
+
+  egress:
+  # Allow DNS
+  - to: []
+    ports:
+    - protocol: UDP
+      port: 53
+
+  # Allow HTTPS for external API calls (GitHub, GitLab, etc.)
+  - to: []
+    ports:
+    - protocol: TCP
+      port: 443
+
+  # Allow HTTP for webhook responses
+  - to: []
+    ports:
+    - protocol: TCP
+      port: 80

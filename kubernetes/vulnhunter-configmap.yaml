@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vulnhunter-config
+  namespace: vulnhunter
+  labels:
+    app: vulnhunter
+    component: config
+data:
+  # Application Configuration
+  app.yaml: |
+    vulnhunter:
+      version: "v17-phase2"
+      mode: "production"
+      log_level: "INFO"
+
+      # Multi-language support
+      languages:
+        enabled: ["python", "javascript", "typescript", "java", "go", "php", "cpp", "csharp", "ruby", "rust"]
+        default_timeout: 30
+        max_file_size: "10MB"
+
+      # Real-time analysis
+      analysis:
+        max_workers: 20
+        queue_size: 1000
+        priority_levels: ["critical", "high", "medium", "low"]
+        cache_ttl: 3600
+
+      # Federated learning
+      federated_learning:
+        enabled: true
+        privacy_epsilon: 1.0
+        privacy_delta: 1e-5
+        min_clients: 3
+        max_clients: 100
+
+      # Performance
+      performance:
+        target_response_time_ms: 10
+        max_concurrent_requests: 10000
+        enable_caching: true
+        cache_size: "1GB"
+
+  # Vulnerability patterns configuration
+  patterns.yaml: |
+    vulnerability_patterns:
+      sql_injection:
+        python: ["f['\"].*SELECT.*\\{.*\\}.*['\"]", "cursor\\.execute\\(.*\\+.*\\)"]
+        java: ["SELECT.*\\+.*", "Statement.*execute"]
+        javascript: ["query.*\\+.*SELECT", "sql.*\\+.*"]
+        php: ["mysql_query.*\\+", "SELECT.*\\$"]
+
+      xss:
+        javascript: ["innerHTML\\s*=", "document\\.write\\s*\\("]
+        java: ["response\\.getWriter", "out\\.print"]
+        php: ["echo\\s*\\$", "print\\s*\\$"]
+
+      command_injection:
+        python: ["os\\.system\\(.*\\+.*\\)", "subprocess.*shell=True"]
+        java: ["Runtime\\.exec", "ProcessBuilder"]
+        php: ["shell_exec\\s*\\(", "exec\\s*\\("]
+        javascript: ["exec\\s*\\(", "spawn.*shell"]
+
+  # CI/CD Integration settings
+  cicd.yaml: |
+    integrations:
+      github:
+        webhook_secret: "GITHUB_WEBHOOK_SECRET"
+        api_token: "GITHUB_API_TOKEN"
+        block_on_critical: true
+
+      gitlab:
+        webhook_secret: "GITLAB_WEBHOOK_SECRET"
+        api_token: "GITLAB_API_TOKEN"
+        block_on_critical: true
+
+      jenkins:
+        api_url: "JENKINS_API_URL"
+        username: "JENKINS_USERNAME"
+        token: "JENKINS_API_TOKEN"
+
+      azure_devops:
+        organization: "AZURE_DEVOPS_ORG"
+        token: "AZURE_DEVOPS_TOKEN"
