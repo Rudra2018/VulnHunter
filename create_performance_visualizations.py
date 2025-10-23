@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-VulnHunter V20 Performance Visualization Generator
+VulnHunter Performance Visualization Generator
 Creates comprehensive metrics, diagrams, and performance visualizations
 """
 
@@ -17,7 +17,7 @@ plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 
 def create_performance_metrics():
-    """Create comprehensive performance metrics for VulnHunter V20"""
+    """Create comprehensive performance metrics for VulnHunter"""
 
     # Real performance data from Azure ML training
     performance_data = {
@@ -49,7 +49,7 @@ def create_performance_comparison(df):
     # 1. F1 Score Comparison
     plt.figure(figsize=(12, 8))
     bars = plt.bar(df['Model'], df['F1_Score'], color=['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD'])
-    plt.title('VulnHunter V20 Model Performance Comparison\nF1 Score Analysis', fontsize=16, fontweight='bold')
+    plt.title('VulnHunter Model Performance Comparison\nF1 Score Analysis', fontsize=16, fontweight='bold')
     plt.xlabel('Model Architecture', fontsize=12)
     plt.ylabel('F1 Score', fontsize=12)
     plt.ylim(0.98, 1.0)
@@ -106,7 +106,7 @@ def create_performance_comparison(df):
     plt.colorbar(scatter, label='AUC-ROC Score')
     plt.xlabel('Training Time (seconds)', fontsize=12)
     plt.ylabel('F1 Score', fontsize=12)
-    plt.title('VulnHunter V20: Performance vs Training Efficiency', fontsize=16, fontweight='bold')
+    plt.title('VulnHunter: Performance vs Training Efficiency', fontsize=16, fontweight='bold')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.savefig('vulnhunter_efficiency_analysis.png', dpi=300, bbox_inches='tight')
@@ -121,7 +121,7 @@ def create_model_architecture_diagram():
     ax.axis('off')
 
     # Title
-    ax.text(5, 9.5, 'VulnHunter V20 Unified Architecture',
+    ax.text(5, 9.5, 'VulnHunter Unified Architecture',
             fontsize=20, fontweight='bold', ha='center')
 
     # Input Layer
@@ -196,14 +196,14 @@ def create_threat_detection_matrix():
     threats = ['Buffer Overflow', 'SQL Injection', 'XSS', 'CSRF', 'Auth Bypass',
                'Command Injection', 'Path Traversal', 'Crypto Issues', 'Race Conditions', 'Memory Corruption']
 
-    models = ['Traditional ML', 'Quantum Enhanced', 'Consciousness AI', 'VulnHunter V20']
+    models = ['Traditional ML', 'Quantum Enhanced', 'Consciousness AI', 'VulnHunter']
 
     # Detection accuracy matrix (simulated based on capabilities)
     detection_matrix = np.array([
         [0.85, 0.87, 0.83, 0.82, 0.80, 0.86, 0.84, 0.79, 0.75, 0.81],  # Traditional ML
         [0.94, 0.96, 0.92, 0.91, 0.93, 0.95, 0.93, 0.90, 0.88, 0.92],  # Quantum Enhanced
         [0.91, 0.93, 0.95, 0.94, 0.96, 0.92, 0.90, 0.88, 0.92, 0.89],  # Consciousness AI
-        [0.99, 0.995, 0.992, 0.991, 0.994, 0.996, 0.993, 0.989, 0.987, 0.991]  # VulnHunter V20
+        [0.99, 0.995, 0.992, 0.991, 0.994, 0.996, 0.993, 0.989, 0.987, 0.991]  # VulnHunter
     ])
 
     # Create heatmap
@@ -217,7 +217,7 @@ def create_threat_detection_matrix():
                 cbar_kws={'label': 'Detection Accuracy'},
                 vmin=0.7, vmax=1.0)
 
-    plt.title('VulnHunter V20: Threat Detection Capability Matrix', fontsize=16, fontweight='bold')
+    plt.title('VulnHunter: Threat Detection Capability Matrix', fontsize=16, fontweight='bold')
     plt.xlabel('Threat Categories', fontsize=12)
     plt.ylabel('Detection Systems', fontsize=12)
     plt.xticks(rotation=45, ha='right')
@@ -238,7 +238,7 @@ def create_feature_importance_chart():
     bars = plt.barh(features, importance_scores, color=plt.cm.viridis(np.linspace(0, 1, len(features))))
 
     plt.xlabel('Feature Importance Score', fontsize=12)
-    plt.title('VulnHunter V20: Feature Importance Analysis', fontsize=16, fontweight='bold')
+    plt.title('VulnHunter: Feature Importance Analysis', fontsize=16, fontweight='bold')
     plt.xlim(0, 1)
 
     # Add value labels
@@ -270,7 +270,7 @@ def create_training_progress_chart():
 
     plt.xlabel('Training Epochs', fontsize=12)
     plt.ylabel('Loss Value', fontsize=12)
-    plt.title('VulnHunter V20: Training Progress Curves', fontsize=16, fontweight='bold')
+    plt.title('VulnHunter: Training Progress Curves', fontsize=16, fontweight='bold')
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.yscale('log')
@@ -287,7 +287,7 @@ def create_consciousness_integration_diagram():
     ax.axis('off')
 
     # Title
-    ax.text(5, 9.5, 'VulnHunter V20: Consciousness-Aware Security Integration',
+    ax.text(5, 9.5, 'VulnHunter: Consciousness-Aware Security Integration',
             fontsize=18, fontweight='bold', ha='center')
 
     # Consciousness layers
@@ -437,7 +437,7 @@ def generate_performance_metrics_json():
 
 def main():
     """Generate all performance visualizations and metrics"""
-    print("🎨 Generating VulnHunter V20 Performance Visualizations...")
+    print("🎨 Generating VulnHunter Performance Visualizations...")
 
     # Create performance metrics DataFrame
     df = create_performance_metrics()

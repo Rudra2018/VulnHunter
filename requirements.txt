@@ -1,4 +1,4 @@
-# VulnHunter V20 Unified Production Requirements
+# VulnHunter Unified Production Requirements
 # Core ML and Data Science
 numpy>=1.21.0
 pandas>=1.3.0
