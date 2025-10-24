@@ -11,7 +11,7 @@
 
 VulnHunter represents the world's first application of **Vulnerability Homotopy Space (VHS)** to cybersecurity, combining mathematical singularity primitives with topological classification to achieve unprecedented precision in vulnerability detection.
 
-![VulnHunter Ωmega + VHS Architecture](assets/vulnhunter_architecture.png)
+![VulnHunter Ωmega + VHS Architecture](assets/vulnhunter_architecture_diagram.png)
 
 ---
 
