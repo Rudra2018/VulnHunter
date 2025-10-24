@@ -54,5 +54,9 @@ class VulnHunterOmegaVHSInference:
             }
 
 # Usage:
-# analyzer = VulnHunterOmegaVHSInference('vulnhunter_omega_vhs_complete.pth')
+# analyzer = VulnHunterOmegaVHSInference('vulnhunter_omega_vhs_complete.pth')  # Uses best performing model
+# result = analyzer.analyze_code("your_code_here")
+
+# Alternative: Use the best model directly
+# analyzer = VulnHunterOmegaVHSInference('vulnhunter_omega_vhs_best.pth')
 # result = analyzer.analyze_code("your_code_here")

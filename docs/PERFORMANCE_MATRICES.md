@@ -14,7 +14,9 @@
 | **False Positive Reduction** | **9.7%** | Significant |
 | **Precision Improvement** | **0.9x** | Stable |
 | **Training Time** | ~4-6 hours (Google Colab) | Reasonable |
-| **Model Size** | 499.6 MB | Production-ready |
+| **Model Size** | 475.6 MB | Production-optimized (best checkpoint) |
+
+**Model Selection Note**: The production model uses weights saved at peak validation performance during training, ensuring optimal generalization without overfitting.
 
 ### Mathematical Framework Validation
 
