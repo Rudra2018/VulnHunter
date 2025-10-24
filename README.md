@@ -418,17 +418,17 @@ This project is licensed under the MIT License.
 
 **Cite this work:**
 ```bibtex
-@software{vulnhunter_vhs_2024,
+@software{vulnhunter_vhs_2025,
   title={VulnHunter Ωmega + VHS: Mathematical Topology for Vulnerability Detection},
-  author={Research Team},
-  year={2024},
-  url={https://github.com/your-username/vuln_ml_research}
+  author={Ankit Thakur (Rudra16)},
+  year={2025},
+  url={https://github.com/rudra2018/VulnHunter}
 }
 ```
 
 ---
 
-## 📞 **Contact & Documentation**
+## Documentation**
 
 ### **📚 Complete Documentation**
 - [Architecture Overview](docs/ARCHITECTURE.md) - System design and mathematical framework
@@ -436,10 +436,6 @@ This project is licensed under the MIT License.
 - [Integration Guide](docs/VHS_INTEGRATION_COMPLETE_GUIDE.md) - Complete implementation details
 - [Training Report](docs/VulnHunter_VHS_Training_Report.md) - Training results and validation
 
-### **🔗 Links**
-- **Issues**: [GitHub Issues](https://github.com/your-username/vuln_ml_research/issues)
-- **Discussions**: [Mathematical Cybersecurity Forum](https://github.com/your-username/vuln_ml_research/discussions)
-- **Security**: Report vulnerabilities responsibly
 
 ---
 
@@ -451,7 +447,7 @@ This project is licensed under the MIT License.
 
 [![GitHub stars](https://img.shields.io/github/stars/your-username/vuln_ml_research?style=social)](https://github.com/your-username/vuln_ml_research)
 
-*Built with ❤️ and advanced mathematics for the cybersecurity community*
+*Built with ❤️ and advanced mathematics*
 
 </div>
 
