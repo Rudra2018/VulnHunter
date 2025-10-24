@@ -182,11 +182,15 @@ def analyze_code(self, code, file_path="unknown", commit_msg=""):
 ## 🏭 Production Deployment
 
 ### Model Files
-- **Main Model**: `vulnhunter_omega_vhs_complete.pth` (499.6 MB)
+- **Main Model**: `vulnhunter_omega_vhs_complete.pth` (475.6 MB) - **BEST PERFORMING**
+- **Alternative**: `vulnhunter_omega_vhs_best.pth` (475.6 MB) - Direct best checkpoint
+- **Backup**: `vulnhunter_omega_vhs_complete_backup.pth` (476.5 MB) - Original complete
 - **Legacy Models**:
   - `vulnhunter_omega_final.pth` (4.2 MB)
   - `vulnhunter_ensemble_final.pth` (7.1 MB)
   - `vulnhunter_classical_final.pth` (2.9 MB)
+
+**Production Recommendation**: Use `vulnhunter_omega_vhs_complete.pth` which now contains the optimal model weights saved at peak validation performance during training.
 
 ### Integration Points
 
