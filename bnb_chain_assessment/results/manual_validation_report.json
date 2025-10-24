@@ -1,0 +1,258 @@
+{
+  "manual_validation_summary": {
+    "timestamp": "2025-10-23T22:37:09.357816",
+    "files_validated": 8,
+    "high_priority_targets": 0,
+    "critical_assessments": 0
+  },
+  "validation_results": [
+    {
+      "file": "reconnaissance/test/SystemReward.t.sol",
+      "file_name": "SystemReward.t.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 0.9007352941176474,
+      "manual_validation": {
+        "critical_patterns_found": 0,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "LOW"
+      },
+      "detailed_findings": [],
+      "recommendations": [
+        "Focus on reward distribution logic - potential for unauthorized BNB minting",
+        "Test edge cases in reward calculation algorithms",
+        "Verify access controls for reward claiming functions"
+      ],
+      "estimated_bounty_value": "$1,000 - $10,000"
+    },
+    {
+      "file": "reconnaissance/test/GovHub.t.sol",
+      "file_name": "GovHub.t.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 0.732142857142857,
+      "manual_validation": {
+        "critical_patterns_found": 0,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "LOW"
+      },
+      "detailed_findings": [],
+      "recommendations": [
+        "Test governance bypass scenarios",
+        "Analyze voting manipulation vectors",
+        "Check timelock and execution mechanisms"
+      ],
+      "estimated_bounty_value": "$1,000 - $10,000"
+    },
+    {
+      "file": "reconnaissance/test/StakeHub.t.sol",
+      "file_name": "StakeHub.t.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 0.7191011235955062,
+      "manual_validation": {
+        "critical_patterns_found": 11,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "MEDIUM"
+      },
+      "detailed_findings": [
+        {
+          "category": "critical_reentrancy",
+          "findings": [
+            {
+              "category": "critical_reentrancy",
+              "pattern": "\\.call\\s*\\{\\s*value:\\s*[^}]+\\}\\s*\\(\\s*[^)]*\\)",
+              "line_number": 273,
+              "matched_text": ".call{ value: 1 ether }(\"\")",
+              "severity": "HIGH"
+            },
+            {
+              "category": "critical_reentrancy",
+              "pattern": "\\.call\\s*\\{\\s*value:\\s*[^}]+\\}\\s*\\(\\s*[^)]*\\)",
+              "line_number": 275,
+              "matched_text": ".call{ value: 1 ether }(hex\"12\")",
+              "severity": "HIGH"
+            },
+            {
+              "category": "critical_reentrancy",
+              "pattern": "\\.call\\s*\\{\\s*value:\\s*[^}]+\\}\\s*\\(\\s*[^)]*\\)",
+              "line_number": 280,
+              "matched_text": ".call{ value: 1 ether }(\"\")",
+              "severity": "HIGH"
+            },
+            {
+              "category": "critical_reentrancy",
+              "pattern": "\\.call\\s*\\{\\s*value:\\s*[^}]+\\}\\s*\\(\\s*[^)]*\\)",
+              "line_number": 282,
+              "matched_text": ".call{ value: 1 ether }(hex\"12\")",
+              "severity": "HIGH"
+            },
+            {
+              "category": "critical_reentrancy",
+              "pattern": "\\.call\\s*\\{\\s*value:\\s*[^}]+\\}\\s*\\(\\s*[^)]*\\)",
+              "line_number": 288,
+              "matched_text": ".call{ value: 1 ether }(\"\")",
+              "severity": "HIGH"
+            },
+            {
+              "category": "critical_reentrancy",
+              "pattern": "address\\([^)]+\\)\\.call\\s*\\{\\s*value:",
+              "line_number": 273,
+              "matched_text": "address(stakeHub).call{ value:",
+              "severity": "HIGH"
+            },
+            {
+              "category": "critical_reentrancy",
+              "pattern": "address\\([^)]+\\)\\.call\\s*\\{\\s*value:",
+              "line_number": 275,
+              "matched_text": "address(stakeHub).call{ value:",
+              "severity": "HIGH"
+            }
+          ],
+          "count": 7
+        },
+        {
+          "category": "staking_vulnerabilities",
+          "findings": [
+            {
+              "category": "staking_vulnerabilities",
+              "pattern": "validator.*\\[\\s*[^]]*\\]\\s*=",
+              "line_number": 743,
+              "matched_text": "validatorsToQuery[0] =",
+              "severity": "HIGH"
+            },
+            {
+              "category": "staking_vulnerabilities",
+              "pattern": "validator.*\\[\\s*[^]]*\\]\\s*=",
+              "line_number": 744,
+              "matched_text": "validatorsToQuery[1] =",
+              "severity": "HIGH"
+            },
+            {
+              "category": "staking_vulnerabilities",
+              "pattern": "validator.*\\[\\s*[^]]*\\]\\s*=",
+              "line_number": 791,
+              "matched_text": "validatorsToQuery[0] =",
+              "severity": "HIGH"
+            },
+            {
+              "category": "staking_vulnerabilities",
+              "pattern": "validator.*\\[\\s*[^]]*\\]\\s*=",
+              "line_number": 844,
+              "matched_text": "validatorsToQuery[0] =",
+              "severity": "HIGH"
+            }
+          ],
+          "count": 4
+        }
+      ],
+      "recommendations": [
+        "Analyze staking/unstaking mechanisms for manipulation",
+        "Check validator election and slashing logic",
+        "Test delegation and undelegation edge cases"
+      ],
+      "estimated_bounty_value": "$10,000 - $25,000"
+    },
+    {
+      "file": "reconnaissance/contracts/SystemReward.sol",
+      "file_name": "SystemReward.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 0.85,
+      "manual_validation": {
+        "critical_patterns_found": 0,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "LOW"
+      },
+      "detailed_findings": [],
+      "recommendations": [
+        "Focus on reward distribution logic - potential for unauthorized BNB minting",
+        "Test edge cases in reward calculation algorithms",
+        "Verify access controls for reward claiming functions"
+      ],
+      "estimated_bounty_value": "$1,000 - $10,000"
+    },
+    {
+      "file": "reconnaissance/contracts/deprecated/RelayerIncentivize.sol",
+      "file_name": "RelayerIncentivize.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 0.8369565217391305,
+      "manual_validation": {
+        "critical_patterns_found": 1,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "LOW"
+      },
+      "detailed_findings": [
+        {
+          "category": "staking_vulnerabilities",
+          "findings": [
+            {
+              "category": "staking_vulnerabilities",
+              "pattern": "mapping\\s*\\([^)]*=>\\s*uint256\\)\\s+.*reward",
+              "line_number": 36,
+              "matched_text": "mapping(address => uint256) public relayerReward",
+              "severity": "HIGH"
+            }
+          ],
+          "count": 1
+        }
+      ],
+      "recommendations": [],
+      "estimated_bounty_value": "$1,000 - $10,000"
+    },
+    {
+      "file": "reconnaissance/contracts/interface/0.8.x/IGovToken.sol",
+      "file_name": "IGovToken.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 0.7499999999999999,
+      "manual_validation": {
+        "critical_patterns_found": 0,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "LOW"
+      },
+      "detailed_findings": [],
+      "recommendations": [
+        "Test governance bypass scenarios",
+        "Analyze voting manipulation vectors",
+        "Check timelock and execution mechanisms"
+      ],
+      "estimated_bounty_value": "$1,000 - $10,000"
+    },
+    {
+      "file": "reconnaissance/contracts/interface/0.6.x/IRelayerIncentivize.sol",
+      "file_name": "IRelayerIncentivize.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 1.0,
+      "manual_validation": {
+        "critical_patterns_found": 0,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "LOW"
+      },
+      "detailed_findings": [],
+      "recommendations": [],
+      "estimated_bounty_value": "$1,000 - $10,000"
+    },
+    {
+      "file": "reconnaissance/contracts/interface/0.6.x/ISystemReward.sol",
+      "file_name": "ISystemReward.sol",
+      "validation_timestamp": "2025-10-23T22:37:09.357816",
+      "original_risk_score": 1.0,
+      "manual_validation": {
+        "critical_patterns_found": 0,
+        "confirmed_vulnerabilities": [],
+        "risk_assessment": "LOW",
+        "bug_bounty_potential": "LOW"
+      },
+      "detailed_findings": [],
+      "recommendations": [
+        "Focus on reward distribution logic - potential for unauthorized BNB minting",
+        "Test edge cases in reward calculation algorithms",
+        "Verify access controls for reward claiming functions"
+      ],
+      "estimated_bounty_value": "$1,000 - $10,000"
+    }
+  ]
+}
