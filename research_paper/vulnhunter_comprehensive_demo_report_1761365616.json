@@ -1,0 +1,732 @@
+{
+  "demo_metadata": {
+    "framework_version": "VulnHunter \u03a9mega + VHS v2.0",
+    "demo_timestamp": 1761365616.274509,
+    "total_demo_duration": 0.04277801513671875,
+    "assets_analyzed": 6
+  },
+  "analysis_results": [
+    {
+      "asset_type": "smart_contract",
+      "description": "Smart Contract",
+      "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/VulnerableContract.sol",
+      "duration": 0.0055806636810302734,
+      "vulnerabilities_found": 8,
+      "security_score": 0.4083333333333332,
+      "risk_assessment": "CRITICAL",
+      "mathematical_analysis": {
+        "contract_complexity": {
+          "functions": 5,
+          "modifiers": 1,
+          "events": 0,
+          "state_variables": 3,
+          "complexity_score": 1.4
+        },
+        "economic_topology": {
+          "value_flow_nodes": 11,
+          "price_dependency_edges": 2,
+          "economic_complexity": 2.6
+        },
+        "security_invariants": {
+          "access_control_depth": 2,
+          "reentrancy_guards": 0,
+          "overflow_protection": 0
+        },
+        "simplicial_complex": {
+          "vertices": 1,
+          "edges": 8,
+          "faces": 1
+        },
+        "homotopy_invariants": {
+          "euler_characteristic": -6,
+          "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^1",
+          "betti_numbers": [
+            1,
+            7,
+            0
+          ]
+        },
+        "persistent_homology": {
+          "persistence_pairs": [
+            [
+              3,
+              3.5
+            ],
+            [
+              3,
+              3.5
+            ],
+            [
+              2,
+              2.5
+            ],
+            [
+              2,
+              2.5
+            ],
+            [
+              1,
+              1.5
+            ],
+            [
+              1,
+              1.5
+            ],
+            [
+              1,
+              1.5
+            ],
+            [
+              3,
+              3.5
+            ]
+          ],
+          "barcode_dimension": 8
+        },
+        "sheaf_cohomology": {
+          "vulnerability_sheaf_rank": 8,
+          "cohomology_dimension": 1
+        },
+        "mathematical_confidence": 0.5
+      },
+      "cleanup_performed": false
+    },
+    {
+      "asset_type": "python_codebase",
+      "description": "Python Web App",
+      "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/vulnerable_webapp.py",
+      "duration": 0.0019068717956542969,
+      "vulnerabilities_found": 3,
+      "security_score": 0.4,
+      "risk_assessment": "CRITICAL",
+      "mathematical_analysis": {
+        "source_complexity": 1,
+        "architecture": "source_code",
+        "analysis_depth": "full",
+        "simplicial_complex": {
+          "vertices": 1,
+          "edges": 3,
+          "faces": 2
+        },
+        "homotopy_invariants": {
+          "euler_characteristic": 0,
+          "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^2",
+          "betti_numbers": [
+            1,
+            2,
+            1
+          ]
+        },
+        "persistent_homology": {
+          "persistence_pairs": [
+            [
+              3,
+              3.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ]
+          ],
+          "barcode_dimension": 3
+        },
+        "sheaf_cohomology": {
+          "vulnerability_sheaf_rank": 3,
+          "cohomology_dimension": 2
+        },
+        "mathematical_confidence": 0.75
+      },
+      "cleanup_performed": true
+    },
+    {
+      "asset_type": "javascript_codebase",
+      "description": "Node.js App",
+      "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/vulnerable_app.js",
+      "duration": 0.001766204833984375,
+      "vulnerabilities_found": 5,
+      "security_score": 0.36,
+      "risk_assessment": "CRITICAL",
+      "mathematical_analysis": {
+        "source_complexity": 1,
+        "architecture": "source_code",
+        "analysis_depth": "full",
+        "simplicial_complex": {
+          "vertices": 1,
+          "edges": 5,
+          "faces": 4
+        },
+        "homotopy_invariants": {
+          "euler_characteristic": 0,
+          "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^4",
+          "betti_numbers": [
+            1,
+            4,
+            3
+          ]
+        },
+        "persistent_homology": {
+          "persistence_pairs": [
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              3,
+              3.75
+            ],
+            [
+              3,
+              3.75
+            ]
+          ],
+          "barcode_dimension": 5
+        },
+        "sheaf_cohomology": {
+          "vulnerability_sheaf_rank": 5,
+          "cohomology_dimension": 4
+        },
+        "mathematical_confidence": 0.75
+      },
+      "cleanup_performed": true
+    },
+    {
+      "asset_type": "docker_container",
+      "description": "Docker Container",
+      "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/Dockerfile",
+      "duration": 0.0017306804656982422,
+      "vulnerabilities_found": 6,
+      "security_score": 0.6,
+      "risk_assessment": "MEDIUM",
+      "mathematical_analysis": {
+        "container_architecture": "analyzed",
+        "security_context": "containerized",
+        "isolation_level": "medium",
+        "simplicial_complex": {
+          "vertices": 1,
+          "edges": 6,
+          "faces": 5
+        },
+        "homotopy_invariants": {
+          "euler_characteristic": 0,
+          "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^5",
+          "betti_numbers": [
+            1,
+            5,
+            4
+          ]
+        },
+        "persistent_homology": {
+          "persistence_pairs": [
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ]
+          ],
+          "barcode_dimension": 6
+        },
+        "sheaf_cohomology": {
+          "vulnerability_sheaf_rank": 6,
+          "cohomology_dimension": 5
+        },
+        "mathematical_confidence": 0.75
+      },
+      "cleanup_performed": true
+    },
+    {
+      "asset_type": "kubernetes_config",
+      "description": "Kubernetes Config",
+      "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/vulnerable-pod.yaml",
+      "duration": 0.0019500255584716797,
+      "vulnerabilities_found": 4,
+      "security_score": 0.6,
+      "risk_assessment": "LOW",
+      "mathematical_analysis": {
+        "source_complexity": 1,
+        "architecture": "source_code",
+        "analysis_depth": "full",
+        "simplicial_complex": {
+          "vertices": 1,
+          "edges": 4,
+          "faces": 3
+        },
+        "homotopy_invariants": {
+          "euler_characteristic": 0,
+          "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^3",
+          "betti_numbers": [
+            1,
+            3,
+            2
+          ]
+        },
+        "persistent_homology": {
+          "persistence_pairs": [
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ]
+          ],
+          "barcode_dimension": 4
+        },
+        "sheaf_cohomology": {
+          "vulnerability_sheaf_rank": 4,
+          "cohomology_dimension": 3
+        },
+        "mathematical_confidence": 0.75
+      },
+      "cleanup_performed": true
+    },
+    {
+      "asset_type": "web_application",
+      "description": "Web Application",
+      "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/webapp",
+      "duration": 0.0029752254486083984,
+      "vulnerabilities_found": 10,
+      "security_score": 0.48,
+      "risk_assessment": "CRITICAL",
+      "mathematical_analysis": {
+        "web_architecture": "analyzed",
+        "endpoint_complexity": "medium",
+        "attack_surface": "web",
+        "simplicial_complex": {
+          "vertices": 2,
+          "edges": 10,
+          "faces": 3
+        },
+        "homotopy_invariants": {
+          "euler_characteristic": -5,
+          "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^3",
+          "betti_numbers": [
+            2,
+            8,
+            2
+          ]
+        },
+        "persistent_homology": {
+          "persistence_pairs": [
+            [
+              2,
+              2.75
+            ],
+            [
+              3,
+              3.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              2,
+              2.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ],
+            [
+              1,
+              1.75
+            ]
+          ],
+          "barcode_dimension": 10
+        },
+        "sheaf_cohomology": {
+          "vulnerability_sheaf_rank": 10,
+          "cohomology_dimension": 3
+        },
+        "mathematical_confidence": 0.75
+      },
+      "cleanup_performed": true
+    }
+  ],
+  "mathematical_framework": {
+    "simplicial_complex": {
+      "vertices": 6,
+      "edges": 36,
+      "faces": 6
+    },
+    "homotopy_invariants": {
+      "euler_characteristic": -24,
+      "fundamental_group": "\u03c0\u2081(VulnSpace) \u2245 Z^6",
+      "betti_numbers": [
+        6,
+        30,
+        5
+      ]
+    },
+    "persistent_homology": {
+      "vulnerability_manifold": "Type-II Security Topology",
+      "persistence_dimension": 6,
+      "critical_points": [
+        {
+          "asset_type": "smart_contract",
+          "description": "Smart Contract",
+          "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/VulnerableContract.sol",
+          "duration": 0.0055806636810302734,
+          "vulnerabilities_found": 8,
+          "security_score": 0.4083333333333332,
+          "risk_assessment": "CRITICAL",
+          "mathematical_analysis": {
+            "contract_complexity": {
+              "functions": 5,
+              "modifiers": 1,
+              "events": 0,
+              "state_variables": 3,
+              "complexity_score": 1.4
+            },
+            "economic_topology": {
+              "value_flow_nodes": 11,
+              "price_dependency_edges": 2,
+              "economic_complexity": 2.6
+            },
+            "security_invariants": {
+              "access_control_depth": 2,
+              "reentrancy_guards": 0,
+              "overflow_protection": 0
+            },
+            "simplicial_complex": {
+              "vertices": 1,
+              "edges": 8,
+              "faces": 1
+            },
+            "homotopy_invariants": {
+              "euler_characteristic": -6,
+              "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^1",
+              "betti_numbers": [
+                1,
+                7,
+                0
+              ]
+            },
+            "persistent_homology": {
+              "persistence_pairs": [
+                [
+                  3,
+                  3.5
+                ],
+                [
+                  3,
+                  3.5
+                ],
+                [
+                  2,
+                  2.5
+                ],
+                [
+                  2,
+                  2.5
+                ],
+                [
+                  1,
+                  1.5
+                ],
+                [
+                  1,
+                  1.5
+                ],
+                [
+                  1,
+                  1.5
+                ],
+                [
+                  3,
+                  3.5
+                ]
+              ],
+              "barcode_dimension": 8
+            },
+            "sheaf_cohomology": {
+              "vulnerability_sheaf_rank": 8,
+              "cohomology_dimension": 1
+            },
+            "mathematical_confidence": 0.5
+          },
+          "cleanup_performed": false
+        },
+        {
+          "asset_type": "python_codebase",
+          "description": "Python Web App",
+          "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/vulnerable_webapp.py",
+          "duration": 0.0019068717956542969,
+          "vulnerabilities_found": 3,
+          "security_score": 0.4,
+          "risk_assessment": "CRITICAL",
+          "mathematical_analysis": {
+            "source_complexity": 1,
+            "architecture": "source_code",
+            "analysis_depth": "full",
+            "simplicial_complex": {
+              "vertices": 1,
+              "edges": 3,
+              "faces": 2
+            },
+            "homotopy_invariants": {
+              "euler_characteristic": 0,
+              "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^2",
+              "betti_numbers": [
+                1,
+                2,
+                1
+              ]
+            },
+            "persistent_homology": {
+              "persistence_pairs": [
+                [
+                  3,
+                  3.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ]
+              ],
+              "barcode_dimension": 3
+            },
+            "sheaf_cohomology": {
+              "vulnerability_sheaf_rank": 3,
+              "cohomology_dimension": 2
+            },
+            "mathematical_confidence": 0.75
+          },
+          "cleanup_performed": true
+        },
+        {
+          "asset_type": "javascript_codebase",
+          "description": "Node.js App",
+          "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/vulnerable_app.js",
+          "duration": 0.001766204833984375,
+          "vulnerabilities_found": 5,
+          "security_score": 0.36,
+          "risk_assessment": "CRITICAL",
+          "mathematical_analysis": {
+            "source_complexity": 1,
+            "architecture": "source_code",
+            "analysis_depth": "full",
+            "simplicial_complex": {
+              "vertices": 1,
+              "edges": 5,
+              "faces": 4
+            },
+            "homotopy_invariants": {
+              "euler_characteristic": 0,
+              "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^4",
+              "betti_numbers": [
+                1,
+                4,
+                3
+              ]
+            },
+            "persistent_homology": {
+              "persistence_pairs": [
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  3,
+                  3.75
+                ],
+                [
+                  3,
+                  3.75
+                ]
+              ],
+              "barcode_dimension": 5
+            },
+            "sheaf_cohomology": {
+              "vulnerability_sheaf_rank": 5,
+              "cohomology_dimension": 4
+            },
+            "mathematical_confidence": 0.75
+          },
+          "cleanup_performed": true
+        },
+        {
+          "asset_type": "web_application",
+          "description": "Web Application",
+          "path": "/var/folders/03/390l1rsn63x8fwzqnzl4q44h0000gp/T/vulnhunter_demo_wz0a83l4/webapp",
+          "duration": 0.0029752254486083984,
+          "vulnerabilities_found": 10,
+          "security_score": 0.48,
+          "risk_assessment": "CRITICAL",
+          "mathematical_analysis": {
+            "web_architecture": "analyzed",
+            "endpoint_complexity": "medium",
+            "attack_surface": "web",
+            "simplicial_complex": {
+              "vertices": 2,
+              "edges": 10,
+              "faces": 3
+            },
+            "homotopy_invariants": {
+              "euler_characteristic": -5,
+              "fundamental_group": "\u03c0\u2081(Vulns) \u2245 Z^3",
+              "betti_numbers": [
+                2,
+                8,
+                2
+              ]
+            },
+            "persistent_homology": {
+              "persistence_pairs": [
+                [
+                  2,
+                  2.75
+                ],
+                [
+                  3,
+                  3.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  2,
+                  2.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ],
+                [
+                  1,
+                  1.75
+                ]
+              ],
+              "barcode_dimension": 10
+            },
+            "sheaf_cohomology": {
+              "vulnerability_sheaf_rank": 10,
+              "cohomology_dimension": 3
+            },
+            "mathematical_confidence": 0.75
+          },
+          "cleanup_performed": true
+        }
+      ]
+    },
+    "sheaf_cohomology": {
+      "vulnerability_sheaf_rank": 36,
+      "cohomology_groups": {
+        "H0": 6,
+        "H1": 6,
+        "H2": 1
+      }
+    }
+  },
+  "resource_management": {
+    "resource_usage": {
+      "memory_delta": 0.1171875,
+      "disk_delta": 0.0,
+      "total_analysis_time": 0.015909671783447266
+    },
+    "cleanup_success_rate": 83.33333333333334,
+    "cleanup_verified_components": [
+      "Python Web App",
+      "Node.js App",
+      "Docker Container",
+      "Kubernetes Config",
+      "Web Application"
+    ]
+  },
+  "performance_metrics": {
+    "avg_analysis_time": 0.0026516119639078775,
+    "vulnerabilities_per_second": 2262.7745242020083,
+    "assets_per_minute": 22627.74524202008
+  },
+  "framework_capabilities": {
+    "supported_asset_types": 6,
+    "mathematical_analysis": "VHS Topology Applied",
+    "cleanup_management": "Automated with Policies",
+    "production_ready": true
+  }
+}
