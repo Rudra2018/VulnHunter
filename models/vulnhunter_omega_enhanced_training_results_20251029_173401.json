@@ -1,0 +1,32 @@
+{
+  "binary_executable": {
+    "best_model": "enhanced_random_forest",
+    "best_accuracy": 0.49,
+    "samples": 2000,
+    "feature_count": 64
+  },
+  "mobile_application": {
+    "best_model": "ensemble_voting",
+    "best_accuracy": 0.4975,
+    "samples": 2000,
+    "feature_count": 64
+  },
+  "smart_contract": {
+    "best_model": "ensemble_voting",
+    "best_accuracy": 0.3975,
+    "samples": 2000,
+    "feature_count": 64
+  },
+  "web_application": {
+    "best_model": "deep_neural_net",
+    "best_accuracy": 0.4125,
+    "samples": 2000,
+    "feature_count": 64
+  },
+  "source_code": {
+    "best_model": "enhanced_random_forest",
+    "best_accuracy": 0.5,
+    "samples": 2000,
+    "feature_count": 64
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "model_type": "VulnHunter_Omega_Mathematical",
+  "training_timestamp": "20251026_141032",
+  "dataset_size": 1201,
+  "feature_count": 23,
+  "mathematical_layers": 24,
+  "performance": {
+    "test_accuracy": 1.0,
+    "validation_accuracy": 1.0,
+    "classification_report": {
+      "safe": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 80.0
+      },
+      "reentrancy": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 40.0
+      },
+      "access_control": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 40.0
+      },
+      "overflow": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 40.0
+      },
+      "dos": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 41.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 241.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 241.0
+      }
+    }
+  },
+  "mathematical_framework": {
+    "layers_1_6": "Ollivier-Ricci Curvature (DoS Detection)",
+    "layers_7_12": "Persistent Homology (Reentrancy Detection)",
+    "layers_13_18": "Spectral Graph Theory (Access Control)",
+    "layers_19_21": "Z3 SMT Verification (Formal Proofs)",
+    "layers_22_23": "Godel-Rosser Logic (FP Elimination)",
+    "layer_24": "Category Theory (Universal Support)"
+  },
+  "feature_importance": {
+    "spectral_eigenvals": 0.18541114871542022,
+    "spectral_gap": 0.1807461358866961,
+    "loop_count": 0.1223681625901158,
+    "has_require": 0.10083904669088513,
+    "has_external_call": 0.08161503951050098,
+    "mathematical_confidence": 0.07102542439506099,
+    "has_modifier": 0.060427131129678555,
+    "homology_reentrancy": 0.057224705293929035,
+    "has_payable": 0.055351262812435555,
+    "has_onlyowner": 0.032010262718439104,
+    "has_selfdestruct": 0.023233810187197865,
+    "has_nonreentrant": 0.01642787526035194,
+    "function_count": 0.00813067807778518,
+    "has_mapping": 0.005189316731503577,
+    "ricci_min_curvature": 0.0,
+    "ricci_bottlenecks": 0.0,
+    "ricci_dos_proven": 0.0,
+    "homology_h1_holes": 0.0,
+    "homology_persistence": 0.0,
+    "spectral_access_vuln": 0.0,
+    "z3_exploit_proven": 0.0,
+    "z3_reentrancy": 0.0,
+    "z3_access_control": 0.0
+  }
+}
