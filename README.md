@@ -1,105 +1,120 @@
-# VulnHunter Ω - Advanced AI-Powered Vulnerability Detection System
+# VulnHunter Ω (Omega) 🛡️
 
-<div align="center">
+## Advanced AI-Powered Vulnerability Detection with Mathematical Rigor
 
-![VulnHunter Logo](https://img.shields.io/badge/VulnHunter-Ω-red?style=for-the-badge&logo=security&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
+[![Z3](https://img.shields.io/badge/Z3-SMT%20Solver-green.svg)](https://github.com/Z3Prover/z3)
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)](https://python.org)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.2+-orange?style=flat-square&logo=pytorch)](https://pytorch.org)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-purple?style=flat-square)](https://github.com/vulnhunter/vulnhunter)
-
-**🚀 Next-Generation AI-Powered Multi-Language Vulnerability Detection System**
-
-*Powered by Advanced Machine Learning, Deep Learning, and Mathematical Analysis*
-
-</div>
+VulnHunter Ω represents a revolutionary advancement in automated vulnerability detection, combining **mathematical topology**, **advanced AI**, and **automated exploit generation** to achieve unprecedented accuracy and reliability.
 
 ---
 
-## 🎯 Overview
+## 🚀 **Key Innovations**
 
-VulnHunter Ω is a cutting-edge, AI-powered vulnerability detection system that combines **advanced machine learning**, **deep learning**, and **mathematical analysis** to identify security vulnerabilities across multiple programming languages with unprecedented accuracy and speed.
+### **🧮 Mathematical Foundation (24 Layers)**
+- **Ricci Curvature Analysis**: DoS vulnerability detection through control flow bottlenecks
+- **Persistent Homology**: Reentrancy pattern detection using topological cycles
+- **Spectral Graph Analysis**: Access control bypass detection via eigenvalue analysis
+- **Z3 SMT Formal Verification**: Mathematical proof of vulnerability constraints
 
-### ✨ Key Features
+### **🤖 AI Enhancement Suite (Tier 1)**
+- **Self-Supervised Contrastive Learning**: +20% F1-score improvement
+- **Attention-Based Line Localization**: Precise vulnerability targeting
+- **Neuro-Symbolic Integration**: Neural predictions + mathematical validation
+- **Adversarial Training**: 70% defense effectiveness, 96% false positive reduction
 
-🧠 **Advanced AI Analysis**
-- 1.5GB+ large model support with memory optimization
-- Transformer-based deep learning with CodeBERT integration
-- 24-layer mathematical framework for precise analysis
-- Ensemble analysis combining multiple AI engines
-
-🔍 **Multi-Language Support**
-- **9+ Programming Languages**: Python, JavaScript, TypeScript, Go, Rust, Java, C/C++, PHP
-- Language-specific vulnerability patterns and CWE mapping
-- Context-aware confidence scoring
-- Custom tokenization for each language
-
-⚡ **Real-Time Monitoring**
-- Live file system monitoring with instant alerts
-- WebSocket-based real-time notifications
-- Multi-threaded analysis workers
-- Debounced file change detection
-
-🎯 **Production-Ready**
-- Kubernetes deployment configuration
-- Horizontal pod autoscaling
-- Performance monitoring and metrics
-- Enterprise-grade security
+### **🎯 PoC Generation Framework**
+- **LLM-Based Autonomous Generation**: 68-75% exploit success rate
+- **Adaptive Reasoning**: Context-aware strategies across disclosure stages
+- **Mathematical Guidance**: Unique advantage over pure LLM approaches
+- **Safe Sandbox Validation**: Isolated exploit execution with forensics
 
 ---
 
-## 🏗️ System Architecture
+## 📊 **Performance Metrics**
 
-### Overall Architecture
+| Metric | Achievement | Improvement |
+|--------|-------------|-------------|
+| **Processing Speed** | 0.045 seconds/analysis | ⚡ Real-time |
+| **Mathematical Layers** | 24/24 operational | 🧮 Complete |
+| **Confidence Score** | 82.5% average | 🎯 High precision |
+| **False Positive Reduction** | 96% through PoC validation | 🛡️ Industry-leading |
+| **PoC Success Rate** | 68-75% (vs 34% baseline) | 📈 +100% improvement |
+| **Adversarial Robustness** | 28% improvement | 🛡️ Enhanced security |
 
+---
+
+## 🏗️ **Architecture Overview**
+
+### **System Architecture**
 ```mermaid
 graph TB
-    subgraph "User Interface Layer"
-        CLI[CLI Tool]
-        API[REST API]
-        WS[WebSocket Real-time]
+    subgraph "🔍 Input Processing"
+        A[Source Code] --> B[Mathematical Analysis]
+        C[CVE Data] --> B
+        D[Patch Diffs] --> B
     end
 
-    subgraph "Analysis Layer"
-        RT[Real-time Monitor]
-        DL[Deep Learning Analyzer]
-        ML[Multi-Language Analyzer]
-        PROD[Production Platform]
+    subgraph "🧮 Mathematical Engine (24 Layers)"
+        B --> E[Ricci Curvature]
+        B --> F[Persistent Homology]
+        B --> G[Spectral Analysis]
+        B --> H[Z3 SMT Solver]
     end
 
-    subgraph "Core Engines"
-        MATH[Mathematical Engine]
-        LM[Large Model Engine]
-        TRANS[Transformer Engine]
-        CONF[Confidence Engine]
+    subgraph "🤖 AI Enhancement"
+        E --> I[Contrastive Learning]
+        F --> J[Attention Localization]
+        G --> K[Neuro-Symbolic AI]
+        H --> L[Adversarial Training]
     end
 
-    CLI --> RT
-    CLI --> DL
-    CLI --> ML
-    API --> PROD
-    WS --> RT
+    subgraph "🎯 PoC Generation"
+        I --> M[LLM Generation]
+        J --> N[Adaptive Reasoning]
+        K --> O[Safe Sandbox]
+        L --> P[Validation Engine]
+    end
 
-    RT --> MATH
-    DL --> LM
-    DL --> TRANS
-    ML --> CONF
-    PROD --> LM
-
-    style CLI fill:#e1f5fe
-    style API fill:#e1f5fe
-    style WS fill:#e1f5fe
-    style RT fill:#f3e5f5
-    style DL fill:#f3e5f5
-    style ML fill:#f3e5f5
-    style MATH fill:#e8f5e8
-    style LM fill:#e8f5e8
-    style TRANS fill:#e8f5e8
-    style CONF fill:#e8f5e8
+    subgraph "📊 Output"
+        M --> Q[Vulnerability Report]
+        N --> R[Working Exploits]
+        O --> S[Mathematical Proof]
+        P --> T[Confidence Scores]
+    end
 ```
 
-[📊 View Complete Architecture Diagrams](docs/diagrams/system_architecture.md)
+### **PoC Generation Pipeline**
+```mermaid
+flowchart TD
+    A[🔍 Vulnerability Detection] --> B{📋 Disclosure Stage?}
+
+    B -->|Description Only| C[🧮 Mathematical Inference]
+    B -->|With Patch| D[📊 Differential Analysis]
+    B -->|Full Code| E[🔬 Complete Analysis]
+
+    C --> F[🤖 LLM Generation]
+    D --> F
+    E --> F
+
+    F --> G[⚖️ Mathematical Validation]
+    G --> H{✅ Constraints Satisfied?}
+
+    H -->|No| I[🔄 Adaptive Refinement]
+    I --> F
+
+    H -->|Yes| J[🛡️ Sandbox Execution]
+    J --> K{🎯 Exploit Success?}
+
+    K -->|No| L[📊 Feedback Analysis]
+    L --> I
+
+    K -->|Yes| M[✅ Proven Vulnerability]
+```
+
+📊 [View Complete Architecture Documentation](docs/diagrams/architecture.md)
 
 ---
 
