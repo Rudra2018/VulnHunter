@@ -1,0 +1,42 @@
+{
+  "timestamp": 1761794468,
+  "total_records": 996,
+  "vulnerability_types": [
+    "SQL_INJECTION",
+    "WEAK_CRYPTO",
+    "COMMAND_INJECTION",
+    "UNVALIDATED_REDIRECT",
+    "RACE_CONDITION",
+    "BUFFER_OVERFLOW",
+    "INSECURE_RANDOM",
+    "HARDCODED_CREDENTIALS",
+    "XSS"
+  ],
+  "sources": [
+    "synthetic_generator_augmented",
+    "cve_database",
+    "github_google/tensorflow_augmented",
+    "github_google/tensorflow",
+    "security_research_augmented",
+    "github_facebook/react",
+    "github_microsoft/vscode_augmented",
+    "cve_database_augmented",
+    "synthetic_generator",
+    "github_facebook/react_augmented",
+    "github_microsoft/vscode",
+    "security_research"
+  ],
+  "quality_distribution": {
+    "excellent (0.9-1.0)": 0,
+    "good (0.7-0.9)": 54,
+    "fair (0.5-0.7)": 942,
+    "poor (0.0-0.5)": 0
+  },
+  "statistics": {
+    "total_collected": 350,
+    "total_synthetic": 150,
+    "total_augmented": 664,
+    "high_quality": 388,
+    "final_dataset_size": 996
+  }
+}

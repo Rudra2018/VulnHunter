@@ -145,48 +145,155 @@ pip install -r requirements.txt
 
 ### Basic Usage
 
-#### 1. Analyze a Single File
+#### 1. 🚀 Production Inference System (Recommended)
 
 ```bash
-# Python CLI
-python cli/vulnhunter_cli.py --file examples/test_vulnerabilities.py
+# Activate virtual environment
+source vulnhunter_pytorch_env/bin/activate
 
-# Direct analysis
+# Start VulnHunter Ω Production System
+cd /Users/ankitthakur/VulnHunter
+python vulnhunter_omega_production_inference.py
+
+# The system will automatically:
+# ✅ Load all 24 mathematical layers
+# ✅ Initialize AI enhancement suite
+# ✅ Run sample vulnerability analysis
+# ✅ Display results with confidence scores
+```
+
+#### 2. 🧮 Mathematical Engine Analysis
+
+```bash
+# Direct mathematical analysis
 python -c "
-from src.integrations.vulnhunter_large_model_integration import VulnHunterLargeModelIntegration
-analyzer = VulnHunterLargeModelIntegration()
-result = analyzer.analyze_code(open('examples/test_vulnerabilities.py').read(), language='python')
-print(f'Vulnerabilities found: {len(result.get(\"vulnerabilities\", []))}')
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from core.vulnhunter_omega_math_engine import VulnHunterOmegaMathEngine
+
+# Initialize 24-layer mathematical engine
+engine = VulnHunterOmegaMathEngine()
+
+# Analyze code with mathematical rigor
+code = '''
+def vulnerable_function(user_input):
+    eval(user_input)  # Code injection vulnerability
+    return True
+'''
+
+result = engine.analyze_code(code)
+print(f'Mathematical Score: {result[\"math_score\"]:.3f}')
+print(f'Vulnerability Risk: {result[\"risk_level\"]}')
+print(f'Analysis Time: {result[\"analysis_time\"]:.3f}s')
 "
 ```
 
-#### 2. Real-Time Monitoring
+#### 3. 🤖 AI Enhancement Suite
 
 ```bash
-# Start real-time monitoring
-python src/analyzers/vulnhunter_realtime_monitoring.py
-
-# In another terminal, create/modify files in the monitored directories
-echo "import os; os.system('rm -rf /')" > test_vuln.py
-```
-
-#### 3. Multi-Language Analysis
-
-```bash
-# Analyze Go file
+# Self-supervised contrastive learning
 python -c "
-from src.analyzers.vulnhunter_extended_language_support import ExtendedLanguageAnalyzer
-analyzer = ExtendedLanguageAnalyzer()
-result = analyzer.analyze_code(open('examples/test_go_vulnerabilities.go').read(), 'go')
-print(f'Go vulnerabilities: {len(result[\"vulnerabilities\"])}')
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from analyzers.vulnhunter_contrastive_learning import SCLCVDTrainer
+
+trainer = SCLCVDTrainer()
+results = trainer.train_contrastive_pairs([
+    ('secure_code', 'vulnerable_code'),
+    ('good_practice', 'bad_practice')
+])
+print(f'Contrastive learning accuracy: {results[\"accuracy\"]:.3f}')
 "
 
-# Analyze TypeScript file
+# Attention-based line localization
 python -c "
-from src.analyzers.vulnhunter_extended_language_support import ExtendedLanguageAnalyzer
-analyzer = ExtendedLanguageAnalyzer()
-result = analyzer.analyze_code(open('examples/test_typescript_vulnerabilities.ts').read(), 'typescript')
-print(f'TypeScript vulnerabilities: {len(result[\"vulnerabilities\"])}')
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from analyzers.vulnhunter_attention_localization import LOVAFramework
+
+lova = LOVAFramework()
+vulnerable_code = '''
+def login(username, password):
+    query = f\"SELECT * FROM users WHERE username='{username}' AND password='{password}'\"
+    return db.execute(query)  # SQL injection on this line
+'''
+
+result = lova.analyze_code(vulnerable_code)
+print(f'Vulnerable line detected: {result[\"vulnerable_line\"]}')
+print(f'Confidence: {result[\"confidence\"]:.3f}')
+"
+```
+
+#### 4. 🎯 Proof-of-Concept Generation
+
+```bash
+# LLM-based PoC generation with mathematical guidance
+python -c "
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from pocgen.vulnhunter_llm_pocgen import LLMExploitGenerator
+
+poc_gen = LLMExploitGenerator()
+vulnerability_desc = '''
+SQL injection in login function where user input is directly
+concatenated into SQL query without parameterization.
+'''
+
+exploit = poc_gen.generate_exploit(vulnerability_desc, 'sql_injection')
+print(f'Generated PoC: {exploit[\"poc_code\"]}')
+print(f'Success probability: {exploit[\"confidence\"]:.3f}')
+"
+
+# Adaptive reasoning for context-aware PoCs
+python -c "
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from pocgen.vulnhunter_adaptive_reasoning import AdaptiveReasoningOrchestrator
+
+orchestrator = AdaptiveReasoningOrchestrator()
+result = orchestrator.generate_poc_with_context(
+    vulnerability_type='buffer_overflow',
+    disclosure_stage='description_only',
+    target_platform='linux_x86_64'
+)
+print(f'Adaptive PoC strategy: {result[\"strategy\"]}')
+print(f'Success rate: {result[\"success_rate\"]:.3f}')
+"
+```
+
+#### 5. 📊 Real-Time Monitoring
+
+```bash
+# Start intelligent monitoring system
+python scripts/vulnhunter_realtime_monitoring.py
+
+# Monitor specific directory
+python -c "
+import sys, asyncio
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from analyzers.vulnhunter_realtime_monitoring import RealtimeVulnerabilityMonitor
+
+async def monitor():
+    monitor = RealtimeVulnerabilityMonitor()
+    await monitor.start_monitoring(['/path/to/your/code'])
+
+asyncio.run(monitor())
+"
+```
+
+#### 6. 🔍 Enhanced Dataset Analysis
+
+```bash
+# Dataset enhancement and quality filtering
+python -c "
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from data.vulnhunter_dataset_enhancement import QualityEnhancementEngine
+
+enhancer = QualityEnhancementEngine()
+enhanced_data = enhancer.enhance_dataset('/Users/ankitthakur/VulnHunter/data')
+print(f'Enhanced records: {enhanced_data[\"total_records\"]}')
+print(f'Quality distribution: {enhanced_data[\"quality_stats\"]}')
 "
 ```
 
@@ -287,9 +394,15 @@ VulnHunter/
 
 ### 🚀 Production Mode
 ```python
-from src.integrations.vulnhunter_large_model_integration import VulnHunterLargeModelIntegration
+# Recommended: Use the production inference system
+python vulnhunter_omega_production_inference.py
 
-analyzer = VulnHunterLargeModelIntegration()
+# Or import directly for custom integration
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from engines.vulnhunter_omega_production_inference import VulnHunterOmegaProductionSystem
+
+analyzer = VulnHunterOmegaProductionSystem()
 result = analyzer.analyze_code(code, language='python', mode='production')
 ```
 
@@ -515,22 +628,104 @@ for file, result in results.items():
 
 ---
 
+## 🛠️ Troubleshooting
+
+### Common Issues
+
+#### 1. Import Errors
+```bash
+# If you encounter module import errors:
+export PYTHONPATH=/Users/ankitthakur/VulnHunter/src:$PYTHONPATH
+# Or add to your script:
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+```
+
+#### 2. Missing Dependencies
+```bash
+# Install missing optional dependencies
+pip install gudhi  # For topological analysis
+pip install transformers  # For CodeBERT models
+pip install z3-solver  # For formal verification
+```
+
+#### 3. CUDA/GPU Issues
+```bash
+# Check PyTorch CUDA installation
+python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
+
+# Install CUDA-enabled PyTorch if needed
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+#### 4. Memory Issues
+```python
+# Reduce memory usage for large models
+config = {
+    'batch_size': 16,  # Reduce from 32
+    'memory_limit_gb': 4,  # Reduce from 8
+    'enable_model_caching': False  # Disable caching
+}
+```
+
+#### 5. Performance Optimization
+```bash
+# For faster analysis, ensure:
+# ✅ Virtual environment is activated
+source vulnhunter_pytorch_env/bin/activate
+
+# ✅ Latest PyTorch version
+pip install torch --upgrade
+
+# ✅ System has sufficient RAM (8GB+ recommended)
+```
+
+### 📊 System Requirements
+
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| **Python** | 3.9+ | 3.12+ |
+| **RAM** | 4GB | 16GB |
+| **Storage** | 2GB | 5GB |
+| **GPU** | Optional | CUDA 11.8+ |
+| **OS** | Linux/macOS/Windows | Linux/macOS |
+
+---
+
 ## 🧪 Testing
 
-### Run Tests
-
+### Production System Test
 ```bash
-# Unit tests
-python -m pytest tests/unit/
+# Test the complete production system
+cd /Users/ankitthakur/VulnHunter
+source vulnhunter_pytorch_env/bin/activate
+python vulnhunter_omega_production_inference.py
 
-# Integration tests
-python -m pytest tests/integration/
+# Expected output:
+# ✅ PyTorch loaded successfully
+# ✅ All 24 Mathematical Layers active
+# ✅ Analysis complete in ~0.045 seconds
+```
 
-# Performance tests
-python -m pytest tests/performance/
+### Component Tests
+```bash
+# Test mathematical engine
+python -c "
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from core.vulnhunter_omega_math_engine import VulnHunterOmegaMathEngine
+engine = VulnHunterOmegaMathEngine()
+print('✅ Mathematical engine loaded')
+"
 
-# Run all tests
-python -m pytest tests/ -v
+# Test AI enhancement suite
+python -c "
+import sys
+sys.path.append('/Users/ankitthakur/VulnHunter/src')
+from analyzers.vulnhunter_contrastive_learning import SCLCVDTrainer
+trainer = SCLCVDTrainer()
+print('✅ Contrastive learning loaded')
+"
 ```
 
 ### Test Coverage

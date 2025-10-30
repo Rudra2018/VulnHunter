@@ -28,8 +28,15 @@ from queue import Queue, Empty
 import threading
 import signal
 
-from vulnhunter_large_model_integration import VulnHunterLargeModelIntegration
-from vulnhunter_deep_learning_integration import DeepLearningVulnerabilityModel
+try:
+    from vulnhunter_large_model_integration import VulnHunterLargeModelIntegration
+except ImportError:
+    VulnHunterLargeModelIntegration = None
+
+try:
+    from vulnhunter_deep_learning_integration import DeepLearningVulnerabilityModel
+except ImportError:
+    DeepLearningVulnerabilityModel = None
 
 @dataclass
 class CodeChangeEvent:
@@ -189,7 +196,7 @@ class RealtimeVulnerabilityAnalyzer:
         self.logger = logging.getLogger('RealtimeAnalyzer')
 
         # Initialize analysis engines
-        self.large_model = VulnHunterLargeModelIntegration()
+        self.large_model = VulnHunterLargeModelIntegration() if VulnHunterLargeModelIntegration else None
 
         # Initialize deep learning model with proper config object
         try:
@@ -204,7 +211,7 @@ class RealtimeVulnerabilityAnalyzer:
                 vocab_size: int = 30000
 
             dl_config = DLConfig()
-            self.deep_learning = DeepLearningVulnerabilityModel(dl_config)
+            self.deep_learning = DeepLearningVulnerabilityModel(dl_config) if DeepLearningVulnerabilityModel else None
         except Exception as e:
             self.logger.warning(f"Could not initialize deep learning model: {e}")
             self.deep_learning = None
