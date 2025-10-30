@@ -1,0 +1,23 @@
+{
+  "total_tests": 0,
+  "math_integration": {
+    "accuracy": 0,
+    "correct_predictions": 0,
+    "average_time": NaN,
+    "average_confidence": NaN
+  },
+  "deep_learning_only": {
+    "accuracy": 0,
+    "correct_predictions": 0,
+    "average_time": NaN,
+    "average_confidence": NaN
+  },
+  "detailed_results": [],
+  "model_info": {
+    "model_type": "custom",
+    "hidden_size": 768,
+    "attention_heads": 12,
+    "device": "cpu",
+    "mathematical_integration_available": true
+  }
+}
