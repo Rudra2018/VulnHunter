@@ -1,0 +1,48 @@
+{
+  "total_tests": 3,
+  "correct_predictions": 2,
+  "accuracy": 0.6666666666666666,
+  "average_confidence": 0.65,
+  "average_analysis_time": 0.0034399827321370444,
+  "supported_languages": [
+    "go",
+    "rust",
+    "typescript",
+    "javascript"
+  ],
+  "results": [
+    {
+      "test_case": "Go SQL Injection",
+      "language": "go",
+      "vulnerability_detected": false,
+      "confidence": 0.0,
+      "risk_score": 0.0,
+      "vulnerabilities_count": 0,
+      "analysis_time": 0.003999948501586914,
+      "correct_prediction": false,
+      "expected": true
+    },
+    {
+      "test_case": "Rust Unsafe Memory Access",
+      "language": "rust",
+      "vulnerability_detected": true,
+      "confidence": 1.0,
+      "risk_score": 10.0,
+      "vulnerabilities_count": 2,
+      "analysis_time": 0.003108978271484375,
+      "correct_prediction": true,
+      "expected": true
+    },
+    {
+      "test_case": "TypeScript XSS Vulnerability",
+      "language": "typescript",
+      "vulnerability_detected": true,
+      "confidence": 0.95,
+      "risk_score": 9.5,
+      "vulnerabilities_count": 1,
+      "analysis_time": 0.0032110214233398438,
+      "correct_prediction": true,
+      "expected": true
+    }
+  ]
+}
