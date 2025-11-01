@@ -152,7 +152,7 @@ config/api_keys.json
 credentials/
 secrets/
 
-# Training Data & Models (Large files)
+# Training Data & Models (Large files - ANY SIZE OVER 1MB)
 training_data/*.json
 training_data/*.csv
 training_data/*.pkl
@@ -160,9 +160,25 @@ models/*.pkl
 models/*.joblib
 models/*.h5
 models/*.pt
+models/*.pth
 models/*.onnx
 datasets/
 massive_datasets/
+
+# Large training files in any subdirectory
+vulnhunter_pro/training_data/*.json
+archive/legacy_system/training_data/*.json
+training_data/code4rena/*.json
+models/vulnhunter_mega/
+models/enhanced_nfv/
+models/github_optimized/
+models/vulnhunter_omega*
+
+# Any large JSON files (>1MB) anywhere
+**/training_data/**/*.json
+**/models/**/*.pkl
+**/models/**/*.pth
+**/models/**/*.pt
 
 # Database Files
 *.db
