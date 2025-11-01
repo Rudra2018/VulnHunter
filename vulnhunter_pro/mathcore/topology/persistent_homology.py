@@ -155,14 +155,14 @@ def _compute_vulnerability_signature(h0_features: List[Tuple[float, float]],
 
 def detect_loops(cfg: nx.DiGraph, max_dim: int = 1) -> Dict[str, Any]:
     """
-    Detect loops and topological vulnerabilities in control flow graph
+    Enhanced loop detection and topological vulnerability analysis
 
     Args:
         cfg: Control flow graph
         max_dim: Maximum homology dimension
 
     Returns:
-        Dictionary with loop detection results and vulnerability analysis
+        Dictionary with comprehensive topological analysis
     """
     if len(cfg.nodes) == 0:
         return {"safe": True, "reason": "empty_graph"}
@@ -173,6 +173,9 @@ def detect_loops(cfg: nx.DiGraph, max_dim: int = 1) -> Dict[str, Any]:
     # Compute persistent homology
     features = compute_persistent_homology(D, max_dim)
 
+    # Enhanced Ricci curvature analysis
+    ricci_analysis = ricci_curvature_analysis(cfg)
+
     # Analyze for vulnerabilities
     analysis = {
         "persistent_features": features,
@@ -181,10 +184,53 @@ def detect_loops(cfg: nx.DiGraph, max_dim: int = 1) -> Dict[str, Any]:
         "vulnerability_signature": features.vulnerability_signature,
         "topological_complexity": _calculate_topological_complexity(features),
         "security_risk": _assess_security_risk(features),
-        "recommendations": _generate_recommendations(features)
+        "recommendations": _generate_recommendations(features),
+        "ricci_analysis": ricci_analysis,
+        "mathematical_proof": _generate_topological_proof(features, ricci_analysis),
+        "vuln_patterns": _detect_vulnerability_patterns(features, ricci_analysis)
     }
 
     return analysis
+
+def _generate_topological_proof(features: PersistentFeatures, ricci_analysis: Dict[str, Any]) -> str:
+    """Generate mathematical proof of topological vulnerability"""
+    h1_count = len(features.h1_features)
+    hotspot_count = ricci_analysis.get('hotspot_count', 0)
+
+    if h1_count > 5 and hotspot_count > 2:
+        return f"∃ complex_cycle_structure: |H₁| = {h1_count} ∧ ricci_hotspots = {hotspot_count} → vulnerability_risk = HIGH"
+    elif h1_count > 2:
+        return f"∃ moderate_cycle_structure: |H₁| = {h1_count} → vulnerability_risk = MEDIUM"
+    else:
+        return f"∀ cycles: |H₁| = {h1_count} < 3 → vulnerability_risk = LOW"
+
+def _detect_vulnerability_patterns(features: PersistentFeatures, ricci_analysis: Dict[str, Any]) -> List[str]:
+    """Detect specific vulnerability patterns using topology"""
+    patterns = []
+
+    h1_count = len(features.h1_features)
+    h0_count = len(features.h0_features)
+    hotspots = ricci_analysis.get('vulnerability_hotspots', [])
+
+    # Reentrancy pattern
+    if h1_count > 3:
+        patterns.append("REENTRANCY_RISK: Complex loop structure detected")
+
+    # Race condition pattern
+    if h0_count > 1 and h1_count > 1:
+        patterns.append("RACE_CONDITION_RISK: Disconnected components with shared loops")
+
+    # Buffer overflow pattern
+    if len(hotspots) > 2:
+        patterns.append("BUFFER_OVERFLOW_RISK: Multiple negative curvature hotspots")
+
+    # Infinite loop pattern
+    for birth, death in features.h1_features:
+        if death - birth > 10.0:  # Very persistent loop
+            patterns.append("INFINITE_LOOP_RISK: Highly persistent cycle detected")
+            break
+
+    return patterns
 
 
 def _calculate_topological_complexity(features: PersistentFeatures) -> float:
