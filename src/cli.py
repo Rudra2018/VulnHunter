@@ -23,7 +23,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 try:
     from src.models.vulnhunter_fusion import VulnHunterComplete
+    from src.models.solidity_fusion import SolidityFusionModel
     from src.parser.code_to_graph import CodeToGraphParser
+    from src.parser.languages.solidity_parser import SolidityParser
 except ImportError as e:
     print(f"Error importing VulnHunter modules: {e}")
     print("Please ensure all dependencies are installed and the project structure is correct.")
@@ -34,24 +36,39 @@ class VulnHunterCLI:
 
     def __init__(self):
         self.model = None
+        self.solidity_model = None
         self.parser = CodeToGraphParser()
+        self.solidity_parser = SolidityParser()
         self.scan_history = []
 
-    def load_model(self, model_path: Optional[str] = None) -> bool:
+    def load_model(self, model_path: Optional[str] = None, language: str = "python") -> bool:
         """Load the VulnHunter model"""
         try:
-            print(f"{Fore.CYAN}🔄 Loading VulnHunter AI model...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}🔄 Loading VulnHunter AI model for {language}...{Style.RESET_ALL}")
 
-            self.model = VulnHunterComplete()
+            if language == "solidity":
+                self.solidity_model = SolidityFusionModel()
 
-            if model_path and os.path.exists(model_path):
-                print(f"{Fore.GREEN}📂 Loading trained model from {model_path}{Style.RESET_ALL}")
-                state_dict = torch.load(model_path, map_location='cpu')
-                self.model.load_state_dict(state_dict)
+                if model_path and os.path.exists(model_path):
+                    print(f"{Fore.GREEN}📂 Loading trained Solidity model from {model_path}{Style.RESET_ALL}")
+                    state_dict = torch.load(model_path, map_location='cpu')
+                    self.solidity_model.load_state_dict(state_dict)
+                else:
+                    print(f"{Fore.YELLOW}⚠️  Using untrained Solidity model (demo mode){Style.RESET_ALL}")
+
+                self.solidity_model.eval()
             else:
-                print(f"{Fore.YELLOW}⚠️  Using untrained model (demo mode){Style.RESET_ALL}")
+                self.model = VulnHunterComplete()
 
-            self.model.eval()
+                if model_path and os.path.exists(model_path):
+                    print(f"{Fore.GREEN}📂 Loading trained model from {model_path}{Style.RESET_ALL}")
+                    state_dict = torch.load(model_path, map_location='cpu')
+                    self.model.load_state_dict(state_dict)
+                else:
+                    print(f"{Fore.YELLOW}⚠️  Using untrained model (demo mode){Style.RESET_ALL}")
+
+                self.model.eval()
+
             print(f"{Fore.GREEN}✅ Model loaded successfully{Style.RESET_ALL}")
             return True
 
@@ -59,7 +76,7 @@ class VulnHunterCLI:
             print(f"{Fore.RED}❌ Error loading model: {e}{Style.RESET_ALL}")
             return False
 
-    def scan_file(self, file_path: str, detailed: bool = True) -> Dict[str, Any]:
+    def scan_file(self, file_path: str, detailed: bool = True, language: str = "auto") -> Dict[str, Any]:
         """Scan a single file for vulnerabilities"""
         try:
             # Read file
@@ -72,14 +89,37 @@ class VulnHunterCLI:
                     'file_path': file_path
                 }
 
-            # Scan with model
+            # Auto-detect language if not specified
+            if language == "auto":
+                if file_path.endswith('.sol'):
+                    language = "solidity"
+                elif file_path.endswith(('.py', '.pyw')):
+                    language = "python"
+                else:
+                    language = "python"  # Default
+
+            # Scan with appropriate model
             start_time = time.time()
-            results = self.model.scan_code(code, include_details=detailed)
+
+            if language == "solidity":
+                if self.solidity_model is None:
+                    self.load_model(language="solidity")
+
+                results = self.solidity_model.analyze_solidity_contract(code)
+                # Convert to standard format for CLI
+                results = self._convert_solidity_results(results)
+            else:
+                if self.model is None:
+                    self.load_model(language="python")
+
+                results = self.model.scan_code(code, include_details=detailed)
+
             scan_time = time.time() - start_time
 
             # Add metadata
             results.update({
                 'file_path': file_path,
+                'language': language,
                 'scan_time_seconds': scan_time,
                 'file_size_bytes': len(code),
                 'lines_of_code': len(code.split('\n')),
@@ -91,7 +131,8 @@ class VulnHunterCLI:
         except Exception as e:
             return {
                 'error': str(e),
-                'file_path': file_path
+                'file_path': file_path,
+                'language': language
             }
 
     def scan_directory(self, directory: str, extensions: List[str] = None, detailed: bool = True) -> List[Dict[str, Any]]:
@@ -223,6 +264,46 @@ class VulnHunterCLI:
                 }.get(risk, Fore.WHITE)
                 print(f"  {color}{risk}: {count} files{Style.RESET_ALL}")
 
+    def _convert_solidity_results(self, solidity_results: Dict[str, Any]) -> Dict[str, Any]:
+        """Convert Solidity analysis results to standard CLI format"""
+        overall = solidity_results['overall_assessment']
+        vuln_details = solidity_results['vulnerability_details']
+
+        # Convert to standard format
+        results = {
+            'is_vulnerable': overall['is_vulnerable'],
+            'vulnerability_probability': overall['vulnerability_probability'],
+            'risk_level': overall['risk_level'],
+            'confidence_score': overall['confidence_score'],
+            'severity_score': self._severity_to_numeric(overall['predicted_severity']),
+            'vulnerability_types': [],
+            'top_issues': [],
+            'recommendations': solidity_results['recommendations'],
+            'contract_analysis': solidity_results['contract_analysis'],
+            'technical_details': solidity_results['technical_details']
+        }
+
+        # Convert vulnerability types
+        for vuln in vuln_details['detected_vulnerabilities']:
+            results['vulnerability_types'].append(vuln['type'])
+            results['top_issues'].append({
+                'type': vuln['type'],
+                'score': vuln['score']
+            })
+
+        return results
+
+    def _severity_to_numeric(self, severity: str) -> float:
+        """Convert severity string to numeric score"""
+        severity_map = {
+            'Critical': 0.0,
+            'High': 0.25,
+            'Medium': 0.5,
+            'Low': 0.75,
+            'Safe': 1.0
+        }
+        return severity_map.get(severity, 0.5)
+
 @click.group()
 @click.version_option(version='1.0.0-poc', prog_name='VulnHunter')
 def cli():
@@ -238,7 +319,8 @@ def cli():
 @click.option('--detailed', '-d', is_flag=True, help='Show detailed analysis')
 @click.option('--model', '-m', type=click.Path(exists=True), help='Path to trained model')
 @click.option('--output', '-o', type=click.Path(), help='Save results to JSON file')
-def scan(file_path: str, detailed: bool, model: Optional[str], output: Optional[str]):
+@click.option('--language', '-l', type=click.Choice(['auto', 'python', 'solidity']), default='auto', help='Programming language')
+def scan(file_path: str, detailed: bool, model: Optional[str], output: Optional[str], language: str):
     """Scan a single file for vulnerabilities"""
 
     print(f"{Fore.CYAN}🛡️  VulnHunter AI - Vulnerability Scanner{Style.RESET_ALL}")
@@ -247,13 +329,22 @@ def scan(file_path: str, detailed: bool, model: Optional[str], output: Optional[
     # Initialize CLI
     vulnhunter_cli = VulnHunterCLI()
 
+    # Auto-detect language if needed
+    if language == 'auto':
+        if file_path.endswith('.sol'):
+            detected_language = 'solidity'
+        else:
+            detected_language = 'python'
+    else:
+        detected_language = language
+
     # Load model
-    if not vulnhunter_cli.load_model(model):
+    if not vulnhunter_cli.load_model(model, detected_language):
         sys.exit(1)
 
     # Scan file
-    print(f"{Fore.CYAN}🔍 Scanning: {file_path}{Style.RESET_ALL}")
-    result = vulnhunter_cli.scan_file(file_path, detailed)
+    print(f"{Fore.CYAN}🔍 Scanning {detected_language.title()} file: {file_path}{Style.RESET_ALL}")
+    result = vulnhunter_cli.scan_file(file_path, detailed, detected_language)
 
     # Print results
     vulnhunter_cli.print_scan_result(result, detailed)
