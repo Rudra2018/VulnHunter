@@ -1,0 +1,45 @@
+{
+  "total_examples": 15363,
+  "vulnerable_examples": 11470,
+  "safe_examples": 3893,
+  "source_distribution": {
+    "unknown": 11172,
+    "owasp_benchmark": 2740,
+    "lava_binary": 51,
+    "owasp_benchmark_full": 1000,
+    "webgoat": 400
+  },
+  "language_distribution": {
+    "python": 8820,
+    "c": 2403,
+    "java": 4140
+  },
+  "vulnerability_distribution": {
+    "xss": 588,
+    "code_injection": 588,
+    "null_pointer_dereference": 591,
+    "cert_validation_bypass": 588,
+    "use_after_free": 588,
+    "hardcoded_credentials": 588,
+    "array_index_oob": 588,
+    "unsafe_deserialization": 588,
+    "path_traversal": 721,
+    "format_string": 593,
+    "integer_overflow": 608,
+    "sql_injection": 886,
+    "command_injection": 715,
+    "race_condition": 588,
+    "ssrf": 588,
+    "buffer_overflow": 591,
+    "xxe": 588,
+    "weak_hash": 129,
+    "weak_crypto": 130,
+    "reflected_xss": 246,
+    "insecure_cookie": 36,
+    "weak_random": 218,
+    "trust_boundary_violation": 83,
+    "xpathi": 15,
+    "ldap_injection": 27,
+    "memory_leak": 1
+  }
+}

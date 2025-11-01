@@ -125,4 +125,4 @@ azure_training_package/
 *.csv
 result.txt
 v*.txt
-untitled*
+untitled*datasets/
