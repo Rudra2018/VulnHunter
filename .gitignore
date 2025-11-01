@@ -248,6 +248,29 @@ vulnhunter_logs/
 models/advanced/*.pkl
 models/enhanced/*.pkl
 models/real_world/*.pkl
+models/*.pth
+models/*.pt
+models/vulnhunter_mega/
+models/deploy_vulnhunter.py
+models/vulnhunter_model_info.json
+models/vulnhunter_tokenizer.pkl
+
+# Large repository clones and scan results
+results/sky_comprehensive_scan/repositories/
+results/xion_advanced_scan/repositories/
+results/*/repositories/
+
+# Assessment outputs and reports
+results/sky_comprehensive_scan/
+results/xion_advanced_scan/
+results/integration_test_report.json
+
+# Benchmark and training results
+benchmark_results/
+training_data/
+
+# Archive and legacy systems
+archive/
 
 # Training outputs
 training_logs/
