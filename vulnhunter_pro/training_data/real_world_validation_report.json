@@ -1,0 +1,50 @@
+{
+  "timestamp": "2025-11-01 11:14:39",
+  "owasp_benchmark_results": {
+    "random_forest": {
+      "accuracy": 0.526,
+      "precision": 0.276676,
+      "recall": 0.526,
+      "f1": 0.3626159895150721,
+      "true_positives": 263,
+      "true_negatives": 0,
+      "false_positives": 237,
+      "false_negatives": 0,
+      "total_tested": 500,
+      "total_vulnerable": 263,
+      "detected_vulnerable": 500
+    },
+    "gradient_boosting": {
+      "accuracy": 0.546,
+      "precision": 0.5504277047522751,
+      "recall": 0.546,
+      "f1": 0.49050998074733276,
+      "true_positives": 225,
+      "true_negatives": 48,
+      "false_positives": 189,
+      "false_negatives": 38,
+      "total_tested": 500,
+      "total_vulnerable": 263,
+      "detected_vulnerable": 414
+    }
+  },
+  "synthetic_test_results": {},
+  "model_comparison": {
+    "random_forest": {
+      "owasp_accuracy": 0.526,
+      "owasp_f1": 0.3626159895150721,
+      "owasp_recall": 0.526
+    },
+    "gradient_boosting": {
+      "owasp_accuracy": 0.546,
+      "owasp_f1": 0.49050998074733276,
+      "owasp_recall": 0.546
+    }
+  },
+  "summary": {
+    "best_owasp_model": {
+      "name": "gradient_boosting",
+      "accuracy": 0.546
+    }
+  }
+}
