@@ -1,0 +1,1 @@
+{"logging_level": "INFO", "max_findings_per_scan": 10, "poc_timeout": 30, "verification_timeout": 10}

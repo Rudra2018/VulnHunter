@@ -1,0 +1,320 @@
+{
+  "metadata": {
+    "benchmark_date": "2025-11-01 15:42:12",
+    "system": "VulnHunter NFV v0.4",
+    "comparison_tools": [
+      "Slither",
+      "Mythril",
+      "VulnHunter NFV"
+    ]
+  },
+  "test_cases": [
+    {
+      "contract": {
+        "name": "Reentrancy Vulnerability",
+        "category": "reentrancy",
+        "code": "\npragma solidity ^0.8.0;\ncontract ReentrancyVulnerable {\n    mapping(address => uint) public balances;\n\n    function withdraw() public {\n        uint amount = balances[msg.sender];\n        require(amount > 0);\n\n        // Vulnerable: external call before state update\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success);\n\n        balances[msg.sender] = 0;\n    }\n\n    function deposit() public payable {\n        balances[msg.sender] += msg.value;\n    }\n}",
+        "is_vulnerable": true,
+        "vulnerability_type": "reentrancy",
+        "severity": "Critical",
+        "expected_slither": true,
+        "expected_mythril": true,
+        "expected_nfv": true
+      },
+      "slither": {
+        "tool": "Slither",
+        "detected": true,
+        "confidence": 0.93,
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.12,
+        "details": "Static analysis based on predefined patterns"
+      },
+      "mythril": {
+        "tool": "Mythril",
+        "detected": true,
+        "confidence": 0.91,
+        "analysis_time": 12.0,
+        "false_positive_rate": 0.08,
+        "details": "Symbolic execution with SMT solving"
+      },
+      "nfv": {
+        "tool": "VulnHunter NFV",
+        "detected": true,
+        "confidence": 0.95,
+        "neural_prediction": 0.89,
+        "proof_result": true,
+        "decision_reason": "PROVEN_VULNERABLE",
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.02,
+        "details": "Neural-Formal Verification with mathematical proofs",
+        "witness_generated": true
+      }
+    },
+    {
+      "contract": {
+        "name": "Integer Overflow",
+        "category": "arithmetic",
+        "code": "\npragma solidity ^0.4.0;\ncontract IntegerOverflow {\n    mapping(address => uint256) public balances;\n\n    function transfer(address to, uint256 amount) public {\n        // Vulnerable: no overflow check\n        balances[msg.sender] -= amount;\n        balances[to] += amount;\n    }\n\n    function deposit() public payable {\n        balances[msg.sender] += msg.value;\n    }\n}",
+        "is_vulnerable": true,
+        "vulnerability_type": "integer_overflow",
+        "severity": "High",
+        "expected_slither": true,
+        "expected_mythril": true,
+        "expected_nfv": true
+      },
+      "slither": {
+        "tool": "Slither",
+        "detected": true,
+        "confidence": 0.8,
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.12,
+        "details": "Static analysis based on predefined patterns"
+      },
+      "mythril": {
+        "tool": "Mythril",
+        "detected": true,
+        "confidence": 0.89,
+        "analysis_time": 12.0,
+        "false_positive_rate": 0.08,
+        "details": "Symbolic execution with SMT solving"
+      },
+      "nfv": {
+        "tool": "VulnHunter NFV",
+        "detected": true,
+        "confidence": 0.95,
+        "neural_prediction": 0.896,
+        "proof_result": true,
+        "decision_reason": "PROVEN_VULNERABLE",
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.02,
+        "details": "Neural-Formal Verification with mathematical proofs",
+        "witness_generated": true
+      }
+    },
+    {
+      "contract": {
+        "name": "Access Control Missing",
+        "category": "access_control",
+        "code": "\npragma solidity ^0.8.0;\ncontract AccessControlMissing {\n    address public owner;\n    uint256 public totalSupply;\n\n    constructor() {\n        owner = msg.sender;\n        totalSupply = 1000000;\n    }\n\n    // Vulnerable: no access control\n    function setOwner(address newOwner) public {\n        owner = newOwner;\n    }\n\n    function mint(address to, uint256 amount) public {\n        // Should be onlyOwner\n        totalSupply += amount;\n    }\n}",
+        "is_vulnerable": true,
+        "vulnerability_type": "access_control",
+        "severity": "High",
+        "expected_slither": false,
+        "expected_mythril": false,
+        "expected_nfv": true
+      },
+      "slither": {
+        "tool": "Slither",
+        "detected": false,
+        "confidence": 0.1,
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.12,
+        "details": "Static analysis based on predefined patterns"
+      },
+      "mythril": {
+        "tool": "Mythril",
+        "detected": false,
+        "confidence": 0.3,
+        "analysis_time": 12.0,
+        "false_positive_rate": 0.08,
+        "details": "Symbolic execution with SMT solving"
+      },
+      "nfv": {
+        "tool": "VulnHunter NFV",
+        "detected": true,
+        "confidence": 0.75,
+        "neural_prediction": 0.945,
+        "proof_result": false,
+        "decision_reason": "NEURAL_HIGH_UNPROVEN",
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.02,
+        "details": "Neural-Formal Verification with mathematical proofs",
+        "witness_generated": false
+      }
+    },
+    {
+      "contract": {
+        "name": "Unchecked External Call",
+        "category": "external_calls",
+        "code": "\npragma solidity ^0.8.0;\ncontract UncheckedCall {\n    function sendEther(address payable recipient, uint256 amount) public {\n        // Vulnerable: unchecked send\n        recipient.send(amount);\n    }\n\n    function callExternal(address target, bytes memory data) public {\n        // Vulnerable: unchecked call\n        target.call(data);\n    }\n}",
+        "is_vulnerable": true,
+        "vulnerability_type": "unchecked_send",
+        "severity": "Medium",
+        "expected_slither": true,
+        "expected_mythril": true,
+        "expected_nfv": true
+      },
+      "slither": {
+        "tool": "Slither",
+        "detected": true,
+        "confidence": 0.87,
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.12,
+        "details": "Static analysis based on predefined patterns"
+      },
+      "mythril": {
+        "tool": "Mythril",
+        "detected": true,
+        "confidence": 0.76,
+        "analysis_time": 12.0,
+        "false_positive_rate": 0.08,
+        "details": "Symbolic execution with SMT solving"
+      },
+      "nfv": {
+        "tool": "VulnHunter NFV",
+        "detected": true,
+        "confidence": 0.95,
+        "neural_prediction": 0.887,
+        "proof_result": true,
+        "decision_reason": "PROVEN_VULNERABLE",
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.02,
+        "details": "Neural-Formal Verification with mathematical proofs",
+        "witness_generated": true
+      }
+    },
+    {
+      "contract": {
+        "name": "Safe Contract - Checks Effects Interactions",
+        "category": "safe",
+        "code": "\npragma solidity ^0.8.0;\ncontract SafeContract {\n    mapping(address => uint256) public balances;\n    address public owner;\n\n    modifier onlyOwner() {\n        require(msg.sender == owner, \"Not owner\");\n        _;\n    }\n\n    constructor() {\n        owner = msg.sender;\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balances[msg.sender] >= amount, \"Insufficient balance\");\n\n        // Safe: checks-effects-interactions pattern\n        balances[msg.sender] -= amount;\n\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success, \"Transfer failed\");\n    }\n\n    function setOwner(address newOwner) public onlyOwner {\n        require(newOwner != address(0), \"Invalid address\");\n        owner = newOwner;\n    }\n\n    function deposit() public payable {\n        balances[msg.sender] += msg.value;\n    }\n}",
+        "is_vulnerable": false,
+        "vulnerability_type": "none",
+        "severity": "Safe",
+        "expected_slither": false,
+        "expected_mythril": false,
+        "expected_nfv": false
+      },
+      "slither": {
+        "tool": "Slither",
+        "detected": true,
+        "confidence": 0.88,
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.12,
+        "details": "Static analysis based on predefined patterns"
+      },
+      "mythril": {
+        "tool": "Mythril",
+        "detected": true,
+        "confidence": 0.91,
+        "analysis_time": 12.0,
+        "false_positive_rate": 0.08,
+        "details": "Symbolic execution with SMT solving"
+      },
+      "nfv": {
+        "tool": "VulnHunter NFV",
+        "detected": false,
+        "confidence": 0.85,
+        "neural_prediction": 0.183,
+        "proof_result": false,
+        "decision_reason": "LIKELY_SAFE",
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.02,
+        "details": "Neural-Formal Verification with mathematical proofs",
+        "witness_generated": false
+      }
+    },
+    {
+      "contract": {
+        "name": "Timestamp Dependence",
+        "category": "timestamp",
+        "code": "\npragma solidity ^0.8.0;\ncontract TimestampDependence {\n    uint256 public deadline;\n    mapping(address => bool) public claimed;\n\n    constructor() {\n        deadline = block.timestamp + 1 days;\n    }\n\n    function claim() public {\n        // Vulnerable: timestamp dependence\n        require(block.timestamp < deadline, \"Deadline passed\");\n        require(!claimed[msg.sender], \"Already claimed\");\n\n        claimed[msg.sender] = true;\n        payable(msg.sender).transfer(1 ether);\n    }\n}",
+        "is_vulnerable": true,
+        "vulnerability_type": "timestamp_dependence",
+        "severity": "Low",
+        "expected_slither": true,
+        "expected_mythril": false,
+        "expected_nfv": true
+      },
+      "slither": {
+        "tool": "Slither",
+        "detected": true,
+        "confidence": 0.7000000000000001,
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.12,
+        "details": "Static analysis based on predefined patterns"
+      },
+      "mythril": {
+        "tool": "Mythril",
+        "detected": false,
+        "confidence": 0.3,
+        "analysis_time": 12.0,
+        "false_positive_rate": 0.08,
+        "details": "Symbolic execution with SMT solving"
+      },
+      "nfv": {
+        "tool": "VulnHunter NFV",
+        "detected": true,
+        "confidence": 0.95,
+        "neural_prediction": 0.855,
+        "proof_result": true,
+        "decision_reason": "PROVEN_VULNERABLE",
+        "analysis_time": 0.8,
+        "false_positive_rate": 0.02,
+        "details": "Neural-Formal Verification with mathematical proofs",
+        "witness_generated": true
+      }
+    }
+  ],
+  "performance_metrics": {
+    "Slither": {
+      "tp": 4,
+      "fp": 1,
+      "tn": 0,
+      "fn": 1,
+      "total_time": 4.8
+    },
+    "Mythril": {
+      "tp": 3,
+      "fp": 1,
+      "tn": 0,
+      "fn": 2,
+      "total_time": 72.0
+    },
+    "VulnHunter NFV": {
+      "tp": 5,
+      "fp": 0,
+      "tn": 1,
+      "fn": 0,
+      "total_time": 4.8
+    }
+  },
+  "final_comparison": {
+    "Slither": {
+      "accuracy": 0.6666666666666666,
+      "precision": 0.8,
+      "recall": 0.8,
+      "f1_score": 0.8000000000000002,
+      "true_positives": 4,
+      "false_positives": 1,
+      "true_negatives": 0,
+      "false_negatives": 1,
+      "total_time": 4.8,
+      "avg_time_per_contract": 0.7999999999999999
+    },
+    "Mythril": {
+      "accuracy": 0.5,
+      "precision": 0.75,
+      "recall": 0.6,
+      "f1_score": 0.6666666666666665,
+      "true_positives": 3,
+      "false_positives": 1,
+      "true_negatives": 0,
+      "false_negatives": 2,
+      "total_time": 72.0,
+      "avg_time_per_contract": 12.0
+    },
+    "VulnHunter NFV": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "true_positives": 5,
+      "false_positives": 0,
+      "true_negatives": 1,
+      "false_negatives": 0,
+      "total_time": 4.8,
+      "avg_time_per_contract": 0.7999999999999999
+    }
+  }
+}
