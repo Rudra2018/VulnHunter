@@ -27,8 +27,8 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Import analysis systems
-from vulnhunter_hybrid_fusion import VulnHunterHybridFusion
-from vulnhunter_enhanced_semantic import EnhancedSemanticAnalyzer
+from vulnhunter_hybrid_fusion import VulnHunterHybridFusion, FusionConfig
+from vulnhunter_enhanced_semantic import SemanticAnalyzer
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -85,8 +85,9 @@ class VulnHunterConfidenceEngine:
     def _initialize_systems(self):
         """Initialize analysis systems for confidence validation"""
         try:
-            self.hybrid_analyzer = VulnHunterHybridFusion()
-            self.semantic_analyzer = EnhancedSemanticAnalyzer()
+            fusion_config = FusionConfig(models=["codebert", "security_bert"])
+            self.hybrid_analyzer = VulnHunterHybridFusion(fusion_config)
+            self.semantic_analyzer = SemanticAnalyzer()
             logger.info("✅ Confidence validation systems initialized")
         except Exception as e:
             logger.warning(f"⚠️ System initialization: {e}")

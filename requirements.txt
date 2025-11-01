@@ -1,97 +1,33 @@
-# VulnHunter Ω Production Requirements
-# Core ML and Scientific Computing
-torch==2.2.2
-torchvision==0.17.2
-torchaudio==2.2.2
-transformers==4.57.1
-scikit-learn==1.7.2
-numpy==1.26.4
-pandas==2.3.3
-scipy==1.16.2
+# VulnHunter Ωmega Dependencies
 
-# Mathematical and Graph Analysis
-networkx==3.5
-gudhi==3.11.0
-ripser==0.7.1
-z3-solver==4.15.3
+# Core AI/ML
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
 
-# Visualization and Plotting
-matplotlib==3.10.0
-seaborn==0.13.2
-plotly==5.25.0
+# Mathematical Analysis
+networkx>=3.1
+scipy>=1.10.0
+sympy>=1.12
 
-# Web and API Framework
-fastapi==0.115.6
-uvicorn==0.33.0
-websockets==15.0.1
-jinja2==3.1.5
+# Code Analysis
+tree-sitter>=0.20.0
+ast-tools>=0.1.0
 
-# File and System Monitoring
-watchdog==6.0.0
-psutil==6.2.0
+# Data Processing
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
 
-# Data Storage and Serialization
-sqlalchemy==2.0.31
-sqlite-utils==3.40.1
-jsonpickle==4.2.0
+# Utilities
+tqdm>=4.65.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+python-dotenv>=1.0.0
 
-# Async and Concurrency
-asyncio-mqtt==0.16.2
-aiofiles==24.1.0
-httpx==0.28.1
-
-# Security and Cryptography
-cryptography==44.0.0
-passlib==1.7.4
-python-jose==3.3.0
-
-# Code Analysis and Parsing
-tree-sitter==0.23.4
-pygments==2.19.1
-ast-decompiler==1.2.0
-
-# Configuration and Environment
-python-dotenv==1.0.1
-pydantic==2.10.4
-pyyaml==6.0.3
-
-# Logging and Monitoring
-structlog==24.5.0
-prometheus-client==0.21.1
-
-# Testing and Development
-pytest==8.3.4
-pytest-asyncio==0.24.0
-black==24.11.0
-flake8==7.1.1
-mypy==1.14.0
-
-# CLI and Utilities
-click==8.1.8
-rich==13.9.4
-tqdm==4.67.1
-
-# Memory and Performance
-memory-profiler==0.61.0
-line-profiler==4.2.0
-
-# Additional ML Libraries
-xgboost==2.1.3
-lightgbm==4.5.0
-catboost==1.2.7
-
-# Time Series and Statistical Analysis
-statsmodels==0.15.0
-arch==7.2.0
-
-# Natural Language Processing
-spacy==3.8.3
-nltk==3.9.1
-
-# Parallel Processing
-joblib==1.4.2
-dask==2024.12.1
-
-# API Documentation
-sphinx==8.1.3
-sphinx-rtd-theme==3.0.2
+# Development
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.0.0

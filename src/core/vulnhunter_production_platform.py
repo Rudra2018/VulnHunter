@@ -35,8 +35,9 @@ warnings.filterwarnings('ignore')
 # Import all VulnHunter components
 from vulnhunter_explainability_engine import VulnHunterExplainabilityEngine
 from vulnhunter_confidence_engine import VulnHunterConfidenceEngine
-from vulnhunter_hybrid_fusion import VulnHunterHybridFusion
-from vulnhunter_enhanced_semantic import EnhancedSemanticAnalyzer
+from vulnhunter_hybrid_fusion import VulnHunterHybridFusion, FusionConfig
+from vulnhunter_enhanced_semantic import SemanticAnalyzer
+from vulnhunter_omega_v3_integration import VulnHunterOmegaV3Integration, analyze_code_with_omega_v3
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -61,8 +62,19 @@ class VulnHunterProductionPlatform:
         # Initialize all analysis engines
         self.explainability_engine = VulnHunterExplainabilityEngine()
         self.confidence_engine = VulnHunterConfidenceEngine()
-        self.hybrid_fusion = VulnHunterHybridFusion()
-        self.semantic_analyzer = EnhancedSemanticAnalyzer()
+
+        # Initialize VulnHunter Ωmega v3.0 (Transformer + Math³)
+        try:
+            self.omega_v3 = VulnHunterOmegaV3Integration()
+            logger.info("🚀 VulnHunter Ωmega v3.0 integrated successfully")
+        except Exception as e:
+            logger.warning(f"⚠️ VulnHunter Ωmega v3.0 not available: {e}")
+            self.omega_v3 = None
+
+        # Create fusion config for hybrid analysis
+        fusion_config = FusionConfig(models=["codebert", "security_bert"])
+        self.hybrid_fusion = VulnHunterHybridFusion(fusion_config)
+        self.semantic_analyzer = SemanticAnalyzer()
 
         # Platform statistics
         self.platform_stats = {

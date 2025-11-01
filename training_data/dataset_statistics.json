@@ -1,0 +1,9 @@
+{
+  "cve_samples": 8333,
+  "github_samples": 8330,
+  "smart_contract_samples": 8332,
+  "web_app_samples": 8332,
+  "mobile_samples": 8332,
+  "binary_samples": 8332,
+  "total_samples": 49991
+}

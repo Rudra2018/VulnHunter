@@ -1,0 +1,32 @@
+{
+  "model_name": "VulnHunter_Omega_v3.0",
+  "training_date": "2025-10-31T13:29:23.375072",
+  "model_params": {
+    "vocab_size": 153,
+    "embed_dim": 256,
+    "num_heads": 8,
+    "num_layers": 6,
+    "max_seq_len": 512
+  },
+  "performance": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "auc": 1.0
+  },
+  "dataset_info": {
+    "total_samples": 10000,
+    "train_samples": 6400,
+    "val_samples": 1600,
+    "test_samples": 2000
+  },
+  "vulnerability_types": [
+    "sql_injection",
+    "command_injection",
+    "path_traversal",
+    "xss",
+    "buffer_overflow",
+    "deserialization"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "test_timestamp": "2025-11-01 08:48:45",
+  "model_info": {
+    "name": "VulnHunter_Best_Model_Mock",
+    "size_mb": 544.6,
+    "accuracy": 0.8333333333333334,
+    "f1_score": 0.888888888888889
+  },
+  "performance_metrics": {
+    "model_info": {
+      "model_name": "VulnHunter_Best_Model_Mock",
+      "performance": {
+        "f1_score": 1.0
+      }
+    },
+    "device": "cpu",
+    "performance_stats": {
+      "total_analyses": 7,
+      "successful_analyses": 7,
+      "high_confidence_detections": 3,
+      "average_inference_time": 5.0067901611328125e-06,
+      "total_inference_time": 3.504753112792969e-05
+    },
+    "success_rate": 100.0,
+    "avg_inference_time_ms": 0.0050067901611328125,
+    "high_confidence_rate": 42.857142857142854
+  },
+  "test_results": {
+    "total_samples": 6,
+    "correct_predictions": 5,
+    "false_positives": 1,
+    "false_negatives": 0,
+    "accuracy": 0.8333333333333334,
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1_score": 0.888888888888889,
+    "detailed_results": [
+      {
+        "sample_id": 1,
+        "expected": true,
+        "predicted": true,
+        "correct": true,
+        "confidence": 0.9,
+        "type_match": true
+      },
+      {
+        "sample_id": 2,
+        "expected": false,
+        "predicted": false,
+        "correct": true,
+        "confidence": 0.95,
+        "type_match": true
+      },
+      {
+        "sample_id": 3,
+        "expected": true,
+        "predicted": true,
+        "correct": true,
+        "confidence": 0.85,
+        "type_match": true
+      },
+      {
+        "sample_id": 4,
+        "expected": false,
+        "predicted": false,
+        "correct": true,
+        "confidence": 0.0,
+        "type_match": true
+      },
+      {
+        "sample_id": 5,
+        "expected": true,
+        "predicted": true,
+        "correct": true,
+        "confidence": 0.8,
+        "type_match": true
+      },
+      {
+        "sample_id": 6,
+        "expected": false,
+        "predicted": true,
+        "correct": false,
+        "confidence": 0.8,
+        "type_match": false
+      }
+    ]
+  }
+}
