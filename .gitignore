@@ -1,3 +1,6 @@
+# VulnHunter Professional - Comprehensive .gitignore
+# ================================================
+
 # Python
 __pycache__/
 *.py[cod]
@@ -22,14 +25,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# PyTorch
-*.pth
-*.pt
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Environment
+# Virtual Environments
 .env
 .venv
 env/
@@ -37,7 +33,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-vulnhunter_pytorch_env/
 
 # IDE
 .vscode/
@@ -46,83 +41,230 @@ vulnhunter_pytorch_env/
 *.swo
 *~
 
-# OS
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# macOS
 .DS_Store
-.DS_Store?
+.AppleDouble
+.LSOverride
+Icon?
 ._*
+.DocumentRevisions-V100
+.fseventsd
 .Spotlight-V100
+.TemporaryItems
 .Trashes
-ehthumbs.db
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
 Thumbs.db
-
-# Model files (large) - but allow models in models/ directory
-*.pkl
-!models/*.pkl
-*.model
-*.joblib
-
-# Logs
-*.log
-logs/
-
-# Cache
-cache/
-.cache/
-
-# Temporary files
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
 *.tmp
 *.temp
-temp/
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
 
-# Archive files
-*.zip
-*.tar.gz
-*.tar.bz2
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
 
-# Private directories
-.claude/
-__pycache__/
+# ================================================
+# SECURITY & CONFIDENTIAL FILES - NEVER COMMIT
+# ================================================
 
-# Training status files (temporary)
-TRAINING_IN_PROGRESS.md
-TRAINING_RUNNING.md
-TRAINING_MONITOR.sh
-training_output.log
+# Scan Results & Reports (CRITICAL - Never upload to GitHub)
+scan_results/
+reports/
+analysis/
+results/
+output/
+logs/
+*.log
+*.report
+*.analysis
+*.scan
+*.sarif
+*.json.results
+*.xml.results
+*.html.results
 
-# Conference submissions (work in progress)
-cfp/
+# Vulnerability Data (SENSITIVE)
+vulnerabilities/
+exploits/
+payloads/
+malware_samples/
+suspicious_files/
+*.vuln
+*.exploit
+*.payload
 
-# Large binary files
-manuscript_doubleblind.pdf
-manuscript.pdf
-security-intelligence-framework-*.zip
-IEEE_TIFS_Submission_*.zip
-simplified_security_model.pkl
-
-# Sensitive configuration
-.secrets/
+# API Keys & Credentials (CRITICAL)
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+config/secrets.json
+config/api_keys.json
+.env.local
+.env.production
 credentials/
+secrets/
 
-# Test and experiment outputs
-*_output/
-*_results/
-test_*
-mock_*
-androzoo_*
-streaming_*
-online_*
-pipeline_*
+# Training Data & Models (Large files)
+training_data/*.json
+training_data/*.csv
+training_data/*.pkl
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+models/*.onnx
+datasets/
+massive_datasets/
 
-# Azure ML artifacts
-.azureml/
-azure_training/
-azure_training_package/
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
 
-# Environment files
-.env.*
+# Cache & Temporary
+.cache/
+tmp/
+temp/
+*.tmp
+*.temp
+*.cache
 
-# Temporary research files
-*.csv
-result.txt
-v*.txt
-untitled*datasets/
+# Backup Files
+*.bak
+*.backup
+*.old
+backup/
+
+# Test Outputs
+test_output/
+test_results/
+coverage/
+.coverage
+.pytest_cache/
+.tox/
+
+# Documentation Build
+docs/_build/
+docs/build/
+
+# Node.js (if any JS components)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local Configuration
+local_config.json
+local_settings.py
+config/local/
+
+# Performance Data
+profiling/
+benchmarks/
+performance/
+
+# Research Data
+research_data/
+experimental/
+prototypes/
+
+# External Dependencies
+external/
+vendor/
+third_party/
+
+# Build Artifacts
+build/
+dist/
+*.build
+*.dist
+
+# Package files
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# ================================================
+# VulnHunter Specific Files
+# ================================================
+
+# Never commit these sensitive analysis files
+vulnhunter_results/
+vulnhunter_scans/
+vulnhunter_reports/
+vulnhunter_analysis/
+vulnhunter_logs/
+
+# Model artifacts (too large for git)
+models/advanced/*.pkl
+models/enhanced/*.pkl
+models/real_world/*.pkl
+
+# Training outputs
+training_logs/
+training_checkpoints/
+training_artifacts/
+
+# Testing outputs
+test_malware/
+test_vulnerabilities/
+test_exploits/
+
+# Configuration with sensitive data
+config/production.json
+config/enterprise.json
+vulnhunter_config.json
+
+# Temporary analysis files
+*.analysis.tmp
+*.scan.tmp
+*.report.tmp
