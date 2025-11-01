@@ -1,0 +1,70 @@
+{
+  "analysis_metadata": {
+    "target": {
+      "project": "XION",
+      "type": "Layer 1 Blockchain",
+      "max_bounty": 250000,
+      "github_main": "https://github.com/burnt-labs/xion",
+      "github_contracts": "https://github.com/burnt-labs/contracts",
+      "docs": "https://docs.burnt.com/xion",
+      "scope": [
+        "Blockchain/DLT",
+        "Smart Contracts",
+        "Websites and Applications"
+      ],
+      "audited_by": [
+        "Zellic",
+        "Oak Security"
+      ]
+    },
+    "timestamp": 1761999232,
+    "models_used": [
+      "vulnhunter_mega_et",
+      "vulnhunter_mega_svm",
+      "vulnhunter_mega_lr",
+      "mega_scaler",
+      "vulnhunter_mega_gb",
+      "vulnhunter_mega_rf",
+      "github_optimized_et",
+      "github_optimized_rf",
+      "github_optimized_gb"
+    ],
+    "total_vulnerabilities": 3,
+    "high_confidence_count": 3
+  },
+  "vulnerabilities": [
+    {
+      "id": "XION-PATTERN-0001",
+      "severity": "Critical",
+      "title": "Hardcoded Secret Detection",
+      "description": "Potential cryptographic key",
+      "file": "eth_crypto.rs",
+      "line": 106,
+      "confidence": 0.95,
+      "cwe_id": "CWE-798",
+      "github_link": "https://github.com/burnt-labs/contracts/blob/main/account/src/auth/eth_crypto.rs#L106"
+    },
+    {
+      "id": "XION-PATTERN-0002",
+      "severity": "Critical",
+      "title": "Hardcoded Secret Detection",
+      "description": "Potential cryptographic key",
+      "file": "eth_crypto.rs",
+      "line": 110,
+      "confidence": 0.95,
+      "cwe_id": "CWE-798",
+      "github_link": "https://github.com/burnt-labs/contracts/blob/main/account/src/auth/eth_crypto.rs#L110"
+    },
+    {
+      "id": "XION-PATTERN-0001",
+      "severity": "Critical",
+      "title": "Hardcoded Secret Detection",
+      "description": "Potential cryptographic key",
+      "file": "secp256r1.rs",
+      "line": 22,
+      "confidence": 0.95,
+      "cwe_id": "CWE-798",
+      "github_link": "https://github.com/burnt-labs/contracts/blob/main/account/src/auth/secp256r1.rs#L22"
+    }
+  ]
+}

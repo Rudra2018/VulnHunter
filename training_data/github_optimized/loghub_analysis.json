@@ -1,0 +1,350 @@
+{
+  "repository": "loghub",
+  "category": "log_analysis",
+  "description": "System log analysis and anomaly detection",
+  "total_files": 50,
+  "analyzed_files": 34,
+  "analysis_data": [
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/HealthApp/HealthApp_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 7,
+      "file_size": 283128,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/HealthApp/HealthApp_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 75,
+      "columns": 2,
+      "file_size": 3734,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/OpenStack/OpenStack_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 43,
+      "columns": 2,
+      "file_size": 2718,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/OpenStack/OpenStack_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 11,
+      "file_size": 719703,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/OpenSSH/OpenSSH_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 27,
+      "columns": 2,
+      "file_size": 1937,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/OpenSSH/OpenSSH_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 9,
+      "file_size": 357677,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Proxifier/Proxifier_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 8,
+      "columns": 2,
+      "file_size": 683,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Proxifier/Proxifier_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 6,
+      "file_size": 356522,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/HPC/HPC_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 10,
+      "file_size": 217818,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/HPC/HPC_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 46,
+      "columns": 2,
+      "file_size": 2032,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Zookeeper/Zookeeper_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 10,
+      "file_size": 372360,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Zookeeper/Zookeeper_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 50,
+      "columns": 2,
+      "file_size": 3038,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Mac/Mac_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 11,
+      "file_size": 502573,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Mac/Mac_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 2,
+      "file_size": 36369,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Hadoop/Hadoop_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 9,
+      "file_size": 541144,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Hadoop/Hadoop_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 2,
+      "file_size": 7989,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Linux/Linux_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 10,
+      "file_size": 327804,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Linux/Linux_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 2,
+      "file_size": 5469,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Android/Android_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 10,
+      "file_size": 450975,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Android/Android_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 2,
+      "file_size": 10768,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/HDFS/HDFS_templates.csv",
+      "file_type": "csv",
+      "rows": 30,
+      "columns": 2,
+      "file_size": 1646,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/HDFS/HDFS_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 14,
+      "columns": 2,
+      "file_size": 837,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/HDFS/HDFS_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 9,
+      "file_size": 414635,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/BGL/BGL_templates.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 2,
+      "file_size": 30515,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/BGL/BGL_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 2,
+      "file_size": 8663,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/BGL/BGL_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 13,
+      "file_size": 425129,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Windows/Windows_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 50,
+      "columns": 2,
+      "file_size": 3290,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Windows/Windows_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 8,
+      "file_size": 404249,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Apache/Apache_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 6,
+      "columns": 2,
+      "file_size": 287,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Apache/Apache_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 6,
+      "file_size": 258805,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Thunderbird/Thunderbird_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 14,
+      "file_size": 446333,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Thunderbird/Thunderbird_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 2,
+      "file_size": 6756,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Spark/Spark_2k.log_templates.csv",
+      "file_type": "csv",
+      "rows": 36,
+      "columns": 2,
+      "file_size": 1951,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/loghub/Spark/Spark_2k.log_structured.csv",
+      "file_type": "csv",
+      "rows": 100,
+      "columns": 8,
+      "file_size": 305002,
+      "has_security_cols": false,
+      "repo_category": "log_analysis",
+      "risk_level": "medium"
+    }
+  ],
+  "analysis_timestamp": 1761996594.600375
+}

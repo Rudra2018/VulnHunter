@@ -1,0 +1,2007 @@
+{
+  "timestamp": "2025-11-01T16:41:46.199667",
+  "total_training_time": 6.356652736663818,
+  "ultimate_metrics": {
+    "firmware_samples": 65516,
+    "fuzzing_test_cases": 13988,
+    "vulnerability_patterns": 0,
+    "device_models": 1780,
+    "security_features": 0,
+    "peak_accuracy": 1.0,
+    "fuzzing_efficiency": 0.42969012388813144
+  },
+  "security_analysis": {
+    "os_distribution": {
+      "R(Android 11)": 17021,
+      "Q(Android 10)": 11838,
+      "Pie(Android 9)": 6049,
+      "KitKat(Android 4.4.2)": 4476,
+      "Marshmallow(Android 6.0.1)": 4292,
+      "Lollipop(Android 5.1.1)": 3444,
+      "Nougat(Android 7.0)": 3232,
+      "Jelly Bean(Android 4.1.2)": 2448,
+      "Jelly Bean(Android 4.2.2)": 2075,
+      "KitKat(Android 4.4.4)": 2056,
+      "Lollipop(Android 5.0.2)": 1539,
+      "Oreo(Android 8.0.0)": 1120,
+      "Nougat(Android 7.1.1)": 983,
+      "Gingerbread(Android 2.3.6)": 902,
+      "Lollipop(Android 5.0.1)": 813,
+      "Oreo(Android 8.1.0)": 767,
+      "Jelly Bean(Android 4.3)": 678,
+      "Ice Cream Sandwich(Android 4.0.4)": 545,
+      "Lollipop(Android 5.0)": 514,
+      "Tizen 2.2.0": 281,
+      "Tizen 2.2.1.2": 95,
+      "Jelly Bean(Android 4.1.1)": 63,
+      "Ice Cream Sandwich(Android 4.0.3)": 55,
+      "Tizen 2.2.1.4": 54,
+      "Marshmallow(Android 6.0)": 27,
+      "Gingerbread(Android 2.3)": 24,
+      "Tizen 2.3.0.1": 23,
+      "Jelly Bean(Android 4.2.1)": 14,
+      "Tizen 2.3.1": 11,
+      "Jelly Bean(Android 4.2)": 10,
+      "Tizen 2.4.0.5": 10,
+      "Tizen 2.4.0.3": 10,
+      "Tizen 2.4.0.7": 6,
+      "Tizen 3.0.0.1": 6,
+      "Lollipop(Android 5.1)": 6,
+      "KitKat(Android 4.4.1)": 5,
+      "Tizen 3.0.0.0": 4,
+      "Gingerbread(Android 2.3.4)": 4,
+      "Tizen 2.3.0.0": 4,
+      "Gingerbread(Android 2.3.7)": 3,
+      "KitKat(Android 4.4)": 2,
+      "Tizen 2.2.1.1": 2,
+      "Jelly Bean(Android 4.1.3)": 1,
+      "Ice Cream Sandwich(Android 4.0)": 1,
+      "Honeycomb(Android 3.2)": 1,
+      "Gingerbread(Android 2.3.5)": 1,
+      "Tizen 2.2.1.3": 1
+    },
+    "security_features": {},
+    "vulnerability_indicators": {},
+    "device_risk_profiles": {
+      "SM-G390Y": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G313H": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-G570Y": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-J110M": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J111M": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J200Y": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J120ZN": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J500Y": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J510GN": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "GT-B5330": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-I8190": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-I9195": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-I8190N": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-I9300": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-N7100": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-S7580": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-I9505": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A025G": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A105FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A125F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A202F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A217F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A310F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-A300FU": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A320FL": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-A326B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A405FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A415F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A426B": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A505FN": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A515F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A516B": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A520F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-A526B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A530F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A705FN": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A600FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A715F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A750FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A805F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G361F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-G318H": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-G360F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-G780F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G390F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G531F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-G780G": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G781B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G903F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G850F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-G900F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G920F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G925F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G928F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G930F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G935F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G950F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G955F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G960F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G965F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G970F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G973F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G975F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G980F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G981B": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G986B": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G988B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G991B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G996B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-J100H": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-J320FN": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-G998B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-J415FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J530F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J510FN": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J600FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J610FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-N910F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-N9005": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0)",
+        "risk_level": "High"
+      },
+      "SM-N950F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-N960F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N980F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-N981B": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N986B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-J330FN": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A102U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A115U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A205U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A326U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A215U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A505U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A515U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A526U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A516U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A716U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-F700U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-F707U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-F900U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-F916U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G530R7": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-G770U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G781U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G900R7": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G920R7": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G925R7": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G930R7": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G930U": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G935U": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G950U1": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G950U": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G955U1": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G955U": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G960U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G970U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G965U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G973U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G975U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N970F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N975F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N985F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-P601": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-P555": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-P615": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-P901": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-R380": {
+        "security_score": 0,
+        "os_version": "Tizen 2.2.0",
+        "risk_level": "High"
+      },
+      "SM-R750": {
+        "security_score": 0,
+        "os_version": "Tizen 2.2.0",
+        "risk_level": "High"
+      },
+      "SM-T111": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "SM-T211": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-T280": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-T116": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-T285": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-T231": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-T295": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-T355": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-T505N": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-T515": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-T531": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-T555": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-T561": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-T585": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-T595": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-T705": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-T725": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-T805": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-T815": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-T825": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-T835": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-T865": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-T875": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-Z200Y": {
+        "security_score": 0,
+        "os_version": "Tizen 2.4.0.5",
+        "risk_level": "High"
+      },
+      "GT-I8200": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-I8262": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-I9060I": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "GT-I9082": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-I9190": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-I9192": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-I9152": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-I9200": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-I9295": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.1)",
+        "risk_level": "High"
+      },
+      "GT-I9300I": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "GT-I9301I": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-I9500": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.1)",
+        "risk_level": "High"
+      },
+      "GT-N5100": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-P5200": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-S5282": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-S7262": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-S6810": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-S7270": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-S7272": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-S7582": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "SM-A013G": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A015F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A022F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A025F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A105F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A107F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A115F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A205F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A207F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A260G": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-A300F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-A305F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A307FN": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A315F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A320F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-A325F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A500F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A505F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A525F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A600F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A605F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A700FD": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A720F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-A725F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A730F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A750F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A800F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A800I": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A920F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-E700F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-E500F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-G313HU": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-G130E": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-G316HU": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-G350E": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-G355H": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-G360H": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-G361H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-G530H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-G531H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-G532F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G570F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G610F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-G611F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G7102": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-G770F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G800H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G900H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G928C": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G985F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-J100F": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-J106H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J120F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J110H": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-J200H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J250F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J260F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-J320H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J320F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J330F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J400F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J410F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-J415F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J500H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J510F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J510H": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J600F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J610F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J700H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J701F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J710F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-J730F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J810F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-M127F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-M625F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-N770F": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N750": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-N900": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0)",
+        "risk_level": "High"
+      },
+      "SM-N910C": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-N920C": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G981U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G986U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G988U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G991U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G996U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-P900": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-T110": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "SM-T113": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-T210": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-T290": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-T230": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-T330": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-T331": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-T530": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-T700": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-T720": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-T800": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-T860": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "EK-GC200": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.3)",
+        "risk_level": "High"
+      },
+      "GT-I9060": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-P5210": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-S5310": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-S6790": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-S7392": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-S7560": {
+        "security_score": 0,
+        "os_version": "Ice Cream Sandwich(Android 4.0.4)",
+        "risk_level": "High"
+      },
+      "SM-A260F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-A300H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-A500H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A510F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G998U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-J327R7": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-J337R7": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-N920R7": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-N950U1": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-N960U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N970U1": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-N975U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-N981U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-N986U1": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A700H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A710F": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-C101": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "SM-C111": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-E500H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-E700H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-F700F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-F916B": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-G130H": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-G530F": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-J100FN": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-J105F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J105H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J110F": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-J106F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J111F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J120H": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J200F": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J500F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J700F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J720F": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-M115F": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-M205F": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-N910H": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-N915F": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-P585": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-T239": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-T715": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-T719": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-T830": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-T970": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-T975": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A105G": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-G532G": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A107M": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A125M": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A205G": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A207M": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A217M": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A300M": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.0.2)",
+        "risk_level": "High"
+      },
+      "SM-A305G": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A307G": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-A310M": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-A320Y": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-A315G": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A325M": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A500M": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A505G": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A510M": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A525M": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A605GN": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A705MN": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-A725M": {
+        "security_score": 3,
+        "os_version": "R(Android 11)",
+        "risk_level": "Medium"
+      },
+      "SM-A750G": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G570M": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.0.0)",
+        "risk_level": "High"
+      },
+      "SM-G532M": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G610M": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-G800M": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G900M": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-G925I": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.0)",
+        "risk_level": "High"
+      },
+      "SM-G9600": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G9650": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-J106M": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J105M": {
+        "security_score": 0,
+        "os_version": "Lollipop(Android 5.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J250M": {
+        "security_score": 0,
+        "os_version": "Nougat(Android 7.1.1)",
+        "risk_level": "High"
+      },
+      "SM-J260M": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-J400M": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J500M": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-J415G": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J530G": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J600G": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J610G": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-J710MN": {
+        "security_score": 1,
+        "os_version": "Oreo(Android 8.1.0)",
+        "risk_level": "High"
+      },
+      "SM-J730G": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-J810M": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "SM-N9600": {
+        "security_score": 2,
+        "os_version": "Pie(Android 9)",
+        "risk_level": "Medium"
+      },
+      "GT-I8730": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "GT-P5220": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-S7275R": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "GT-S6310N": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.1.2)",
+        "risk_level": "High"
+      },
+      "SM-A500FU": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-A605FN": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G130HN": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-G386F": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "SM-G357FZ": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.4)",
+        "risk_level": "High"
+      },
+      "SM-G398FN": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      },
+      "SM-G7105": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "SM-J500FN": {
+        "security_score": 0,
+        "os_version": "Marshmallow(Android 6.0.1)",
+        "risk_level": "High"
+      },
+      "SM-T535": {
+        "security_score": 0,
+        "os_version": "KitKat(Android 4.4.2)",
+        "risk_level": "High"
+      },
+      "GT-S7275B": {
+        "security_score": 0,
+        "os_version": "Jelly Bean(Android 4.2.2)",
+        "risk_level": "High"
+      },
+      "SM-A015M": {
+        "security_score": 2,
+        "os_version": "Q(Android 10)",
+        "risk_level": "Medium"
+      }
+    }
+  },
+  "training_results": {
+    "model_results": {
+      "firmware_rf": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "firmware_gb": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "firmware_et": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "anomaly_detector": {
+        "accuracy": 0.9,
+        "type": "anomaly_detection"
+      }
+    },
+    "training_samples": 8000,
+    "test_samples": 2000,
+    "feature_count": 29
+  },
+  "fuzzing_metrics": {
+    "test_cases_generated": 13988,
+    "fuzzing_efficiency": 0.42969012388813144,
+    "vulnerability_coverage": 10
+  },
+  "dataset_stats": {
+    "firmware_samples": 65516,
+    "unique_models": 1780,
+    "os_versions": 47
+  }
+}

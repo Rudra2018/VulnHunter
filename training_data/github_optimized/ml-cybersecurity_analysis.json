@@ -1,0 +1,28 @@
+{
+  "repository": "ml-cybersecurity",
+  "category": "ml_cybersecurity",
+  "description": "Machine learning cybersecurity datasets",
+  "total_files": 2,
+  "analyzed_files": 2,
+  "analysis_data": [
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/ml-cybersecurity/README.md",
+      "file_type": ".md",
+      "word_count": 1684,
+      "security_mentions": 75,
+      "file_size": 19312,
+      "repo_category": "ml_cybersecurity",
+      "risk_level": "medium"
+    },
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/ml-cybersecurity/contributing.md",
+      "file_type": ".md",
+      "word_count": 142,
+      "security_mentions": 0,
+      "file_size": 862,
+      "repo_category": "ml_cybersecurity",
+      "risk_level": "low"
+    }
+  ],
+  "analysis_timestamp": 1761996590.7330601
+}

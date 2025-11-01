@@ -1,0 +1,128 @@
+{
+  "training_stats": {
+    "total_samples": 1000000,
+    "vulnerable_samples": 255213,
+    "benign_samples": 744787,
+    "training_samples": 700000,
+    "validation_samples": 150000,
+    "test_samples": 150000,
+    "model_performance": {
+      "vulnhunter_mega_rf": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_rf.pkl",
+        "model_type": "mega_enhanced"
+      },
+      "vulnhunter_mega_gb": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_gb.pkl",
+        "model_type": "mega_enhanced"
+      },
+      "vulnhunter_mega_et": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_et.pkl",
+        "model_type": "mega_enhanced"
+      },
+      "vulnhunter_mega_svm": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_svm.pkl",
+        "model_type": "mega_enhanced"
+      },
+      "vulnhunter_mega_lr": {
+        "accuracy": 1.0,
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_lr.pkl",
+        "model_type": "mega_enhanced"
+      }
+    },
+    "training_time": 560.1863279342651,
+    "peak_accuracy": 1.0,
+    "peak_f1": 1.0
+  },
+  "mega_results": {
+    "vulnhunter_mega_rf": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_rf.pkl",
+      "model_type": "mega_enhanced"
+    },
+    "vulnhunter_mega_gb": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_gb.pkl",
+      "model_type": "mega_enhanced"
+    },
+    "vulnhunter_mega_et": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_et.pkl",
+      "model_type": "mega_enhanced"
+    },
+    "vulnhunter_mega_svm": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_svm.pkl",
+      "model_type": "mega_enhanced"
+    },
+    "vulnhunter_mega_lr": {
+      "accuracy": 1.0,
+      "f1_score": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "model_path": "/Users/ankitthakur/VulnHunter/models/vulnhunter_mega/vulnhunter_mega_lr.pkl",
+      "model_type": "mega_enhanced"
+    }
+  },
+  "data_summary": {
+    "total_samples": 1000000,
+    "vulnerable_rate": 0.255213,
+    "feature_count": 35,
+    "languages": [
+      "python",
+      "javascript",
+      "java",
+      "solidity",
+      "c",
+      "cpp",
+      "go",
+      "php",
+      "rust",
+      "kotlin",
+      "swift",
+      "vyper",
+      "unknown"
+    ],
+    "domains": [
+      "web_app",
+      "blockchain",
+      "mobile",
+      "embedded",
+      "general",
+      "integrated",
+      "firmware",
+      "other"
+    ]
+  },
+  "timestamp": 1761998261.8164759
+}

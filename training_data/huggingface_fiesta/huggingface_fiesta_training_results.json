@@ -1,0 +1,50 @@
+{
+  "timestamp": "2025-11-01T16:13:23.635544",
+  "training_time": 0.4051980972290039,
+  "dataset_info": {
+    "total_contracts": 680,
+    "vulnerability_distribution": {
+      "Reentrancy": 60,
+      "Flash_Loan_Reentrancy": 60,
+      "Oracle_Manipulation": 60,
+      "Access_Control": 60,
+      "Integer_Overflow": 60,
+      "MEV_Exploit": 60,
+      "Bridge_Vulnerability": 60,
+      "Governance_Attack": 60,
+      "None": 200
+    },
+    "blockchain_distribution": {
+      "BSC": 185,
+      "Polygon": 161,
+      "Ethereum": 161,
+      "Arbitrum": 173
+    },
+    "complexity_distribution": {
+      "Low": 252,
+      "Medium": 424,
+      "High": 4
+    }
+  },
+  "neural_metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "formal_metrics": {
+    "verification_rate": 0.34,
+    "avg_confidence": 0.7158963863264396,
+    "total_proofs": 34
+  },
+  "test_metrics": {
+    "test_accuracy": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "test_f1": 1.0
+  },
+  "nfv_score": 73.6,
+  "total_contracts": 680,
+  "training_samples": 544,
+  "test_samples": 136
+}

@@ -1,0 +1,114 @@
+{
+  "training_stats": {
+    "repositories_processed": 6,
+    "total_files_analyzed": 536,
+    "datasets_created": 1,
+    "models_trained": 3,
+    "peak_accuracy": 1.0,
+    "training_time": 147.01205492019653
+  },
+  "model_results": {
+    "github_optimized_rf": 1.0,
+    "github_optimized_gb": 1.0,
+    "github_optimized_et": 1.0
+  },
+  "repositories": [
+    {
+      "url": "https://github.com/mikeroyal/Firmware-Guide",
+      "name": "firmware-guide",
+      "category": "firmware",
+      "description": "Comprehensive firmware security guide and datasets",
+      "data_types": [
+        "documentation",
+        "guides",
+        "tools"
+      ],
+      "target_files": [
+        "*.md",
+        "*.json",
+        "*.txt"
+      ]
+    },
+    {
+      "url": "https://github.com/opensci-hub/Awesome-ML-Cybersecurity",
+      "name": "ml-cybersecurity",
+      "category": "ml_cybersecurity",
+      "description": "Machine learning cybersecurity datasets",
+      "data_types": [
+        "datasets",
+        "papers",
+        "tools"
+      ],
+      "target_files": [
+        "*.csv",
+        "*.json",
+        "*.md"
+      ]
+    },
+    {
+      "url": "https://github.com/WebFuzzing/Dataset",
+      "name": "web-fuzzing",
+      "category": "web_fuzzing",
+      "description": "Web application fuzzing datasets",
+      "data_types": [
+        "fuzzing_data",
+        "payloads",
+        "test_cases"
+      ],
+      "target_files": [
+        "*.txt",
+        "*.json",
+        "*.csv"
+      ]
+    },
+    {
+      "url": "https://github.com/gauthamp10/apple-appstore-apps",
+      "name": "apple-appstore",
+      "category": "mobile_security",
+      "description": "Apple App Store security analysis",
+      "data_types": [
+        "app_metadata",
+        "security_ratings",
+        "privacy_data"
+      ],
+      "target_files": [
+        "*.csv",
+        "*.json",
+        "*.txt"
+      ]
+    },
+    {
+      "url": "https://github.com/Messi-Q/Smart-Contract-Dataset",
+      "name": "smart-contracts",
+      "category": "blockchain_security",
+      "description": "Smart contract vulnerability datasets",
+      "data_types": [
+        "contracts",
+        "vulnerabilities",
+        "labels"
+      ],
+      "target_files": [
+        "*.sol",
+        "*.json",
+        "*.csv"
+      ]
+    },
+    {
+      "url": "https://github.com/logpai/loghub",
+      "name": "loghub",
+      "category": "log_analysis",
+      "description": "System log analysis and anomaly detection",
+      "data_types": [
+        "log_data",
+        "anomalies",
+        "patterns"
+      ],
+      "target_files": [
+        "*.log",
+        "*.csv",
+        "*.json"
+      ]
+    }
+  ],
+  "timestamp": 1761996734.235863
+}

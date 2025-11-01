@@ -1,0 +1,154 @@
+{
+  "timestamp": "2025-11-01T16:51:53.260302",
+  "total_training_time": 1368.512354850769,
+  "datasets_info": {
+    "apple_store": {
+      "name": "Apple Store Apps",
+      "source_path": "/Users/ankitthakur/Downloads/archive/AppleStore.csv",
+      "samples": 7197,
+      "features": 21,
+      "categories": [
+        "Low Risk",
+        "Medium Risk",
+        "High Risk"
+      ],
+      "description": "Apple Store app security risk assessment"
+    },
+    "drebin_malware": {
+      "name": "Drebin Android Malware",
+      "source_path": "/Users/ankitthakur/Downloads/archive-2/drebin-215-dataset-5560malware-9476-benign.csv",
+      "samples": 15036,
+      "features": 215,
+      "categories": [
+        "Benign",
+        "Malware"
+      ],
+      "description": "Android malware detection dataset with API calls and permissions"
+    }
+  },
+  "ultimate_metrics": {
+    "total_samples": 33176,
+    "total_features": 215,
+    "datasets_integrated": 4,
+    "models_trained": 6,
+    "peak_accuracy": 0.9924653405666064,
+    "ensemble_accuracy": 0.99291742013261
+  },
+  "training_results": {
+    "individual_models": {
+      "random_forest": {
+        "accuracy": 0.9903556359252562,
+        "precision": 0.990369357541755,
+        "recall": 0.9903556359252562,
+        "f1": 0.9903253051825014,
+        "training_time": 4.10942006111145
+      },
+      "gradient_boosting": {
+        "accuracy": 0.9924653405666064,
+        "precision": 0.9924585905043124,
+        "recall": 0.9924653405666064,
+        "f1": 0.9924592411218608,
+        "training_time": 405.12268114089966
+      },
+      "extra_trees": {
+        "accuracy": 0.9031042796865582,
+        "precision": 0.9105615474910705,
+        "recall": 0.9031042796865582,
+        "f1": 0.8972605030564131,
+        "training_time": 5.606184005737305
+      },
+      "logistic_regression": {
+        "accuracy": 0.8670886075949367,
+        "precision": 0.8641502467249094,
+        "recall": 0.8670886075949367,
+        "f1": 0.8582760654776994,
+        "training_time": 2.5165371894836426
+      },
+      "svm": {
+        "accuracy": 0.8910488245931284,
+        "precision": 0.8943563722663048,
+        "recall": 0.8910488245931284,
+        "f1": 0.8829045236817822,
+        "training_time": 504.2555272579193
+      }
+    },
+    "ensemble_results": {
+      "accuracy": 0.99291742013261,
+      "precision": 0.992916105154549,
+      "recall": 0.99291742013261,
+      "f1": 0.9929063288795321,
+      "training_time": 432.97190284729004
+    },
+    "training_samples": 26540,
+    "test_samples": 6636,
+    "feature_count": 215
+  },
+  "model_performance": [
+    {
+      "dataset_name": "Ultimate Integrated",
+      "model_name": "random_forest",
+      "accuracy": 0.9903556359252562,
+      "precision": 0.990369357541755,
+      "recall": 0.9903556359252562,
+      "f1_score": 0.9903253051825014,
+      "training_time": 4.10942006111145,
+      "samples": 26540
+    },
+    {
+      "dataset_name": "Ultimate Integrated",
+      "model_name": "gradient_boosting",
+      "accuracy": 0.9924653405666064,
+      "precision": 0.9924585905043124,
+      "recall": 0.9924653405666064,
+      "f1_score": 0.9924592411218608,
+      "training_time": 405.12268114089966,
+      "samples": 26540
+    },
+    {
+      "dataset_name": "Ultimate Integrated",
+      "model_name": "extra_trees",
+      "accuracy": 0.9031042796865582,
+      "precision": 0.9105615474910705,
+      "recall": 0.9031042796865582,
+      "f1_score": 0.8972605030564131,
+      "training_time": 5.606184005737305,
+      "samples": 26540
+    },
+    {
+      "dataset_name": "Ultimate Integrated",
+      "model_name": "logistic_regression",
+      "accuracy": 0.8670886075949367,
+      "precision": 0.8641502467249094,
+      "recall": 0.8670886075949367,
+      "f1_score": 0.8582760654776994,
+      "training_time": 2.5165371894836426,
+      "samples": 26540
+    },
+    {
+      "dataset_name": "Ultimate Integrated",
+      "model_name": "svm",
+      "accuracy": 0.8910488245931284,
+      "precision": 0.8943563722663048,
+      "recall": 0.8910488245931284,
+      "f1_score": 0.8829045236817822,
+      "training_time": 504.2555272579193,
+      "samples": 26540
+    },
+    {
+      "dataset_name": "Ultimate Integrated",
+      "model_name": "voting_ensemble",
+      "accuracy": 0.99291742013261,
+      "precision": 0.992916105154549,
+      "recall": 0.99291742013261,
+      "f1_score": 0.9929063288795321,
+      "training_time": 432.97190284729004,
+      "samples": 26540
+    }
+  ],
+  "peak_performance": {
+    "best_individual_accuracy": 0.9924653405666064,
+    "ensemble_accuracy": 0.99291742013261,
+    "total_samples": 33176,
+    "datasets_count": 4
+  }
+}

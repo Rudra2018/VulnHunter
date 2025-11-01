@@ -23,6 +23,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 try:
     from src.models.vulnhunter_fusion import VulnHunterComplete
+    from src.models.vulnhunter_nfv import VulnHunterNFV
     from src.models.solidity_fusion import SolidityFusionModel
     from src.parser.code_to_graph import CodeToGraphParser
     from src.parser.languages.solidity_parser import SolidityParser
@@ -36,17 +37,31 @@ class VulnHunterCLI:
 
     def __init__(self):
         self.model = None
+        self.nfv_model = None
         self.solidity_model = None
         self.parser = CodeToGraphParser()
         self.solidity_parser = SolidityParser()
         self.scan_history = []
 
-    def load_model(self, model_path: Optional[str] = None, language: str = "python") -> bool:
+    def load_model(self, model_path: Optional[str] = None, language: str = "python", use_nfv: bool = False) -> bool:
         """Load the VulnHunter model"""
         try:
-            print(f"{Fore.CYAN}🔄 Loading VulnHunter AI model for {language}...{Style.RESET_ALL}")
+            model_type = "NFV" if use_nfv else "Standard"
+            print(f"{Fore.CYAN}🔄 Loading VulnHunter {model_type} AI model for {language}...{Style.RESET_ALL}")
 
-            if language == "solidity":
+            if use_nfv:
+                print(f"{Fore.MAGENTA}🧮 Initializing Neural-Formal Verification Layer...{Style.RESET_ALL}")
+                self.nfv_model = VulnHunterNFV()
+
+                if model_path and os.path.exists(model_path):
+                    print(f"{Fore.GREEN}📂 Loading trained NFV model from {model_path}{Style.RESET_ALL}")
+                    state_dict = torch.load(model_path, map_location='cpu')
+                    self.nfv_model.load_state_dict(state_dict)
+                else:
+                    print(f"{Fore.YELLOW}⚠️  Using untrained NFV model (demo mode){Style.RESET_ALL}")
+
+                self.nfv_model.eval()
+            elif language == "solidity":
                 self.solidity_model = SolidityFusionModel()
 
                 if model_path and os.path.exists(model_path):
@@ -76,7 +91,7 @@ class VulnHunterCLI:
             print(f"{Fore.RED}❌ Error loading model: {e}{Style.RESET_ALL}")
             return False
 
-    def scan_file(self, file_path: str, detailed: bool = True, language: str = "auto") -> Dict[str, Any]:
+    def scan_file(self, file_path: str, detailed: bool = True, language: str = "auto", use_nfv: bool = False) -> Dict[str, Any]:
         """Scan a single file for vulnerabilities"""
         try:
             # Read file
@@ -101,7 +116,14 @@ class VulnHunterCLI:
             # Scan with appropriate model
             start_time = time.time()
 
-            if language == "solidity":
+            if use_nfv:
+                if self.nfv_model is None:
+                    self.load_model(language=language, use_nfv=True)
+
+                results = self.nfv_model.predict_vulnerability(code, return_explanation=detailed)
+                # Convert NFV results to standard format
+                results = self._convert_nfv_results(results)
+            elif language == "solidity":
                 if self.solidity_model is None:
                     self.load_model(language="solidity")
 
@@ -196,6 +218,25 @@ class VulnHunterCLI:
                 score = issue['score']
                 severity_color = Fore.RED if score > 0.7 else Fore.YELLOW if score > 0.4 else Fore.CYAN
                 print(f"  {severity_color}• {issue_type}: {score:.1%}{Style.RESET_ALL}")
+
+        # NFV-specific proof information
+        if 'nfv_analysis' in result:
+            nfv = result['nfv_analysis']
+            print(f"\n{Fore.MAGENTA}🧮 Neural-Formal Verification Results:{Style.RESET_ALL}")
+
+            if nfv['proven_vulnerable']:
+                print(f"  {Back.RED}{Fore.WHITE} MATHEMATICALLY PROVEN VULNERABLE {Style.RESET_ALL}")
+            else:
+                print(f"  Decision Basis: {nfv['decision_reason']}")
+
+            print(f"  Neural Prediction: {nfv['neural_prediction']:.1%}")
+            print(f"  Paths Analyzed: {nfv['num_paths_analyzed']}")
+            print(f"  Formal Analysis: {'✅ Successful' if nfv['analysis_successful'] else '❌ Failed'}")
+
+            if nfv['proof_info']:
+                print(f"\n{Fore.YELLOW}🔬 Proof Information:{Style.RESET_ALL}")
+                for info in nfv['proof_info']:
+                    print(f"  {info}")
 
         # Detailed information
         if detailed and 'vulnerability_types' in result:
@@ -304,6 +345,82 @@ class VulnHunterCLI:
         }
         return severity_map.get(severity, 0.5)
 
+    def _convert_nfv_results(self, nfv_results: Dict[str, Any]) -> Dict[str, Any]:
+        """Convert NFV analysis results to standard CLI format"""
+
+        # Extract core prediction info
+        is_vulnerable = nfv_results.get('vulnerable', False)
+        probability = nfv_results.get('probability', 0.0)
+        confidence = nfv_results.get('confidence', 0.0)
+        proven_vulnerable = nfv_results.get('proven_vulnerable', False)
+        decision_reason = nfv_results.get('decision_reason', 'UNKNOWN')
+
+        # Risk level based on probability and proof status
+        if proven_vulnerable:
+            risk_level = "CRITICAL"
+        elif probability > 0.8:
+            risk_level = "HIGH"
+        elif probability > 0.6:
+            risk_level = "MEDIUM"
+        elif probability > 0.3:
+            risk_level = "LOW"
+        else:
+            risk_level = "MINIMAL"
+
+        # Build vulnerability types list
+        vulnerability_types = []
+        top_issues = []
+
+        if 'vulnerability_types' in nfv_results:
+            vuln_types = nfv_results['vulnerability_types']
+            if isinstance(vuln_types, list):
+                for i, score in enumerate(vuln_types):
+                    if score > 0.5:  # Threshold for reporting
+                        vuln_name = f"vulnerability_type_{i}"
+                        vulnerability_types.append(vuln_name)
+                        top_issues.append({
+                            'type': vuln_name,
+                            'score': score
+                        })
+
+        # Add proof-specific information
+        proof_info = []
+        if proven_vulnerable:
+            proof_info.append("🧮 MATHEMATICALLY PROVEN VULNERABLE")
+            if 'proof_witnesses' in nfv_results and nfv_results['proof_witnesses']:
+                proof_info.append("💡 Exploit witness generated")
+
+        # Recommendations based on NFV analysis
+        recommendations = []
+        if proven_vulnerable:
+            recommendations.append("CRITICAL: Vulnerability formally proven - immediate action required")
+            recommendations.append("Review mathematical proof and exploit witness provided")
+        elif decision_reason == "NEURAL_HIGH_UNPROVEN":
+            recommendations.append("HIGH: Neural model confident but unproven - manual review recommended")
+        elif decision_reason == "LIKELY_SAFE":
+            recommendations.append("Code appears safe based on formal analysis")
+        else:
+            recommendations.append("Standard vulnerability analysis - review flagged patterns")
+
+        return {
+            'is_vulnerable': is_vulnerable,
+            'vulnerability_probability': probability,
+            'risk_level': risk_level,
+            'confidence_score': confidence,
+            'severity_score': 1.0 - probability,  # Invert for severity
+            'vulnerability_types': vulnerability_types,
+            'top_issues': top_issues,
+            'recommendations': recommendations,
+            'nfv_analysis': {
+                'proven_vulnerable': proven_vulnerable,
+                'decision_reason': decision_reason,
+                'neural_prediction': nfv_results.get('neural_prediction', 0.0),
+                'analysis_successful': nfv_results.get('analysis_successful', False),
+                'num_paths_analyzed': nfv_results.get('num_paths_analyzed', 0),
+                'proof_info': proof_info
+            }
+        }
+
 @click.group()
 @click.version_option(version='1.0.0-poc', prog_name='VulnHunter')
 def cli():
@@ -320,11 +437,19 @@ def cli():
 @click.option('--model', '-m', type=click.Path(exists=True), help='Path to trained model')
 @click.option('--output', '-o', type=click.Path(), help='Save results to JSON file')
 @click.option('--language', '-l', type=click.Choice(['auto', 'python', 'solidity']), default='auto', help='Programming language')
-def scan(file_path: str, detailed: bool, model: Optional[str], output: Optional[str], language: str):
+@click.option('--prove', '-p', is_flag=True, help='Use Neural-Formal Verification for mathematical proofs')
+def scan(file_path: str, detailed: bool, model: Optional[str], output: Optional[str], language: str, prove: bool):
     """Scan a single file for vulnerabilities"""
 
-    print(f"{Fore.CYAN}🛡️  VulnHunter AI - Vulnerability Scanner{Style.RESET_ALL}")
+    mode = "Neural-Formal Verification" if prove else "Standard AI Analysis"
+    print(f"{Fore.CYAN}🛡️  VulnHunter AI - Vulnerability Scanner ({mode}){Style.RESET_ALL}")
     print(f"{Fore.CYAN}Version: 1.0.0-poc{Style.RESET_ALL}\n")
+
+    if prove:
+        print(f"{Fore.MAGENTA}🧮 Mathematical Proof Mode Enabled{Style.RESET_ALL}")
+        print(f"{Fore.MAGENTA}    - Neural prediction + Formal verification{Style.RESET_ALL}")
+        print(f"{Fore.MAGENTA}    - Z3 SMT solver for mathematical proofs{Style.RESET_ALL}")
+        print(f"{Fore.MAGENTA}    - Exploit witness generation{Style.RESET_ALL}\n")
 
     # Initialize CLI
     vulnhunter_cli = VulnHunterCLI()
@@ -339,12 +464,13 @@ def scan(file_path: str, detailed: bool, model: Optional[str], output: Optional[
         detected_language = language
 
     # Load model
-    if not vulnhunter_cli.load_model(model, detected_language):
+    if not vulnhunter_cli.load_model(model, detected_language, use_nfv=prove):
         sys.exit(1)
 
     # Scan file
-    print(f"{Fore.CYAN}🔍 Scanning {detected_language.title()} file: {file_path}{Style.RESET_ALL}")
-    result = vulnhunter_cli.scan_file(file_path, detailed, detected_language)
+    analysis_type = "with mathematical proofs" if prove else ""
+    print(f"{Fore.CYAN}🔍 Scanning {detected_language.title()} file: {file_path} {analysis_type}{Style.RESET_ALL}")
+    result = vulnhunter_cli.scan_file(file_path, detailed, detected_language, use_nfv=prove)
 
     # Print results
     vulnhunter_cli.print_scan_result(result, detailed)
@@ -364,7 +490,7 @@ def scan(file_path: str, detailed: bool, model: Optional[str], output: Optional[
 @click.option('--detailed', '-d', is_flag=True, help='Show detailed analysis')
 @click.option('--model', '-m', type=click.Path(exists=True), help='Path to trained model')
 @click.option('--output', '-o', type=click.Path(), help='Save results to JSON file')
-def scan-dir(directory: str, extensions: tuple, detailed: bool, model: Optional[str], output: Optional[str]):
+def scan_dir(directory: str, extensions: tuple, detailed: bool, model: Optional[str], output: Optional[str]):
     """Scan all files in a directory"""
 
     print(f"{Fore.CYAN}🛡️  VulnHunter AI - Directory Scanner{Style.RESET_ALL}")

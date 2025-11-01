@@ -1,0 +1,88 @@
+{
+  "timestamp": "2025-11-01T16:19:16.669744",
+  "training_time": 4.50253701210022,
+  "dataset_info": {
+    "total_contracts": 2659,
+    "vulnerability_distribution": {
+      "Reentrancy": 249,
+      "Flash_Loan_Attack": 249,
+      "Oracle_Manipulation": 249,
+      "Access_Control": 249,
+      "Integer_Overflow": 249,
+      "MEV_Exploit": 249,
+      "Bridge_Vulnerability": 250,
+      "Governance_Attack": 249,
+      "None": 666
+    },
+    "blockchain_distribution": {
+      "Ethereum": 556,
+      "Arbitrum": 506,
+      "Optimism": 548,
+      "BSC": 523,
+      "Polygon": 526
+    },
+    "complexity_distribution": {
+      "Low": 83,
+      "Medium": 2576,
+      "High": 0
+    }
+  },
+  "model_metrics": {
+    "random_forest": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "gradient_boosting": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "extra_trees": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "test_results": {
+    "random_forest": {
+      "test_accuracy": 1.0,
+      "test_precision": 1.0,
+      "test_recall": 1.0,
+      "test_f1": 1.0
+    },
+    "gradient_boosting": {
+      "test_accuracy": 1.0,
+      "test_precision": 1.0,
+      "test_recall": 1.0,
+      "test_f1": 1.0
+    },
+    "extra_trees": {
+      "test_accuracy": 1.0,
+      "test_precision": 1.0,
+      "test_recall": 1.0,
+      "test_f1": 1.0
+    }
+  },
+  "best_model": "random_forest",
+  "best_metrics": {
+    "test_accuracy": 1.0,
+    "test_precision": 1.0,
+    "test_recall": 1.0,
+    "test_f1": 1.0
+  },
+  "formal_metrics": {
+    "verification_rate": 0.1,
+    "avg_confidence": 0.667333725805628,
+    "total_proofs": 20,
+    "sample_size": 200
+  },
+  "nfv_score": 73.5,
+  "total_contracts": 2659,
+  "training_samples": 2127,
+  "test_samples": 532,
+  "feature_count": 77
+}

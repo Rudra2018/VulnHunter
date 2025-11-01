@@ -1,0 +1,19 @@
+{
+  "repository": "firmware-guide",
+  "category": "firmware",
+  "description": "Comprehensive firmware security guide and datasets",
+  "total_files": 1,
+  "analyzed_files": 1,
+  "analysis_data": [
+    {
+      "file_path": "/Users/ankitthakur/VulnHunter/training_data/github_optimized/repositories/firmware-guide/README.md",
+      "file_type": ".md",
+      "word_count": 12132,
+      "security_mentions": 79,
+      "file_size": 104806,
+      "repo_category": "firmware",
+      "risk_level": "medium"
+    }
+  ],
+  "analysis_timestamp": 1761996588.283603
+}
